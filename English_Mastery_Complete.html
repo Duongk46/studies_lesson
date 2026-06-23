@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Communication Mastery — Complete Guide</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #6c8cff;
+      --accent2: #a78bfa;
+      --accent3: #34d399;
+      --accent4: #f59e0b;
+      --accent5: #f87171;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --green: #10b981;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 52px;
+      overflow-x: auto;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: all .15s;
+    }
+    nav a:hover { color: var(--text); background: var(--surface2); }
+    nav .nav-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+      margin-right: 16px;
+      white-space: nowrap;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 960px; margin: 0 auto; padding: 48px 24px 120px; }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 64px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #6c8cff22, #a78bfa22);
+      border: 1px solid #6c8cff44;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 800;
+      background: linear-gradient(135deg, #e2e8f0, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .hero-stat .label { font-size: 12px; color: var(--text-muted); }
+
+    /* ── SECTION ── */
+    section { margin-bottom: 72px; scroll-margin-top: 72px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 8px;
+      margin-top: 20px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .section-desc { color: var(--text-muted); margin-bottom: 28px; font-size: 15px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* ── VERDICT CARD ── */
+    .verdict {
+      background: linear-gradient(135deg, #6c8cff11, #a78bfa11);
+      border: 1px solid #6c8cff33;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .verdict-score {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .verdict-text h3 { margin-top: 0; color: var(--text); font-size: 20px; }
+    .verdict-text p { color: var(--text-muted); font-size: 14px; margin: 0; }
+
+    /* ── STATUS BADGES ── */
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .badge-green { background: #10b98122; color: #34d399; border: 1px solid #10b98133; }
+    .badge-red   { background: #ef444422; color: #f87171; border: 1px solid #ef444433; }
+    .badge-yellow{ background: #f59e0b22; color: #fbbf24; border: 1px solid #f59e0b33; }
+    .badge-blue  { background: #6c8cff22; color: #93c5fd; border: 1px solid #6c8cff33; }
+
+    /* ── TABLE ── */
+    .tbl-wrap { overflow-x: auto; margin-bottom: 24px; border-radius: 10px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead tr { background: var(--surface2); }
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--surface2); }
+
+    /* ── CODE BLOCK ── */
+    .code-block {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      font-family: 'Consolas', 'SF Mono', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      white-space: pre-wrap;
+    }
+    .code-block .c-accent { color: var(--accent); }
+    .code-block .c-green  { color: var(--accent3); }
+    .code-block .c-yellow { color: var(--accent4); }
+    .code-block .c-muted  { color: var(--text-muted); }
+    .code-block .c-red    { color: var(--accent5); }
+    .code-block .c-purple { color: var(--accent2); }
+
+    /* ── ALERT / CALLOUT ── */
+    .callout {
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .callout-icon { font-size: 20px; flex-shrink: 0; line-height: 1.5; }
+    .callout-body { flex: 1; }
+    .callout-body strong { display: block; margin-bottom: 4px; font-size: 14px; }
+    .callout-body p { font-size: 13.5px; color: var(--text-muted); margin: 0; }
+    .callout-red    { background: #ef444411; border: 1px solid #ef444433; }
+    .callout-green  { background: #10b98111; border: 1px solid #10b98133; }
+    .callout-yellow { background: #f59e0b11; border: 1px solid #f59e0b33; }
+    .callout-blue   { background: #6c8cff11; border: 1px solid #6c8cff33; }
+
+    /* ── GAP CARD ── */
+    .gap-card {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .gap-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+    }
+    .gap-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--accent5);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .gap-title { font-weight: 700; font-size: 15px; }
+    .gap-body { padding: 20px; }
+    .gap-body p { color: var(--text-muted); font-size: 14px; margin-bottom: 12px; }
+    .gap-fix {
+      background: #10b98111;
+      border: 1px solid #10b98133;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .gap-fix strong { color: var(--accent3); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 6px; }
+    .gap-fix p { margin: 0; font-size: 13.5px; color: var(--text-muted); }
+
+    /* ── VOCAB GROUP ── */
+    .vocab-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .vocab-header {
+      padding: 16px 20px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .vocab-icon { font-size: 20px; }
+    .vocab-title { font-weight: 700; font-size: 16px; }
+    .vocab-subtitle { font-size: 12px; color: var(--text-muted); }
+    .vocab-body { padding: 20px; }
+
+    /* ── GRAMMAR PATTERN CARD ── */
+    .grammar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .grammar-header {
+      padding: 14px 20px;
+      background: linear-gradient(135deg, #a78bfa11, #6c8cff11);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .grammar-num {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .grammar-title { font-weight: 700; font-size: 16px; }
+    .grammar-why { font-size: 12px; color: var(--text-muted); }
+    .grammar-body { padding: 20px; }
+
+    /* ── PILL LIST ── */
+    .pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .pill {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .pill-accent { background: #6c8cff22; border-color: #6c8cff44; color: var(--accent); }
+    .pill-green  { background: #10b98122; border-color: #10b98133; color: var(--accent3); }
+    .pill-purple { background: #a78bfa22; border-color: #a78bfa33; color: var(--accent2); }
+    .pill-yellow { background: #f59e0b22; border-color: #f59e0b33; color: var(--accent4); }
+
+    /* ── COMPARE ── */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .compare-col { border-radius: 8px; padding: 14px 16px; }
+    .compare-bad  { background: #ef444411; border: 1px solid #ef444433; }
+    .compare-good { background: #10b98111; border: 1px solid #10b98133; }
+    .compare-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+    .compare-bad  .compare-label { color: var(--accent5); }
+    .compare-good .compare-label { color: var(--accent3); }
+    .compare-col ul { padding-left: 16px; font-size: 13.5px; color: var(--text-muted); }
+    .compare-col li { margin-bottom: 4px; }
+    @media (max-width: 500px) { .compare { grid-template-columns: 1fr; } }
+
+    /* ── INTEGRATION TABLE ── */
+    .int-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .int-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .int-week {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .int-card p { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+    /* ── INLINE CODE ── */
+    code {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: 'Consolas', monospace;
+      font-size: 13px;
+      color: var(--accent2);
+    }
+
+    /* ── BULLET ── */
+    .blist { list-style: none; padding: 0; }
+    .blist li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      color: var(--text-muted);
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .blist li:last-child { border-bottom: none; }
+    .blist li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 48px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 13px;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-title">English Mastery</span>
+  <a href="#assessment">Đánh Giá Plan</a>
+  <a href="#gaps">4 Lỗ Hổng</a>
+  <a href="#vocab">Từ Vựng</a>
+  <a href="#grammar">Ngữ Pháp</a>
+  <a href="#integration">Tích Hợp</a>
+  <a href="#original">Plan Gốc</a>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">Research-Backed · Complete Guide · 2026</div>
+    <h1>English Communication Mastery<br/>Complete Analysis & Upgrade</h1>
+    <p>Phân tích chuyên sâu plan 3 tháng + danh sách từ vựng & ngữ pháp thiết yếu cho người đã có nền tảng tiếng Anh.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">8.5</div><div class="label">Plan Score / 10</div></div>
+      <div class="hero-stat"><div class="num">7</div><div class="label">Nhóm Từ Vựng</div></div>
+      <div class="hero-stat"><div class="num">8</div><div class="label">Grammar Patterns</div></div>
+      <div class="hero-stat"><div class="num">4</div><div class="label">Lỗ Hổng Cần Sửa</div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ SECTION 1: ASSESSMENT ══════════════════ -->
+  <section id="assessment">
+    <div class="section-label">Phần 1</div>
+    <h2>Đánh Giá Plan Gốc</h2>
+    <p class="section-desc">Đối chiếu từng phương pháp trong plan với nghiên cứu học thuật uy tín.</p>
+
+    <div class="verdict">
+      <div class="verdict-score">8.5<span style="font-size:24px;color:var(--text-muted)">/10</span></div>
+      <div class="verdict-text">
+        <h3>Rất tốt về framework — nhưng có 4 lỗ hổng nghiêm trọng</h3>
+        <p>Plan được xây dựng trên nền tảng lý thuyết vững chắc. Tuy nhiên thiếu reading component, shadowing bắt đầu quá muộn, không có danh sách từ vựng/ngữ pháp cụ thể, và tỉ lệ 70/30 cần điều chỉnh.</p>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Phương pháp trong Plan</th>
+            <th>Trạng thái</th>
+            <th>Nguồn xác nhận</th>
+            <th>Ghi chú</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lexical Chunks</strong> (học cụm, không học từ đơn)</td>
+            <td><span class="badge badge-green">✓ Xác nhận</span></td>
+            <td>Michael Lewis (1993) — <em>The Lexical Approach</em></td>
+            <td>Bộ não xử lý chunks nhanh hơn từ đơn lẻ. Nghiên cứu thực nghiệm cho thấy tăng fluency và accuracy.</td>
+          </tr>
+          <tr>
+            <td><strong>Output Hypothesis 70/30</strong></td>
+            <td><span class="badge badge-yellow">~ Cần điều chỉnh</span></td>
+            <td>Swain (1985), Ellis (1998)</td>
+            <td>Output tốt cho fluency nhưng không nhất thiết cải thiện accuracy. Nên là 60/40 để có đủ high-quality input.</td>
+          </tr>
+          <tr>
+            <td><strong>STAR Method</strong></td>
+            <td><span class="badge badge-green">✓ Xác nhận</span></td>
+            <td>SHRM (2024), DDI Research</td>
+            <td>Câu trả lời STAR score cao hơn 25% so với unstructured. 76% interviewer UK dùng behavioral questions.</td>
+          </tr>
+          <tr>
+            <td><strong>Shadowing Technique</strong> (Tuần 11)</td>
+            <td><span class="badge badge-red">✗ Timing sai</span></td>
+            <td>Hamada (2016), Kadota (2012), 44-study systematic review</td>
+            <td>Shadowing hiệu quả từ đầu, không phải cuối. Cần chuyển sang Tuần 1.</td>
+          </tr>
+          <tr>
+            <td><strong>PREP Framework</strong></td>
+            <td><span class="badge badge-green">✓ Solid</span></td>
+            <td>Communication training standard</td>
+            <td>Được dùng rộng rãi trong corporate training. Hiệu quả cho structured answers.</td>
+          </tr>
+          <tr>
+            <td><strong>Filler Phrases & Discourse Markers</strong></td>
+            <td><span class="badge badge-green">✓ Xác nhận</span></td>
+            <td>Conversation Analysis research</td>
+            <td>Native speakers dùng fillers để manage turn-taking và signaling. Rất quan trọng cho fluency perception.</td>
+          </tr>
+          <tr>
+            <td><strong>FORD Method</strong></td>
+            <td><span class="badge badge-green">✓ Solid</span></td>
+            <td>Communication coaching standard</td>
+            <td>Framework đơn giản, thực dụng cho small talk. Không cần thay đổi.</td>
+          </tr>
+          <tr>
+            <td><strong>DESC Script</strong></td>
+            <td><span class="badge badge-green">✓ Xác nhận</span></td>
+            <td>Bower & Bower (1976) — <em>Asserting Yourself</em></td>
+            <td>Framework có nguồn gốc từ assertiveness training. Research-backed.</td>
+          </tr>
+          <tr>
+            <td><strong>AREA Framework</strong></td>
+            <td><span class="badge badge-yellow">~ Redundant</span></td>
+            <td>—</td>
+            <td>Khá trùng với PREP. Có thể bỏ để tập trung vào các framework mạnh hơn.</td>
+          </tr>
+          <tr>
+            <td><strong>Reading Component</strong></td>
+            <td><span class="badge badge-red">✗ Thiếu hoàn toàn</span></td>
+            <td>Nation (2001), Krashen (1985)</td>
+            <td>Extensive reading là cách hiệu quả nhất để acquire vocabulary và grammar patterns một cách vô thức.</td>
+          </tr>
+          <tr>
+            <td><strong>Anki Spaced Repetition</strong></td>
+            <td><span class="badge badge-yellow">~ Thiếu nội dung</span></td>
+            <td>Ebbinghaus Forgetting Curve</td>
+            <td>Kỹ thuật đúng nhưng plan không chỉ ra CỤ THỂ học gì. Cần danh sách từ vựng mục tiêu.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════════════ SECTION 2: GAPS ══════════════════ -->
+  <section id="gaps">
+    <div class="section-label">Phần 2</div>
+    <h2>4 Lỗ Hổng Cần Sửa</h2>
+    <p class="section-desc">Những điểm cụ thể cần điều chỉnh trong plan gốc, kèm hướng dẫn sửa.</p>
+
+    <!-- Gap 1 -->
+    <div class="gap-card">
+      <div class="gap-header">
+        <div class="gap-num">1</div>
+        <div>
+          <div class="gap-title">Shadowing bắt đầu quá muộn — Tuần 11</div>
+          <div style="font-size:12px;color:var(--text-muted)">Mức độ nghiêm trọng: Cao</div>
+        </div>
+      </div>
+      <div class="gap-body">
+        <p>Nghiên cứu tổng hợp 44 studies (Tandfonline, 2025) xác nhận shadowing cải thiện pronunciation, fluency và working memory <strong>ngay từ tuần đầu</strong> luyện tập — không phải sau 10 tuần. Hamada (2016) và Kadota (2012) ghi nhận kết quả rõ rệt trong vòng 2-3 tuần đầu.</p>
+        <div class="gap-fix">
+          <strong>Sửa như sau</strong>
+          <p>Chuyển shadowing vào <strong>Tuần 1, ngày 3-4</strong>. Bắt đầu 10 phút/ngày song song với filler phrases. Nguồn tốt nhất: Obama speeches, Simon Sinek TED Talks, Gary Vaynerchuk interviews. Quy trình: Nghe 30s → tắt → nói lại y hệt (âm điệu, tốc độ, pause) → so sánh → lặp 3 lần.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gap 2 -->
+    <div class="gap-card">
+      <div class="gap-header">
+        <div class="gap-num">2</div>
+        <div>
+          <div class="gap-title">Không có Reading Component</div>
+          <div style="font-size:12px;color:var(--text-muted)">Mức độ nghiêm trọng: Cao</div>
+        </div>
+      </div>
+      <div class="gap-body">
+        <p>Paul Nation (2001) và Stephen Krashen (1985) đều xác nhận: extensive reading là cách <strong>hiệu quả nhất để acquire vocabulary và grammar patterns một cách vô thức</strong>. Plan hiện tại hoàn toàn bỏ qua kênh học quan trọng này.</p>
+        <div class="gap-fix">
+          <strong>Sửa như sau</strong>
+          <p>Thêm 15-20 phút đọc/ngày vào Daily Schedule. Không cần từ điển — đọc nhanh để lấy pattern. Gợi ý: BBC News, The Guardian, Medium (chủ đề bạn quan tâm), Quartz. Mục tiêu: nhận diện chunks và collocations đã học trong context thực tế.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gap 3 -->
+    <div class="gap-card">
+      <div class="gap-header">
+        <div class="gap-num">3</div>
+        <div>
+          <div class="gap-title">Anki không có nội dung mục tiêu cụ thể</div>
+          <div style="font-size:12px;color:var(--text-muted)">Mức độ nghiêm trọng: Cao nhất</div>
+        </div>
+      </div>
+      <div class="gap-body">
+        <p>Plan đề cập Anki nhưng không chỉ ra <strong>học gì</strong>. Người đã có nền tảng không cần học từ cơ bản — họ cần <strong>precision vocabulary</strong> (từ tạo ra sự khác biệt) và <strong>grammar patterns for fluency</strong>. Đây là lỗ hổng lớn nhất.</p>
+        <div class="gap-fix">
+          <strong>Sửa như sau</strong>
+          <p>Sử dụng toàn bộ danh sách từ vựng và ngữ pháp trong tài liệu này làm nội dung Anki. Ưu tiên: Nhóm 1 (Hedging Verbs), Nhóm 4 (Collocations), Nhóm 5 (Adverbs), Grammar Pattern 1+2+3 trước tiên.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gap 4 -->
+    <div class="gap-card">
+      <div class="gap-header">
+        <div class="gap-num">4</div>
+        <div>
+          <div class="gap-title">Tỉ lệ 70/30 cần điều chỉnh</div>
+          <div style="font-size:12px;color:var(--text-muted)">Mức độ nghiêm trọng: Trung bình</div>
+        </div>
+      </div>
+      <div class="gap-body">
+        <p>Ellis (1998) lưu ý: practice cải thiện fluency nhưng không nhất thiết cải thiện accuracy. Nếu thiếu high-quality input, bạn sẽ fluent nhưng với nhiều <em>fossilized errors</em> — lỗi cố định khó sửa sau này.</p>
+        <div class="gap-fix">
+          <strong>Sửa như sau</strong>
+          <p>Điều chỉnh thành <strong>60% output / 40% input</strong>. Input phải là high-quality: TED Talks, The Economist Podcast, BBC World Service — không phải TV show hay YouTube bình thường. Thêm 15 phút đọc vào Daily Schedule.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- ══════════════════ SECTION 3: VOCABULARY ══════════════════ -->
+  <section id="vocab">
+    <div class="section-label">Phần 3 — Mới</div>
+    <h2>Từ Vựng Theo Chức Năng</h2>
+    <p class="section-desc">Dành cho người đã có nền tảng. Không học từ cơ bản — học từ tạo ra sự khác biệt giữa "biết tiếng Anh" và "nói tự nhiên như người bản ngữ".</p>
+
+    <div class="callout callout-blue">
+      <div class="callout-icon">💡</div>
+      <div class="callout-body">
+        <strong>Nguyên tắc học từ vựng ở đây</strong>
+        <p>Mỗi từ đi kèm ví dụ cụ thể trong câu. Tạo Anki card với <em>sentence context</em>, không phải nghĩa đơn. Ưu tiên Nhóm 1, 4, 5 trước vì impact cao nhất.</p>
+      </div>
+    </div>
+
+    <!-- Vocab Group 1 -->
+    <div class="vocab-group">
+      <div class="vocab-header">
+        <div class="vocab-icon">🎯</div>
+        <div>
+          <div class="vocab-title">Nhóm 1 — Hedging Verbs</div>
+          <div class="vocab-subtitle">Nói chắc mà không tuyệt đối — phân biệt người nói tự nhiên với người dịch từ tiếng Việt</div>
+        </div>
+      </div>
+      <div class="vocab-body">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Thay vì</th><th>Dùng</th><th>Ví dụ thực tế</th></tr></thead>
+            <tbody>
+              <tr><td><code>I think X is right</code></td><td><strong>I'd argue that</strong></td><td>"I'd argue that remote work is more sustainable long-term."</td></tr>
+              <tr><td><code>X seems good</code></td><td><strong>X tends to work well when</strong></td><td>"This approach tends to work well when the team is aligned."</td></tr>
+              <tr><td><code>Maybe</code></td><td><strong>It might be worth / arguably</strong></td><td>"It might be worth reconsidering the timeline."</td></tr>
+              <tr><td><code>I don't know</code></td><td><strong>I'd need to look into that</strong></td><td>"I'd need to look into that before giving a confident answer."</td></tr>
+              <tr><td><code>I think</code></td><td><strong>My read on this is</strong></td><td>"My read on this is that we're moving too fast."</td></tr>
+              <tr><td><code>I think / From my perspective</code></td><td><strong>From where I stand</strong></td><td>"From where I stand, this is the right call."</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vocab Group 2 -->
+    <div class="vocab-group">
+      <div class="vocab-header">
+        <div class="vocab-icon">⚡</div>
+        <div>
+          <div class="vocab-title">Nhóm 2 — Precision Verbs</div>
+          <div class="vocab-subtitle">Thay "say/think/do" bằng từ chính xác — mỗi từ mang một sắc thái khác nhau</div>
+        </div>
+      </div>
+      <div class="vocab-body">
+        <div class="code-block"><span class="c-yellow">THAY "say" BẰNG:</span>
+<span class="c-green">suggest</span>   → đề xuất nhẹ     "She suggested we revisit the plan."
+<span class="c-green">argue</span>     → lập luận mạnh   "He argued that the data was misleading."
+<span class="c-green">point out</span> → chỉ ra          "She pointed out an inconsistency."
+<span class="c-green">acknowledge</span>→ thừa nhận       "He acknowledged the deadline was tight."
+<span class="c-green">concede</span>   → nhượng bộ       "I'll concede that's a valid concern."
+<span class="c-green">clarify</span>   → làm rõ          "Let me clarify what I mean by that."
+<span class="c-green">emphasize</span> → nhấn mạnh       "She emphasized the importance of follow-through."
+<span class="c-green">propose</span>   → đề nghị formal  "I'd like to propose a different approach."
+<span class="c-green">maintain</span>  → giữ vững quan điểm "He maintains that the approach is sound."
+
+<span class="c-yellow">THAY "do/handle" BẰNG:</span>
+<span class="c-accent">address</span>   → xử lý issue     "We need to address this before it escalates."
+<span class="c-accent">tackle</span>    → đối phó         "Let's tackle the hardest problem first."
+<span class="c-accent">navigate</span>  → vượt qua khó    "We had to navigate real organizational resistance."
+<span class="c-accent">facilitate</span>→ tạo điều kiện   "She facilitated the discussion really well."
+<span class="c-accent">execute</span>   → thực thi        "The plan was solid — the execution fell short."
+<span class="c-accent">deliver</span>   → giao kết quả    "He always delivers what he promises."
+<span class="c-accent">leverage</span>  → tận dụng        "We can leverage our existing network here."</div>
+      </div>
+    </div>
+
+    <!-- Vocab Group 3 -->
+    <div class="vocab-group">
+      <div class="vocab-header">
+        <div class="vocab-icon">🎨</div>
+        <div>
+          <div class="vocab-title">Nhóm 3 — Precision Adjectives</div>
+          <div class="vocab-subtitle">Thoát khỏi "good / bad / big / important" — từ mờ nhạt nhất trong tiếng Anh</div>
+        </div>
+      </div>
+      <div class="vocab-body">
+        <div class="compare">
+          <div class="compare-col compare-bad">
+            <div class="compare-label">❌ Tránh dùng</div>
+            <ul>
+              <li>good</li>
+              <li>bad / not good</li>
+              <li>important</li>
+              <li>interesting</li>
+              <li>hard / difficult</li>
+              <li>big</li>
+              <li>clear</li>
+            </ul>
+          </div>
+          <div class="compare-col compare-good">
+            <div class="compare-label">✓ Dùng thay thế</div>
+            <ul>
+              <li>effective, solid, promising, compelling, robust</li>
+              <li>concerning, problematic, flawed, unsustainable</li>
+              <li>critical, essential, pivotal, key, non-negotiable</li>
+              <li>intriguing, thought-provoking, compelling, striking</li>
+              <li>demanding, complex, nuanced, non-trivial</li>
+              <li>significant, substantial, considerable, sizeable</li>
+              <li>straightforward, unambiguous, explicit, transparent</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vocab Group 4 -->
+    <div class="vocab-group">
+      <div class="vocab-header">
+        <div class="vocab-icon">🔗</div>
+        <div>
+          <div class="vocab-title">Nhóm 4 — High-Value Collocations</div>
+          <div class="vocab-subtitle">Học cụm, không học từ — nguyên tắc cốt lõi của Lexical Approach (Michael Lewis)</div>
+        </div>
+      </div>
+      <div class="vocab-body">
+        <div class="code-block"><span class="c-yellow">RAISE +</span>  a concern / an issue / a question / awareness / the stakes
+<span class="c-yellow">ADDRESS +</span> a problem / a concern / the elephant in the room / the gap
+<span class="c-yellow">MAKE +</span>   progress / an impact / assumptions / a case for / a point
+<span class="c-yellow">TAKE +</span>   ownership / responsibility / the initiative / a step back / stock
+<span class="c-yellow">SET +</span>    expectations / a precedent / the stage / boundaries / the tone
+<span class="c-yellow">KEEP +</span>   track of / someone in the loop / things on track / perspective
+<span class="c-yellow">DRIVE +</span>  results / change / the conversation / growth / alignment
+<span class="c-yellow">BUILD +</span>  rapport / consensus / momentum / a case / credibility
+<span class="c-yellow">RUN +</span>   the risk of / point / a meeting / into issues
+<span class="c-yellow">MOVE +</span>  forward / the needle / quickly / in the right direction</div>
+      </div>
+    </div>
+
+    <!-- Vocab Group 5 -->
+    <div class="vocab-group">
+      <div class="vocab-header">
+        <div class="vocab-icon">✨</div>
+        <div>
+          <div class="vocab-title">Nhóm 5 — Hedging Adverbs</div>
+          <div class="vocab-subtitle">Nghe sophisticated ngay lập tức — nhóm từ ít được dạy nhưng cực kỳ high-impact</div>
+        </div>
+      </div>
+      <div class="vocab-body">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Từ</th><th>Nghĩa</th><th>Ví dụ tự nhiên</th></tr></thead>
+            <tbody>
+              <tr><td><strong>arguably</strong></td><td>có thể lập luận rằng</td><td>"This is arguably the most important decision we'll make this quarter."</td></tr>
+              <tr><td><strong>presumably</strong></td><td>có lẽ, theo lý thuyết</td><td>"The meeting is presumably still on — no one cancelled it."</td></tr>
+              <tr><td><strong>largely</strong></td><td>phần lớn</td><td>"The success is largely due to the team's effort."</td></tr>
+              <tr><td><strong>primarily</strong></td><td>chủ yếu</td><td>"We're primarily focused on retention right now."</td></tr>
+              <tr><td><strong>essentially</strong></td><td>về bản chất</td><td>"What this means, essentially, is that we need to restart."</td></tr>
+              <tr><td><strong>fundamentally</strong></td><td>về căn bản</td><td>"The problem is fundamentally one of communication."</td></tr>
+              <tr><td><strong>ultimately</strong></td><td>cuối cùng thì</td><td>"Ultimately, it's your call to make."</td></tr>
+              <tr><td><strong>ideally</strong></td><td>lý tưởng là</td><td>"Ideally, we'd have another week, but we don't."</td></tr>
+              <tr><td><strong>theoretically</strong></td><td>về lý thuyết</td><td>"Theoretically that should work, but let me double-check."</td></tr>
+              <tr><td><strong>in hindsight</strong></td><td>nhìn lại thì</td><td>"In hindsight, we should have started earlier."</td></tr>
+              <tr><td><strong>by and large</strong></td><td>nhìn chung</td><td>"By and large, the project went well."</td></tr>
+              <tr><td><strong>more often than not</strong></td><td>thường là</td><td>"More often than not, the first idea isn't the best one."</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vocab Group 6 -->
+    <div class="vocab-group">
+      <div class="vocab-header">
+        <div class="vocab-icon">📊</div>
+        <div>
+          <div class="vocab-title">Nhóm 6 — Professional Nouns</div>
+          <div class="vocab-subtitle">Từ vựng cho thảo luận chuyên nghiệp — xuất hiện trong mọi meeting và presentation</div>
+        </div>
+      </div>
+      <div class="vocab-body">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Từ</th><th>Ví dụ trong câu</th></tr></thead>
+            <tbody>
+              <tr><td><strong>implication</strong></td><td>"The implications of this decision are significant."</td></tr>
+              <tr><td><strong>assumption</strong></td><td>"I'm operating on the assumption that you're available."</td></tr>
+              <tr><td><strong>nuance</strong></td><td>"There's an important nuance here we shouldn't overlook."</td></tr>
+              <tr><td><strong>trade-off</strong></td><td>"Every decision involves a trade-off — what are we willing to give up?"</td></tr>
+              <tr><td><strong>consensus</strong></td><td>"We need to reach consensus before moving forward."</td></tr>
+              <tr><td><strong>alignment</strong></td><td>"Let's make sure we're in alignment on the key objectives."</td></tr>
+              <tr><td><strong>caveat</strong></td><td>"One important caveat: this only works if the team is fully committed."</td></tr>
+              <tr><td><strong>precedent</strong></td><td>"I don't want to set a bad precedent here."</td></tr>
+              <tr><td><strong>bandwidth</strong></td><td>"I don't have the bandwidth for another project right now."</td></tr>
+              <tr><td><strong>buy-in</strong></td><td>"We need leadership buy-in before we can proceed."</td></tr>
+              <tr><td><strong>visibility</strong></td><td>"We need more visibility into what's happening on the ground."</td></tr>
+              <tr><td><strong>distinction</strong></td><td>"The key distinction here is between short-term and long-term thinking."</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vocab Group 7 -->
+    <div class="vocab-group">
+      <div class="vocab-header">
+        <div class="vocab-icon">💬</div>
+        <div>
+          <div class="vocab-title">Nhóm 7 — Emotional & Social Vocabulary</div>
+          <div class="vocab-subtitle">Giao tiếp chân thật hơn — thay những cụm mờ nhạt bằng từ có sắc thái</div>
+        </div>
+      </div>
+      <div class="vocab-body">
+        <div class="code-block"><span class="c-yellow">THAY "I understand":</span>
+<span class="c-green">→</span> "I can see where you're coming from."
+<span class="c-green">→</span> "That totally makes sense."
+<span class="c-green">→</span> "I can empathize with that."
+<span class="c-green">→</span> "That resonates with me."
+<span class="c-green">→</span> "I can relate to that completely."
+
+<span class="c-yellow">THAY "I like this":</span>
+<span class="c-green">→</span> "This is compelling."
+<span class="c-green">→</span> "I find this really promising."
+<span class="c-green">→</span> "I'm genuinely excited about this direction."
+<span class="c-green">→</span> "I'm quite enthusiastic about this approach."
+
+<span class="c-yellow">THAY "I don't like this" / "I'm not sure":</span>
+<span class="c-green">→</span> "I have some reservations about..."
+<span class="c-green">→</span> "I'm a bit skeptical of..."
+<span class="c-green">→</span> "I'm not fully convinced by..."
+<span class="c-green">→</span> "I'm somewhat ambivalent about..."
+<span class="c-green">→</span> "I have mixed feelings about..."
+
+<span class="c-yellow">KHI MUỐN NÓI THẬT NHƯNG LỊCH SỰ:</span>
+<span class="c-accent">→</span> "I'll be candid with you..."      (thẳng thắn)
+<span class="c-accent">→</span> "Honestly speaking..."             (nói thật)
+<span class="c-accent">→</span> "I want to be transparent here..." (minh bạch)
+<span class="c-accent">→</span> "For what it's worth..."           (khiêm tốn đưa ý kiến)
+<span class="c-accent">→</span> "I could be wrong, but..."         (hedging trước khi nói)</div>
+      </div>
+    </div>
+
+    <!-- Discourse Grammar -->
+    <div class="vocab-group">
+      <div class="vocab-header">
+        <div class="vocab-icon">🌊</div>
+        <div>
+          <div class="vocab-title">Nhóm 8 — Discourse Grammar Phrases</div>
+          <div class="vocab-subtitle">Kết nối ý như native speaker — grammar cấp độ "conversation" mà SGK không dạy</div>
+        </div>
+      </div>
+      <div class="vocab-body">
+        <div class="code-block"><span class="c-yellow">CONTRASTING (đưa ra điểm đối lập tự nhiên):</span>
+<span class="c-green">→</span> "Having said that,..."          (sau điểm A → chuyển sang B)
+<span class="c-green">→</span> "That being said,..."           (tương tự, hơi formal)
+<span class="c-green">→</span> "Even so,..."                   (dù vậy)
+<span class="c-green">→</span> "For all that,..."              (dù tất cả những điều đó)
+
+<span class="c-yellow">WEIGHING & CONCLUDING (cân nhắc và kết luận):</span>
+<span class="c-accent">→</span> "All things considered,..."           (cân nhắc tất cả mọi thứ)
+<span class="c-accent">→</span> "On balance,..."                      (nhìn chung)
+<span class="c-accent">→</span> "When all is said and done,..."       (cuối cùng)
+<span class="c-accent">→</span> "In the grand scheme of things,..."   (trong bức tranh lớn)
+<span class="c-accent">→</span> "At the end of the day,..."           (thực chất mà nói)
+
+<span class="c-yellow">OFFERING OPINION HUMBLY:</span>
+<span class="c-purple">→</span> "For what it's worth,..."             (ý kiến cá nhân, không chắc)
+<span class="c-purple">→</span> "If you ask me,..."                   (theo ý tôi thì)
+<span class="c-purple">→</span> "Between you and me,..."              (nói riêng tư)
+<span class="c-purple">→</span> "Take this with a grain of salt, but..."  (cẩn thận với ý này)
+
+<span class="c-yellow">ADDING UNEXPECTED INFO:</span>
+<span class="c-green">→</span> "If anything,..."                 (nếu có gì thì là...)
+<span class="c-green">→</span> "As it turns out,..."             (hóa ra là)
+<span class="c-green">→</span> "Interestingly enough,..."        (thú vị là)
+<span class="c-green">→</span> "It so happens that,..."          (tình cờ là)</div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- ══════════════════ SECTION 4: GRAMMAR ══════════════════ -->
+  <section id="grammar">
+    <div class="section-label">Phần 4 — Mới</div>
+    <h2>Grammar Patterns Thực Tế</h2>
+    <p class="section-desc">Không học lại ngữ pháp từ đầu. Đây là những patterns người có nền tảng thường <em>biết nhưng không dùng được tự nhiên</em>.</p>
+
+    <!-- Pattern 1 -->
+    <div class="grammar-card">
+      <div class="grammar-header">
+        <div class="grammar-num">1</div>
+        <div>
+          <div class="grammar-title">Cleft Sentences — Nhấn Mạnh Tự Nhiên Nhất</div>
+          <div class="grammar-why">Native speakers dùng liên tục. Người học thường nói thẳng quá, nghe flat và boring.</div>
+        </div>
+      </div>
+      <div class="grammar-body">
+        <div class="compare">
+          <div class="compare-col compare-bad">
+            <div class="compare-label">❌ Flat (người học)</div>
+            <ul>
+              <li>"I need more time."</li>
+              <li>"Communication is the problem."</li>
+              <li>"Money matters most."</li>
+              <li>"John suggested it."</li>
+            </ul>
+          </div>
+          <div class="compare-col compare-good">
+            <div class="compare-label">✓ Natural (native)</div>
+            <ul>
+              <li>"What I need is more time."</li>
+              <li>"What's broken here is the communication."</li>
+              <li>"It's the money that matters most, not the timeline."</li>
+              <li>"It was John who first suggested this approach."</li>
+            </ul>
+          </div>
+        </div>
+        <div class="code-block"><span class="c-yellow">Công thức hay dùng nhất:</span>
+<span class="c-green">"What [subject] [verb] is..."</span>    → "What I find interesting is..."
+<span class="c-green">"It's [X] that [verb]..."</span>        → "It's the timeline that concerns me."
+<span class="c-green">"The thing is..."</span>                → giới thiệu key point
+<span class="c-green">"The reason I'm asking is..."</span>    → explain purpose
+<span class="c-green">"The part that concerns me is..."</span> → focus on specific issue
+<span class="c-green">"What this comes down to is..."</span>  → simplify complex issue</div>
+      </div>
+    </div>
+
+    <!-- Pattern 2 -->
+    <div class="grammar-card">
+      <div class="grammar-header">
+        <div class="grammar-num">2</div>
+        <div>
+          <div class="grammar-title">Modal Verbs — Từ "Biết Tiếng Anh" Sang "Nghe Chuyên Nghiệp"</div>
+          <div class="grammar-why">Pattern tạo ra sự khác biệt LỚN NHẤT trong Professional English. Thiếu modals = nghe demanding và blunt.</div>
+        </div>
+      </div>
+      <div class="grammar-body">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Demanding ❌</th><th>Professional ✓</th></tr></thead>
+            <tbody>
+              <tr><td>"Can you send it?"</td><td>"Could you send it?" / "Would it be possible to send it?"</td></tr>
+              <tr><td>"Send it by Friday."</td><td>"I'd appreciate it if you could get this to me by Friday."</td></tr>
+              <tr><td>"I want to discuss this."</td><td>"I was hoping we could find some time to discuss this."</td></tr>
+              <tr><td>"Do you have time?"</td><td>"I was wondering if you might have some availability this week."</td></tr>
+              <tr><td>"You should try this."</td><td>"You might want to consider trying this approach."</td></tr>
+              <tr><td>"I need you to..."</td><td>"I'd really appreciate it if you could..." / "Would you be able to...?"</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pattern 3 -->
+    <div class="grammar-card">
+      <div class="grammar-header">
+        <div class="grammar-num">3</div>
+        <div>
+          <div class="grammar-title">Present Perfect — Lỗi Phổ Biến Nhất Của Người Việt</div>
+          <div class="grammar-why">Tiếng Việt không có thì này, nên người học thường dùng simple past khi native speakers dùng present perfect.</div>
+        </div>
+      </div>
+      <div class="grammar-body">
+        <div class="callout callout-yellow">
+          <div class="callout-icon">⚠️</div>
+          <div class="callout-body">
+            <strong>Rule đơn giản nhất để nhớ</strong>
+            <p>Dùng Present Perfect khi hành động <strong>có liên quan đến hiện tại</strong> — kết quả còn đó, hoặc thông tin vẫn còn mới và relevant.</p>
+          </div>
+        </div>
+        <div class="compare">
+          <div class="compare-col compare-bad">
+            <div class="compare-label">❌ Sai (common mistake)</div>
+            <ul>
+              <li>"I finished the report." (nếu muốn báo cáo ngay)</li>
+              <li>"Did you eat?" (hỏi bạn bè xem ăn chưa)</li>
+              <li>"I didn't discuss this with him yet."</li>
+              <li>"I worked here for 3 years." (nếu vẫn đang làm)</li>
+              <li>"Did you hear about the merger?"</li>
+            </ul>
+          </div>
+          <div class="compare-col compare-good">
+            <div class="compare-label">✓ Đúng</div>
+            <ul>
+              <li>"I've finished the report." (xong, bạn có thể xem ngay)</li>
+              <li>"Have you eaten?" (standard casual)</li>
+              <li>"I haven't discussed this with him yet."</li>
+              <li>"I've worked here for 3 years." (vẫn đang làm)</li>
+              <li>"Have you heard about the merger?" (news vẫn còn hot)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pattern 4 -->
+    <div class="grammar-card">
+      <div class="grammar-header">
+        <div class="grammar-num">4</div>
+        <div>
+          <div class="grammar-title">Reporting Verbs — Vượt Qua "Said"</div>
+          <div class="grammar-why">Chỉ dùng "said" nghe như đọc bản tin. Mỗi reporting verb mang một sắc thái hoàn toàn khác nhau.</div>
+        </div>
+      </div>
+      <div class="grammar-body">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Verb</th><th>Sắc thái</th><th>Ví dụ</th></tr></thead>
+            <tbody>
+              <tr><td><strong>mention</strong></td><td>đề cập nhẹ, không phải ý chính</td><td>"She mentioned that the deadline might move."</td></tr>
+              <tr><td><strong>suggest</strong></td><td>đề xuất (nhẹ, không áp đặt)</td><td>"He suggested we take a different approach."</td></tr>
+              <tr><td><strong>argue</strong></td><td>lập luận mạnh, bảo vệ quan điểm</td><td>"She argued that the data was misleading."</td></tr>
+              <tr><td><strong>claim</strong></td><td>khẳng định (có thể đúng hoặc sai)</td><td>"He claimed the project was on schedule."</td></tr>
+              <tr><td><strong>point out</strong></td><td>chỉ ra (thường là vấn đề/lỗi)</td><td>"She pointed out an inconsistency in the figures."</td></tr>
+              <tr><td><strong>acknowledge</strong></td><td>thừa nhận (đặc biệt khi không muốn)</td><td>"He acknowledged that the delay was his fault."</td></tr>
+              <tr><td><strong>concede</strong></td><td>nhượng bộ, chấp nhận người kia đúng</td><td>"She conceded that my approach had merit."</td></tr>
+              <tr><td><strong>emphasize</strong></td><td>nhấn mạnh tầm quan trọng</td><td>"He emphasized the need for immediate action."</td></tr>
+              <tr><td><strong>indicate</strong></td><td>cho thấy, gợi ý (objective)</td><td>"The data indicates a downward trend."</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pattern 5 -->
+    <div class="grammar-card">
+      <div class="grammar-header">
+        <div class="grammar-num">5</div>
+        <div>
+          <div class="grammar-title">Embedded Questions — Hỏi Lịch Sự Hơn</div>
+          <div class="grammar-why">Câu hỏi trực tiếp nghe đột ngột trong professional settings. Embedded questions nghe polished và respectful hơn.</div>
+        </div>
+      </div>
+      <div class="grammar-body">
+        <div class="compare">
+          <div class="compare-col compare-bad">
+            <div class="compare-label">❌ Direct (hơi đột ngột)</div>
+            <ul>
+              <li>"Where is the report?"</li>
+              <li>"What does this mean?"</li>
+              <li>"Who is responsible?"</li>
+              <li>"Is this correct?"</li>
+              <li>"When is the deadline?"</li>
+            </ul>
+          </div>
+          <div class="compare-col compare-good">
+            <div class="compare-label">✓ Embedded (lịch sự)</div>
+            <ul>
+              <li>"Could you tell me where the report is?"</li>
+              <li>"I was wondering what this actually means."</li>
+              <li>"Do you know who's responsible for this?"</li>
+              <li>"I just wanted to check whether this is correct."</li>
+              <li>"I wanted to confirm when the deadline is."</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout callout-blue">
+          <div class="callout-icon">��</div>
+          <div class="callout-body">
+            <strong>Rule quan trọng: Word order thay đổi</strong>
+            <p>Sau if/whether/what/where/who/when/how → dùng word order của STATEMENT, KHÔNG phải question.<br/>
+            ❌ "I wonder what IS the problem." &nbsp;→&nbsp; ✓ "I wonder what the problem IS."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pattern 6 -->
+    <div class="grammar-card">
+      <div class="grammar-header">
+        <div class="grammar-num">6</div>
+        <div>
+          <div class="grammar-title">Gerund vs Infinitive — Lỗi Âm Thầm Nhất</div>
+          <div class="grammar-why">Người học thường đoán mò. Danh sách này để nhớ một lần dứt khoát — đặc biệt với suggest/recommend.</div>
+        </div>
+      </div>
+      <div class="grammar-body">
+        <div class="code-block"><span class="c-yellow">LUÔN DÙNG GERUND (-ing) SAU:</span>
+suggest, recommend, propose  → <span class="c-green">"I suggest reviewing the plan."</span> <span class="c-red">(NOT "suggest to review")</span>
+avoid, risk                  → <span class="c-green">"Avoid making assumptions."</span>
+enjoy, mind, consider        → <span class="c-green">"Would you mind waiting a moment?"</span>
+keep, practice               → <span class="c-green">"Keep practicing every day."</span>
+imagine                      → <span class="c-green">"Imagine arriving on time."</span>
+
+<span class="c-yellow">LUÔN DÙNG INFINITIVE (to + V) SAU:</span>
+want, hope, plan, decide     → <span class="c-accent">"I hope to finish by Friday."</span>
+manage, afford, fail         → <span class="c-accent">"We managed to resolve it."</span>
+promise, offer, refuse       → <span class="c-accent">"She refused to comment."</span>
+tend                         → <span class="c-accent">"I tend to overthink things."</span>
+
+<span class="c-yellow">HAI NGHĨA HOÀN TOÀN KHÁC NHAU:</span>
+stop + gerund    = ngừng làm:    <span class="c-green">"Stop talking."</span>     (ngừng nói)
+stop + infinitive= dừng để làm: <span class="c-accent">"Stop to talk."</span>     (dừng lại ĐỂ nói)
+
+remember + gerund    = nhớ đã làm: <span class="c-green">"I remember sending it."</span>  (đã gửi rồi)
+remember + infinitive= nhớ phải làm: <span class="c-accent">"Remember to send it."</span> (nhớ mà gửi đi)</div>
+      </div>
+    </div>
+
+    <!-- Pattern 7 -->
+    <div class="grammar-card">
+      <div class="grammar-header">
+        <div class="grammar-num">7</div>
+        <div>
+          <div class="grammar-title">Inversion — Nghe Advanced Ngay Lập Tức</div>
+          <div class="grammar-why">5 patterns này đủ để nghe rất professional. Đặc biệt useful trong emails formal và presentations.</div>
+        </div>
+      </div>
+      <div class="grammar-body">
+        <div class="code-block"><span class="c-yellow">NOT ONLY... BUT ALSO:</span>
+<span class="c-green">"Not only did we miss the deadline, but we also exceeded the budget."</span>
+<span class="c-green">"Not only is this faster, but it's also significantly cheaper."</span>
+
+<span class="c-yellow">RARELY / SELDOM / NEVER ở đầu câu:</span>
+<span class="c-green">"Rarely have I seen such commitment from a team."</span>
+<span class="c-green">"Never have we faced a challenge quite like this."</span>
+<span class="c-green">"Seldom do we get an opportunity like this."</span>
+
+<span class="c-yellow">HAD I / WERE I / SHOULD YOU (conditional inversion — rất formal):</span>
+<span class="c-accent">"Had I known earlier, I would have handled it differently."</span>
+   (= If I had known — 3rd conditional, rất elegant)
+<span class="c-accent">"Should you need anything, please don't hesitate to reach out."</span>
+   (= If you should need — perfect for formal emails)
+<span class="c-accent">"Were I in your position, I'd probably do the same."</span>
+   (= If I were — rất formal, shows high register)
+
+<span class="c-yellow">UNDER NO CIRCUMSTANCES:</span>
+<span class="c-green">"Under no circumstances should this information be shared externally."</span></div>
+      </div>
+    </div>
+
+    <!-- Pattern 8 -->
+    <div class="grammar-card">
+      <div class="grammar-header">
+        <div class="grammar-num">8</div>
+        <div>
+          <div class="grammar-title">Hedging với "Tend to" & "Seems to"</div>
+          <div class="grammar-why">Cách nói không tuyệt đối mà vẫn tự tin. Đặc biệt dùng khi đưa ý kiến hoặc mô tả xu hướng.</div>
+        </div>
+      </div>
+      <div class="grammar-body">
+        <div class="code-block"><span class="c-yellow">TEND TO (diễn đạt xu hướng, thói quen):</span>
+<span class="c-green">"I tend to think that..."</span>              (không tuyệt đối)
+<span class="c-green">"This tends to work well when..."</span>      (xu hướng, không phải rule)
+<span class="c-green">"People in that role tend to..."</span>       (generalization an toàn)
+<span class="c-green">"These issues tend to surface when..."</span> (pattern nhận ra)
+
+<span class="c-yellow">SEEMS TO (quan sát, không khẳng định):</span>
+<span class="c-accent">"It seems to be the case that..."</span>      (observed, not certain)
+<span class="c-accent">"There seems to be an issue with..."</span>  (report without blame)
+<span class="c-accent">"The data seems to suggest..."</span>        (careful interpretation)
+<span class="c-accent">"He seems to be struggling with..."</span>   (compassionate observation)
+
+<span class="c-yellow">APPEAR TO (formal version of "seem to"):</span>
+<span class="c-purple">"The project appears to be on track."</span>
+<span class="c-purple">"There appears to be a misunderstanding here."</span>
+<span class="c-purple">"The figures appear to have been updated."</span></div>
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+
+  <!-- ══════════════════ SECTION 5: INTEGRATION ══════════════════ -->
+  <section id="integration">
+    <div class="section-label">Phần 5</div>
+    <h2>Kế Hoạch Tích Hợp Vào Plan Gốc</h2>
+    <p class="section-desc">Cách đưa từ vựng và ngữ pháp mới vào lịch học 3 tháng hiện tại.</p>
+
+    <div class="int-grid">
+      <div class="int-card">
+        <div class="int-week">Tuần 1</div>
+        <p>Bắt đầu shadowing ngay (10 phút/ngày). Học Nhóm 1 (Hedging Verbs) + Nhóm 4 (Collocations). Grammar Pattern 1 (Cleft).</p>
+      </div>
+      <div class="int-card">
+        <div class="int-week">Tuần 2</div>
+        <p>Grammar Pattern 2 (Modal Verbs). Học Nhóm 3 (Precision Adjectives) + Nhóm 8 (Discourse Grammar).</p>
+      </div>
+      <div class="int-card">
+        <div class="int-week">Tuần 3</div>
+        <p>Grammar Pattern 3 (Present Perfect). Học Nhóm 5 (Hedging Adverbs). Bắt đầu đọc 15 phút/ngày.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-week">Tuần 4</div>
+        <p>Grammar Pattern 4 (Reporting Verbs). Học Nhóm 6 (Professional Nouns). Dùng từ vựng mới trong STAR stories.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-week">Tuần 5-6</div>
+        <p>Grammar Pattern 5 (Embedded Questions) + 6 (Gerund/Infinitive). Học Nhóm 2 (Precision Verbs). Apply vào meeting phrases.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-week">Tuần 7-8</div>
+        <p>Grammar Pattern 7 (Inversion) + 8 (Tend to/Seem to). Học Nhóm 7 (Emotional Vocab). Apply vào networking.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-week">Tuần 9-10</div>
+        <p>Integration — dùng tất cả patterns tự nhiên trong mock interviews. Focus vào fluency, không phải accuracy.</p>
+      </div>
+      <div class="int-card">
+        <div class="int-week">Tuần 11-12</div>
+        <p>Advanced drills — inversion + cleft sentences trong presentations. Final assessment so sánh với Tuần 1.</p>
+      </div>
+    </div>
+
+    <h3>Daily Schedule Đã Cập Nhật</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Thời điểm</th><th>Thời gian</th><th>Hoạt động</th><th>Ghi chú</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sáng 7-8h</strong></td><td>15 phút</td><td>Anki review + 1 framework review</td><td>Ưu tiên từ nhóm 1, 4, 5 trước</td></tr>
+          <tr><td><strong>Sáng 8-8:20h</strong></td><td>20 phút</td><td><span class="badge badge-green">Mới</span> Đọc BBC/Guardian</td><td>Đọc nhanh, chú ý chunks và collocations</td></tr>
+          <tr><td><strong>Trưa 12-12:30h</strong></td><td>30 phút</td><td>Podcast + <strong>Shadowing từ Tuần 1</strong></td><td>Bắt đầu Tuần 1, không phải Tuần 11</td></tr>
+          <tr><td><strong>Tối 8-9h</strong></td><td>25 phút</td><td>Active speaking practice (record, role-play)</td><td>Tích hợp grammar patterns mới vào đây</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-green">
+      <div class="callout-icon">🎯</div>
+      <div class="callout-body">
+        <strong>Ưu tiên tuyệt đối nếu bạn bận</strong>
+        <p>Nếu không có đủ thời gian, tập trung vào: <strong>Shadowing 10 phút/ngày + Grammar Pattern 1 & 2 + Vocab Nhóm 1, 4, 5</strong>. Đây là 80% impact với 20% effort theo nguyên tắc Pareto.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- ══════════════════ SECTION 6: ORIGINAL PLAN ══════════════════ -->
+  <section id="original">
+    <div class="section-label">Phần 6 — Plan Gốc</div>
+    <h2>English Communication Mastery</h2>
+    <p class="section-desc">Chương Trình 3 Tháng Nói Tiếng Anh Tự Tin — Nội dung gốc đầy đủ</p>
+
+    <!-- Frameworks Quick Ref -->
+    <div class="card-grid">
+      <div class="card">
+        <h4>PREP Framework</h4>
+        <ul class="blist">
+          <li><strong>P</strong>oint — Ý chính</li>
+          <li><strong>R</strong>eason — Lý do</li>
+          <li><strong>E</strong>xample — Ví dụ</li>
+          <li><strong>P</strong>oint — Nhắc lại</li>
+        </ul>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;">Dùng khi: phỏng vấn, thảo luận, trả lời bất kỳ câu hỏi nào</p>
+      </div>
+      <div class="card">
+        <h4>STAR Method</h4>
+        <ul class="blist">
+          <li><strong>S</strong>ituation — Bối cảnh</li>
+          <li><strong>T</strong>ask — Trách nhiệm</li>
+          <li><strong>A</strong>ction — Hành động (dùng "I")</li>
+          <li><strong>R</strong>esult — Kết quả + số liệu</li>
+        </ul>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;">Dùng khi: phỏng vấn, networking, chia sẻ kinh nghiệm</p>
+      </div>
+      <div class="card">
+        <h4>FORD Method</h4>
+        <ul class="blist">
+          <li><strong>F</strong>amily — Gia đình, quê quán</li>
+          <li><strong>O</strong>ccupation — Nghề nghiệp</li>
+          <li><strong>R</strong>ecreation — Sở thích</li>
+          <li><strong>D</strong>reams — Kế hoạch, ước mơ</li>
+        </ul>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;">Dùng khi: gặp người mới, networking, small talk</p>
+      </div>
+      <div class="card">
+        <h4>ACS Framework</h4>
+        <ul class="blist">
+          <li><strong>A</strong>cknowledge — Ghi nhận ý kiến</li>
+          <li><strong>C</strong>ounter — Phản biện nhẹ nhàng</li>
+          <li><strong>S</strong>tate — Nêu quan điểm của mình</li>
+        </ul>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;">Dùng khi: meetings, thảo luận, disagree lịch sự</p>
+      </div>
+      <div class="card">
+        <h4>DESC Script</h4>
+        <ul class="blist">
+          <li><strong>D</strong>escribe — Mô tả hành vi cụ thể</li>
+          <li><strong>E</strong>xpress — Bày tỏ cảm nhận</li>
+          <li><strong>S</strong>pecify — Yêu cầu cụ thể</li>
+          <li><strong>C</strong>onsequences — Lợi ích</li>
+        </ul>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;">Dùng khi: conflict, feedback khó, xử lý vấn đề</p>
+      </div>
+      <div class="card">
+        <h4>WWW Framework</h4>
+        <ul class="blist">
+          <li><strong>W</strong>hat — Đã làm gì</li>
+          <li><strong>W</strong>hy — Tại sao quan trọng</li>
+          <li><strong>W</strong>hat's next — Bước tiếp theo</li>
+        </ul>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;">Dùng khi: stand-up meetings, status updates</p>
+      </div>
+    </div>
+
+    <!-- Filler Phrases -->
+    <h3>Filler Phrases — Nói Gì Khi Cần Thêm Giờ</h3>
+    <div class="card">
+      <h4>Nhóm A — Mua Thời Gian</h4>
+      <div class="pill-list">
+        <span class="pill">"That's a great question..."</span>
+        <span class="pill">"Let me think about that for a moment..."</span>
+        <span class="pill">"Hmm, how do I put this..."</span>
+        <span class="pill">"Off the top of my head..."</span>
+        <span class="pill">"That's an interesting point..."</span>
+        <span class="pill">"Good question — let me think..."</span>
+        <span class="pill">"Give me a second to collect my thoughts..."</span>
+        <span class="pill">"Well, it depends on..."</span>
+        <span class="pill">"You know, it's funny you should ask that..."</span>
+        <span class="pill">"I hadn't thought about it quite that way..."</span>
+      </div>
+      <h4>Nhóm B — Clarification</h4>
+      <div class="pill-list">
+        <span class="pill accent">"Could you elaborate on that?"</span>
+        <span class="pill accent">"What do you mean exactly by [X]?"</span>
+        <span class="pill accent">"Just to make sure I understand..."</span>
+        <span class="pill accent">"I'm sorry, I didn't quite catch that."</span>
+        <span class="pill accent">"Are you saying that...?"</span>
+        <span class="pill accent">"So what you're saying is..."</span>
+        <span class="pill accent">"Sorry, I'm not following — could you rephrase?"</span>
+      </div>
+      <h4>Nhóm C — Backchanneling</h4>
+      <div class="pill-list">
+        <span class="pill pill-green">"Right." / "I see."</span>
+        <span class="pill pill-green">"Exactly!"</span>
+        <span class="pill pill-green">"Interesting."</span>
+        <span class="pill pill-green">"Go on." / "And then?"</span>
+        <span class="pill pill-green">"That makes sense."</span>
+        <span class="pill pill-green">"Fair enough."</span>
+        <span class="pill pill-green">"I can imagine."</span>
+        <span class="pill pill-green">"Absolutely."</span>
+        <span class="pill pill-green">"Tell me more."</span>
+        <span class="pill pill-green">"No way!"</span>
+      </div>
+    </div>
+
+    <!-- Idioms -->
+    <h3>20 Idioms Quan Trọng Nhất (Tuần 10)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Expression</th><th>Nghĩa</th><th>Ví dụ</th></tr></thead>
+        <tbody>
+          <tr><td>"Hit the nail on the head"</td><td>Nói đúng vấn đề</td><td>"You hit the nail on the head — that's exactly the issue."</td></tr>
+          <tr><td>"On the same page"</td><td>Hiểu nhau, đồng thuận</td><td>"Let's make sure we're all on the same page."</td></tr>
+          <tr><td>"Touch base"</td><td>Liên lạc ngắn gọn</td><td>"Let's touch base on this tomorrow."</td></tr>
+          <tr><td>"Get the ball rolling"</td><td>Bắt đầu mọi thứ</td><td>"Let's get the ball rolling on this project."</td></tr>
+          <tr><td>"The elephant in the room"</td><td>Vấn đề ai cũng thấy nhưng không ai nói</td><td>"We need to address the elephant in the room."</td></tr>
+          <tr><td>"Back to square one"</td><td>Quay lại từ đầu</td><td>"The deal fell through — we're back to square one."</td></tr>
+          <tr><td>"Put on the backburner"</td><td>Hoãn lại, không ưu tiên</td><td>"Let's put that on the backburner for now."</td></tr>
+          <tr><td>"Cut to the chase"</td><td>Đi thẳng vào vấn đề</td><td>"Let me cut to the chase — we need more budget."</td></tr>
+          <tr><td>"Pick your brain"</td><td>Xin ý kiến/tư vấn</td><td>"Could I pick your brain about this strategy?"</td></tr>
+          <tr><td>"Go the extra mile"</td><td>Làm nhiều hơn yêu cầu</td><td>"She always goes the extra mile for clients."</td></tr>
+          <tr><td>"Long story short"</td><td>Nói gọn lại là</td><td>"Long story short, we lost the client."</td></tr>
+          <tr><td>"At the end of the day"</td><td>Cuối cùng thì</td><td>"At the end of the day, results matter most."</td></tr>
+          <tr><td>"In a nutshell"</td><td>Tóm gọn lại</td><td>"In a nutshell, the project was a success."</td></tr>
+          <tr><td>"Give the benefit of the doubt"</td><td>Tin tưởng dù không chắc</td><td>"Let's give them the benefit of the doubt."</td></tr>
+          <tr><td>"The bottom line"</td><td>Điểm mấu chốt</td><td>"The bottom line is we're over budget."</td></tr>
+          <tr><td>"Think outside the box"</td><td>Suy nghĩ sáng tạo</td><td>"We need to think outside the box here."</td></tr>
+          <tr><td>"Jump on a call"</td><td>Gọi điện nhanh</td><td>"Let's jump on a call to discuss."</td></tr>
+          <tr><td>"Under the weather"</td><td>Không khỏe</td><td>"I'm a bit under the weather today."</td></tr>
+          <tr><td>"Ballpark figure"</td><td>Con số ước tính</td><td>"What's the ballpark figure for the budget?"</td></tr>
+          <tr><td>"Bite off more than you can chew"</td><td>Ôm đồm quá nhiều</td><td>"I think we bit off more than we could chew."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3 Month Overview -->
+    <h3>Lộ Trình 3 Tháng</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Giai đoạn</th><th>Tuần</th><th>Nội dung chính</th><th>Mục tiêu</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge badge-green">Tháng 1</span></td><td>1-4</td><td>Mindset + Fillers + PREP + Small Talk + STAR</td><td>Arsenal cơ bản, tự tin trong tình huống đơn giản</td></tr>
+          <tr><td><span class="badge badge-blue">Tháng 2</span></td><td>5-8</td><td>Meetings + Presentations + Networking + Conflict</td><td>Nói tốt trong context chuyên nghiệp & xã hội</td></tr>
+          <tr><td><span class="badge badge-purple">Tháng 3</span></td><td>9-12</td><td>Job Interviews + Advanced Skills + Fluency Drills</td><td>Tự nhiên, linh hoạt, xử lý mọi tình huống</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Self-Assessment -->
+    <h3>Checklist Tự Đánh Giá</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>Sau Tháng 1</h4>
+        <ul class="blist">
+          <li>Dùng 10+ filler phrases tự nhiên</li>
+          <li>Trả lời bất kỳ câu hỏi bằng PREP</li>
+          <li>Kể 5 STAR stories thành thạo</li>
+          <li>Small talk 5-10 phút thoải mái</li>
+          <li>Không freeze khi bí từ</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Sau Tháng 2</h4>
+        <ul class="blist">
+          <li>Tự tin trong professional meetings</li>
+          <li>Thuyết trình 10 phút có cấu trúc</li>
+          <li>Disagree lịch sự trong meetings</li>
+          <li>Có elevator pitch tự nhiên</li>
+          <li>Xử lý difficult conversations</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Sau Tháng 3</h4>
+        <ul class="blist">
+          <li>Nói tự nhiên, ít phải suy nghĩ</li>
+          <li>Sử dụng idioms tự nhiên</li>
+          <li>Handle unexpected questions tốt</li>
+          <li>Tự tin trong hầu hết situations</li>
+          <li>Có momentum để tự học tiếp</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  <p>English Communication Mastery — Complete Guide &amp; Analysis · Research-Backed · 2026</p>
+  <p style="margin-top:8px;font-size:12px;">Sources: Swain (1985), Lewis (1993), Nation (2001), SHRM (2024), Hamada (2016), Tandfonline Systematic Review (2025)</p>
+</footer>
+
+</body>
+</html>

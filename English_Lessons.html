@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>English Lessons — Interactive Practice</title>
+<style>
+:root{--bg:#0f1117;--s:#1a1d27;--s2:#22263a;--bd:#2e3350;--ac:#6c8cff;--ac2:#a78bfa;--ac3:#34d399;--ac4:#f59e0b;--ac5:#f87171;--tx:#e2e8f0;--mu:#94a3b8;--di:#64748b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-serif;font-size:15px;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;gap:4px;height:50px;overflow-x:auto;white-space:nowrap}
+.logo{color:var(--ac);font-weight:800;font-size:14px;margin-right:12px}
+nav a{color:var(--mu);font-size:12.5px;padding:5px 10px;border-radius:6px;text-decoration:none;transition:.15s}
+nav a:hover{color:var(--tx);background:var(--s2)}
+.wrap{max-width:960px;margin:0 auto;padding:40px 20px 100px}
+section{margin-bottom:64px;scroll-margin-top:60px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);margin-bottom:6px}
+h2{font-size:22px;font-weight:800;margin-bottom:6px}
+h3{font-size:16px;font-weight:700;margin:28px 0 10px}
+h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ac2);margin:18px 0 8px}
+.sec-desc{color:var(--mu);margin-bottom:24px;font-size:14px}
+hr{border:none;border-top:1px solid var(--bd);margin:48px 0}
+
+/* LESSON UNIT */
+.unit{border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.unit-header{padding:16px 20px;background:var(--s2);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:14px;cursor:pointer}
+.unit-num{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--ac2),var(--ac));color:#fff;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.unit-title{font-weight:700;font-size:15px}
+.unit-meta{font-size:12px;color:var(--mu)}
+.unit-body{padding:24px}
+
+/* QUIZ */
+.quiz{margin-bottom:24px}
+.q-text{font-size:14.5px;margin-bottom:12px;font-weight:600}
+.q-context{background:var(--s2);border-left:3px solid var(--ac);padding:12px 16px;border-radius:0 8px 8px 0;font-size:13.5px;color:var(--mu);margin-bottom:12px;font-style:italic}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.opt{background:var(--s);border:1px solid var(--bd);border-radius:8px;padding:10px 14px;cursor:pointer;font-size:13.5px;transition:.15s;text-align:left;color:var(--tx)}
+.opt:hover{border-color:var(--ac);background:var(--s2)}
+.opt.correct{background:#10b98122;border-color:#10b981;color:#34d399}
+.opt.wrong{background:#ef444422;border-color:#ef4444;color:#f87171}
+.opt.reveal{background:#6c8cff22;border-color:#6c8cff;color:#93c5fd}
+.opt:disabled{cursor:default}
+.explanation{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:12px 16px;font-size:13px;color:var(--mu);margin-top:8px;display:none}
+.explanation.show{display:block}
+.explanation strong{color:var(--ac3)}
+.score-bar{background:var(--s2);border-radius:8px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.score-num{font-size:22px;font-weight:800;color:var(--ac)}
+.score-label{font-size:13px;color:var(--mu)}
+
+/* FILL IN */
+.fill-ex{margin-bottom:16px}
+.fill-sent{font-size:14px;line-height:2;margin-bottom:8px}
+.fill-input{background:var(--s2);border:1px solid var(--bd);border-radius:6px;padding:3px 10px;color:var(--tx);font-size:14px;min-width:120px;outline:none;transition:.15s}
+.fill-input:focus{border-color:var(--ac)}
+.fill-input.ok{border-color:#10b981;background:#10b98122;color:#34d399}
+.fill-input.bad{border-color:#ef4444;background:#ef444422;color:#f87171}
+.check-btn{background:var(--ac);color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;margin-top:8px}
+.check-btn:hover{opacity:.9}
+.reveal-btn{background:var(--s2);color:var(--mu);border:1px solid var(--bd);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:12px;margin-left:8px}
+
+/* ESSAY */
+.essay-box{background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:20px;margin-bottom:16px;font-size:14px;line-height:1.9;color:var(--mu)}
+.essay-box p{margin-bottom:12px}
+.essay-box p:last-child{margin-bottom:0}
+.band-tag{display:inline-block;background:#6c8cff22;border:1px solid #6c8cff44;color:var(--ac);font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:12px}
+.band-tag.b7{background:#10b98122;border-color:#10b98133;color:#34d399}
+.annotation{background:#f59e0b11;border-left:3px solid var(--ac4);padding:8px 14px;border-radius:0 6px 6px 0;font-size:12.5px;color:var(--ac4);margin:8px 0}
+.annotation strong{color:var(--ac4)}
+
+/* PASSAGE */
+.passage{background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:22px;margin-bottom:20px;font-size:14px;line-height:2;color:var(--mu)}
+.passage p{margin-bottom:14px}
+.passage p:last-child{margin-bottom:0}
+
+/* DIALOGUE */
+.dialogue{background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:20px;margin-bottom:16px}
+.d-line{display:flex;gap:12px;margin-bottom:14px}
+.d-line:last-child{margin-bottom:0}
+.d-speaker{font-size:12px;font-weight:700;color:var(--ac2);min-width:60px;padding-top:2px;flex-shrink:0}
+.d-text{font-size:14px;color:var(--tx);background:var(--s2);border-radius:10px;padding:10px 14px;flex:1}
+.d-note{font-size:11.5px;color:var(--ac4);margin-top:4px}
+
+/* TABLE */
+.t-wrap{overflow-x:auto;margin-bottom:16px;border-radius:10px;border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead tr{background:var(--s2)}
+th{padding:10px 14px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);border-bottom:1px solid var(--bd)}
+td{padding:10px 14px;border-bottom:1px solid var(--bd);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--s2)}
+
+/* CODE */
+.code{background:#0d1117;border:1px solid var(--bd);border-radius:10px;padding:16px 20px;font-family:'Consolas',monospace;font-size:13px;line-height:1.85;overflow-x:auto;margin-bottom:14px;white-space:pre-wrap}
+.g{color:var(--ac3)}.y{color:var(--ac4)}.b{color:var(--ac)}.p{color:var(--ac2)}.r{color:var(--ac5)}.m{color:var(--mu)}
+
+/* CALLOUT */
+.callout{border-radius:10px;padding:14px 18px;margin-bottom:16px;display:flex;gap:12px;align-items:flex-start}
+.callout strong{display:block;margin-bottom:3px;font-size:13.5px}
+.callout p{font-size:13px;color:var(--mu);margin:0}
+.ca-blue{background:#6c8cff11;border:1px solid #6c8cff33}
+.ca-green{background:#10b98111;border:1px solid #10b98133}
+.ca-yellow{background:#f59e0b11;border:1px solid #f59e0b33}
+
+/* BADGE */
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em}
+.bg{background:#10b98122;color:#34d399;border:1px solid #10b98133}
+.br{background:#ef444422;color:#f87171;border:1px solid #ef444433}
+.by{background:#f59e0b22;color:#fbbf24;border:1px solid #f59e0b33}
+.bb{background:#6c8cff22;color:#93c5fd;border:1px solid #6c8cff33}
+
+/* CLOZE BANK */
+.word-bank{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;background:var(--s2);padding:14px;border-radius:8px}
+.wb-word{background:var(--s);border:1px solid var(--bd);border-radius:6px;padding:4px 12px;font-size:13px;cursor:pointer;user-select:none;transition:.15s}
+.wb-word.used{opacity:.35;pointer-events:none}
+.wb-word:hover{border-color:var(--ac);color:var(--ac)}
+
+footer{text-align:center;padding:40px 20px;border-top:1px solid var(--bd);color:var(--di);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">English Lessons</span>
+  <a href="#grammar">Grammar Drills</a>
+  <a href="#vocab">Vocab Exercises</a>
+  <a href="#reading">IELTS Reading</a>
+  <a href="#writing">IELTS Writing</a>
+  <a href="#speaking">IELTS Speaking</a>
+  <a href="#toeic">TOEIC Practice</a>
+  <a href="#dialogue">Dialogues</a>
+</nav>
+
+<div class="wrap">
+
+<!-- ═══ SECTION 1: GRAMMAR DRILLS ═══ -->
+<section id="grammar">
+<div class="sec-label">Unit 1 — Bài Học Ngữ Pháp</div>
+<h2>Grammar Drills — Có Đáp Án & Giải Thích</h2>
+<p class="sec-desc">Chọn đáp án đúng, nhận giải thích ngay lập tức. Mỗi câu có lý do tại sao đáp án đúng.</p>
+
+<!-- LESSON 1.1: Present Perfect -->
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">1.1</div>
+    <div><div class="unit-title">Present Perfect vs Simple Past</div><div class="unit-meta">Lỗi phổ biến nhất của người Việt — 8 câu hỏi</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="callout ca-yellow">
+      <div style="font-size:18px">⚡</div>
+      <div><strong>Quy tắc nhanh:</strong><p>Simple Past = hành động KẾT THÚC, không liên quan đến hiện tại. Present Perfect = hành động có KẾT QUẢ hoặc LIÊN QUAN đến hiện tại.</p></div>
+    </div>
+
+    <div id="pp-quiz"></div>
+    <div class="score-bar" id="pp-score" style="display:none">
+      <div class="score-num" id="pp-snum">0/8</div>
+      <div class="score-label">Điểm của bạn</div>
+    </div>
+  </div>
+</div>
+
+<!-- LESSON 1.2: Modal Verbs -->
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">1.2</div>
+    <div><div class="unit-title">Modal Verbs — Từ "Demanding" sang "Professional"</div><div class="unit-meta">Chọn cách nói lịch sự nhất — 6 câu hỏi</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="callout ca-blue">
+      <div style="font-size:18px">💡</div>
+      <div><strong>Nguyên tắc:</strong><p>Trong tiếng Anh chuyên nghiệp, bạn càng lịch sự thì càng được đánh giá cao. "Could/Would/Might" luôn tốt hơn "Can/Will/Want".</p></div>
+    </div>
+    <div id="modal-quiz"></div>
+  </div>
+</div>
+
+<!-- LESSON 1.3: Word Forms -->
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">1.3</div>
+    <div><div class="unit-title">Word Forms — Noun / Verb / Adjective / Adverb</div><div class="unit-meta">Fill in the blank — 10 câu</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="callout ca-green">
+      <div style="font-size:18px">📝</div>
+      <div><strong>Cách làm:</strong><p>Nhìn vị trí của blank trong câu → xác định cần loại từ gì → điền đúng dạng. Gõ vào ô, nhấn "Kiểm tra".</p></div>
+    </div>
+    <div id="wordform-ex"></div>
+    <button class="check-btn" onclick="checkWordForms()">Kiểm Tra Tất Cả</button>
+  </div>
+</div>
+
+<!-- LESSON 1.4: Gerund vs Infinitive -->
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">1.4</div>
+    <div><div class="unit-title">Gerund vs Infinitive — Lỗi Âm Thầm Nhất</div><div class="unit-meta">6 câu hỏi thực tế</div></div>
+  </div>
+  <div class="unit-body">
+    <div id="gerund-quiz"></div>
+  </div>
+</div>
+</section>
+
+<hr/>
+
+<!-- ═══ SECTION 2: VOCABULARY ═══ -->
+<section id="vocab">
+<div class="sec-label">Unit 2 — Từ Vựng Thực Hành</div>
+<h2>Vocabulary in Context — Gap Fill & Matching</h2>
+<p class="sec-desc">Điền từ vào ngữ cảnh thực tế — cách duy nhất để từ vựng vào bộ nhớ lâu dài.</p>
+
+<!-- LESSON 2.1: Precision Verbs -->
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">2.1</div>
+    <div><div class="unit-title">Precision Verbs — Thay "Say / Do / Think"</div><div class="unit-meta">Chọn từ đúng từ word bank — 8 câu</div></div>
+  </div>
+  <div class="unit-body">
+    <p style="font-size:13.5px;color:var(--mu);margin-bottom:16px">Chọn từ phù hợp nhất về nghĩa và sắc thái cho mỗi câu. Mỗi từ chỉ dùng một lần.</p>
+    <div id="precision-quiz"></div>
+  </div>
+</div>
+
+<!-- LESSON 2.2: Collocations -->
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">2.2</div>
+    <div><div class="unit-title">Business Collocations — RAISE / MAKE / TAKE / SET</div><div class="unit-meta">Ghép động từ đúng — 10 câu</div></div>
+  </div>
+  <div class="unit-body">
+    <div id="colloc-quiz"></div>
+  </div>
+</div>
+
+<!-- LESSON 2.3: AWL in Context -->
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">2.3</div>
+    <div><div class="unit-title">Academic Word List — Đọc & Nhận Diện</div><div class="unit-meta">8 câu academic context</div></div>
+  </div>
+  <div class="unit-body">
+    <div id="awl-quiz"></div>
+  </div>
+</div>
+</section>
+
+<hr/>
+
+<!-- ═══ SECTION 3: IELTS READING ═══ -->
+<section id="reading">
+<div class="sec-label">Unit 3 — IELTS Reading</div>
+<h2>IELTS Reading Practice — Passage + Questions</h2>
+<p class="sec-desc">Đọc passage học thuật thực sự, trả lời câu hỏi theo đúng format IELTS.</p>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">3.1</div>
+    <div><div class="unit-title">True / False / Not Given</div><div class="unit-meta">Passage về Urban Green Spaces — 7 câu hỏi</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="callout ca-yellow">
+      <div style="font-size:18px">⚠️</div>
+      <div><strong>Quan trọng — T/F/NG:</strong><p><strong>TRUE</strong> = bài xác nhận. <strong>FALSE</strong> = bài mâu thuẫn. <strong>NOT GIVEN</strong> = bài không đề cập (đừng suy luận thêm).</p></div>
+    </div>
+
+    <h4>Passage — Urban Green Spaces and Mental Health</h4>
+    <div class="passage">
+      <p>Urban green spaces, including parks, gardens, and tree-lined streets, have long been considered desirable features of city environments. However, recent research has begun to quantify their specific effects on mental health outcomes, revealing a more complex picture than previously assumed.</p>
+      <p>A landmark study conducted by the University of Exeter in 2019 found that people living within 300 metres of green space reported significantly lower levels of stress and anxiety compared to those residing in areas with limited vegetation. The researchers analysed data from over 19,000 participants across England, controlling for socioeconomic factors that might otherwise explain the disparity. Crucially, the benefits persisted regardless of whether participants actively used the green spaces or merely lived in proximity to them.</p>
+      <p>Not all urban green spaces confer equal benefits, however. Research published in the journal <em>Landscape and Urban Planning</em> suggests that biodiversity plays a critical role in determining the psychological impact of green areas. Participants who visited parks with greater species variety reported higher levels of psychological restoration than those who frequented monoculture green spaces, such as grass-only football pitches. This finding has significant implications for urban planning, suggesting that biodiversity-rich environments should be prioritised in city development.</p>
+      <p>Critics of the green space hypothesis point to methodological limitations. Many studies rely on self-reported wellbeing data, which is inherently subjective, and longitudinal research tracking individuals over extended periods remains scarce. Moreover, the direction of causality is not always clear — it is possible that mentally healthier individuals are more inclined to seek out and reside near green environments, rather than green spaces directly causing improved mental health.</p>
+      <p>Despite these caveats, the weight of evidence suggests that urban greenery offers genuine psychological benefits. City planners and policymakers would be well-advised to incorporate green space provisions into urban development strategies, not merely as aesthetic amenities, but as essential infrastructure for public mental health.</p>
+    </div>
+
+    <h4>Questions 1–7 — True, False, or Not Given?</h4>
+    <div id="tfng-quiz"></div>
+  </div>
+</div>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">3.2</div>
+    <div><div class="unit-title">Matching Headings</div><div class="unit-meta">Ghép heading phù hợp với đoạn — 5 câu</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="callout ca-blue">
+      <div style="font-size:18px">💡</div>
+      <div><strong>Chiến lược:</strong><p>Đọc <strong>first + last sentence</strong> của mỗi đoạn. Tìm main idea. Headings thường paraphrase — không copy từ passage.</p></div>
+    </div>
+    <div id="heading-quiz"></div>
+  </div>
+</div>
+</section>
+
+<hr/>
+
+<!-- ═══ SECTION 4: IELTS WRITING ═══ -->
+<section id="writing">
+<div class="sec-label">Unit 4 — IELTS Writing</div>
+<h2>IELTS Writing — Bài Mẫu Có Phân Tích Band Score</h2>
+<p class="sec-desc">So sánh bài Band 5.5 và Band 7.5 cùng một đề — phân tích từng câu để hiểu sự khác biệt.</p>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">4.1</div>
+    <div><div class="unit-title">Task 2 — Band 5.5 vs Band 7.5 (cùng một đề)</div><div class="unit-meta">Chủ đề: Social Media & Society</div></div>
+  </div>
+  <div class="unit-body">
+    <div style="background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:14px 18px;margin-bottom:20px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);margin-bottom:6px">Đề thi</div>
+      <div style="font-size:14px">"Some people believe that social media has had a predominantly negative impact on individuals and society. To what extent do you agree or disagree? Give reasons for your answer and include any relevant examples from your own knowledge or experience."</div>
+    </div>
+
+    <h4>Bài Viết — Band 5.5 ❌</h4>
+    <div class="essay-box">
+      <div class="band-tag">Band 5.5 — Weak</div>
+      <p>Social media is very popular nowadays. Many people use Facebook, Instagram and Twitter every day. I think social media has both good and bad effects on society.</p>
+      <p>First, social media is bad because it makes people addicted. Many young people spend too much time on their phones and do not study or work. This is a big problem for society.</p>
+      <p>Second, social media can spread false information. People read news on social media but some of it is not true. This can cause problems in society.</p>
+      <p>However, social media also has good things. People can communicate with friends and family who live far away. Also, businesses can use social media to advertise their products.</p>
+      <p>In conclusion, I think social media has more negative effects than positive effects. The government should make rules to control social media use.</p>
+    </div>
+
+    <h4>Phân Tích Điểm Yếu Band 5.5</h4>
+    <div class="annotation"><strong>Từ vựng nghèo:</strong> "very popular", "big problem", "good things", "bad" — tất cả đều quá đơn giản. Không có AWL words.</div>
+    <div class="annotation"><strong>Thiếu cấu trúc phức tạp:</strong> Toàn câu đơn ngắn. Không có relative clauses, participle clauses, hay complex sentences.</div>
+    <div class="annotation"><strong>Ví dụ không cụ thể:</strong> "people read news on social media" — quá chung chung, không có evidence.</div>
+    <div class="annotation"><strong>Kết nối yếu:</strong> "First, Second, However" — discourse markers cơ bản, thiếu đa dạng.</div>
+    <div class="annotation"><strong>Task Response không rõ:</strong> Đề hỏi "to what extent agree/disagree" — bài trả lời mơ hồ, đứng cả hai phía.</div>
+
+    <h4 style="margin-top:28px">Bài Viết — Band 7.5 ✓</h4>
+    <div class="essay-box">
+      <div class="band-tag b7">Band 7.5 — Strong</div>
+      <p>Social media platforms have become integral to modern communication, yet their influence on society remains deeply contested. While I acknowledge certain advantages, I firmly believe that the negative ramifications of social media substantially outweigh its benefits, primarily due to its detrimental effects on mental health and the proliferation of misinformation.</p>
+      <p>The most significant concern is the well-documented link between excessive social media usage and deteriorating mental health, particularly among adolescents. Research conducted by the Royal Society for Public Health found that platforms such as Instagram are associated with increased rates of anxiety, depression, and low self-esteem. The constant exposure to curated, idealised representations of others' lives inevitably fosters social comparison, leading many users to feel chronically inadequate. This psychological toll represents a profound societal cost that cannot be overlooked.</p>
+      <p>Furthermore, social media has become a breeding ground for misinformation and societal polarisation. Algorithmic content curation prioritises engagement over accuracy, creating echo chambers in which users are repeatedly exposed to sensationalised content. The consequences have been demonstrably severe: during the COVID-19 pandemic, vaccine misinformation spread so rapidly that the WHO declared a parallel "infodemic," directly undermining public health efforts.</p>
+      <p>Admittedly, social media facilitates global connectivity and has empowered marginalised communities to amplify their voices. Movements such as #MeToo illustrate the platform's capacity for meaningful social change. Nevertheless, these benefits could theoretically be achieved through alternative channels, whereas the psychological and informational harms appear intrinsically tied to the addictive design of these platforms.</p>
+      <p>In conclusion, while social media offers undeniable connective value, its structural propensity to undermine mental wellbeing and distort public discourse renders it, on balance, a net negative for society. Regulatory intervention and platform redesign are urgently required to mitigate these harms.</p>
+    </div>
+
+    <h4>Phân Tích Điểm Mạnh Band 7.5</h4>
+    <div class="annotation"><strong>Task Response rõ ràng ngay từ đầu:</strong> "I firmly believe that the negative ramifications substantially outweigh its benefits" — lập trường rõ, không mơ hồ.</div>
+    <div class="annotation"><strong>AWL vocabulary:</strong> "ramifications", "proliferation", "detrimental", "demonstrably", "intrinsically", "propensity" — từ học thuật chính xác.</div>
+    <div class="annotation"><strong>Evidence cụ thể:</strong> "Royal Society for Public Health", "WHO declared a parallel infodemic" — evidence có nguồn, không chung chung.</div>
+    <div class="annotation"><strong>Nhượng bộ (concession) thông minh:</strong> Paragraph 4 thừa nhận disadvantage nhưng counter lại — đây là kỹ thuật band 7+.</div>
+    <div class="annotation"><strong>Cohesion đa dạng:</strong> "Furthermore", "Admittedly", "Nevertheless", "In conclusion" — variety tốt, không lặp lại.</div>
+    <div class="annotation"><strong>Complex grammar:</strong> "leading many users to feel", "whereas the psychological harms appear intrinsically tied to" — structures phức tạp, chính xác.</div>
+
+    <h4 style="margin-top:24px">So Sánh Từ Vựng Cùng Ý</h4>
+    <div class="t-wrap"><table>
+      <thead><tr><th>Band 5.5 (tránh)</th><th>Band 7.5 (dùng)</th></tr></thead>
+      <tbody>
+        <tr><td>"social media is bad"</td><td>"social media has detrimental effects on"</td></tr>
+        <tr><td>"big problem"</td><td>"profound societal cost" / "significant concern"</td></tr>
+        <tr><td>"spread false information"</td><td>"proliferation of misinformation"</td></tr>
+        <tr><td>"good things"</td><td>"undeniable connective value"</td></tr>
+        <tr><td>"makes people addicted"</td><td>"addictive design of these platforms"</td></tr>
+        <tr><td>"cause problems"</td><td>"directly undermining public health efforts"</td></tr>
+        <tr><td>"I think"</td><td>"I firmly believe" / "I maintain that"</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- Task 1 Sample -->
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">4.2</div>
+    <div><div class="unit-title">Task 1 — Bar Chart Model Answer với Annotations</div><div class="unit-meta">Band 7 — Năng lượng tái tạo tại 5 quốc gia</div></div>
+  </div>
+  <div class="unit-body">
+    <div style="background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:14px 18px;margin-bottom:16px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);margin-bottom:6px">Đề thi (mô phỏng)</div>
+      <div style="font-size:14px">The bar chart shows the percentage of electricity generated from renewable sources in five countries (Germany, France, UK, Japan, USA) in 2010 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</div>
+    </div>
+
+    <div class="essay-box">
+      <div class="band-tag b7">Band 7 Model Answer</div>
+      <p><strong>[Introduction — paraphrase đề, không copy]</strong><br/>The bar chart illustrates the proportion of electricity derived from renewable sources across five nations — Germany, France, the United Kingdom, Japan, and the United States — comparing figures from 2010 and 2020.</p>
+      <p><strong>[Overview — BẮT BUỘC, không có = tối đa Band 5]</strong><br/>Overall, renewable energy generation increased in all five countries over the decade, with Germany recording the most dramatic growth. Japan and the USA, while showing improvement, remained the lowest-ranking nations throughout the period.</p>
+      <p><strong>[Body 1 — nhóm các nước có điểm nổi bật]</strong><br/>Germany demonstrated the most substantial rise, climbing from approximately 17% in 2010 to around 42% in 2020 — an increase of roughly 25 percentage points. France also saw a notable improvement, growing from 13% to 24%. The United Kingdom experienced moderate growth, rising from 7% to 19% over the same period.</p>
+      <p><strong>[Body 2 — nhóm còn lại + so sánh]</strong><br/>By contrast, Japan and the USA recorded comparatively modest gains. Japan's share increased marginally from 9% to 15%, while the USA saw a slight rise from 10% to 17%. Despite this growth, both countries remained well below the European nations, with the USA's 2020 figure still lower than Germany's 2010 figure.</p>
+    </div>
+
+    <div class="annotation"><strong>Overview technique:</strong> Đặt ngay sau introduction, trước body. Nêu 2 main trends — nhóm tăng mạnh và nhóm tăng ít. KHÔNG nêu số liệu cụ thể trong overview.</div>
+    <div class="annotation"><strong>Data language:</strong> "climbing from... to", "roughly 25 percentage points", "comparatively modest gains", "marginally" — variety tốt, không lặp "increased".</div>
+    <div class="annotation"><strong>Comparison cuối:</strong> "the USA's 2020 figure still lower than Germany's 2010 figure" — đây là cross-comparison thông minh, examiners đánh giá cao.</div>
+    <div class="annotation"><strong>Word count:</strong> ~180 words — đúng yêu cầu (150 minimum). Đừng viết quá 200 — quality &gt; quantity.</div>
+  </div>
+</div>
+</section>
+
+<hr/>
+
+<!-- ═══ SECTION 5: IELTS SPEAKING ═══ -->
+<section id="speaking">
+<div class="sec-label">Unit 5 — IELTS Speaking</div>
+<h2>IELTS Speaking — Band Comparison & Model Answers</h2>
+<p class="sec-desc">So sánh câu trả lời Band 5 và Band 7.5 cùng câu hỏi — nghe sự khác biệt.</p>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">5.1</div>
+    <div><div class="unit-title">Part 1 — Band 5 vs Band 7.5</div><div class="unit-meta">Chủ đề: Work & Technology</div></div>
+  </div>
+  <div class="unit-body">
+    <h4>Câu hỏi: "Do you think technology has changed the way people work?"</h4>
+
+    <div style="margin-bottom:20px">
+      <div class="band-tag">Band 5 ❌</div>
+      <div class="dialogue">
+        <div class="d-line">
+          <div class="d-speaker">Band 5:</div>
+          <div>
+            <div class="d-text">"Yes, I think technology has changed the way people work. Now people use computers and internet. They can work from home. It is very convenient. I think it is good."</div>
+            <div class="d-note">❌ Quá ngắn. Câu đơn. Từ vựng đơn giản. Không có ví dụ cụ thể. Không elaborate.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="band-tag b7">Band 7.5 ✓</div>
+      <div class="dialogue">
+        <div class="d-line">
+          <div class="d-speaker">Band 7.5:</div>
+          <div>
+            <div class="d-text">"Absolutely — I'd say technology has fundamentally transformed the modern workplace. The most obvious shift is the rise of remote work. Before the pandemic, working from home was relatively rare, but now it's become standard practice in many industries. I work in marketing, and honestly, I can't imagine going back to the traditional 9-to-5 office setup. Tools like Slack and Zoom have made collaboration seamless, even across time zones. That said, I do think there's a downside — the boundaries between work and personal life have become increasingly blurred, which can be quite stressful over time."</div>
+            <div class="d-note">✓ Structured answer. Specific examples. Complex vocabulary. Concession at end. Natural connectors. ~100 words — perfect length for Part 1.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 style="margin-top:24px">Phân Tích Chi Tiết</h4>
+    <div class="t-wrap"><table>
+      <thead><tr><th>Tiêu chí</th><th>Band 5</th><th>Band 7.5</th></tr></thead>
+      <tbody>
+        <tr><td>Mở đầu</td><td>"Yes, I think..."</td><td>"Absolutely — I'd say technology has fundamentally..."</td></tr>
+        <tr><td>Lý do</td><td>"Now people use computers" (chung chung)</td><td>"The most obvious shift is the rise of remote work" (cụ thể)</td></tr>
+        <tr><td>Ví dụ cá nhân</td><td>Không có</td><td>"I work in marketing, and honestly..."</td></tr>
+        <tr><td>Concession</td><td>Không có</td><td>"That said, I do think there's a downside..."</td></tr>
+        <tr><td>Vocabulary</td><td>convenient, good, use</td><td>fundamentally transformed, seamless, blurred</td></tr>
+        <tr><td>Grammar range</td><td>Toàn simple present</td><td>Past perfect, conditional, present perfect continuous</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">5.2</div>
+    <div><div class="unit-title">Part 2 — Cue Card Model Answer (2 phút)</div><div class="unit-meta">Describe a time you learned something new</div></div>
+  </div>
+  <div class="unit-body">
+    <div style="background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:14px 18px;margin-bottom:16px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mu);margin-bottom:8px">Cue Card</div>
+      <div style="font-size:14px">Describe a time when you learned something new.<br/>You should say:<br/>— what you learned<br/>— how you learned it<br/>— why you decided to learn it<br/>— and explain how you felt about learning it.</div>
+    </div>
+
+    <div class="band-tag b7">Band 7.5 Model Answer</div>
+    <div class="dialogue">
+      <div class="d-line">
+        <div class="d-speaker">Opening:</div>
+        <div><div class="d-text">"I'd like to talk about the time I learned to play the guitar, which was about three years ago during the pandemic lockdown."</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">What + How:</div>
+        <div><div class="d-text">"I'd always admired people who could play instruments, but I'd never had the motivation to actually try. When the lockdown started and I suddenly had a lot of free time on my hands, I thought — why not? I bought a second-hand acoustic guitar and started following online tutorials on YouTube. I practiced for about 45 minutes every evening, starting with basic chords like G, C, and D."</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">Why:</div>
+        <div><div class="d-text">"My primary motivation was honestly just to stay mentally healthy during what was quite an isolating period. Music has always been a source of comfort for me, and I thought learning to create it myself would be even more therapeutic."</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">How felt:</div>
+        <div><div class="d-text">"The initial weeks were genuinely frustrating — my fingertips were sore from pressing the strings, and the chord transitions sounded clunky and awkward. But the moment I managed to play my first complete song, I felt an enormous sense of achievement. It's one of those skills where the progress is tangible — you can hear yourself improving, which is incredibly motivating."</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">Wrap-up:</div>
+        <div><div class="d-text">"Looking back, it's one of the most rewarding things I've done. It taught me that with consistent practice, you can acquire almost any skill — which is a mindset I now apply to many areas of my life."</div></div>
+      </div>
+    </div>
+
+    <div class="annotation"><strong>Time management:</strong> 5 blocks, mỗi block ~20-25 giây = tổng ~2 phút chính xác.</div>
+    <div class="annotation"><strong>Storytelling technique:</strong> Specific details ("45 minutes every evening", "G, C, D chords") — làm câu chuyện sống động, không mơ hồ.</div>
+    <div class="annotation"><strong>Emotion language:</strong> "genuinely frustrating", "enormous sense of achievement", "incredibly motivating" — examiner muốn nghe feelings.</div>
+    <div class="annotation"><strong>Reflection cuối:</strong> "Looking back, it taught me that..." — câu kết lấy điểm cao vì show depth of thought.</div>
+  </div>
+</div>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">5.3</div>
+    <div><div class="unit-title">Part 3 — Abstract Discussion Model Answers</div><div class="unit-meta">Chủ đề: Learning & Education</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="dialogue">
+      <div class="d-line">
+        <div class="d-speaker">Q:</div>
+        <div><div class="d-text" style="background:#2e3350">"Do you think formal education is more important than self-directed learning?"</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">A (7.5):</div>
+        <div><div class="d-text">"That's a fascinating tension, actually. I'd argue that the two are not mutually exclusive — in fact, the most effective learners tend to combine both. Formal education provides a structured foundation and credentials that open professional doors, which is undeniably important in a competitive job market. However, in a world where knowledge evolves so rapidly, formal curricula often lag behind industry needs. Self-directed learning fills that gap. Personally, I think the ability to teach yourself new skills is arguably more valuable than any degree in the long run."</div>
+          <div class="d-note">✓ Direct answer → nuanced position → both sides → personal view → strong conclusion.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dialogue" style="margin-top:16px">
+      <div class="d-line">
+        <div class="d-speaker">Q:</div>
+        <div><div class="d-text" style="background:#2e3350">"How has the internet changed the way people learn compared to previous generations?"</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">A (7.5):</div>
+        <div><div class="d-text">"The shift has been nothing short of revolutionary, I'd say. Previous generations were largely constrained by access — if you didn't live near a good library or university, your learning options were severely limited. The internet has democratised knowledge in an unprecedented way. Any motivated individual can now access world-class lectures from MIT or Harvard for free. That said, information abundance brings its own challenge: the ability to evaluate sources critically has become more important than ever. So while the internet has removed barriers to knowledge, it's placed greater demand on learners to develop their own judgment."</div>
+          <div class="d-note">✓ Uses contrast (previous vs now). AWL words: "constrained", "unprecedented", "democratised". Concession structure. Strong ending.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr/>
+
+<!-- ═══ SECTION 6: TOEIC PRACTICE ═══ -->
+<section id="toeic">
+<div class="sec-label">Unit 6 — TOEIC Practice</div>
+<h2>TOEIC Part 5 — 15 Grammar Questions</h2>
+<p class="sec-desc">Đúng format TOEIC. Chọn đáp án, nhận giải thích ngay. Target: hoàn thành trong 5 phút (20s/câu).</p>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">6.1</div>
+    <div><div class="unit-title">TOEIC Part 5 — Incomplete Sentences</div><div class="unit-meta">15 câu — Word Form, Tense, Preposition, Conjunction</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="score-bar" id="toeic-scorebar" style="display:none">
+      <div class="score-num" id="toeic-snum">0/15</div>
+      <div class="score-label">Điểm TOEIC Part 5</div>
+    </div>
+    <div id="toeic-quiz"></div>
+  </div>
+</div>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">6.2</div>
+    <div><div class="unit-title">TOEIC Part 7 — Reading Comprehension</div><div class="unit-meta">Business email + 4 câu hỏi</div></div>
+  </div>
+  <div class="unit-body">
+    <h4>Email — Read the following business email</h4>
+    <div class="passage">
+      <p><strong>From:</strong> sarah.chen@meridiantech.com<br/><strong>To:</strong> marketing-team@meridiantech.com<br/><strong>Subject:</strong> Q3 Campaign Budget Revision<br/><strong>Date:</strong> 14 November</p>
+      <p>Dear Team,</p>
+      <p>Following yesterday's board meeting, I wanted to update you on some changes to our Q3 marketing budget. Due to stronger-than-anticipated revenue in the first half of the year, the finance committee has approved an additional allocation of $45,000 for digital marketing activities.</p>
+      <p>I propose we allocate the majority of these funds — approximately $30,000 — toward expanding our social media advertising across LinkedIn and Instagram, focusing particularly on the 25–40 age demographic. The remaining $15,000 should be reserved for the product launch event scheduled for 8 December.</p>
+      <p>Please review the attached revised budget spreadsheet and send me your feedback by end of business on Friday. I would also like to arrange a brief call on Thursday afternoon at 3pm to discuss implementation. Please confirm your availability.</p>
+      <p>Best regards,<br/>Sarah Chen<br/>Director of Marketing</p>
+    </div>
+    <div id="email-quiz"></div>
+  </div>
+</div>
+</section>
+
+<hr/>
+
+<!-- ═══ SECTION 7: DIALOGUES ═══ -->
+<section id="dialogue">
+<div class="sec-label">Unit 7 — Hội Thoại Thực Tế</div>
+<h2>Professional Dialogues — Framework trong Thực Tế</h2>
+<p class="sec-desc">Xem các framework (PREP, ACS, DESC) được dùng trong hội thoại thực tế — chú ý cách chuyển tiếp tự nhiên.</p>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">7.1</div>
+    <div><div class="unit-title">Disagreeing in a Meeting — ACS Framework</div><div class="unit-meta">Business meeting: budget discussion</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="dialogue">
+      <div class="d-line">
+        <div class="d-speaker">Manager:</div>
+        <div><div class="d-text">"I think we should cut the training budget by 40% this quarter. We need to focus resources on the product launch."</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">You (ACS):</div>
+        <div>
+          <div class="d-text"><strong>[A — Acknowledge]</strong> "I completely understand the priority around the launch — it's clearly critical for Q3 targets. <strong>[C — Counter]</strong> That said, I'm a bit concerned about the timing of a training cut. Our team has been dealing with a fairly steep learning curve on the new CRM, and reducing support now could actually slow down the launch preparation itself. <strong>[S — State view]</strong> My suggestion would be to keep the training budget intact this quarter and look at optimising it in Q4 once the launch pressure eases."</div>
+          <div class="d-note">ACS = Acknowledge → Counter → State. Không reject thẳng, không aggressive, nhưng vẫn nêu quan điểm rõ ràng.</div>
+        </div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">Manager:</div>
+        <div><div class="d-text">"That's a fair point about the CRM. What if we defer the cut rather than cancel it?"</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">You:</div>
+        <div><div class="d-text">"That works for me. A deferral to Q4 gives us the runway we need. I can put together a quick analysis of training ROI to support that recommendation for the finance committee if that would help."</div>
+          <div class="d-note">✓ Accept compromise gracefully. Offer to help = builds credibility. Volunteering = proactive professional.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">7.2</div>
+    <div><div class="unit-title">Giving Difficult Feedback — DESC Script</div><div class="unit-meta">1-on-1 với đồng nghiệp về vấn đề deadline</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="dialogue">
+      <div class="d-line">
+        <div class="d-speaker">You (DESC):</div>
+        <div>
+          <div class="d-text"><strong>[D — Describe]</strong> "Hey James, do you have a few minutes? I wanted to talk about the last three project reports. <strong>[E — Express]</strong> When they came in after the Friday 5pm deadline, I found it quite difficult to review them properly before our Monday client call — which put me in a bit of a tough spot. <strong>[S — Specify]</strong> What I'd really appreciate going forward is having them by 3pm on Fridays instead. <strong>[C — Consequence]</strong> That way I can give you more thorough feedback, and our presentations will be much stronger for the client."</div>
+          <div class="d-note">DESC = Describe (behavior, not person) → Express (feelings) → Specify (request) → Consequence (benefit). Không blame, không emotional.</div>
+        </div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">James:</div>
+        <div><div class="d-text">"You're right, I'm sorry about that. Fridays are hectic for me. Would it work if I sent a draft by 3pm and flagged any parts that need more time?"</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">You:</div>
+        <div><div class="d-text">"That sounds like a great solution, actually. A draft with flags is much easier to work with than nothing at all. Let's go with that."</div>
+          <div class="d-note">✓ Accept compromise. "That sounds like a great solution" = genuine acknowledgement, not patronising.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="unit">
+  <div class="unit-header">
+    <div class="unit-num">7.3</div>
+    <div><div class="unit-title">Networking Small Talk — FORD Method</div><div class="unit-meta">Conference event, gặp người lần đầu</div></div>
+  </div>
+  <div class="unit-body">
+    <div class="dialogue">
+      <div class="d-line">
+        <div class="d-speaker">You:</div>
+        <div><div class="d-text">"Hi, I don't think we've met — I'm Minh, I work in product development at TechBase."</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">Sarah:</div>
+        <div><div class="d-text">"Oh nice to meet you, Minh. I'm Sarah — I'm in UX design over at Meridian."</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">You (O):</div>
+        <div><div class="d-text">"UX design — that's fascinating. How long have you been in that space?"</div>
+          <div class="d-note">O = Occupation. Đặt câu hỏi mở, không yes/no.</div>
+        </div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">Sarah:</div>
+        <div><div class="d-text">"About six years now. I started in graphic design and sort of evolved into UX. Are you enjoying the conference?"</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">You:</div>
+        <div><div class="d-text">"I really am — the morning session on AI integration was eye-opening. What did you think of it? Given your background in UX, you'd have a pretty interesting take on the human-centred design angle."</div>
+          <div class="d-note">✓ Follow-up question tailored to THEIR expertise → họ cảm thấy được trân trọng, sẽ mở ra nhiều hơn.</div>
+        </div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">Sarah:</div>
+        <div><div class="d-text">"Ha, yes — I had mixed feelings. The AI capabilities are impressive, but I worry designers are being sold a black box they don't fully understand..."</div></div>
+      </div>
+      <div class="d-line">
+        <div class="d-speaker">You (kết thúc):</div>
+        <div><div class="d-text">"That's a really valid concern — I'd love to hear more about your perspective. Would you be up for grabbing coffee during the break? I think there's a lot our teams could learn from each other."</div>
+          <div class="d-note">✓ Kết thúc với concrete next step (coffee). Không chỉ "let's keep in touch" — quá vague.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+</div><!-- end wrap -->
+
+<footer>
+  <p>English Lessons — Interactive Practice · Bài tập thực tế có đáp án & giải thích · 2026</p>
+</footer>
+
+<script>
+// ═══════════════════════════════════
+// QUIZ ENGINE
+// ═══════════════════════════════════
+let scores = {};
+
+function makeQuiz(containerId, questions, scoreId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  scores[containerId] = { correct: 0, total: questions.length, answered: 0 };
+  let html = '';
+  questions.forEach((q, qi) => {
+    html += `<div class="quiz" id="${containerId}-q${qi}">
+      <div class="q-text">Câu ${qi + 1}. ${q.question}</div>
+      ${q.context ? `<div class="q-context">${q.context}</div>` : ''}
+      <div class="opts">`;
+    q.options.forEach((opt, oi) => {
+      html += `<button class="opt" onclick="selectOpt('${containerId}',${qi},${oi},${q.answer},'${containerId}-exp${qi}','${scoreId}')">${String.fromCharCode(65+oi)}) ${opt}</button>`;
+    });
+    html += `</div>
+      <div class="explanation" id="${containerId}-exp${qi}"><strong>Giải thích:</strong> ${q.explanation}</div>
+    </div>`;
+  });
+  container.innerHTML = html;
+}
+
+function selectOpt(cid, qi, oi, answer, expId, scoreId) {
+  const container = document.getElementById(`${cid}-q${qi}`);
+  const opts = container.querySelectorAll('.opt');
+  if (opts[0].disabled) return;
+  opts.forEach((o, i) => {
+    o.disabled = true;
+    if (i === answer) o.classList.add('correct');
+    else if (i === oi && oi !== answer) o.classList.add('wrong');
+  });
+  document.getElementById(expId).classList.add('show');
+  if (oi === answer) scores[cid].correct++;
+  scores[cid].answered++;
+  if (scoreId && scores[cid].answered === scores[cid].total) {
+    const bar = document.getElementById(scoreId);
+    if (bar) {
+      bar.style.display = 'flex';
+      const num = bar.querySelector('[id$="-snum"]') || bar.querySelector('.score-num');
+      if (num) num.textContent = `${scores[cid].correct}/${scores[cid].total}`;
+    }
+  }
+}
+
+// ═══════════════════════════════════
+// PRESENT PERFECT QUIZ
+// ═══════════════════════════════════
+makeQuiz('pp-quiz', [
+  { question: 'She _____ the report. You can review it now.',
+    options: ['finished', 'has finished', 'had finished', 'was finishing'],
+    answer: 1,
+    explanation: '"Has finished" → present perfect vì kết quả CÒN LIÊN QUAN đến hiện tại ("you can review it now"). Simple past "finished" không có link đến hiện tại.' },
+  { question: 'I _____ in Hanoi for three years when I was a student.',
+    options: ['lived', 'have lived', 'have been living', 'was living'],
+    answer: 0,
+    explanation: '"Lived" → simple past vì "when I was a student" xác định đây là khoảng thời gian ĐÃ KẾT THÚC. Present perfect không dùng với past time expressions.' },
+  { question: '_____ you _____ the new policy email yet?',
+    options: ['Did / read', 'Have / read', 'Do / read', 'Were / reading'],
+    answer: 1,
+    explanation: '"Have you read... yet?" → present perfect + "yet" = hỏi về something that may or may not have happened up to NOW. "Did you read?" thiếu tự nhiên trong context này.' },
+  { question: 'The company _____ five offices in Asia since 2015.',
+    options: ['opened', 'has opened', 'opens', 'had opened'],
+    answer: 1,
+    explanation: '"Has opened" → present perfect + "since 2015" = hành động xảy ra nhiều lần TỪ 2015 ĐẾN NAY, vẫn còn relevant. "Opened" chỉ nói về 1 lần trong quá khứ.' },
+  { question: 'He _____ the presentation when the fire alarm went off.',
+    options: ['has prepared', 'prepared', 'was preparing', 'had prepared'],
+    answer: 2,
+    explanation: '"Was preparing" → past continuous = hành động đang diễn ra (preparing) thì bị gián đoạn bởi simple past event (alarm went off). Pattern: was/were + -ing + when + simple past.' },
+  { question: 'We _____ this supplier before. They are very reliable.',
+    options: ['used', 'have used', 'were using', 'had used'],
+    answer: 1,
+    explanation: '"Have used" → present perfect = kinh nghiệm trong quá khứ ảnh hưởng đến NHẬN XÉT HIỆN TẠI ("they are reliable"). Không có specific time given.' },
+  { question: 'By the time she arrived, the meeting _____ already _____.',
+    options: ['has / started', 'have / started', 'had / started', 'was / starting'],
+    answer: 2,
+    explanation: '"Had started" → past perfect = hành động xảy ra TRƯỚC một hành động khác trong quá khứ. "By the time she arrived" = trigger cho past perfect.' },
+  { question: '_____ you hear about the merger? It was announced this morning.',
+    options: ['Have', 'Did', 'Do', 'Had'],
+    answer: 0,
+    explanation: '"Have you heard" → present perfect vì tin tức "this morning" vẫn còn MỚI và RELEVANT. "Did you hear" cũng chấp nhận được nhưng "have you heard" tự nhiên hơn khi tin vừa xảy ra.' }
+], 'pp-score');
+
+// ═══════════════════════════════════
+// MODAL VERBS QUIZ
+// ═══════════════════════════════════
+makeQuiz('modal-quiz', [
+  { question: 'Bạn cần file từ đồng nghiệp. Cách nói nào lịch sự nhất trong email công việc?',
+    options: [
+      'Send me the file.',
+      'Can you send me the file?',
+      'Could you possibly send me the file when you get a chance?',
+      'I want the file.'
+    ],
+    answer: 2,
+    explanation: '"Could you possibly... when you get a chance?" là lịch sự nhất — "possibly" và "when you get a chance" đều là softeners. Trong email professional, level lịch sự này là chuẩn mực.' },
+  { question: 'Bạn muốn đề xuất ý kiến trong meeting mà không nghe áp đặt:',
+    options: [
+      'You should use this approach.',
+      'You might want to consider this approach.',
+      'Use this approach.',
+      'You must try this approach.'
+    ],
+    answer: 1,
+    explanation: '"You might want to consider" = softened suggestion. "Should" nghe như advice áp đặt, "must" nghe như lệnh. "Might want to consider" gives the other person agency.' },
+  { question: 'Bạn chưa chắc về thông tin và muốn hedging khi nói:',
+    options: [
+      'The meeting is on Tuesday.',
+      'The meeting will be on Tuesday.',
+      'The meeting should be on Tuesday.',
+      'The meeting might be on Tuesday — let me double-check.'
+    ],
+    answer: 3,
+    explanation: '"Might be... let me double-check" = honest hedging. Nếu không chắc mà nói chắc → mất credibility khi sai. Hedging + offering to verify = professional behavior.' },
+  { question: 'Bạn muốn hỏi xin gặp sếp mà không nghe đòi hỏi:',
+    options: [
+      'I need to meet with you.',
+      'Can I meet with you?',
+      'I was wondering if you might have some time to meet this week?',
+      'Meet with me this week.'
+    ],
+    answer: 2,
+    explanation: '"I was wondering if you might have some time" = lịch sự nhất vì: (1) past tense "was wondering" tạo distance, (2) "might" = modal uncertainty, (3) phrase structure nghe như request, không phải demand.' },
+  { question: 'Bạn muốn suggest ai đó reconsider một quyết định mà không gây offend:',
+    options: [
+      'That is a bad idea.',
+      'You are wrong about this.',
+      'It might be worth reconsidering this — there are a few factors we haven\'t fully explored yet.',
+      'Don\'t do that.'
+    ],
+    answer: 2,
+    explanation: '"It might be worth reconsidering" là diplomatic masterclass: (1) "It" không blame người, (2) "might" hedges, (3) "worth reconsidering" không nói là sai, (4) đưa ra reason để giải thích.' },
+  { question: 'Deadline quan trọng. Bạn muốn làm rõ ai phụ trách mà không sound accusatory:',
+    options: [
+      'Who is responsible for this?',
+      'Whose fault is this?',
+      'I wanted to clarify who\'s taking ownership of this before Friday\'s deadline.',
+      'You need to be responsible.'
+    ],
+    answer: 2,
+    explanation: '"I wanted to clarify who\'s taking ownership" = professional + non-accusatory. "Ownership" sounds positive (empowering). Past tense "wanted" và "clarify" → collaborative, not confrontational.' }
+], null);
+
+// ═══════════════════════════════════
+// WORD FORM EXERCISES
+// ═══════════════════════════════════
+const wfData = [
+  { sentence: 'The company reported a significant ___ (IMPROVE) in sales this quarter.', answer: 'improvement', hint: 'IMPROVE → ___ment (noun)' },
+  { sentence: 'Her ___ (ANALYSE) of the data revealed several unexpected patterns.', answer: 'analysis', hint: 'ANALYSE → analysis (noun, irregular)' },
+  { sentence: 'The new regulations are ___ (EFFECT) from January 2025.', answer: 'effective', hint: 'EFFECT → ___ive (adjective)' },
+  { sentence: 'We need to work more ___ (EFFICIENT) to meet the deadline.', answer: 'efficiently', hint: 'EFFICIENT → ___ly (adverb)' },
+  { sentence: 'The merger created significant ___ (REDUNDANT) across both teams.', answer: 'redundancies', hint: 'REDUNDANT → redundanc___y → plural' },
+  { sentence: 'She made a ___ (DECIDE) to resign after the restructuring.', answer: 'decision', hint: 'DECIDE → deci___sion (noun)' },
+  { sentence: 'The proposal was ___ (REJECT) by the board without explanation.', answer: 'rejected', hint: 'REJECT → ___ed (past passive)' },
+  { sentence: 'His presentation was ___ (PERSUADE) enough to change several minds.', answer: 'persuasive', hint: 'PERSUADE → ___ive (adjective)' },
+  { sentence: 'The ___ (DEVELOP) of new products requires cross-team collaboration.', answer: 'development', hint: 'DEVELOP → ___ment (noun)' },
+  { sentence: 'All employees must act ___ (PROFESSION) in client meetings.', answer: 'professionally', hint: 'PROFESSION → professional → ___ly (adverb)' }
+];
+
+const wfContainer = document.getElementById('wordform-ex');
+if (wfContainer) {
+  wfContainer.innerHTML = wfData.map((item, i) =>
+    `<div class="fill-ex">
+      <div class="fill-sent">${i+1}. ${item.sentence.replace(/\(([A-Z]+)\)/, '(<strong>$1</strong>)')} <input class="fill-input" id="wf-${i}" placeholder="điền vào..." data-answer="${item.answer}"/></div>
+      <div id="wf-hint-${i}" style="font-size:12px;color:var(--mu);display:none">💡 Hint: ${item.hint}</div>
+    </div>`
+  ).join('');
+}
+
+function checkWordForms() {
+  let correct = 0;
+  wfData.forEach((item, i) => {
+    const input = document.getElementById(`wf-${i}`);
+    const hint = document.getElementById(`wf-hint-${i}`);
+    if (!input) return;
+    const val = input.value.trim().toLowerCase();
+    input.classList.remove('ok', 'bad');
+    if (val === item.answer.toLowerCase()) { input.classList.add('ok'); correct++; }
+    else { input.classList.add('bad'); input.value = item.answer; if(hint) hint.style.display = 'block'; }
+  });
+  alert(`Kết quả: ${correct}/${wfData.length}. Các ô đỏ đã được điền đáp án đúng.`);
+}
+
+// ═══════════════════════════════════
+// GERUND VS INFINITIVE
+// ═══════════════════════════════════
+makeQuiz('gerund-quiz', [
+  { question: 'I suggest _____ the meeting to next week.',
+    options: ['to postpone', 'postponing', 'postpone', 'postponed'],
+    answer: 1,
+    explanation: 'SUGGEST + gerund (-ing). Không bao giờ dùng "suggest to do". Cách nhớ: "I suggest DOING" — suggest luôn đi với -ing.' },
+  { question: 'She managed _____ the project on time despite the obstacles.',
+    options: ['finishing', 'to finish', 'finish', 'finished'],
+    answer: 1,
+    explanation: 'MANAGE + infinitive (to + verb). "She managed to finish" = succeeded in finishing. Manage luôn đi với to-infinitive.' },
+  { question: 'We recommend _____ a lawyer before signing the contract.',
+    options: ['to consult', 'consult', 'consulting', 'consulted'],
+    answer: 2,
+    explanation: 'RECOMMEND + gerund (-ing). Như suggest, recommend không đi với to-infinitive. "We recommend consulting" = đúng.' },
+  { question: 'I remember _____ the email yesterday. It is definitely sent.',
+    options: ['to send', 'send', 'sending', 'sent'],
+    answer: 2,
+    explanation: 'REMEMBER + gerund = nhớ LẠI hành động ĐÃ XẢY RA. Remember + infinitive = nhớ PHẢI LÀM. Câu này nói email đã gửi rồi → gerund.' },
+  { question: 'Would you mind _____ the window? It\'s quite cold in here.',
+    options: ['to close', 'close', 'closing', 'closed'],
+    answer: 2,
+    explanation: 'WOULD YOU MIND + gerund (-ing). Pattern cố định. "Would you mind closing?" = polite request. Không dùng "mind to close".' },
+  { question: 'The company decided _____ operations in the European market.',
+    options: ['expanding', 'expand', 'to expand', 'expanded'],
+    answer: 2,
+    explanation: 'DECIDE + infinitive (to + verb). "Decided to expand" = đúng. Các động từ decision-making (decide, choose, plan, agree, refuse) thường đi với to-infinitive.' }
+], null);
+
+// ═══════════════════════════════════
+// PRECISION VERBS QUIZ
+// ═══════════════════════════════════
+makeQuiz('precision-quiz', [
+  { question: 'The manager _____ that the report contained several errors.',
+    context: 'Context: The manager drew attention to problems, not giving an opinion.',
+    options: ['said', 'pointed out', 'argued', 'suggested'],
+    answer: 1,
+    explanation: '"Pointed out" = chỉ ra vấn đề một cách khách quan. "Argued" nghĩa là lập luận bảo vệ quan điểm. "Suggested" = đề xuất nhẹ nhàng. "Said" quá chung chung.' },
+  { question: 'Despite initial resistance, she eventually _____ that the budget cuts were necessary.',
+    context: 'Context: She admitted something reluctantly.',
+    options: ['argued', 'suggested', 'conceded', 'pointed out'],
+    answer: 2,
+    explanation: '"Conceded" = nhượng bộ, thừa nhận điều mình không muốn thừa nhận. Perfect choice khi "despite initial resistance" cho thấy sự do dự trước đó.' },
+  { question: 'The CEO _____ that customer satisfaction was the company\'s top priority.',
+    context: 'Context: He stressed the importance strongly and repeatedly.',
+    options: ['mentioned', 'said', 'suggested', 'emphasized'],
+    answer: 3,
+    explanation: '"Emphasized" = nhấn mạnh tầm quan trọng. "Mentioned" nghĩa là đề cập nhẹ, không strong. "Emphasized" fits "top priority" — cần từ mạnh hơn.' },
+  { question: 'The new software will _____ the invoicing process significantly.',
+    context: 'Context: Making the process faster and more efficient.',
+    options: ['do', 'handle', 'streamline', 'manage'],
+    answer: 2,
+    explanation: '"Streamline" = làm cho quy trình mượt mà, loại bỏ những bước không cần thiết. Đây là collocation chuẩn trong business: "streamline a process".' },
+  { question: 'Some researchers _____ that the study\'s methodology was flawed.',
+    context: 'Context: They made a strong claim, possibly controversial.',
+    options: ['said', 'mentioned', 'contend', 'noted'],
+    answer: 2,
+    explanation: '"Contend" = lập luận mạnh mẽ, bảo vệ quan điểm. Dùng trong academic context. "Argue" cũng đúng nhưng "contend" formal hơn, phù hợp hơn với "researchers".' },
+  { question: 'We need to _____ the concerns raised by the client before the presentation.',
+    context: 'Context: Deal with and respond to the concerns properly.',
+    options: ['say something about', 'tackle', 'address', 'mention'],
+    answer: 2,
+    explanation: '"Address" = xử lý một cách toàn diện và chính thức. Collocation chuẩn: "address concerns/issues". "Tackle" cũng đúng nhưng "address concerns" là cụm cố định hơn.' },
+  { question: 'The findings _____ a strong correlation between sleep and academic performance.',
+    context: 'Context: The data shows this connection objectively.',
+    options: ['say', 'indicate', 'argue', 'contend'],
+    answer: 1,
+    explanation: '"Indicate" = cho thấy, gợi ý (dùng cho data, evidence). "Findings indicate" là collocation chuẩn trong academic writing. "Argue/contend" dùng cho người, không phải data.' },
+  { question: 'She _____ the credit for the team\'s success to everyone\'s hard work.',
+    context: 'Context: She said the success was because of hard work.',
+    options: ['argued', 'attributed', 'indicated', 'emphasized'],
+    answer: 1,
+    explanation: '"Attributed... to" = quy nguyên nhân cho. "She attributed the success to hard work" = standard phrase. Collocation: "attribute X to Y" = claim Y caused X.' }
+], null);
+
+// ═══════════════════════════════════
+// COLLOCATIONS QUIZ
+// ═══════════════════════════════════
+makeQuiz('colloc-quiz', [
+  { question: 'In the meeting, she _____ a concern about the project timeline.',
+    options: ['made', 'raised', 'took', 'set'],
+    answer: 1,
+    explanation: '"Raised a concern" = collocation chuẩn. "Make a concern" là sai. Raise = đưa vấn đề lên bàn thảo luận.' },
+  { question: 'The new manager immediately _____ expectations with the team.',
+    options: ['raised', 'made', 'set', 'built'],
+    answer: 2,
+    explanation: '"Set expectations" = collocation chuẩn. Nghĩa: xác định rõ những gì được mong đợi. "Set the tone/stage/boundaries" — "set" dùng cho việc establishing things.' },
+  { question: 'We need to _____ progress on the proposal before Monday.',
+    options: ['do', 'make', 'take', 'build'],
+    answer: 1,
+    explanation: '"Make progress" = collocation cố định. Không dùng "do progress" hay "have progress". Cũng: make an impact, make assumptions, make a point.' },
+  { question: 'It\'s important that someone _____ ownership of this project.',
+    options: ['makes', 'sets', 'takes', 'builds'],
+    answer: 2,
+    explanation: '"Take ownership" = collocation chuẩn. Nghĩa: nhận trách nhiệm. Also: take responsibility, take the initiative, take a step back.' },
+  { question: 'The marketing campaign helped _____ momentum for the product launch.',
+    options: ['make', 'take', 'raise', 'build'],
+    answer: 3,
+    explanation: '"Build momentum" = collocation. Cũng: build rapport (xây dựng mối quan hệ), build consensus, build credibility. "Build" = develop gradually.' },
+  { question: 'She _____ an impressive case for expanding into new markets.',
+    options: ['took', 'made', 'raised', 'set'],
+    answer: 1,
+    explanation: '"Made a case" = presented arguments convincingly. "Make a case for something" = lập luận ủng hộ điều gì. Không dùng "build a case" trong context này (legal language).' },
+  { question: 'Could you _____ me in the loop about any updates?',
+    options: ['put', 'keep', 'make', 'set'],
+    answer: 1,
+    explanation: '"Keep someone in the loop" = collocation chuẩn nghĩa là tiếp tục thông báo cho ai đó. "Put someone in the loop" cũng đúng nhưng ít phổ biến hơn.' },
+  { question: 'Before making a decision, let\'s _____ a step back and consider all options.',
+    options: ['make', 'take', 'do', 'have'],
+    answer: 1,
+    explanation: '"Take a step back" = collocation. Nghĩa: dừng lại, nhìn toàn cục trước khi quyết định. Cũng: take stock, take initiative, take responsibility.' }
+], null);
+
+// ═══════════════════════════════════
+// AWL QUIZ
+// ═══════════════════════════════════
+makeQuiz('awl-quiz', [
+  { question: 'The study _____ a significant link between diet and cognitive performance.',
+    options: ['said', 'told', 'established', 'mentioned'],
+    answer: 2,
+    explanation: '"Established" (AWL) = chứng minh một cách rõ ràng. "The study established a link" = academic standard phrase. Stronger than "showed" or "found".' },
+  { question: 'The new policy will _____ a fundamental change in how the company operates.',
+    options: ['do', 'make', 'constitute', 'perform'],
+    answer: 2,
+    explanation: '"Constitute" (AWL) = hợp thành, đại diện cho. "This constitutes a significant change" = formal way to say "this IS a significant change". Elevates register.' },
+  { question: 'These factors _____ to the rapid spread of misinformation online.',
+    options: ['help', 'do', 'contribute', 'make'],
+    answer: 2,
+    explanation: '"Contribute to" (AWL collocation) = góp phần vào. "Factors contribute to X" là pattern chuẩn trong academic writing. "Contribute to" mang sắc thái cause-effect.' },
+  { question: 'The results _____ that the traditional approach may be outdated.',
+    options: ['show', 'say', 'suggest', 'tell'],
+    answer: 2,
+    explanation: '"Suggest" (AWL) = gợi ý, cho thấy (with some uncertainty). "Results suggest" = hedged academic claim. "Results show" is stronger — use when evidence is conclusive.' },
+  { question: 'Urban planning decisions have significant _____ for future generations.',
+    options: ['effects', 'implications', 'results', 'consequences'],
+    answer: 1,
+    explanation: '"Implications" (AWL) = những hệ quả và ý nghĩa sâu xa, chưa được nói thẳng ra. "This has implications for X" = standard academic phrase. Richer than "effects".' },
+  { question: 'The researcher _____ the data using three different statistical methods.',
+    options: ['looked at', 'checked', 'analysed', 'tested'],
+    answer: 2,
+    explanation: '"Analysed" (AWL) = phân tích chuyên sâu. In academic writing: "data were analysed", not "data were looked at". "Analyse" implies systematic, rigorous examination.' }
+], null);
+
+// ═══════════════════════════════════
+// T/F/NG QUIZ
+// ═══════════════════════════════════
+makeQuiz('tfng-quiz', [
+  { question: 'The University of Exeter study included participants from across England.',
+    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
+    answer: 0,
+    explanation: 'TRUE — Bài nói: "analysed data from over 19,000 participants across England". "Across England" xác nhận statement này.' },
+  { question: 'The mental health benefits were only observed among participants who regularly visited local parks.',
+    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
+    answer: 1,
+    explanation: 'FALSE — Bài nói ngược lại: "benefits persisted regardless of whether participants actively used the green spaces or merely lived in proximity to them." Không cần sử dụng, chỉ cần sống gần.' },
+  { question: 'All types of urban green spaces provide equal psychological benefits.',
+    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
+    answer: 1,
+    explanation: 'FALSE — Bài nói rõ: "Not all urban green spaces confer equal benefits." Biodiversity đóng vai trò quan trọng — parks có nhiều loài sinh vật tốt hơn monoculture spaces.' },
+  { question: 'The Exeter researchers accounted for participants\' income levels in their analysis.',
+    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
+    answer: 0,
+    explanation: 'TRUE — "controlling for socioeconomic factors" = kiểm soát các yếu tố kinh tế xã hội (bao gồm income) trong phân tích. "Socioeconomic" = relating to both social and economic factors.' },
+  { question: 'Long-term studies tracking individuals over many years are widely available in this research area.',
+    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
+    answer: 1,
+    explanation: 'FALSE — Bài nói: "longitudinal research tracking individuals over extended periods remains scarce." "Scarce" = hiếm, đối lập với "widely available".' },
+  { question: 'The article recommends that governments should fund more green space research.',
+    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
+    answer: 2,
+    explanation: 'NOT GIVEN — Bài nói city planners should incorporate green spaces, nhưng KHÔNG đề cập chính phủ nên tài trợ nghiên cứu. Đừng suy luận thêm từ những gì bài không nói.' },
+  { question: 'Some scientists question whether green spaces directly cause improved mental health.',
+    options: ['TRUE', 'FALSE', 'NOT GIVEN'],
+    answer: 0,
+    explanation: 'TRUE — "the direction of causality is not always clear — it is possible that mentally healthier individuals are more inclined to seek out green environments." Critics question the causal direction.' }
+], null);
+
+// ═══════════════════════════════════
+// HEADING MATCHING
+// ═══════════════════════════════════
+makeQuiz('heading-quiz', [
+  { question: 'Đoạn mô tả: "Critics point to methodological limitations... many studies rely on self-reported wellbeing data... longitudinal research remains scarce... direction of causality is not always clear."',
+    options: [
+      'A. The link between biodiversity and mental wellbeing',
+      'B. Challenges and limitations of existing research',
+      'C. Policy recommendations for urban development',
+      'D. Initial evidence from the Exeter study'
+    ],
+    answer: 1,
+    explanation: 'B. Đoạn này toàn nói về problems với research: self-reported data, scarcity of longitudinal studies, causality questions. = "Challenges and limitations". Heading không cần dùng từ trong bài — phải paraphrase.' },
+  { question: 'Đoạn mô tả: "people living within 300 metres of green space reported lower stress... 19,000 participants... benefits persisted regardless of whether participants actively used the spaces."',
+    options: [
+      'A. Proximity as a key factor in wellbeing outcomes',
+      'B. The importance of using green spaces',
+      'C. Funding for urban green spaces',
+      'D. Biodiversity and psychological restoration'
+    ],
+    answer: 0,
+    explanation: 'A. Main idea = living NEAR green space (không cần dùng) → reduced stress. "Proximity" = living near. Bẫy: Option B sai vì benefits không require active use.' },
+  { question: 'Đoạn mô tả: "Participants who visited parks with greater species variety reported higher psychological restoration than those who frequented monoculture green spaces... significant implications for urban planning."',
+    options: [
+      'A. The need for more urban parks',
+      'B. Benefits of all green spaces',
+      'C. Species diversity and its role in mental health',
+      'D. Government investment in ecology'
+    ],
+    answer: 2,
+    explanation: 'C. Main idea: biodiversity (species variety) → better mental health. "Implications for urban planning" = secondary point. Option A quá broad, D không đề cập trong đoạn.' },
+  { question: 'Đoạn cuối: "the weight of evidence suggests genuine psychological benefits... city planners would be well-advised to incorporate green space provisions... not merely as aesthetic amenities, but as essential infrastructure."',
+    options: [
+      'A. A call for legislative reform',
+      'B. Green spaces as necessary public health infrastructure',
+      'C. Aesthetic benefits of urban nature',
+      'D. International comparisons of green space policy'
+    ],
+    answer: 1,
+    explanation: 'B. "Essential infrastructure for public mental health" là main point. Bẫy: Option C là FALSE — bài nói "NOT merely aesthetic". D không đề cập trong đoạn này.' }
+], null);
+
+// ═══════════════════════════════════
+// TOEIC PART 5 QUIZ
+// ═══════════════════════════════════
+makeQuiz('toeic-quiz', [
+  { question: 'The marketing team is responsible _____ developing new client campaigns.',
+    options: ['of', 'for', 'with', 'to'],
+    answer: 1,
+    explanation: '"Responsible FOR" = collocation cố định. Không bao giờ dùng "responsible of". Nhóm preposition cố định: responsible FOR, consist OF, comply WITH, result IN.' },
+  { question: 'The conference was postponed _____ the unexpected storm.',
+    options: ['because', 'due to', 'since', 'although'],
+    answer: 1,
+    explanation: '"Due to" + noun phrase. "Because" + clause (subject + verb). "Due to the storm" đúng. "Because the storm" sai (thiếu verb). Chiến lược Part 5: nhìn ngay sau blank — noun hay clause?' },
+  { question: 'Ms. Chen has worked at the company _____ 2019.',
+    options: ['for', 'during', 'since', 'while'],
+    answer: 2,
+    explanation: '"Since" + point in time (2019 = specific year). "For" + duration (for 5 years). "Since 2019" = từ năm 2019 đến bây giờ. Kết hợp với present perfect.' },
+  { question: 'The annual reports will be _____ to shareholders next month.',
+    options: ['distribute', 'distributes', 'distributed', 'distributing'],
+    answer: 2,
+    explanation: '"Will be distributed" = future passive. Nhìn structure: "will be + ___" → cần past participle (distributed). Test nhanh: "will be" sau → -ed form.' },
+  { question: 'Sales figures last quarter were ___ than projected.',
+    options: ['high', 'higher', 'highest', 'highly'],
+    answer: 1,
+    explanation: '"Higher than" = comparative. Pattern: adjective + "-er" + "than". "Highest" là superlative (dùng với "the"). "Highly" là adverb (sai loại từ ở đây).' },
+  { question: 'The company is considering _____ its Asian operations.',
+    options: ['to expand', 'expand', 'expanding', 'expanded'],
+    answer: 2,
+    explanation: '"Consider + gerund (-ing)". Danh sách cần nhớ: consider/suggest/recommend/avoid/keep/enjoy/mind → tất cả đi với -ing. "Considering expanding" = đúng.' },
+  { question: '_____ the project was delivered on time, the client was not fully satisfied.',
+    options: ['Despite', 'Although', 'Because', 'However'],
+    answer: 1,
+    explanation: '"Although" + clause (subject + verb). "Despite" + noun/gerund ("Despite delivering on time"). Blank sau có complete clause → cần conjunction, không phải preposition.' },
+  { question: 'All staff must comply _____ the new data protection policy.',
+    options: ['to', 'at', 'with', 'for'],
+    answer: 2,
+    explanation: '"Comply WITH" = collocation cố định. Không bao giờ "comply to". Nhóm cần nhớ: comply WITH, agree WITH, deal WITH, meet WITH.' },
+  { question: 'Please submit your expense report along _____ all original receipts.',
+    options: ['by', 'from', 'with', 'to'],
+    answer: 2,
+    explanation: '"Along with" = idiom = together with, in addition to. "Submit X along with Y" = chuẩn. Phân biệt: "by Friday" (deadline), "from the office" (origin).' },
+  { question: 'The new CEO has announced _____ plans to restructure the company.',
+    options: ['ambition', 'ambitious', 'ambitiously', 'ambitions'],
+    answer: 1,
+    explanation: '"Ambitious plans" = adjective + noun. Nhìn vị trí: blank đứng trước noun "plans" → cần adjective. "Ambitious" = adjective. "Ambition" = noun, "ambitiously" = adverb.' },
+  { question: 'The report must be _____ before the board meeting starts.',
+    options: ['finalize', 'finalized', 'finalizing', 'finalizes'],
+    answer: 1,
+    explanation: '"Must be finalized" = modal + passive (be + past participle). Sau "must be" → cần past participle (-ed form).' },
+  { question: 'She has been working _____ the marketing department for six years.',
+    options: ['at', 'for', 'in', 'to'],
+    answer: 2,
+    explanation: '"Work IN a department/company". "Work FOR a company" cũng đúng nhưng "in the marketing department" cụ thể hơn. "At" dùng cho địa điểm, không phải department.' },
+  { question: '_____ the merger is finalized, both companies will operate independently.',
+    options: ['After', 'Until', 'Although', 'Despite'],
+    answer: 1,
+    explanation: '"Until the merger is finalized" = cho đến khi hoàn tất merger. Mang nghĩa: trước thời điểm đó thì operate independently. "After" sẽ đảo ngược ý nghĩa.' },
+  { question: 'The budget proposal requires _____ approval from three departments.',
+    options: ['addition', 'additional', 'additionally', 'add'],
+    answer: 1,
+    explanation: '"Additional approval" = adjective + noun. "Additional" = thêm, bổ sung. "Additionally" là adverb (đứng đầu câu). Nhìn vị trí trước noun → adjective.' },
+  { question: 'Applicants are strongly _____ to submit their portfolios before the deadline.',
+    options: ['encourage', 'encourages', 'encouraged', 'encouraging'],
+    answer: 2,
+    explanation: '"Are encouraged to" = passive + infinitive. "Applicants are encouraged to submit" = standard professional instruction. Passive shows impersonal, institutional tone.' }
+], 'toeic-scorebar');
+
+// update score display id
+document.getElementById('toeic-scorebar') && (function(){
+  const el = document.querySelector('#toeic-scorebar .score-num');
+  if(el) el.id = 'toeic-snum';
+})();
+
+// ═══════════════════════════════════
+// EMAIL QUIZ
+// ═══════════════════════════════════
+makeQuiz('email-quiz', [
+  { question: 'What is the main purpose of Sarah\'s email?',
+    options: [
+      'To announce a new product launch date',
+      'To inform the team of a budget increase and how to use it',
+      'To apologize for a previous mistake',
+      'To request approval from the board'
+    ],
+    answer: 1,
+    explanation: 'B. Email chính về việc budget được tăng ($45,000) và Sarah đề xuất cách phân bổ. "Main purpose" = lý do email được viết. A sai — December 8 là event, không phải purpose.' },
+  { question: 'How much money does Sarah propose to spend on social media advertising?',
+    options: ['$15,000', '$45,000', '$30,000', '$60,000'],
+    answer: 2,
+    explanation: 'C. "$30,000 — toward expanding our social media advertising." Cẩn thận: $45,000 là tổng số tiền thêm, $15,000 dành cho event. Đọc kỹ allocation, không chỉ lấy số đầu tiên thấy.' },
+  { question: 'What does Sarah want team members to do by Friday?',
+    options: [
+      'Attend a product launch event',
+      'Confirm availability for Thursday\'s call',
+      'Review the revised budget and send feedback',
+      'Submit new campaign proposals'
+    ],
+    answer: 2,
+    explanation: 'C. "Please review the attached revised budget spreadsheet and send me your feedback by end of business on Friday." Bẫy: D không được đề cập. B là yêu cầu riêng (confirm for Thursday call).' },
+  { question: 'The phrase "stronger-than-anticipated revenue" in the email most likely means:',
+    options: [
+      'Revenue that was less than expected',
+      'Revenue from new markets',
+      'Revenue that exceeded forecasts',
+      'Revenue that was difficult to measure'
+    ],
+    answer: 2,
+    explanation: 'C. "Stronger than anticipated" = mạnh hơn dự kiến = exceeded forecasts/expectations. "Anticipated" = expected. Đây là vocabulary inference question — test khả năng suy nghĩa từ context.' }
+], null);
+
+// Nav highlight
+const secs = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 70) cur = s.id; });
+  document.querySelectorAll('nav a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--tx)' : '';
+    a.style.background = a.getAttribute('href') === '#' + cur ? 'var(--s2)' : '';
+  });
+}, {passive: true});
+</script>
+</body>
+</html>

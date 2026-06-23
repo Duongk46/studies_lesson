@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "/a", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/a", "destination": "/English_Lessons.html" },
+    { "source": "/b", "destination": "/English_Mastery_Complete.html" },
+    { "source": "/c", "destination": "/English_Mastery_Pro.html" }
+  ]
+}

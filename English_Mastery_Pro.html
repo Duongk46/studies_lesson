@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>English Mastery Pro — Full Guide</title>
+<style>
+:root{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2e3350;
+  --accent:#6c8cff;--accent2:#a78bfa;--accent3:#34d399;--accent4:#f59e0b;--accent5:#f87171;
+  --text:#e2e8f0;--muted:#94a3b8;--dim:#64748b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:15px;line-height:1.7}
+a{color:var(--accent);text-decoration:none}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:2px;height:50px;overflow-x:auto}
+nav .logo{color:var(--accent);font-weight:800;font-size:14px;margin-right:12px;white-space:nowrap}
+nav a{color:var(--muted);font-size:12.5px;padding:5px 10px;border-radius:6px;white-space:nowrap;transition:.15s}
+nav a:hover,nav a.active{color:var(--text);background:var(--surface2)}
+
+/* LAYOUT */
+.wrap{max-width:980px;margin:0 auto;padding:40px 20px 100px}
+
+/* HERO */
+.hero{text-align:center;padding:56px 20px 40px;border-bottom:1px solid var(--border);margin-bottom:56px}
+.hero-badge{display:inline-block;background:linear-gradient(135deg,#6c8cff22,#a78bfa22);border:1px solid #6c8cff44;color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:18px}
+.hero h1{font-size:clamp(26px,5vw,44px);font-weight:900;background:linear-gradient(135deg,#e2e8f0,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin-bottom:14px}
+.hero p{color:var(--muted);font-size:16px;max-width:580px;margin:0 auto 28px}
+.stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.stat .n{font-size:30px;font-weight:900;color:var(--accent)}
+.stat .l{font-size:11px;color:var(--muted)}
+
+/* SECTION */
+section{margin-bottom:64px;scroll-margin-top:60px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+h2{font-size:24px;font-weight:800;margin-bottom:6px}
+h3{font-size:17px;font-weight:700;margin:28px 0 10px}
+h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent2);margin:18px 0 8px}
+.sec-desc{color:var(--muted);margin-bottom:24px;font-size:14.5px}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:14px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin-bottom:20px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+
+/* TABLE */
+.t-wrap{overflow-x:auto;margin-bottom:20px;border-radius:10px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead tr{background:var(--surface2)}
+th{padding:10px 14px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--border)}
+td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--surface2)}
+
+/* CODE */
+.code{background:#0d1117;border:1px solid var(--border);border-radius:10px;padding:18px 20px;font-family:'Consolas','SF Mono',monospace;font-size:13px;line-height:1.85;overflow-x:auto;margin-bottom:14px;white-space:pre-wrap}
+.g{color:var(--accent3)}.y{color:var(--accent4)}.b{color:var(--accent)}.p{color:var(--accent2)}.r{color:var(--accent5)}.m{color:var(--muted)}
+
+/* BADGES */
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em}
+.bg{background:#10b98122;color:#34d399;border:1px solid #10b98133}
+.br{background:#ef444422;color:#f87171;border:1px solid #ef444433}
+.by{background:#f59e0b22;color:#fbbf24;border:1px solid #f59e0b33}
+.bb{background:#6c8cff22;color:#93c5fd;border:1px solid #6c8cff33}
+.bp{background:#a78bfa22;color:#c4b5fd;border:1px solid #a78bfa33}
+
+/* CALLOUT */
+.callout{border-radius:10px;padding:14px 18px;margin-bottom:16px;display:flex;gap:12px;align-items:flex-start}
+.callout-icon{font-size:18px;flex-shrink:0;line-height:1.6}
+.callout strong{display:block;margin-bottom:3px;font-size:13.5px}
+.callout p{font-size:13px;color:var(--muted);margin:0}
+.ca-blue{background:#6c8cff11;border:1px solid #6c8cff33}
+.ca-green{background:#10b98111;border:1px solid #10b98133}
+.ca-yellow{background:#f59e0b11;border:1px solid #f59e0b33}
+.ca-red{background:#ef444411;border:1px solid #ef444433}
+
+/* COMPARE */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.cmp-col{border-radius:8px;padding:12px 14px}
+.cmp-bad{background:#ef444411;border:1px solid #ef444433}
+.cmp-good{background:#10b98111;border:1px solid #10b98133}
+.cmp-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px}
+.cmp-bad .cmp-lbl{color:var(--accent5)}
+.cmp-good .cmp-lbl{color:var(--accent3)}
+.cmp-col ul{padding-left:14px;font-size:13px;color:var(--muted)}
+.cmp-col li{margin-bottom:3px}
+@media(max-width:480px){.cmp{grid-template-columns:1fr}}
+
+/* TRACK CARDS */
+.track{border-radius:14px;border:2px solid var(--border);padding:24px;margin-bottom:16px;position:relative;overflow:hidden}
+.track::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.track-1::before{background:linear-gradient(90deg,#34d399,#10b981)}
+.track-2::before{background:linear-gradient(90deg,#6c8cff,#3b82f6)}
+.track-3::before{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
+.track-4::before{background:linear-gradient(90deg,#f59e0b,#ef4444)}
+.track-title{font-size:18px;font-weight:800;margin-bottom:4px}
+.track-sub{font-size:13px;color:var(--muted);margin-bottom:16px}
+.track-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.tblock{background:var(--surface2);border-radius:8px;padding:10px 12px}
+.tblock .time{font-size:11px;color:var(--muted);margin-bottom:3px}
+.tblock .act{font-size:13px;font-weight:600}
+.tblock .dur{font-size:12px;color:var(--accent);font-weight:700}
+
+/* CERT TABS */
+.cert-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.cert-tab{padding:8px 18px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+.cert-tab:hover,.cert-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.cert-content{display:none}
+.cert-content.active{display:block}
+
+/* SCORE TABLE */
+.score-band{display:flex;gap:4px;margin-bottom:16px;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.band-item{flex:1;padding:12px 8px;text-align:center;min-width:80px}
+.band-score{font-size:20px;font-weight:900}
+.band-label{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* PILLS */
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.pill{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:3px 11px;font-size:12.5px;color:var(--muted)}
+.pill-b{background:#6c8cff22;border-color:#6c8cff44;color:var(--accent)}
+.pill-g{background:#10b98122;border-color:#10b98133;color:var(--accent3)}
+.pill-p{background:#a78bfa22;border-color:#a78bfa33;color:var(--accent2)}
+.pill-y{background:#f59e0b22;border-color:#f59e0b33;color:var(--accent4)}
+
+/* WEEK PLAN */
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:16px}
+.day{background:var(--surface2);border-radius:8px;padding:10px 8px;text-align:center}
+.day-name{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.day-task{font-size:11px;color:var(--text);line-height:1.4}
+@media(max-width:600px){.week-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* TEMPLATE BOX */
+.template{background:linear-gradient(135deg,#a78bfa11,#6c8cff11);border:1px solid #a78bfa33;border-radius:10px;padding:18px 20px;margin-bottom:14px}
+.template-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent2);margin-bottom:10px}
+.template p{font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:8px}
+.template p:last-child{margin-bottom:0}
+.template strong{color:var(--text)}
+
+/* PROGRESS BAR */
+.prog-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.prog-label{font-size:13px;min-width:100px;color:var(--muted)}
+.prog-bar{flex:1;height:8px;background:var(--surface2);border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;border-radius:4px}
+.prog-val{font-size:12px;font-weight:700;min-width:35px;text-align:right}
+
+hr{border:none;border-top:1px solid var(--border);margin:44px 0}
+code{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:1px 5px;font-family:'Consolas',monospace;font-size:12.5px;color:var(--accent2)}
+footer{text-align:center;padding:40px 20px;border-top:1px solid var(--border);color:var(--dim);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">English Mastery Pro</span>
+  <a href="#tracks">Lộ Trình</a>
+  <a href="#ielts">IELTS</a>
+  <a href="#toeic">TOEIC</a>
+  <a href="#toefl">TOEFL</a>
+  <a href="#cambridge">Cambridge</a>
+  <a href="#awl">Academic Vocab</a>
+  <a href="#examgrammar">Exam Grammar</a>
+  <a href="#comm">Communication</a>
+  <a href="#vocab">Từ Vựng</a>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Research-Backed · Multi-Track · 2026</div>
+  <h1>English Mastery Pro<br/>Full Study System</h1>
+  <p>Hệ thống học tiếng Anh hoàn chỉnh — từ giao tiếp hàng ngày đến thi chứng chỉ quốc tế. Chọn track phù hợp với thời gian và mục tiêu của bạn.</p>
+  <div class="stats">
+    <div class="stat"><div class="n">4</div><div class="l">Intensity Tracks</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">Certificates</div></div>
+    <div class="stat"><div class="n">570</div><div class="l">AWL Words</div></div>
+    <div class="stat"><div class="n">12</div><div class="l">Writing Templates</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Months</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════ SECTION 1: TRACK SELECTOR ═══════════════ -->
+<section id="tracks">
+  <div class="sec-label">Phần 1</div>
+  <h2>Chọn Lộ Trình Phù Hợp</h2>
+  <p class="sec-desc">Bốn cường độ học khác nhau. Chọn dựa trên thời gian bạn có và mục tiêu cuối cùng.</p>
+
+  <div class="t-wrap">
+    <table>
+      <thead><tr><th>Track</th><th>Thời gian/ngày</th><th>Phù hợp với</th><th>Kết quả sau 3 tháng</th><th>IELTS target</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge bg">Track 1</span> Casual</td><td>1 giờ</td><td>Đi làm bận, học giao tiếp là chính</td><td>Giao tiếp tự tin, small talk tốt</td><td>5.5 → 6.0</td></tr>
+        <tr><td><span class="badge bb">Track 2</span> Standard</td><td>2 giờ</td><td>Học nghiêm túc, cân bằng giao tiếp + thi</td><td>Giao tiếp chuyên nghiệp + ôn thi cơ bản</td><td>6.0 → 6.5</td></tr>
+        <tr><td><span class="badge bp">Track 3</span> Intensive</td><td>3 giờ</td><td>Tập trung thi chứng chỉ, kiên trì cao</td><td>Sẵn sàng thi + giao tiếp thành thạo</td><td>6.5 → 7.0+</td></tr>
+        <tr><td><span class="badge by">Track 4</span> Sprint</td><td>Cuối tuần 4-5h</td><td>Bận ngày thường, rảnh cuối tuần</td><td>Nền tảng tốt, cần thêm thời gian</td><td>6.0 → 6.5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout ca-yellow">
+    <div class="callout-icon">⚡</div>
+    <div>
+      <strong>Research insight: IELTS.org & Alfa IELTS (2024–2025)</strong>
+      <p>Người cải thiện nhanh nhất là người học <strong>20+ giờ/tuần</strong> và <strong>phân tích lỗi sau mỗi bài</strong>, không chỉ làm nhiều bài. Chất lượng practice > số lượng.</p>
+    </div>
+  </div>
+
+  <!-- Track 1 -->
+  <div class="track track-1">
+    <div class="track-title">Track 1 — Casual <span class="badge bg">1h/ngày</span></div>
+    <div class="track-sub">Giao tiếp hàng ngày là trọng tâm. Không áp lực thi cử.</div>
+    <div class="track-grid">
+      <div class="tblock"><div class="time">Sáng 15'</div><div class="act">Anki review</div><div class="dur">15 phút</div></div>
+      <div class="tblock"><div class="time">Trưa 20'</div><div class="act">Podcast shadow</div><div class="dur">20 phút</div></div>
+      <div class="tblock"><div class="time">Tối 25'</div><div class="act">Speaking practice</div><div class="dur">25 phút</div></div>
+    </div>
+    <div style="margin-top:12px;font-size:13px;color:var(--muted)">Cuối tuần: 1 giờ conversation với language partner. Focus: PREP, STAR, filler phrases.</div>
+  </div>
+
+  <!-- Track 2 -->
+  <div class="track track-2">
+    <div class="track-title">Track 2 — Standard <span class="badge bb">2h/ngày</span></div>
+    <div class="track-sub">Cân bằng giao tiếp và ôn thi. Phù hợp người có mục tiêu thi sau 4-5 tháng.</div>
+    <div class="track-grid">
+      <div class="tblock"><div class="time">Sáng 6:30</div><div class="act">Vocabulary + Anki</div><div class="dur">20 phút</div></div>
+      <div class="tblock"><div class="time">Sáng 6:50</div><div class="act">Đọc báo (BBC/Guardian)</div><div class="dur">15 phút</div></div>
+      <div class="tblock"><div class="time">Trưa 12:00</div><div class="act">Listening practice</div><div class="dur">25 phút</div></div>
+      <div class="tblock"><div class="time">Tối 8:00</div><div class="act">Speaking / Shadowing</div><div class="dur">30 phút</div></div>
+      <div class="tblock"><div class="time">Tối 8:30</div><div class="act">Writing (3x/tuần)</div><div class="dur">30 phút</div></div>
+    </div>
+    <div style="margin-top:12px;font-size:13px;color:var(--muted)">Cuối tuần: 1 full section IELTS/TOEIC (Reading hoặc Listening) + analysis.</div>
+  </div>
+
+  <!-- Track 3 -->
+  <div class="track track-3">
+    <div class="track-title">Track 3 — Intensive <span class="badge bp">3h/ngày</span></div>
+    <div class="track-sub">Tập trung thi chứng chỉ. Kiên trì 3 tháng. Kết quả rõ rệt nhất.</div>
+    <div class="track-grid">
+      <div class="tblock"><div class="time">6:30–7:00</div><div class="act">AWL Vocab + Anki</div><div class="dur">30 phút</div></div>
+      <div class="tblock"><div class="time">7:00–7:45</div><div class="act">Reading (timed)</div><div class="dur">45 phút</div></div>
+      <div class="tblock"><div class="time">12:00–12:30</div><div class="act">Listening + analysis</div><div class="dur">30 phút</div></div>
+      <div class="tblock"><div class="time">20:00–20:45</div><div class="act">Writing Task</div><div class="dur">45 phút</div></div>
+      <div class="tblock"><div class="time">20:45–21:15</div><div class="act">Speaking + Shadow</div><div class="dur">30 phút</div></div>
+    </div>
+    <div style="margin-top:12px;font-size:13px;color:var(--muted)">Cuối tuần: 1 full mock test (2h45') + 1h review lỗi kỹ. <strong>Không bỏ qua review</strong> — đây là bước quan trọng nhất.</div>
+  </div>
+
+  <!-- Track 4 -->
+  <div class="track track-4">
+    <div class="track-title">Track 4 — Weekend Sprint <span class="badge by">Cuối tuần 4-5h</span></div>
+    <div class="track-sub">Bận ngày thường. Dồn sức cuối tuần. Cần 5-6 tháng để đạt kết quả tương đương Track 3.</div>
+    <div class="track-grid">
+      <div class="tblock"><div class="time">Thứ 7 sáng</div><div class="act">Mock Reading + Listening</div><div class="dur">90 phút</div></div>
+      <div class="tblock"><div class="time">Thứ 7 chiều</div><div class="act">Writing (2 tasks)</div><div class="dur">90 phút</div></div>
+      <div class="tblock"><div class="time">Chủ nhật sáng</div><div class="act">Speaking drills + Shadow</div><div class="dur">60 phút</div></div>
+      <div class="tblock"><div class="time">Chủ nhật chiều</div><div class="act">Vocab + Error review</div><div class="dur">60 phút</div></div>
+    </div>
+    <div style="margin-top:12px;font-size:13px;color:var(--muted)">Ngày thường: tối thiểu 15 phút Anki + 10 phút đọc báo (dễ maintain).</div>
+  </div>
+
+  <h3>Bảng Dự Đoán Kết Quả IELTS</h3>
+  <div class="t-wrap">
+    <table>
+      <thead><tr><th>Điểm hiện tại</th><th>Mục tiêu</th><th>Track 3 (3h/ngày)</th><th>Track 2 (2h/ngày)</th><th>Track 1 (1h/ngày)</th></tr></thead>
+      <tbody>
+        <tr><td>4.0 – 4.5</td><td>5.5</td><td>2–3 tháng</td><td>4–5 tháng</td><td>7–9 tháng</td></tr>
+        <tr><td>5.0 – 5.5</td><td>6.5</td><td>3–4 tháng</td><td>5–6 tháng</td><td>9–12 tháng</td></tr>
+        <tr><td>6.0</td><td>7.0</td><td>3 tháng</td><td>4–5 tháng</td><td>7–9 tháng</td></tr>
+        <tr><td>6.5</td><td>7.5</td><td>3–4 tháng</td><td>5–6 tháng</td><td>10–14 tháng</td></tr>
+        <tr><td>7.0</td><td>8.0</td><td>5–6 tháng</td><td>8–10 tháng</td><td>14+ tháng</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr/>
+
+<!-- ═══════════════ SECTION 2: IELTS ═══════════════ -->
+<section id="ielts">
+  <div class="sec-label">Phần 2 — Chứng Chỉ</div>
+  <h2>IELTS — International English Language Testing System</h2>
+  <p class="sec-desc">Chứng chỉ phổ biến nhất cho du học, định cư và làm việc quốc tế. Thi Academic hoặc General Training.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Cấu Trúc Đề Thi</h4>
+      <div class="t-wrap"><table>
+        <thead><tr><th>Kỹ năng</th><th>Thời gian</th><th>Câu hỏi</th></tr></thead>
+        <tbody>
+          <tr><td>Listening</td><td>30 phút + 10' transfer</td><td>40 câu, 4 sections</td></tr>
+          <tr><td>Reading</td><td>60 phút</td><td>40 câu, 3 passages</td></tr>
+          <tr><td>Writing</td><td>60 phút</td><td>Task 1 (20') + Task 2 (40')</td></tr>
+          <tr><td>Speaking</td><td>11–14 phút</td><td>3 Parts</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="card">
+      <h4>Band Score & Ý Nghĩa</h4>
+      <div class="t-wrap"><table>
+        <thead><tr><th>Band</th><th>Trình độ</th><th>Yêu cầu phổ biến</th></tr></thead>
+        <tbody>
+          <tr><td><strong>5.0</strong></td><td>Modest</td><td>Một số trường nghề</td></tr>
+          <tr><td><strong>5.5</strong></td><td>Modest+</td><td>Cao đẳng, một số visa</td></tr>
+          <tr><td><strong>6.0</strong></td><td>Competent</td><td>Đại học undergraduate</td></tr>
+          <tr><td><strong>6.5</strong></td><td>Competent+</td><td>Đại học tốt, thạc sĩ</td></tr>
+          <tr><td><strong>7.0</strong></td><td>Good</td><td>Thạc sĩ top, định cư Úc/Canada</td></tr>
+          <tr><td><strong>7.5+</strong></td><td>Very good</td><td>Top universities, medical/law</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <h3>Lộ Trình 3 Tháng Intensive (Track 3 — IELTS 7.0)</h3>
+
+  <h4>Tháng 1: Foundation — Nền Tảng 4 Kỹ Năng</h4>
+  <div class="grid3">
+    <div class="card"><div style="font-size:12px;color:var(--accent);font-weight:700;margin-bottom:6px">TUẦN 1</div><div style="font-size:13px;color:var(--muted)">Diagnostic test → xác định điểm yếu. Học AWL Sublist 1–2 (60 words). Bắt đầu shadowing ngay.</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent);font-weight:700;margin-bottom:6px">TUẦN 2</div><div style="font-size:13px;color:var(--muted)">Listening Sections 1–2. Reading: skimming & scanning. Writing: Task 2 opinion essay structure.</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent);font-weight:700;margin-bottom:6px">TUẦN 3</div><div style="font-size:13px;color:var(--muted)">Listening Sections 3–4. Reading: T/F/NG + Matching Headings. Speaking Parts 1 & 2 drills.</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent);font-weight:700;margin-bottom:6px">TUẦN 4</div><div style="font-size:13px;color:var(--muted)">Full mock test #1. Error analysis. Writing Task 1 graphs. AWL Sublist 3–4. Speaking Part 3.</div></div>
+  </div>
+
+  <h4>Tháng 2: Skill Mastery — Chiến Lược Từng Kỹ Năng</h4>
+  <div class="grid3">
+    <div class="card"><div style="font-size:12px;color:var(--accent2);font-weight:700;margin-bottom:6px">TUẦN 5</div><div style="font-size:13px;color:var(--muted)">Reading: all question types. Gap fill, sentence completion, multiple choice, diagram labeling.</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent2);font-weight:700;margin-bottom:6px">TUẦN 6</div><div style="font-size:13px;color:var(--muted)">Writing Task 1: bar charts, line graphs, pie charts, tables, maps, process diagrams.</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent2);font-weight:700;margin-bottom:6px">TUẦN 7</div><div style="font-size:13px;color:var(--muted)">Listening: note completion, map labeling, multiple choice. Accent variation practice.</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent2);font-weight:700;margin-bottom:6px">TUẦN 8</div><div style="font-size:13px;color:var(--muted)">Full mock test #2. Writing Task 2: all 5 essay types. Speaking fluency drills + recording.</div></div>
+  </div>
+
+  <h4>Tháng 3: Exam Technique — Chiến Thuật Phòng Thi</h4>
+  <div class="grid3">
+    <div class="card"><div style="font-size:12px;color:var(--accent4);font-weight:700;margin-bottom:6px">TUẦN 9</div><div style="font-size:13px;color:var(--muted)">Full mock test #3 (timed, exam conditions). Kỹ năng yếu nhất → tập trung cải thiện.</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent4);font-weight:700;margin-bottom:6px">TUẦN 10</div><div style="font-size:13px;color:var(--muted)">Weak area intensive. Paraphrase practice (IELTS đặc biệt test paraphrase recognition).</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent4);font-weight:700;margin-bottom:6px">TUẦN 11</div><div style="font-size:13px;color:var(--muted)">Timing strategy. Time management per question. Mock test #4. Writing: band 7 checklist.</div></div>
+    <div class="card"><div style="font-size:12px;color:var(--accent4);font-weight:700;margin-bottom:6px">TUẦN 12</div><div style="font-size:13px;color:var(--muted)">Mock test #5 + final review. Rest 2 ngày trước thi. Không học mới — chỉ consolidate.</div></div>
+  </div>
+
+  <!-- IELTS READING -->
+  <h3>IELTS Reading — Chiến Lược</h3>
+  <div class="code"><span class="y">SKIM → QUESTIONS → SCAN (không đọc toàn bộ passage)</span>
+
+<span class="g">Bước 1 — SKIM (2-3 phút/passage):</span>
+  Đọc title, subtitles, first sentence mỗi đoạn → hiểu structure
+  KHÔNG đọc chi tiết ở bước này
+
+<span class="g">Bước 2 — ĐỌC QUESTIONS TRƯỚC:</span>
+  Gạch chân keywords trong question
+  Tìm paraphrase của keywords đó trong passage
+
+<span class="g">Bước 3 — SCAN để tìm đáp án:</span>
+  Đừng đọc lại từ đầu — đi thẳng đến vùng chứa answer
+
+<span class="y">TRUE / FALSE / NOT GIVEN:</span>
+  TRUE    = thông tin trong bài xác nhận statement
+  FALSE   = thông tin trong bài mâu thuẫn statement
+  NG      = bài không đề cập → KHÔNG SUY LUẬN
+
+<span class="r">Lỗi phổ biến:</span>
+  ❌ Đọc toàn bộ passage rồi mới nhìn câu hỏi (lãng phí 15 phút)
+  ❌ Chọn NG khi không chắc (False và NG khác nhau hoàn toàn)
+  ❌ Paraphrase trap: "increase" ≠ "doubled" (kiểm tra kỹ)</div>
+
+  <!-- IELTS LISTENING -->
+  <h3>IELTS Listening — Chiến Lược</h3>
+  <div class="code"><span class="y">PREDICT → LISTEN → TRANSFER (cẩn thận spelling)</span>
+
+<span class="g">Trước khi nghe (30 giây/section):</span>
+  Đọc trước questions → predict loại thông tin cần nghe
+  (number? name? date? place? reason?)
+  Chú ý LIMIT: "write NO MORE THAN TWO WORDS"
+
+<span class="g">Trong khi nghe:</span>
+  Nghe signal words: "however", "but", "actually" → thông tin sắp thay đổi
+  Khi họ repeat/correct: "I mean...", "Sorry, that's..." → đáp án mới
+  Section 1-2: monologue/dialogue casual → dễ hơn
+  Section 3-4: academic discussion/lecture → khó hơn
+
+<span class="y">Sau khi nghe (10 phút transfer):</span>
+  Kiểm tra spelling, singular/plural, grammar fit
+  Nếu bỏ 1 câu → ĐỪNG PANIC, tiếp tục section tiếp
+
+<span class="r">Bẫy thường gặp:</span>
+  "The meeting is on Tuesday... actually, Wednesday" → đáp án là Wednesday
+  Số điện thoại: đọc lại lần hai thường chậm hơn → nghe lần đó
+  Names: luôn hỏi "Could you spell that?" trong Section 1</div>
+
+  <!-- IELTS WRITING TASK 2 -->
+  <h3>IELTS Writing Task 2 — 5 Templates (Band 7+)</h3>
+
+  <div class="template">
+    <div class="template-label">Template 1 — Opinion / Argumentative (Agree or Disagree)</div>
+    <p><strong>Intro:</strong> "[Paraphrase topic]. While some argue that [opposing view], this essay will argue that [your position] for two main reasons: [reason 1] and [reason 2]."</p>
+    <p><strong>Body 1:</strong> "The primary reason [position] is [Reason 1]. [Explain]. For instance, [specific example]. This demonstrates that [link back to thesis]."</p>
+    <p><strong>Body 2:</strong> "Furthermore, [Reason 2]. [Explain]. To illustrate, [example]. Consequently, [impact]."</p>
+    <p><strong>Conclusion:</strong> "In conclusion, [restate position] because [Reason 1] and [Reason 2]. Governments/individuals/society should therefore [recommendation]."</p>
+  </div>
+
+  <div class="template">
+    <div class="template-label">Template 2 — Discussion (Both Views + Opinion)</div>
+    <p><strong>Intro:</strong> "[Paraphrase topic]. While some people believe [View A], others argue [View B]. This essay will examine both perspectives before concluding that [your view]."</p>
+    <p><strong>Body 1 (View A):</strong> "Those who support [View A] argue that [reason]. For example, [example]. As a result, [outcome]."</p>
+    <p><strong>Body 2 (View B + your stance):</strong> "On the other hand, proponents of [View B] contend that [reason]. To illustrate, [example]. In my view, [View B] is more compelling because [reason]."</p>
+    <p><strong>Conclusion:</strong> "In conclusion, although [View A] has merit, [View B] is ultimately more persuasive. Therefore, [recommendation]."</p>
+  </div>
+
+  <div class="template">
+    <div class="template-label">Template 3 — Problem / Solution</div>
+    <p><strong>Intro:</strong> "[Paraphrase topic] is an increasingly pressing issue in modern society. This essay will examine the main causes of this problem and propose effective solutions."</p>
+    <p><strong>Body 1 (Problems/Causes):</strong> "The principal cause of [issue] is [Cause 1]. [Explain + example]. Additionally, [Cause 2] plays a significant role. [Explain + example]."</p>
+    <p><strong>Body 2 (Solutions):</strong> "To address [Cause 1], [Solution 1] should be implemented. [Explain]. Furthermore, [Solution 2] would effectively tackle [Cause 2]. [Explain + evidence]."</p>
+    <p><strong>Conclusion:</strong> "In conclusion, [issue] stems primarily from [causes]. By implementing [solutions], [positive outcome] can be achieved."</p>
+  </div>
+
+  <div class="template">
+    <div class="template-label">Template 4 — Advantages / Disadvantages</div>
+    <p><strong>Intro:</strong> "[Paraphrase topic]. This essay will analyse the advantages and disadvantages of this trend before reaching a conclusion."</p>
+    <p><strong>Body 1 (Advantages):</strong> "The most significant advantage of [X] is [Advantage 1]. [Explain + example]. Moreover, [Advantage 2]. [Explain + example]."</p>
+    <p><strong>Body 2 (Disadvantages):</strong> "However, [X] is not without its drawbacks. Chief among these is [Disadvantage 1]. [Explain + example]. In addition, [Disadvantage 2]. [Explain + example]."</p>
+    <p><strong>Conclusion:</strong> "In conclusion, while [X] offers [advantages], the disadvantages — particularly [main disadvantage] — suggest that a more cautious approach is warranted."</p>
+  </div>
+
+  <div class="template">
+    <div class="template-label">Template 5 — Cause / Effect (+ Solutions)</div>
+    <p><strong>Intro:</strong> "[Paraphrase topic] has become a significant challenge in recent decades. This essay will explore the primary causes of this phenomenon and its consequent effects."</p>
+    <p><strong>Body 1 (Causes):</strong> "The primary factor contributing to [issue] is [Cause 1], which occurs because [explanation]. A further cause is [Cause 2], driven by [explanation + example]."</p>
+    <p><strong>Body 2 (Effects):</strong> "This has led to a range of significant effects. Most notably, [Effect 1]. [Explain + data if possible]. Furthermore, [Effect 2], which results in [consequence]."</p>
+    <p><strong>Conclusion:</strong> "In conclusion, [issue] is caused primarily by [causes], resulting in [effects]. Unless [action] is taken, [negative projection]."</p>
+  </div>
+
+  <!-- IELTS WRITING TASK 1 -->
+  <h3>IELTS Writing Task 1 — Graph/Chart Language</h3>
+  <div class="code"><span class="y">CẤU TRÚC BẮT BUỘC:</span>
+  Introduction (1-2 câu) → Overview (2 câu) → Body 1 → Body 2
+
+<span class="r">OVERVIEW LÀ BẮT BUỘC — thiếu overview = tối đa Band 5</span>
+  "Overall, it is clear that [main trend 1] while [main trend 2]."
+  "In general, [key feature 1], with [key feature 2] being most notable."
+
+<span class="g">MỞ ĐẦU (paraphrase đề, đừng copy):</span>
+  "The [bar chart/line graph/pie chart/table] illustrates/shows/depicts..."
+  "The [diagram] compares/presents/provides information about..."
+
+<span class="y">TỪ CHỈ XU HƯỚNG TĂNG:</span>
+  rise, increase, grow, climb, surge, soar, rocket, jump, shoot up
+  (+ adverbs: sharply, dramatically, significantly, gradually, steadily, slightly)
+
+<span class="y">TỪ CHỈ XU HƯỚNG GIẢM:</span>
+  fall, decrease, decline, drop, plummet, slump, dip, tumble
+
+<span class="y">ỔN ĐỊNH / BIẾN ĐỘNG:</span>
+  remain stable/constant, level off, plateau, stay at → ổn định
+  fluctuate, vary, be erratic, oscillate → biến động
+
+<span class="g">CHỈ SỐ (dùng để mô tả data):</span>
+  approximately, roughly, around, about, just over/under, nearly, almost
+  exactly, precisely → khi biết chính xác
+  more than double, triple, quadruple → khi tăng nhiều lần</div>
+
+  <!-- IELTS SPEAKING -->
+  <h3>IELTS Speaking — Chiến Lược 3 Parts</h3>
+  <div class="code"><span class="y">PART 1 — Personal questions (4-5 phút)</span>
+  Câu hỏi về: hometown, work/study, hobbies, daily routine, food, travel...
+  Câu trả lời: 2-4 câu (không quá dài, không quá ngắn)
+
+<span class="g">Template Part 1:</span>
+  [Direct answer] + [Reason/Detail] + [Personal example]
+  "Yes, I really enjoy [X]. Mainly because [reason]. For instance, [example]."
+
+<span class="y">PART 2 — Cue card monologue (1 phút chuẩn bị + 2 phút nói)</span>
+  Dùng 1 phút chuẩn bị để ghi bullet points, KHÔNG viết đầy đủ câu
+  Nói đủ 2 phút — nếu hết ý thì mở rộng sang feelings, reflection, comparison
+
+<span class="g">Template Part 2 (PEEL-extended):</span>
+  "I'm going to talk about [topic]."
+  [When/Where]: "This was/happened [time + place]..."
+  [What]: "What I specifically remember is..."
+  [Who]: "The [person/people] involved were..."
+  [Why memorable]: "The reason this stands out to me is..."
+  [Reflection]: "Looking back, I think/realize..."
+
+<span class="y">PART 3 — Abstract discussion (4-5 phút)</span>
+  Câu hỏi mở, học thuật hơn — đòi hỏi opinions + reasoning
+  Dùng: hedging, discourse markers, examples
+
+<span class="g">Template Part 3 phrases:</span>
+  "That's an interesting question. I think..."
+  "It really depends on [factor]. For instance..."
+  "From a societal perspective..."
+  "Research suggests that..."
+  "I'd argue that [position], primarily because [reason]."
+  "There are different schools of thought on this..."
+  "On one hand... on the other hand..."
+
+<span class="r">LỖI THƯỜNG GẶP TRONG SPEAKING:</span>
+  ❌ Câu trả lời 1 từ: "Yes." / "No." → luôn elaborate
+  ❌ Học thuộc lòng → nghe giả tạo, examiner sẽ hỏi off-script
+  ❌ Pause im lặng dài → dùng fillers: "That's a good question..."
+  ❌ Nói quá nhanh → slow down, pausing shows confidence</div>
+
+  <!-- IELTS TOPICS VOCAB -->
+  <h3>IELTS Topic Vocabulary (7 Chủ Đề Thường Gặp)</h3>
+  <div class="grid2">
+    <div class="card">
+      <h4>Technology & AI</h4>
+      <div class="pills">
+        <span class="pill-b pill">artificial intelligence</span><span class="pill-b pill">automation</span><span class="pill-b pill">digital infrastructure</span><span class="pill-b pill">algorithm</span><span class="pill-b pill">data privacy</span><span class="pill-b pill">cybersecurity</span><span class="pill-b pill">innovation</span><span class="pill-b pill">disruptive technology</span><span class="pill-b pill">surveillance</span><span class="pill-b pill">digital divide</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Environment & Climate</h4>
+      <div class="pills">
+        <span class="pill-g pill">carbon emissions</span><span class="pill-g pill">renewable energy</span><span class="pill-g pill">fossil fuels</span><span class="pill-g pill">biodiversity</span><span class="pill-g pill">sustainability</span><span class="pill-g pill">climate change</span><span class="pill-g pill">deforestation</span><span class="pill-g pill">ecological footprint</span><span class="pill-g pill">greenhouse gas</span><span class="pill-g pill">conservation</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Society & Inequality</h4>
+      <div class="pills">
+        <span class="pill-p pill">socioeconomic inequality</span><span class="pill-p pill">urbanization</span><span class="pill-p pill">demographic shift</span><span class="pill-p pill">social cohesion</span><span class="pill-p pill">poverty cycle</span><span class="pill-p pill">gender equality</span><span class="pill-p pill">cultural diversity</span><span class="pill-p pill">migration</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Education</h4>
+      <div class="pills">
+        <span class="pill-y pill">curriculum</span><span class="pill-y pill">pedagogical approach</span><span class="pill-y pill">academic achievement</span><span class="pill-y pill">critical thinking</span><span class="pill-y pill">lifelong learning</span><span class="pill-y pill">vocational training</span><span class="pill-y pill">standardized testing</span><span class="pill-y pill">distance learning</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Health & Medicine</h4>
+      <div class="pills">
+        <span class="pill-b pill">preventative medicine</span><span class="pill-b pill">mental wellbeing</span><span class="pill-b pill">healthcare system</span><span class="pill-b pill">chronic disease</span><span class="pill-b pill">obesity epidemic</span><span class="pill-b pill">sedentary lifestyle</span><span class="pill-b pill">universal healthcare</span><span class="pill-b pill">pharmaceutical</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Economy & Globalization</h4>
+      <div class="pills">
+        <span class="pill-g pill">globalization</span><span class="pill-g pill">GDP growth</span><span class="pill-g pill">income disparity</span><span class="pill-g pill">free trade</span><span class="pill-g pill">outsourcing</span><span class="pill-g pill">entrepreneurship</span><span class="pill-g pill">inflation</span><span class="pill-g pill">fiscal policy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Band 7 Writing Checklist -->
+  <h3>Writing Band 7 Checklist</h3>
+  <div class="cmp">
+    <div class="cmp-col cmp-bad">
+      <div class="cmp-lbl">❌ Band 5-6 Writing</div>
+      <ul>
+        <li>Simple sentences only</li>
+        <li>Repetitive vocabulary (good, bad, big)</li>
+        <li>No cohesive devices</li>
+        <li>Off-topic paragraphs</li>
+        <li>No overview (Task 1)</li>
+        <li>Under 250 words (Task 2)</li>
+        <li>Informal language (gonna, wanna)</li>
+      </ul>
+    </div>
+    <div class="cmp-col cmp-good">
+      <div class="cmp-lbl">✓ Band 7+ Writing</div>
+      <ul>
+        <li>Mix simple + complex sentences</li>
+        <li>Varied precise vocabulary (AWL words)</li>
+        <li>Cohesive devices used naturally</li>
+        <li>Every paragraph linked to thesis</li>
+        <li>Clear overview (Task 1)</li>
+        <li>260-290 words (Task 2 sweet spot)</li>
+        <li>Formal academic register throughout</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr/>
+
+<!-- ═══════════════ SECTION 3: TOEIC ═══════════════ -->
+<section id="toeic">
+  <div class="sec-label">Phần 3 — Chứng Chỉ</div>
+  <h2>TOEIC — Test of English for International Communication</h2>
+  <p class="sec-desc">Chứng chỉ tiếng Anh thương mại phổ biến nhất tại doanh nghiệp Việt Nam và châu Á. Thang điểm 10–990.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Cấu Trúc Đề Thi L&R</h4>
+      <div class="t-wrap"><table>
+        <thead><tr><th>Part</th><th>Dạng</th><th>Câu</th></tr></thead>
+        <tbody>
+          <tr><td>Part 1</td><td>Photographs</td><td>6 câu</td></tr>
+          <tr><td>Part 2</td><td>Question-Response</td><td>25 câu</td></tr>
+          <tr><td>Part 3</td><td>Conversations</td><td>39 câu</td></tr>
+          <tr><td>Part 4</td><td>Talks</td><td>30 câu</td></tr>
+          <tr><td>Part 5</td><td>Incomplete Sentences</td><td>30 câu</td></tr>
+          <tr><td>Part 6</td><td>Text Completion</td><td>16 câu</td></tr>
+          <tr><td>Part 7</td><td>Reading Comprehension</td><td>54 câu</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="card">
+      <h4>Score Targets</h4>
+      <div class="t-wrap"><table>
+        <thead><tr><th>Điểm</th><th>Ý nghĩa</th></tr></thead>
+        <tbody>
+          <tr><td><strong>600</strong></td><td>Làm việc môi trường có yếu tố tiếng Anh</td></tr>
+          <tr><td><strong>700</strong></td><td>Đọc email, báo cáo tiếng Anh tốt</td></tr>
+          <tr><td><strong>750</strong></td><td>Multinational company entry level</td></tr>
+          <tr><td><strong>800</strong></td><td>Giao tiếp hiệu quả trong business</td></tr>
+          <tr><td><strong>850</strong></td><td>Management level, client-facing roles</td></tr>
+          <tr><td><strong>900+</strong></td><td>Native-like professional English</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <h3>Chiến Lược Từng Part</h3>
+  <div class="code"><span class="y">PART 1 — Photographs (6 câu, dễ nhất)</span>
+  Nghe cẩn thận chủ ngữ (A man / A woman / Two people)
+  Eliminate: loại bỏ đáp án có từ sai (wrong tense, wrong subject)
+  Bẫy: "The woman IS reading" vs "The woman HAS READ"
+
+<span class="y">PART 2 — Question-Response (25 câu)</span>
+  3 loại câu hỏi: WH-questions, Yes/No, Tag questions / Statements
+  Eliminate wrong answer TYPE (WH-question → không trả lời Yes/No)
+  Bẫy indirect answers: Q: "When's the meeting?" A: "Ask Sarah" → đúng
+
+<span class="y">PART 3 & 4 — Conversations & Talks (69 câu — chiếm nhiều điểm nhất)</span>
+  ĐỌC TRƯỚC câu hỏi trong 8 giây trước khi audio bắt đầu
+  Predict: location, speakers, purpose → hiểu context nhanh hơn
+  3 questions/conversation → nghe trong khi làm, không chờ xong
+
+<span class="y">PART 5 — Incomplete Sentences (30 câu)</span>
+  Bước 1: Xác định loại từ cần điền (noun/verb/adj/adv) → loại ngay 2-3 đáp án sai
+  Bước 2: Check grammar (tense, subject-verb agreement, article)
+  Bước 3: Check meaning → chọn đáp án phù hợp nhất
+  <span class="g">Target: 20 giây/câu</span>
+
+<span class="y">PART 6 — Text Completion (16 câu)</span>
+  Đọc toàn bộ email/memo trước, rồi điền
+  Câu hỏi có 1 slot là câu hoàn chỉnh (new sentence) → cần hiểu context
+
+<span class="y">PART 7 — Reading Comprehension (54 câu — khó nhất về thời gian)</span>
+  Single passage: 2-4 câu hỏi — skim + scan
+  Double/Triple passage: 5 câu hỏi — thông tin trải rộng nhiều doc
+  Time management: <span class="g">~1 phút/câu</span> — nếu khó → skip, quay lại sau
+  Câu hỏi "NOT mentioned" / "implied" → cần đọc kỹ hơn</div>
+
+  <h3>TOEIC Vocabulary — 7 Business Domains</h3>
+  <div class="grid2">
+    <div class="card">
+      <h4>HR & Personnel</h4>
+      <div class="pills">
+        <span class="pill">recruitment</span><span class="pill">applicant</span><span class="pill">resume/CV</span><span class="pill">performance review</span><span class="pill">promotion</span><span class="pill">resignation</span><span class="pill">benefits</span><span class="pill">payroll</span><span class="pill">reference</span><span class="pill">on-boarding</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Finance & Accounting</h4>
+      <div class="pills">
+        <span class="pill">invoice</span><span class="pill">budget</span><span class="pill">revenue</span><span class="pill">expenditure</span><span class="pill">fiscal year</span><span class="pill">audit</span><span class="pill">quarterly report</span><span class="pill">shareholder</span><span class="pill">reimbursement</span><span class="pill">overhead</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Sales & Marketing</h4>
+      <div class="pills">
+        <span class="pill">campaign</span><span class="pill">target audience</span><span class="pill">market share</span><span class="pill">competitor</span><span class="pill">brand awareness</span><span class="pill">launch</span><span class="pill">promotion</span><span class="pill">retail</span><span class="pill">wholesale</span><span class="pill">client retention</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Office & Technology</h4>
+      <div class="pills">
+        <span class="pill">software upgrade</span><span class="pill">IT support</span><span class="pill">maintenance</span><span class="pill">database</span><span class="pill">server</span><span class="pill">troubleshoot</span><span class="pill">install</span><span class="pill">backup</span><span class="pill">bandwidth</span><span class="pill">cloud storage</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Travel & Logistics</h4>
+      <div class="pills">
+        <span class="pill">itinerary</span><span class="pill">reservation</span><span class="pill">boarding pass</span><span class="pill">layover</span><span class="pill">accommodation</span><span class="pill">shipment</span><span class="pill">customs</span><span class="pill">freight</span><span class="pill">warehouse</span><span class="pill">delivery</span>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Manufacturing</h4>
+      <div class="pills">
+        <span class="pill">assembly line</span><span class="pill">inventory</span><span class="pill">defect</span><span class="pill">quality control</span><span class="pill">supply chain</span><span class="pill">output</span><span class="pill">raw materials</span><span class="pill">compliance</span><span class="pill">specification</span><span class="pill">prototype</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>TOEIC 3-Month Plan (Target: 800+)</h3>
+  <div class="t-wrap"><table>
+    <thead><tr><th>Tháng</th><th>Trọng tâm</th><th>Hoạt động hàng ngày</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Tháng 1</strong></td><td>Diagnostic + Foundation</td><td>Diagnostic test → Parts 1-3 listening. Business vocab 15 words/ngày. Grammar: word forms (noun/verb/adj/adv).</td></tr>
+      <tr><td><strong>Tháng 2</strong></td><td>Skill Building</td><td>Part 5: 30 câu/ngày (target 20s/câu). Part 7: 1 passage timed/ngày. Part 3-4: accent variety practice.</td></tr>
+      <tr><td><strong>Tháng 3</strong></td><td>Mock Tests + Timing</td><td>Full mock test mỗi Chủ nhật. Phân tích lỗi theo từng Part. Weak part intensive 3x/tuần.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<hr/>
+
+<!-- ═══════════════ SECTION 4: TOEFL ═══════════════ -->
+<section id="toefl">
+  <div class="sec-label">Phần 4 — Chứng Chỉ</div>
+  <h2>TOEFL iBT — Test of English as a Foreign Language</h2>
+  <p class="sec-desc">Chứng chỉ học thuật cho đại học Mỹ và nhiều nước nói tiếng Anh. Thang điểm 0–120.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Cấu Trúc & Thời Gian</h4>
+      <div class="t-wrap"><table>
+        <thead><tr><th>Section</th><th>Thời gian</th><th>Câu hỏi</th></tr></thead>
+        <tbody>
+          <tr><td>Reading</td><td>35 phút</td><td>20 câu, 2 passages</td></tr>
+          <tr><td>Listening</td><td>36 phút</td><td>28 câu</td></tr>
+          <tr><td>Speaking</td><td>16 phút</td><td>4 tasks</td></tr>
+          <tr><td>Writing</td><td>29 phút</td><td>2 tasks</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="card">
+      <h4>Score Targets</h4>
+      <div class="t-wrap"><table>
+        <thead><tr><th>Tổng điểm</th><th>Ý nghĩa</th></tr></thead>
+        <tbody>
+          <tr><td><strong>80</strong></td><td>Community college, nhiều trường state</td></tr>
+          <tr><td><strong>90</strong></td><td>Đại học tốt (rank 50-100)</td></tr>
+          <tr><td><strong>100</strong></td><td>Top 50 US universities</td></tr>
+          <tr><td><strong>110+</strong></td><td>Ivy League, top research programs</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <h3>TOEFL Writing — Integrated & Independent Templates</h3>
+
+  <div class="template">
+    <div class="template-label">Task 1 — Integrated Writing (Reading + Lecture, 20 phút, 150-225 words)</div>
+    <p><strong>Intro:</strong> "The reading passage argues that [main claim]. However, the lecturer challenges this view, contending that [counter-claim]."</p>
+    <p><strong>Point 1:</strong> "First, while the reading states that [point from reading], the lecturer counters this by explaining that [counter-point]. Specifically, [detail from lecture]."</p>
+    <p><strong>Point 2:</strong> "Second, the reading claims [point 2]. The professor disputes this, noting that [counter-point 2]. According to the lecture, [detail]."</p>
+    <p><strong>Point 3:</strong> "Finally, regarding [point 3 from reading], the lecturer argues that [counter]. This undermines the reading's assertion that [restate reading point]."</p>
+  </div>
+
+  <div class="template">
+    <div class="template-label">Task 2 — Academic Discussion (10 phút, 100+ words)</div>
+    <p><strong>Structure:</strong> Agree/disagree + reason + example OR Build on someone else's point</p>
+    <p>"I agree with [Student A/B]'s perspective that [point]. [Your expanded reason]. For example, [specific example]. Furthermore, [additional point that adds value to the discussion]."</p>
+    <p><strong>Key:</strong> Respond to the discussion prompt AND engage with at least one classmate's post. Show critical thinking, not just restating opinions.</p>
+  </div>
+
+  <h3>TOEFL Speaking — 4 Tasks</h3>
+  <div class="code"><span class="y">Task 1 — Independent (15s prep, 45s speak)</span>
+  Topic: Personal preference / opinion
+  <span class="g">Template:</span> "Personally, I prefer [X] for two reasons. First, [reason 1 + example]. Second, [reason 2 + example]. For these reasons, I prefer [X]."
+
+<span class="y">Task 2 — Campus Situation (30s prep, 60s speak)</span>
+  Read announcement (45s) → Listen to conversation → Speak
+  <span class="g">Template:</span> "The [man/woman] [agrees/disagrees] with the [policy/plan]. First, [reason 1 from conversation + detail]. Additionally, [reason 2 + detail]."
+
+<span class="y">Task 3 — Academic Content (30s prep, 60s speak)</span>
+  Read definition (45s) → Listen to lecture example → Explain
+  <span class="g">Template:</span> "The professor explains [concept] using the example of [X]. [Describe what happened]. This illustrates [concept] because [reason]."
+
+<span class="y">Task 4 — Academic Lecture (20s prep, 60s speak)</span>
+  Listen to lecture → Summarize using examples
+  <span class="g">Template:</span> "The professor discusses [topic], explaining that [main point]. To illustrate, [example 1]. Furthermore, [example 2]. These examples demonstrate [key concept]."</div>
+</section>
+
+<hr/>
+
+<!-- ═══════════════ SECTION 5: CAMBRIDGE ═══════════════ -->
+<section id="cambridge">
+  <div class="sec-label">Phần 5 — Chứng Chỉ</div>
+  <h2>Cambridge English — B2 First (FCE) & C1 Advanced (CAE)</h2>
+  <p class="sec-desc">Chứng chỉ vĩnh viễn, không cần gia hạn. Được công nhận bởi 25,000+ tổ chức trên thế giới.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>B2 First (FCE) — Upper Intermediate</h4>
+      <div class="t-wrap"><table>
+        <thead><tr><th>Paper</th><th>Thời gian</th></tr></thead>
+        <tbody>
+          <tr><td>Reading & Use of English</td><td>75 phút</td></tr>
+          <tr><td>Writing</td><td>80 phút</td></tr>
+          <tr><td>Listening</td><td>40 phút</td></tr>
+          <tr><td>Speaking</td><td>14 phút (pair)</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:13px;color:var(--muted);margin-top:10px">Thang điểm: 140-160 (Pass), 160-179 (Merit), 180+ (Distinction = C1 level)</p>
+    </div>
+    <div class="card">
+      <h4>C1 Advanced (CAE) — Advanced</h4>
+      <div class="t-wrap"><table>
+        <thead><tr><th>Paper</th><th>Thời gian</th></tr></thead>
+        <tbody>
+          <tr><td>Reading & Use of English</td><td>90 phút</td></tr>
+          <tr><td>Writing</td><td>90 phút</td></tr>
+          <tr><td>Listening</td><td>40 phút</td></tr>
+          <tr><td>Speaking</td><td>15 phút (pair)</td></tr>
+        </tbody>
+      </table></div>
+      <p style="font-size:13px;color:var(--muted);margin-top:10px">Tương đương IELTS 6.5-7.5. Nhiều đại học UK/Úc chấp nhận thay IELTS.</p>
+    </div>
+  </div>
+
+  <h3>Use of English — Key Grammar Parts</h3>
+  <div class="code"><span class="y">PART 1 — Multiple Choice Cloze (vocabulary + collocation)</span>
+  Test: collocations, phrasal verbs, fixed expressions, idioms
+  Strategy: Đọc cả câu/đoạn trước khi chọn → không chọn theo cảm giác
+
+<span class="y">PART 2 — Open Cloze (grammar words)</span>
+  Điền: prepositions, articles, pronouns, conjunctions, auxiliary verbs
+  No options given — phải biết grammar tốt
+  Common: although/despite, despite/in spite of, such/so, much/many
+
+<span class="y">PART 3 — Word Formation</span>
+  Cho: base word → điền dạng đúng (noun/verb/adj/adv + negative prefix)
+  Ví dụ: EMPLOY → employment / employer / unemployed / employable
+  Phải biết: prefix (un-, in-, dis-, mis-, over-) + suffix (-tion, -ment, -ful, -less, -ity)
+
+<span class="y">PART 4 — Key Word Transformation (đặc thù Cambridge)</span>
+  Rewrite câu dùng từ cho sẵn, không thay đổi nghĩa, dùng 2-5 từ
+  Ví dụ: "It was difficult to understand him." → DIFFICULTY
+  Answer: "I had difficulty understanding him."
+  Test: conditionals, passive, reported speech, comparatives, phrasal verbs</div>
+</section>
+
+<hr/>
+
+<!-- ═══════════════ SECTION 6: ACADEMIC VOCABULARY ═══════════════ -->
+<section id="awl">
+  <div class="sec-label">Phần 6 — Academic Vocabulary</div>
+  <h2>Academic Word List (AWL) — Coxhead (2000)</h2>
+  <p class="sec-desc">570 từ gia đình chiếm ~10% từ vựng trong văn bản học thuật. Thiết yếu cho IELTS Academic, TOEFL, Cambridge. Tổ chức theo chức năng, không theo alphabet.</p>
+
+  <div class="callout ca-blue">
+    <div class="callout-icon">📚</div>
+    <div>
+      <strong>Cách học AWL hiệu quả nhất (theo Coxhead)</strong>
+      <p>Học theo word families (employ → employment, employer, employee, unemployed). Mỗi lần gặp từ, tìm 3 từ trong cùng family. Học trong context, không học danh sách naked words.</p>
+    </div>
+  </div>
+
+  <h3>Nhóm 1: Analysis & Evaluation</h3>
+  <div class="code"><span class="g">analyze / analysis / analytical</span>      → "The study analyzes the impact of..."
+<span class="g">assess / assessment / assessable</span>     → "We must assess the risks before..."
+<span class="g">evaluate / evaluation / evaluative</span>   → "Researchers evaluated the outcomes..."
+<span class="g">examine / examination</span>               → "This essay examines three factors..."
+<span class="g">investigate / investigation</span>          → "Scientists investigated the correlation..."
+<span class="g">interpret / interpretation</span>          → "The data can be interpreted as..."
+<span class="g">identify / identification</span>           → "The study identified three key issues..."
+<span class="g">indicate / indication</span>               → "Results indicate a significant trend..."
+<span class="g">demonstrate / demonstration</span>         → "This demonstrates that..."
+<span class="g">illustrate / illustration</span>           → "To illustrate this point..."</div>
+
+  <h3>Nhóm 2: Argumentation & Claims</h3>
+  <div class="code"><span class="b">argue / argument / arguable / arguably</span>    → "Some argue that technology..."
+<span class="b">assert / assertion</span>                         → "The author asserts that..."
+<span class="b">claim / claim (n)</span>                          → "Critics claim this approach is flawed..."
+<span class="b">contend / contention</span>                       → "Researchers contend that..."
+<span class="b">maintain / maintenance</span>                     → "He maintains that the policy is effective..."
+<span class="b">propose / proposal</span>                         → "This essay proposes three solutions..."
+<span class="b">suggest / suggestion</span>                       → "The evidence suggests that..."
+<span class="b">imply / implication</span>                        → "This implies a causal relationship..."
+<span class="b">conclude / conclusion</span>                      → "It can be concluded that..."
+<span class="b">acknowledge / acknowledgement</span>              → "Researchers acknowledge the limitations..."</div>
+
+  <h3>Nhóm 3: Change & Process</h3>
+  <div class="code"><span class="p">alter / alteration</span>          → "Climate change has altered ecosystems..."
+<span class="p">modify / modification</span>       → "The policy was modified to include..."
+<span class="p">transform / transformation</span>  → "Technology has transformed education..."
+<span class="p">shift / shift (n)</span>          → "A paradigm shift has occurred in..."
+<span class="p">implement / implementation</span>  → "The government implemented new regulations..."
+<span class="p">establish / establishment</span>   → "The study establishes a clear link..."
+<span class="p">generate / generation</span>       → "This approach generates significant revenue..."
+<span class="p">facilitate / facilitation</span>   → "Technology facilitates communication..."
+<span class="p">constitute / constitution</span>   → "These factors constitute a significant risk..."
+<span class="p">derive / derivation</span>         → "Income derived from tourism..."</div>
+
+  <h3>Nhóm 4: Research & Data</h3>
+  <div class="code"><span class="y">data (always plural in academic: "data are...")</span>
+<span class="y">evidence / evident / evidently</span>     → "There is strong evidence to suggest..."
+<span class="y">findings</span>                            → "The findings reveal that..."
+<span class="y">statistics / statistical</span>           → "Statistical analysis shows..."
+<span class="y">method / methodology</span>               → "A qualitative methodology was adopted..."
+<span class="y">survey / survey (v)</span>                → "A survey of 500 participants was conducted..."
+<span class="y">hypothesis / hypothesize</span>           → "The hypothesis was tested by..."
+<span class="y">variable</span>                            → "Several variables were controlled..."
+<span class="y">significant / significance</span>         → "A statistically significant difference..."
+<span class="y">correlation / correlate</span>            → "A strong correlation exists between..."</div>
+
+  <h3>Nhóm 5: Cause & Effect (Crucial for IELTS Essays)</h3>
+  <div class="code"><span class="r">EXPRESSING CAUSE:</span>
+  due to / owing to / because of + noun phrase
+  as a result of / as a consequence of
+  stem from / arise from / result from
+  contribute to / lead to / give rise to
+  be attributed to / be caused by
+
+<span class="r">EXPRESSING EFFECT:</span>
+  result in / lead to / cause / bring about / trigger
+  consequently / as a result / therefore / thus / hence
+  have an impact on / affect / influence
+
+<span class="g">Ví dụ Band 7 phrases:</span>
+  "Urbanization has given rise to significant infrastructure challenges."
+  "Increased screen time contributes to deteriorating attention spans."
+  "Deforestation stems from economic pressures in developing nations."
+  "Consequently, biodiversity loss has accelerated dramatically."
+  "Poverty is largely attributed to systemic inequality."</div>
+
+  <h3>Nhóm 6: Academic Hedging (Sắc thái quan trọng)</h3>
+  <div class="code"><span class="g">STRONG claims (có evidence rõ ràng):</span>
+  "This clearly demonstrates..." / "The evidence conclusively shows..."
+  "It is evident that..." / "There is no doubt that..."
+
+<span class="g">MODERATE claims (có evidence nhưng không tuyệt đối):</span>
+  "This suggests that..." / "This appears to indicate..."
+  "The data points to..." / "This would seem to support..."
+
+<span class="g">WEAK/HEDGED claims (uncertain):</span>
+  "It could be argued that..." / "It is possible that..."
+  "This may be due to..." / "There is some evidence to suggest..."
+  "Under certain conditions..." / "In some cases..."
+
+<span class="y">Tại sao hedging quan trọng trong học thuật:</span>
+  Academic writing values PRECISION over confidence.
+  Overclaiming = bad academic writing (even if you're right)
+  Appropriate hedging = sophisticated writer</div>
+
+  <h3>Nhóm 7: Word Formation — Prefix & Suffix (Cambridge Part 3)</h3>
+  <div class="t-wrap"><table>
+    <thead><tr><th>Prefix/Suffix</th><th>Nghĩa</th><th>Ví dụ</th></tr></thead>
+    <tbody>
+      <tr><td><code>un-</code></td><td>không, phủ định</td><td>unemployed, unethical, unprecedented</td></tr>
+      <tr><td><code>in-/im-/il-/ir-</code></td><td>không</td><td>ineffective, impossible, illegal, irrelevant</td></tr>
+      <tr><td><code>dis-</code></td><td>đối nghịch</td><td>disadvantage, disagree, disappear</td></tr>
+      <tr><td><code>mis-</code></td><td>sai</td><td>misinterpret, mislead, mismanage</td></tr>
+      <tr><td><code>over-</code></td><td>quá mức</td><td>overestimate, overstate, overwhelm</td></tr>
+      <tr><td><code>under-</code></td><td>thiếu</td><td>underestimate, underfunded, undermine</td></tr>
+      <tr><td><code>-tion/-sion</code></td><td>danh từ hành động</td><td>implementation, conclusion, expansion</td></tr>
+      <tr><td><code>-ment</code></td><td>danh từ hành động</td><td>improvement, achievement, development</td></tr>
+      <tr><td><code>-ity/-ty</code></td><td>danh từ trạng thái</td><td>inequality, sustainability, diversity</td></tr>
+      <tr><td><code>-ful</code></td><td>đầy đủ, có</td><td>beneficial, meaningful, harmful (via ful)</td></tr>
+      <tr><td><code>-less</code></td><td>không có</td><td>meaningless, harmless, countless</td></tr>
+      <tr><td><code>-ly</code></td><td>trạng từ</td><td>significantly, consequently, primarily</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<hr/>
+
+<!-- ═══════════════ SECTION 7: EXAM GRAMMAR ═══════════════ -->
+<section id="examgrammar">
+  <div class="sec-label">Phần 7 — Ngữ Pháp</div>
+  <h2>Grammar For Exams</h2>
+  <p class="sec-desc">Ngữ pháp cụ thể được test trong từng chứng chỉ — không phải grammar chung chung.</p>
+
+  <h3>Grammar cho IELTS Writing (Band 7+ đòi hỏi)</h3>
+  <div class="code"><span class="y">1. COMPLEX SENTENCES — phải có trong band 7</span>
+  Relative clauses: "Countries that invest in education tend to..."
+  Participle clauses: "Having considered all factors, it can be concluded..."
+  Adverbial clauses: "Although technology offers benefits, it also..."
+  Noun clauses: "The fact that pollution is increasing is alarming."
+
+<span class="y">2. PASSIVE VOICE — học thuật dùng nhiều</span>
+  Active (casual): "Researchers found that..."
+  Passive (formal): "It was found that..." / "X has been linked to Y..."
+  "The study was conducted by..." / "Data were collected from..."
+  Tại sao: passive sounds objective, impersonal — đúng với academic register
+
+<span class="y">3. CONDITIONALS — cho discussions và hypotheticals</span>
+  2nd conditional: "If the government invested more, inequality would decrease."
+  3rd conditional: "If stricter policies had been implemented, the crisis could have been avoided."
+  Mixed: "If they had addressed it sooner, we would not be facing this now."
+
+<span class="y">4. CLEFT SENTENCES — emphasis trong writing</span>
+  "What is needed is a comprehensive policy reform."
+  "It is education that holds the key to economic development."
+  "The reason why this is problematic is that..."
+
+<span class="y">5. INVERSION — advanced, band 7-8</span>
+  "Not only does this harm the environment, but it also..."
+  "Rarely has such rapid change been observed."
+  "Under no circumstances should governments ignore..."</div>
+
+  <h3>Grammar cho TOEIC Part 5 (High Frequency)</h3>
+  <div class="code"><span class="g">1. WORD FORMS (chiếm ~40% Part 5)</span>
+  Economy (n) / economic (adj) / economical (adj) / economically (adv) / economize (v)
+  Employment (n) / employed (adj) / employer (n) / employee (n) / unemployed (adj)
+  Strategy: blank ở vị trí nào trong câu → xác định loại từ cần điền
+
+<span class="g">2. VERB TENSES (chiếm ~20%)</span>
+  "By the time she arrives, the meeting ___" → will have finished (future perfect)
+  "The report ___ yesterday" → was submitted (simple past passive)
+  "We ___ the project since January" → have been working on (present perfect continuous)
+
+<span class="g">3. PREPOSITIONS + COLLOCATIONS (~15%)</span>
+  responsible FOR / depend ON / result IN / consist OF / comply WITH
+  in accordance with / on behalf of / due to / regardless of
+  apply for a job / comply with regulations / result in failure
+
+<span class="g">4. ARTICLES (~10%)</span>
+  a/an = first mention, general
+  the = specific, known, unique
+  no article = general plural nouns, abstract nouns
+  "The manager approved the report." vs "Managers approve reports."
+
+<span class="g">5. CONJUNCTIONS & TRANSITIONS (~15%)</span>
+  Contrast: although, though, even though, while, whereas, despite, in spite of
+  Cause: because, since, as, due to, owing to
+  Result: therefore, consequently, as a result, thus
+  Addition: furthermore, moreover, in addition, additionally</div>
+
+  <h3>Advanced Grammar: Key Distinctions</h3>
+  <div class="t-wrap"><table>
+    <thead><tr><th>Cặp dễ nhầm</th><th>Sự khác biệt</th><th>Ví dụ</th></tr></thead>
+    <tbody>
+      <tr><td><strong>although vs despite</strong></td><td>although + clause; despite + noun/gerund</td><td>"Although it rained..." / "Despite the rain..."</td></tr>
+      <tr><td><strong>since vs for</strong></td><td>since + point in time; for + duration</td><td>"Since 2020" / "For three years"</td></tr>
+      <tr><td><strong>much vs many</strong></td><td>much + uncountable; many + countable</td><td>"much progress" / "many improvements"</td></tr>
+      <tr><td><strong>fewer vs less</strong></td><td>fewer + countable; less + uncountable</td><td>"fewer people" / "less time"</td></tr>
+      <tr><td><strong>rise vs raise</strong></td><td>rise = intransitive; raise = transitive</td><td>"Prices rose." / "They raised prices."</td></tr>
+      <tr><td><strong>affect vs effect</strong></td><td>affect = verb; effect = noun (usually)</td><td>"This affects output." / "The effect is..."</td></tr>
+      <tr><td><strong>which vs that</strong></td><td>which (non-defining, add info); that (defining, restrict)</td><td>"The report, which was late,..." / "The report that matters..."</td></tr>
+      <tr><td><strong>used to vs would</strong></td><td>used to = past habit or state; would = past repeated action only</td><td>Both: "I used to/would go." But: "I used to be shy." (not would)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<hr/>
+
+<!-- ═══════════════ SECTION 8: COMMUNICATION ═══════════════ -->
+<section id="comm">
+  <div class="sec-label">Phần 8 — Giao Tiếp</div>
+  <h2>Communication Frameworks</h2>
+  <p class="sec-desc">Các framework giao tiếp chuyên nghiệp — dùng cho cả exam speaking và giao tiếp hàng ngày.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>PREP — Trả Lời Có Cấu Trúc</h4>
+      <div class="code" style="margin-bottom:0"><span class="g">P</span>oint   → "I believe remote work is more productive."
+<span class="b">R</span>eason  → "Because it eliminates commuting time."
+<span class="y">E</span>xample → "When I worked from home, I finished 30% faster."
+<span class="g">P</span>oint   → "So yes, remote work boosts productivity."</div>
+    </div>
+    <div class="card">
+      <h4>STAR — Kể Chuyện Chuyên Nghiệp</h4>
+      <div class="code" style="margin-bottom:0"><span class="g">S</span>ituation → Bối cảnh
+<span class="b">T</span>ask      → Trách nhiệm của bạn
+<span class="y">A</span>ction    → Hành động CỤ THỂ của bạn (dùng "I")
+<span class="g">R</span>esult    → Kết quả + số liệu nếu có</div>
+    </div>
+    <div class="card">
+      <h4>ACS — Disagree Lịch Sự</h4>
+      <div class="code" style="margin-bottom:0"><span class="g">A</span>cknowledge → "I see your point..."
+<span class="b">C</span>ounter     → "However, I'd push back on..."
+<span class="y">S</span>tate       → "My view is that..."</div>
+    </div>
+    <div class="card">
+      <h4>BLUF — Bottom Line Up Front</h4>
+      <div class="code" style="margin-bottom:0">"The bottom line: [conclusion]
+Here's the context: [background]
+The reason: [reasoning]"</div>
+    </div>
+  </div>
+
+  <h3>Filler Phrases — Mua Thời Gian Suy Nghĩ</h3>
+  <div class="pills">
+    <span class="pill-b pill">"That's a great question..."</span>
+    <span class="pill-b pill">"Let me think about that..."</span>
+    <span class="pill-b pill">"Off the top of my head..."</span>
+    <span class="pill-b pill">"Well, it depends on..."</span>
+    <span class="pill-b pill">"Hmm, how do I put this..."</span>
+    <span class="pill-g pill">"Could you elaborate on that?"</span>
+    <span class="pill-g pill">"Just to make sure I understand..."</span>
+    <span class="pill-g pill">"Are you saying that...?"</span>
+    <span class="pill-p pill">"Right." / "I see."</span>
+    <span class="pill-p pill">"That makes sense."</span>
+    <span class="pill-p pill">"Exactly!" / "Absolutely."</span>
+  </div>
+</section>
+
+<hr/>
+
+<!-- ═══════════════ SECTION 9: VOCABULARY ═══════════════ -->
+<section id="vocab">
+  <div class="sec-label">Phần 9 — Từ Vựng</div>
+  <h2>Precision Vocabulary — Giao Tiếp & Thi</h2>
+  <p class="sec-desc">Từ vựng tạo ra sự khác biệt giữa người biết tiếng Anh và người nói tự nhiên.</p>
+
+  <h3>Precision Verbs — Thay "Say / Do / Think"</h3>
+  <div class="code"><span class="y">THAY "say":</span>  suggest / argue / point out / acknowledge / concede / clarify / emphasize / propose / maintain / indicate
+<span class="y">THAY "do":</span>   address / tackle / navigate / facilitate / coordinate / execute / deliver / leverage / streamline
+<span class="y">THAY "think":</span> believe / argue / maintain / contend / hold the view that / be of the opinion that</div>
+
+  <h3>Hedging Adverbs</h3>
+  <div class="t-wrap"><table>
+    <thead><tr><th>Từ</th><th>Ví dụ</th></tr></thead>
+    <tbody>
+      <tr><td><strong>arguably</strong></td><td>"This is arguably the most significant factor."</td></tr>
+      <tr><td><strong>largely</strong></td><td>"Success is largely dependent on preparation."</td></tr>
+      <tr><td><strong>primarily</strong></td><td>"This is primarily a communication issue."</td></tr>
+      <tr><td><strong>essentially</strong></td><td>"What this means, essentially, is..."</td></tr>
+      <tr><td><strong>fundamentally</strong></td><td>"The problem is fundamentally structural."</td></tr>
+      <tr><td><strong>ultimately</strong></td><td>"Ultimately, consistency determines outcomes."</td></tr>
+      <tr><td><strong>ideally</strong></td><td>"Ideally, we'd have more time to prepare."</td></tr>
+      <tr><td><strong>in hindsight</strong></td><td>"In hindsight, we should have started earlier."</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>High-Value Collocations</h3>
+  <div class="code"><span class="g">RAISE</span>  + a concern / an issue / awareness / a question / the stakes
+<span class="g">ADDRESS</span>+ a problem / a concern / the elephant in the room
+<span class="g">MAKE</span>   + progress / an impact / assumptions / a case for / a point
+<span class="g">TAKE</span>   + ownership / responsibility / the initiative / a step back
+<span class="g">BUILD</span>  + rapport / consensus / momentum / a case / credibility
+<span class="g">DRIVE</span>  + results / change / growth / alignment / the conversation</div>
+
+  <h3>Discourse Grammar Phrases</h3>
+  <div class="code"><span class="y">CONTRASTING:</span>   "Having said that..." / "That being said..." / "Even so..."
+<span class="y">CONCLUDING:</span>    "All things considered..." / "On balance..." / "At the end of the day..."
+<span class="y">HUMBLE OPINION:</span>"For what it's worth..." / "If you ask me..." / "I could be wrong, but..."
+<span class="y">UNEXPECTED:</span>    "If anything..." / "As it turns out..." / "Interestingly enough..."</div>
+</section>
+
+</div>
+
+<footer>
+  <p>English Mastery Pro — Complete System for Communication & Certification · 2026</p>
+  <p style="margin-top:8px">Sources: <a href="https://ielts.org/news-and-insights/how-long-will-it-take-to-get-the-ielts-band-score-i-need">IELTS.org</a> · <a href="https://edusynch.com/blog/online-testing/2025/07/22/3-month-toeic-study-plan-for-busy-students">EduSynch TOEIC Plan</a> · <a href="https://ieltstutors.org/academic-word-list/">AWL — IELTSTutors</a> · Coxhead (2000) TESOL Quarterly · Swain (1985) Output Hypothesis · Lewis (1993) Lexical Approach</p>
+</footer>
+
+<script>
+// Simple tab toggle for cert sections if needed
+document.querySelectorAll('.cert-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.target;
+    document.querySelectorAll('.cert-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.cert-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    const el = document.getElementById(target);
+    if (el) el.classList.add('active');
+  });
+});
+// Highlight active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+}, {passive:true});
+</script>
+</body>
+</html>
