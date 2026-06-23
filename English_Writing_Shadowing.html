@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TOEIC Speaking & Writing — Lộ Trình 12 Tuần (Shadowing)</title>
+<style>
+:root{--bg:#0f1117;--s:#1a1d27;--s2:#22263a;--bd:#2e3350;--ac:#6c8cff;--ac2:#a78bfa;--ac3:#34d399;--ac4:#f59e0b;--ac5:#f87171;--tx:#e2e8f0;--mu:#94a3b8;--di:#64748b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-serif;font-size:15px;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;gap:4px;height:50px;overflow-x:auto;white-space:nowrap}
+.logo{color:var(--ac);font-weight:800;font-size:14px;margin-right:12px}
+nav a{color:var(--mu);font-size:12.5px;padding:5px 10px;border-radius:6px;text-decoration:none;transition:.15s}
+nav a:hover{color:var(--tx);background:var(--s2)}
+.wrap{max-width:960px;margin:0 auto;padding:40px 20px 100px}
+section{margin-bottom:64px;scroll-margin-top:60px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);margin-bottom:6px}
+h2{font-size:22px;font-weight:800;margin-bottom:6px}
+h3{font-size:16px;font-weight:700;margin:28px 0 10px}
+h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ac2);margin:18px 0 8px}
+.sec-desc{color:var(--mu);margin-bottom:24px;font-size:14px}
+hr{border:none;border-top:1px solid var(--bd);margin:48px 0}
+a.src{color:var(--ac);text-decoration:none;border-bottom:1px dotted var(--ac)}
+
+/* PHASE + WEEK DIVIDERS */
+.phase-divider{margin:40px 0 24px;padding:18px 22px;border-radius:14px;background:linear-gradient(135deg,#22263a,#1a1d27);border:1px solid var(--bd)}
+.phase-divider .pd-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ac2)}
+.phase-divider h3{font-size:20px;font-weight:800;margin:4px 0 6px;color:var(--tx)}
+.phase-divider p{font-size:13.5px;color:var(--mu);margin:0}
+.week-divider{display:flex;align-items:center;gap:12px;margin:32px 0 16px}
+.week-divider .wd-num{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ac4);background:#f59e0b18;border:1px solid #f59e0b33;padding:4px 12px;border-radius:20px}
+.week-divider .wd-title{font-size:14px;font-weight:700;color:var(--tx)}
+.week-divider .wd-line{flex:1;height:1px;background:var(--bd)}
+
+/* LESSON UNIT */
+.unit{border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:14px}
+.unit-header{padding:14px 18px;background:var(--s2);border-bottom:1px solid transparent;display:flex;align-items:center;gap:14px;cursor:pointer;transition:.15s}
+.unit.open .unit-header{border-bottom-color:var(--bd)}
+.unit-header:hover{background:#262b42}
+.unit-num{width:42px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--ac2),var(--ac));color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.unit-num.spk{background:linear-gradient(135deg,#34d399,#10b981)}
+.unit-num.wrt{background:linear-gradient(135deg,#6c8cff,#a78bfa)}
+.unit-num.mix{background:linear-gradient(135deg,#f59e0b,#f87171)}
+.unit-title{font-weight:700;font-size:14.5px}
+.unit-meta{font-size:11.5px;color:var(--mu);margin-top:1px}
+.unit-grow{flex:1;min-width:0}
+.type-pill{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;flex-shrink:0}
+.tp-spk{background:#10b98122;color:#34d399;border:1px solid #10b98133}
+.tp-wrt{background:#6c8cff22;color:#93c5fd;border:1px solid #6c8cff33}
+.tp-mix{background:#f59e0b22;color:#fbbf24;border:1px solid #f59e0b33}
+.done-box{width:24px;height:24px;border-radius:6px;border:1.5px solid var(--bd);background:var(--s);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:transparent;transition:.15s}
+.done-box.checked{background:var(--ac3);border-color:var(--ac3);color:#0f1117;font-weight:800}
+.chev{color:var(--mu);font-size:13px;transition:transform .2s;flex-shrink:0}
+.unit.open .chev{transform:rotate(90deg)}
+.unit-body{padding:22px;display:none}
+.unit.open .unit-body{display:block}
+
+/* STEP PLAN */
+.steps{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.step{flex:1;min-width:120px;background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:8px 10px}
+.step .st-n{font-size:10px;font-weight:800;color:var(--ac);letter-spacing:.05em}
+.step .st-t{font-size:12px;font-weight:600;margin:2px 0}
+.step .st-m{font-size:11px;color:var(--mu)}
+
+/* GOAL */
+.goal{background:#6c8cff11;border:1px solid #6c8cff33;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13.5px}
+.goal strong{color:var(--ac);display:block;margin-bottom:2px;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+
+/* MODEL / ESSAY */
+.essay-box{background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:18px;margin-bottom:14px;font-size:14px;line-height:1.9;color:var(--tx)}
+.essay-box p{margin-bottom:10px}.essay-box p:last-child{margin-bottom:0}
+.essay-box .vi{color:var(--mu);font-style:italic;font-size:13px}
+.band-tag{display:inline-flex;align-items:center;gap:8px;background:#10b98122;border:1px solid #10b98133;color:var(--ac3);font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:12px}
+.spk-btn{background:var(--ac);color:#fff;border:none;padding:3px 11px;border-radius:20px;cursor:pointer;font-size:11px;font-weight:700}
+.spk-btn:hover{opacity:.9}.spk-btn.slow{background:var(--s2);color:var(--ac);border:1px solid var(--bd)}
+
+/* ANNOTATION (notice) */
+.annotation{background:#f59e0b11;border-left:3px solid var(--ac4);padding:8px 14px;border-radius:0 6px 6px 0;font-size:12.5px;color:var(--tx);margin:7px 0}
+.annotation strong{color:var(--ac4)}
+
+/* TASK / CALLOUT */
+.callout{border-radius:10px;padding:14px 18px;margin:14px 0;display:flex;gap:12px;align-items:flex-start}
+.callout strong{display:block;margin-bottom:3px;font-size:13px}
+.callout p{font-size:13px;color:var(--mu);margin:0}
+.callout .em{font-size:18px;line-height:1.4}
+.ca-blue{background:#6c8cff11;border:1px solid #6c8cff33}
+.ca-green{background:#10b98111;border:1px solid #10b98133}
+.ca-yellow{background:#f59e0b11;border:1px solid #f59e0b33}
+.ca-purple{background:#a78bfa11;border:1px solid #a78bfa33}
+
+/* RECORDER */
+.rec{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin:12px 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rec button{border:none;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer}
+.rec .rec-go{background:var(--ac5);color:#fff}
+.rec .rec-stop{background:var(--s);color:var(--tx);border:1px solid var(--bd)}
+.rec audio{height:30px}
+.rec .rec-note{font-size:11.5px;color:var(--mu)}
+
+/* WRITEPAD */
+.pad-label{font-size:12px;font-weight:700;color:var(--ac2);margin:14px 0 6px;text-transform:uppercase;letter-spacing:.05em}
+textarea.pad{width:100%;min-height:120px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;color:var(--tx);font-size:13.5px;font-family:inherit;line-height:1.7;resize:vertical;outline:none}
+textarea.pad:focus{border-color:var(--ac)}
+.pad-saved{font-size:11px;color:var(--ac3);margin-top:4px;height:14px}
+
+/* CHECKLIST */
+.checklist{background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;margin:14px 0}
+.checklist .cl-h{font-size:12px;font-weight:700;color:var(--ac3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.checklist label{display:flex;gap:10px;align-items:flex-start;font-size:13px;margin-bottom:7px;cursor:pointer;color:var(--mu)}
+.checklist label:last-child{margin-bottom:0}
+.checklist input{margin-top:3px;accent-color:var(--ac3)}
+
+/* BANK */
+.bank{background:#a78bfa11;border:1px solid #a78bfa33;border-radius:10px;padding:12px 16px;margin-top:14px;font-size:13px}
+.bank strong{color:var(--ac2);display:block;margin-bottom:3px;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+
+/* QUIZ */
+.quiz{margin:16px 0}
+.q-text{font-size:14px;margin-bottom:10px;font-weight:600}
+.q-context{background:var(--s2);border-left:3px solid var(--ac);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--mu);margin-bottom:10px;font-style:italic}
+.opts{display:flex;flex-direction:column;gap:7px;margin-bottom:8px}
+.opt{background:var(--s);border:1px solid var(--bd);border-radius:8px;padding:9px 14px;cursor:pointer;font-size:13px;transition:.15s;text-align:left;color:var(--tx)}
+.opt:hover{border-color:var(--ac);background:var(--s2)}
+.opt.correct{background:#10b98122;border-color:#10b981;color:#34d399}
+.opt.wrong{background:#ef444422;border-color:#ef4444;color:#f87171}
+.opt:disabled{cursor:default}
+.explanation{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:11px 15px;font-size:12.5px;color:var(--mu);margin-top:8px;display:none}
+.explanation.show{display:block}.explanation strong{color:var(--ac3)}
+.score-bar{background:var(--s2);border-radius:8px;padding:10px 16px;margin:14px 0 4px;display:none;align-items:center;gap:12px}
+.score-num{font-size:20px;font-weight:800;color:var(--ac)}.score-label{font-size:12.5px;color:var(--mu)}
+
+/* TABLE */
+.t-wrap{overflow-x:auto;margin:14px 0;border-radius:10px;border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:var(--s2)}
+th{padding:9px 13px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--mu);border-bottom:1px solid var(--bd)}
+td{padding:9px 13px;border-bottom:1px solid var(--bd);vertical-align:top}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--s2)}
+
+/* PROGRESS BAR (sticky) */
+.prog{position:sticky;top:50px;z-index:90;background:rgba(15,17,23,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:10px 20px}
+.prog-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.prog-track{flex:1;height:8px;background:var(--s2);border-radius:20px;overflow:hidden}
+.prog-fill{height:100%;width:0;background:linear-gradient(90deg,var(--ac3),var(--ac));border-radius:20px;transition:width .3s}
+.prog-txt{font-size:12px;color:var(--mu);font-weight:600;white-space:nowrap}
+.prog-reset{font-size:11px;color:var(--di);background:none;border:none;cursor:pointer;text-decoration:underline}
+
+/* DASHBOARD CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--s2);border:1px solid var(--bd);border-radius:12px;padding:16px}
+.card .c-big{font-size:24px;font-weight:800;color:var(--ac)}
+.card .c-lbl{font-size:12px;color:var(--mu);margin-top:2px}
+
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px}
+.bb{background:#6c8cff22;color:#93c5fd;border:1px solid #6c8cff33}
+.bg{background:#10b98122;color:#34d399;border:1px solid #10b98133}
+.by{background:#f59e0b22;color:#fbbf24;border:1px solid #f59e0b33}
+
+footer{text-align:center;padding:40px 20px;border-top:1px solid var(--bd);color:var(--di);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">TOEIC S&amp;W · Shadowing</span>
+  <a href="#overview">Tổng quan</a>
+  <a href="#method">Phương pháp</a>
+  <a href="#program">60 Buổi</a>
+  <a href="#rubric">Rubric</a>
+  <a href="#exam">Phòng thi</a>
+</nav>
+
+<div class="prog">
+  <div class="prog-inner">
+    <div class="prog-txt" id="progTxt">0 / 60 buổi</div>
+    <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+    <button class="prog-reset" onclick="resetProgress()">đặt lại</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ═══ OVERVIEW ═══ -->
+<section id="overview">
+<div class="sec-label">Lộ trình 12 tuần · 5 buổi/tuần · 45–60 phút/buổi</div>
+<h2>TOEIC Speaking &amp; Writing — Mục tiêu tổng 350/400</h2>
+<p class="sec-desc">Lộ trình luyện <strong>cả Nói lẫn Viết</strong> theo phương pháp <strong>shadowing &amp; imitation</strong>, từ trình độ trung cấp (~500–650 quy đổi) lên mức advanced. Mỗi buổi là một bài tự học hoàn chỉnh.</p>
+
+<div class="cards">
+  <div class="card"><div class="c-big">350</div><div class="c-lbl">Tổng mục tiêu (≈175 Nói + 175 Viết)</div></div>
+  <div class="card"><div class="c-big">60</div><div class="c-lbl">Buổi học (12 tuần × 5)</div></div>
+  <div class="card"><div class="c-big">~50h</div><div class="c-lbl">Tổng thời gian luyện</div></div>
+  <div class="card"><div class="c-big">5</div><div class="c-lbl">Bước mỗi buổi</div></div>
+</div>
+
+<div class="callout ca-yellow">
+  <div class="em">⚠️</div>
+  <div><strong>Bài thi này là TOEIC Speaking &amp; Writing — KHÁC bài Listening &amp; Reading (thang 990).</strong>
+  <p>Speaking ~20 phút, 11 câu, 0–200 điểm. Writing ~60 phút, 8 câu, 0–200 điểm. Tổng 0–400. Mức 350 sát band cao nhất (advanced) — cần nói liền mạch, phát âm rõ, ngữ pháp/từ vựng tốt và bài viết có lập luận. Nguồn: <a class="src" href="https://www.ets.org/toeic/about/speaking-writing.html" target="_blank">ETS — About TOEIC S&amp;W</a>.</p></div>
+</div>
+
+<h3>Cấu trúc bài thi (nhúng từ ETS)</h3>
+<div class="t-wrap"><table>
+  <thead><tr><th>Phần</th><th>Câu</th><th>Dạng</th><th>Điểm/Thời gian</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="5"><span class="badge bg">SPEAKING</span><br/>~20 phút<br/>0–200</td><td>Q1–2</td><td>Đọc to một đoạn văn (Read a text aloud)</td><td>45s chuẩn bị + 45s đọc</td></tr>
+    <tr><td>Q3–4</td><td>Tả ảnh (Describe a picture)</td><td>45s + 30s nói</td></tr>
+    <tr><td>Q5–7</td><td>Trả lời câu hỏi (Respond to questions)</td><td>3s chuẩn bị · 15–30s nói</td></tr>
+    <tr><td>Q8–10</td><td>Trả lời dùng thông tin cho sẵn</td><td>45s đọc info · 15–30s nói</td></tr>
+    <tr><td>Q11</td><td>Nêu &amp; bảo vệ ý kiến (Express an opinion)</td><td>45s chuẩn bị + 60s nói</td></tr>
+    <tr><td rowspan="3"><span class="badge bb">WRITING</span><br/>~60 phút<br/>0–200</td><td>Q1–5</td><td>Viết 1 câu tả ảnh dùng 2 từ cho sẵn</td><td>8 phút cho cả 5 câu (0–3)</td></tr>
+    <tr><td>Q6–7</td><td>Trả lời email (Respond to a written request)</td><td>10 phút/câu (0–4)</td></tr>
+    <tr><td>Q8</td><td>Bài luận quan điểm 4–5 đoạn</td><td>30 phút (0–5)</td></tr>
+  </tbody>
+</table></div>
+<p class="sec-desc" style="margin-top:10px">Format có thể chênh nhẹ giữa các phiên bản — luôn đối chiếu <a class="src" href="https://www.ets.org/pdfs/toeic/toeic-speaking-writing-sample-tests.pdf" target="_blank">đề mẫu chính thức ETS</a> và <a class="src" href="https://www.ets.org/pdfs/toeic/toeic-speaking-writing-examinee-handbook.pdf" target="_blank">Examinee Handbook</a>.</p>
+
+<h3>Cách dùng trang này</h3>
+<div class="callout ca-blue"><div class="em">🧭</div><div><strong>Mỗi ngày làm đúng 1 buổi, theo thứ tự.</strong>
+<p>Bấm vào tiêu đề buổi để mở. Làm theo <strong>5 bước</strong> trong khung thời gian gợi ý. Ngày luyện nói: bấm 🔊 nghe mẫu, rồi 🎙️ thu âm chính mình và nghe lại để so. Ngày luyện viết: gõ vào ô (tự lưu trong máy bạn). Xong thì tick ô vuông bên phải để cập nhật tiến độ. Nghỉ 2 ngày cuối tuần để não "tiêu hóa".</p></div></div>
+</section>
+
+<hr/>
+
+<!-- ═══ METHOD ═══ -->
+<section id="method">
+<div class="sec-label">Cơ sở khoa học</div>
+<h2>Phương pháp: Vòng lặp 5 bước (Shadowing &amp; Imitation)</h2>
+<p class="sec-desc">Shadowing gốc là kỹ thuật <em>nói</em> — nghe và nhại lại ngay lập tức — có bằng chứng mạnh cho phát âm, ngữ điệu, độ trôi chảy và từ vựng. Nửa Viết dùng "anh em" của nó: copywork/imitation, dictogloss, back-translation. Tất cả dựa trên cùng nguyên lý: <strong>nhại mẫu chuẩn với tần suất cao + nhận ra khoảng cách giữa cái mình làm và mẫu.</strong></p>
+
+<div class="t-wrap"><table>
+  <thead><tr><th>Bước</th><th>Làm gì</th><th>Cơ sở</th></tr></thead>
+  <tbody>
+    <tr><td><strong>① SHADOW</strong><br/>Đọc bóng</td><td>Nghe mẫu &amp; nhại đè lên 3–5 lần (nói) / đọc to mẫu (viết). Bắt nhịp, không dừng.</td><td>Imitation Theory + Input Hypothesis (Krashen). Lặp 3–5 lần củng cố phản xạ.</td></tr>
+    <tr><td><strong>② NOTICE</strong><br/>Soi mẫu</td><td>Phân tích cấu trúc, collocation, từ nối, cách phát âm/ngữ điệu trong mẫu.</td><td>Noticing Hypothesis (Schmidt): phải "để ý" thì mới học được.</td></tr>
+    <tr><td><strong>③ PRODUCE / IMITATE</strong><br/>Tự tạo</td><td>Tự thu âm câu trả lời (nói) HOẶC viết nhại theo khung mẫu / dựng lại / dịch ngược (viết).</td><td>Output Hypothesis (Swain): tạo ngôn ngữ ép bạn nhận ra lỗ hổng.</td></tr>
+    <tr><td><strong>④ COMPARE</strong><br/>Đối chiếu</td><td>Nghe lại / đọc lại, so với mẫu &amp; rubric. Ghi lỗi vào nhật ký.</td><td>Self-monitoring + error log — yếu tố quyết định ở band cao.</td></tr>
+    <tr><td><strong>⑤ BANK</strong><br/>Tích lũy</td><td>Lưu 5–10 mẫu câu/collocation hữu ích vào "ngân hàng" cá nhân.</td><td>Học theo cụm (chunks) → truy xuất nhanh khi thi.</td></tr>
+  </tbody>
+</table></div>
+
+<h4>Nguồn tham khảo uy tín</h4>
+<p class="sec-desc">
+• ETS chính thức: <a class="src" href="https://www.ets.org/toeic/about/speaking-writing.html" target="_blank">About S&amp;W</a>, <a class="src" href="https://www.ets.org/pdfs/toeic/toeic-speaking-writing-examinee-handbook.pdf" target="_blank">Examinee Handbook</a>, <a class="src" href="https://www.ets.org/pdfs/toeic/toeic-speaking-writing-score-descriptors.pdf" target="_blank">Score Descriptors</a>.<br/>
+• Shadowing (nghiên cứu): <a class="src" href="https://allinnovationjournal.com/assets/archives/2025/vol7issue3/7018.pdf" target="_blank">A theoretical overview of the shadowing technique</a>.<br/>
+• Dictogloss &amp; Noticing/Output Hypothesis: <a class="src" href="https://files.eric.ed.gov/fulltext/EJ1134804.pdf" target="_blank">ERIC — learners' reflections on dictogloss</a>.
+</p>
+</section>
+
+<hr/>
+
+<!-- ═══ PROGRAM (rendered by JS) ═══ -->
+<section id="program">
+<div class="sec-label">Chương trình chính</div>
+<h2>60 Buổi Học — Theo Tuần</h2>
+<p class="sec-desc">Màu nhãn: <span class="type-pill tp-spk">Nói</span> luyện Speaking · <span class="type-pill tp-wrt">Viết</span> luyện Writing · <span class="type-pill tp-mix">Kết hợp</span> cả hai/cột mốc.</p>
+<div id="programRoot"></div>
+</section>
+
+<hr/>
+
+<!-- ═══ RUBRIC ═══ -->
+<section id="rubric">
+<div class="sec-label">Tự chấm</div>
+<h2>Rubric rút gọn — Tự chấm theo tiêu chí ETS</h2>
+<p class="sec-desc">Dùng các bảng này ở bước ④ COMPARE để biết mình đang ở đâu so với mức 175+.</p>
+
+<h4>Speaking — tiêu chí chấm</h4>
+<div class="t-wrap"><table>
+  <thead><tr><th>Tiêu chí</th><th>Mức thấp</th><th>Mức 175+ (cần đạt)</th></tr></thead>
+  <tbody>
+    <tr><td>Phát âm / ngữ điệu</td><td>Nuốt âm cuối, đều đều, khó nghe</td><td>Rõ, đúng trọng âm, lên/xuống giọng tự nhiên</td></tr>
+    <tr><td>Ngữ pháp</td><td>Sai thì, thiếu chủ ngữ/động từ</td><td>Đa dạng cấu trúc, ít lỗi cản trở nghĩa</td></tr>
+    <tr><td>Từ vựng</td><td>Lặp từ đơn giản</td><td>Chính xác, có collocation workplace</td></tr>
+    <tr><td>Mạch lạc (cohesion)</td><td>Câu rời rạc</td><td>Từ nối tự nhiên, ý liền mạch</td></tr>
+    <tr><td>Nội dung</td><td>Ngắn, lạc đề, bỏ trống</td><td>Đủ ý, có lý do + ví dụ, dùng hết thời gian</td></tr>
+  </tbody>
+</table></div>
+
+<h4>Writing — tiêu chí chấm</h4>
+<div class="t-wrap"><table>
+  <thead><tr><th>Câu</th><th>Chấm theo</th><th>Mẹo đạt điểm tối đa</th></tr></thead>
+  <tbody>
+    <tr><td>Q1–5 (0–3)</td><td>Ngữ pháp, dùng đủ 2 từ, đúng ảnh</td><td>1 câu trọn vẹn, có mệnh đề phụ, dùng đúng cả 2 từ cho sẵn</td></tr>
+    <tr><td>Q6–7 (0–4)</td><td>Chất lượng &amp; đa dạng câu, từ vựng, bố cục</td><td>Đáp đủ các yêu cầu trong đề, mở–thân–kết, đúng register</td></tr>
+    <tr><td>Q8 (0–5)</td><td>Ngữ pháp, từ vựng, bố cục, bảo vệ ý kiến</td><td>Thesis rõ, 2 lý do + dẫn chứng/ví dụ, có nhượng bộ, 300+ từ</td></tr>
+  </tbody>
+</table></div>
+<p class="sec-desc" style="margin-top:10px">Mô tả band đầy đủ: <a class="src" href="https://www.ets.org/pdfs/toeic/toeic-speaking-writing-score-descriptors.pdf" target="_blank">ETS Score Descriptors (PDF)</a>.</p>
+</section>
+
+<hr/>
+
+<!-- ═══ EXAM DAY ═══ -->
+<section id="exam">
+<div class="sec-label">Tuần thi</div>
+<h2>Cẩm nang phòng thi</h2>
+<div class="callout ca-green"><div class="em">✅</div><div><strong>Quy tắc vàng: ĐỪNG BAO GIỜ bỏ trống.</strong><p>Không trả lời = 0 điểm cho câu đó. Luôn nói/viết gì đó bằng tiếng Anh, dù chưa chắc — vẫn có thể được 1–2 điểm.</p></div></div>
+<div class="callout ca-blue"><div class="em">⏱️</div><div><strong>Speaking: thời gian chuẩn bị rất ngắn (có khi 3 giây).</strong><p>Luyện phản xạ mở đầu sẵn ("Well, in my opinion…", "Looking at the picture, I can see…") để không "đơ" lúc bắt đầu.</p></div></div>
+<div class="callout ca-yellow"><div class="em">📝</div><div><strong>Writing: canh giờ Q8 (30 phút) — dành 5 phút lập dàn ý, 22 phút viết, 3 phút soát.</strong><p>Soát: thì động từ, số ít/nhiều, mạo từ a/an/the, dấu câu.</p></div></div>
+<div class="callout ca-purple"><div class="em">🎧</div><div><strong>Trước ngày thi:</strong><p>Làm trọn 1 đề mẫu ETS có bấm giờ để quen áp lực &amp; giao diện máy tính. Test có giá trị 2 năm.</p></div></div>
+</section>
+
+</div><!-- end wrap -->
+
+<footer>
+  <p>TOEIC Speaking &amp; Writing — Lộ trình 12 tuần theo phương pháp Shadowing · Tự học 45–60 phút/ngày · 2026</p>
+</footer>
+
+<script>
+// ════════════════════════════════════════════
+// HELPERS: speak (Web Speech) · recorder · writepad · progress
+// ════════════════════════════════════════════
+const AUDIO = {};   // id -> english text
+function speak(id, rate){
+  if(!('speechSynthesis' in window)){ alert('Trình duyệt không hỗ trợ đọc tự động. Hãy dùng app điện thoại hoặc Google Dịch để nghe mẫu.'); return; }
+  const txt = AUDIO[id]; if(!txt) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(txt);
+  u.lang='en-US'; u.rate = rate||0.92;
+  const vs = speechSynthesis.getVoices().filter(v=>v.lang.startsWith('en'));
+  if(vs.length) u.voice = vs[0];
+  speechSynthesis.speak(u);
+}
+
+function initRecorder(el){
+  const note = el.querySelector('.rec-note');
+  if(!navigator.mediaDevices || !window.MediaRecorder){ note.textContent='Trình duyệt không hỗ trợ thu âm — hãy dùng app ghi âm điện thoại để tự nghe lại.'; return; }
+  const goBtn = el.querySelector('.rec-go'); const audio = el.querySelector('audio');
+  let mr, chunks=[], recording=false, stream;
+  goBtn.onclick = async ()=>{
+    if(!recording){
+      try{ stream = await navigator.mediaDevices.getUserMedia({audio:true}); }
+      catch(e){ note.textContent='Bạn cần cho phép micro để thu âm.'; return; }
+      mr = new MediaRecorder(stream); chunks=[];
+      mr.ondataavailable = e=>chunks.push(e.data);
+      mr.onstop = ()=>{ const blob=new Blob(chunks,{type:'audio/webm'}); audio.src=URL.createObjectURL(blob); audio.style.display='inline-block'; stream.getTracks().forEach(t=>t.stop()); };
+      mr.start(); recording=true; goBtn.textContent='⏹ Dừng'; goBtn.classList.add('rec-stop'); note.textContent='Đang thu… nói câu trả lời của bạn.';
+    } else {
+      mr.stop(); recording=false; goBtn.textContent='🎙️ Thu âm'; goBtn.classList.remove('rec-stop'); note.textContent='Nghe lại & so với mẫu (bước ④).';
+    }
+  };
+}
+
+const PADKEY='ws_pad_v1';
+function loadPads(){ try{ return JSON.parse(localStorage.getItem(PADKEY))||{}; }catch(e){ return {}; } }
+function savePad(id, val, statusEl){
+  const m=loadPads(); m[id]=val; localStorage.setItem(PADKEY, JSON.stringify(m));
+  statusEl.textContent='✓ đã lưu'; clearTimeout(statusEl._t); statusEl._t=setTimeout(()=>statusEl.textContent='',1200);
+}
+
+// progress
+const PROGKEY='ws_progress_v1';
+function loadProg(){ try{ return JSON.parse(localStorage.getItem(PROGKEY))||{}; }catch(e){ return {}; } }
+function saveProg(m){ localStorage.setItem(PROGKEY, JSON.stringify(m)); }
+function updateProgBar(){
+  const m=loadProg(); const done=Object.values(m).filter(Boolean).length; const total=SESSIONS.length;
+  document.getElementById('progTxt').textContent = done+' / '+total+' buổi';
+  document.getElementById('progFill').style.width = (total? (done/total*100):0)+'%';
+}
+function resetProgress(){ if(confirm('Đặt lại toàn bộ tiến độ đã tick?')){ localStorage.removeItem(PROGKEY); document.querySelectorAll('.done-box').forEach(b=>b.classList.remove('checked')); updateProgBar(); } }
+
+function toggleUnit(h){ if(h.classList.contains('done-box')) return; h.closest('.unit').classList.toggle('open'); }
+
+// ════════════════════════════════════════════
+// QUIZ ENGINE (tái dùng từ English_Lessons)
+// ════════════════════════════════════════════
+let scores={};
+function makeQuiz(containerId, questions, scoreId){
+  const c=document.getElementById(containerId); if(!c) return;
+  scores[containerId]={correct:0,total:questions.length,answered:0};
+  let html='';
+  questions.forEach((q,qi)=>{
+    html+='<div class="quiz" id="'+containerId+'-q'+qi+'"><div class="q-text">Câu '+(qi+1)+'. '+q.question+'</div>'+(q.context?'<div class="q-context">'+q.context+'</div>':'')+'<div class="opts">';
+    q.options.forEach((opt,oi)=>{ html+='<button class="opt" onclick="selectOpt(\''+containerId+'\','+qi+','+oi+','+q.answer+',\''+containerId+'-exp'+qi+'\',\''+(scoreId||'')+'\')">'+String.fromCharCode(65+oi)+') '+opt+'</button>'; });
+    html+='</div><div class="explanation" id="'+containerId+'-exp'+qi+'"><strong>Giải thích:</strong> '+q.explanation+'</div></div>';
+  });
+  c.innerHTML=html;
+}
+function selectOpt(cid,qi,oi,answer,expId,scoreId){
+  const container=document.getElementById(cid+'-q'+qi); const opts=container.querySelectorAll('.opt');
+  if(opts[0].disabled) return;
+  opts.forEach((o,i)=>{ o.disabled=true; if(i===answer) o.classList.add('correct'); else if(i===oi&&oi!==answer) o.classList.add('wrong'); });
+  document.getElementById(expId).classList.add('show');
+  if(oi===answer) scores[cid].correct++;
+  scores[cid].answered++;
+  if(scoreId && scores[cid].answered===scores[cid].total){
+    const bar=document.getElementById(scoreId); if(bar){ bar.style.display='flex'; const num=bar.querySelector('.score-num'); if(num) num.textContent=scores[cid].correct+'/'+scores[cid].total; }
+  }
+}
+
+// ════════════════════════════════════════════
+// SESSION DATA
+// type: 'spk' | 'wrt' | 'mix'
+// fields: w,d,ph,type,title,focus,goal,model{tag,html,audio},notice[],task,
+//         quiz[], checklist[], bank, milestone
+// ════════════════════════════════════════════
+const PHASE1 = [
+{w:1,d:1,ph:1,type:'mix',title:'Khởi động: Hiểu bài thi + Shadow lần đầu',focus:'Định hướng · kỹ thuật shadowing',
+ goal:'Hiểu mình sẽ thi gì và làm quen vòng lặp 5 bước. Tập "đọc bóng" (shadow) lần đầu với một đoạn read-aloud kiểu Speaking Q1–2.',
+ model:{tag:'Read-aloud · Speaking Q1–2',audio:'Thank you for calling Greenfield Dental Clinic. Our office is open Monday through Friday, from eight in the morning until six in the evening. To book an appointment, please press one. To speak with a receptionist, please stay on the line.',
+   html:'<p>"Thank you for calling Greenfield Dental Clinic. Our office is open Monday through Friday, from eight in the morning until six in the evening. To book an appointment, please press one. To speak with a receptionist, please stay on the line."</p><p class="vi">(Dạng văn bản thông báo/điện thoại — y như đề đọc to trong phòng thi.)</p>'},
+ notice:['<strong>Shadow là gì:</strong> bấm 🔊, nghe 1 lần, rồi nói ĐÈ lên giọng mẫu — chậm hơn nửa nhịp như cái bóng. Lặp 3–5 lần.','<strong>Đừng dừng để sửa:</strong> mục tiêu là bắt được <em>nhịp</em> và <em>dòng chảy</em>, không phải đọc hoàn hảo từng từ.','<strong>Chú ý:</strong> "Monday through Friday", "eight in the morning" — cụm số &amp; giờ rất hay gặp.'],
+ task:'Shadow đoạn trên 5 lần (bấm 🔊 mỗi lần). Lần thứ 5, bấm 🎙️ thu âm chính mình đọc cả đoạn rồi nghe lại.',
+ checklist:['Tôi đọc liền mạch, không vấp giữa câu','Tôi đọc rõ các âm cuối (clinic, please, line)','Tôi xuống giọng ở cuối câu trần thuật'],
+ bank:'Lưu 3 cụm thấy khó đọc nhất hôm nay vào sổ tay (giấy hoặc ghi chú điện thoại).'},
+
+{w:1,d:2,ph:1,type:'spk',title:'Âm cuối & -s / -ed: lỗi "tàng hình" của người Việt',focus:'Phát âm phụ âm cuối, -ed, -s',
+ goal:'Sửa thói quen nuốt âm cuối — lỗi khiến điểm phát âm tụt dù ngữ pháp đúng.',
+ model:{tag:'Phát âm · shadow',audio:'She finished the project and asked her manager to check the updated documents before the deadline.',
+   html:'<p>"She <b>finished</b> the project and <b>asked</b> her manager to <b>check</b> the <b>updated documents</b> before the <b>deadline</b>."</p><p class="vi">Nghe kỹ các âm /t/, /d/, /s/, /ts/ ở cuối từ.</p>'},
+ notice:['<strong>-ed có 3 cách đọc:</strong> /t/ sau âm vô thanh (finished, asked, checked), /d/ sau âm hữu thanh (updated→/ɪd/), /ɪd/ sau t,d (updated, needed).','<strong>-s/-es:</strong> /s/ (documents), /z/ (jobs), /ɪz/ (boxes, manages).','<strong>Mẹo:</strong> phóng đại âm cuối khi luyện; lúc thi sẽ tự nhiên hơn.'],
+ task:'Shadow 5 lần, cố tình "bật" mạnh mọi âm cuối. Thu âm câu cuối cùng và nghe lại xem có nghe rõ -ed/-s không.',
+ quiz:[
+   {question:'Từ nào có đuôi "-ed" đọc là /ɪd/ (thêm 1 âm tiết)?',options:['watched','needed','played','closed'],answer:1,explanation:'"needed" — sau /d/ nên đọc /ˈniː.dɪd/. Watched=/t/, played &amp; closed=/d/.'},
+   {question:'"books", "maps", "cats" — đuôi -s đọc là:',options:['/z/','/ɪz/','/s/','không đọc'],answer:2,explanation:'Sau âm vô thanh /k/,/p/,/t/ → -s đọc /s/.'}
+ ],
+ checklist:['Người nghe phân biệt được "ask" và "asked"','Tôi không bỏ âm /s/ ở số nhiều/ngôi thứ 3'],
+ bank:'Lưu 5 động từ bạn hay quên đọc đuôi -ed.'},
+
+{w:1,d:3,ph:1,type:'spk',title:'Trọng âm từ & trọng âm câu',focus:'Word stress + sentence stress',
+ goal:'Nói đúng "nhạc điệu" tiếng Anh: nhấn từ nội dung, lướt từ chức năng.',
+ model:{tag:'Trọng âm · shadow',audio:'I would really like to apply for the marketing position at your company because I have relevant experience.',
+   html:'<p>"I would <b>really</b> like to <b>apply</b> for the <b>marketing position</b> at your <b>company</b> because I have <b>relevant experience</b>."</p><p class="vi">Các từ in đậm = từ nội dung, đọc to &amp; dài hơn. "would, to, for, the, at, your, because, I, have" đọc nhẹ &amp; nhanh.</p>'},
+ notice:['<strong>Từ nội dung</strong> (danh từ, động từ chính, tính từ, trạng từ) được NHẤN. <strong>Từ chức năng</strong> (mạo từ, giới từ, trợ động từ) đọc lướt.','<strong>Trọng âm từ:</strong> ex-PE-rience, po-SI-tion, MAR-keting — sai trọng âm = khó nghe hơn cả sai âm.','Tiếng Việt đọc đều từng tiếng; tiếng Anh "nhấp nhô" — đây là điểm cần đổi tư duy.'],
+ task:'Shadow 5 lần, gõ nhịp tay vào mỗi từ in đậm. Thu âm và kiểm tra mình có "nhấp nhô" không hay vẫn đọc đều.',
+ quiz:[
+   {question:'Trọng âm chính của "experience" rơi vào âm tiết nào?',options:['EX-pe-ri-ence','ex-PE-ri-ence','ex-pe-RI-ence','ex-pe-ri-ENCE'],answer:1,explanation:'ex-PE-ri-ence — nhấn âm tiết thứ 2.'},
+   {question:'Trong câu, từ nào KHÔNG nên nhấn?',options:['marketing','company','for','experience'],answer:2,explanation:'"for" là giới từ (từ chức năng) → đọc lướt, nhẹ.'}
+ ],
+ bank:'Lưu 5 từ dài bạn hay đặt sai trọng âm (tra trọng âm trên Cambridge Dictionary).'},
+
+{w:1,d:4,ph:1,type:'spk',title:'Ngữ điệu & nối âm (intonation + linking)',focus:'Lên/xuống giọng, nối âm',
+ goal:'Làm câu nói nghe "tây" hơn nhờ lên xuống giọng đúng và nối âm mượt.',
+ model:{tag:'Ngữ điệu · shadow',audio:'Could you tell me where the meeting is? It starts at nine, and it will be held in room four.',
+   html:'<p>"Could you tell me where the meeting is?↗ It starts at nine,→ and it will be held in room four.↘"</p><p class="vi">Nối âm: "where_the", "starts_at", "held_in". Câu hỏi Wh- xuống giọng cuối; liệt kê thì lên rồi xuống.</p>'},
+ notice:['<strong>Lên giọng ↗</strong> ở câu hỏi Yes/No &amp; khi chưa nói xong. <strong>Xuống giọng ↘</strong> ở câu trần thuật &amp; câu hỏi Wh-.','<strong>Nối âm:</strong> phụ âm cuối + nguyên âm đầu → dính liền: "starts at" → /staːr-tsæt/.','Giọng đều đều = bị trừ điểm "intonation". Hãy "diễn" một chút.'],
+ task:'Shadow 5 lần theo đúng mũi tên lên/xuống. Sau đó đọc to đoạn Q1–2 của Buổi 1 lại, áp dụng ngữ điệu. Thu âm.',
+ checklist:['Câu hỏi Wh- của tôi xuống giọng ở cuối','Tôi nối được ít nhất 2 cặp âm','Giọng tôi có lên-xuống, không phẳng lì'],
+ bank:'Lưu 3 cụm nối âm bạn thấy mượt nhất.'},
+
+{w:1,d:5,ph:1,type:'spk',title:'Tổng hợp tuần 1: Đọc to & tự chấm phát âm',focus:'Read-aloud Q1–2 hoàn chỉnh',milestone:true,
+ goal:'Gộp mọi thứ tuần 1 (âm cuối, trọng âm, ngữ điệu, nối âm) vào một đoạn đọc to hoàn chỉnh và tự chấm theo rubric.',
+ model:{tag:'Read-aloud · Speaking Q1–2',audio:'Welcome aboard the city express train. Our next stop is Central Station, where passengers can transfer to the blue line. Please keep your belongings with you at all times, and remember to mind the gap when leaving the train.',
+   html:'<p>"Welcome aboard the city express train. Our next stop is Central Station, where passengers can transfer to the blue line. Please keep your belongings with you at all times, and remember to mind the gap when leaving the train."</p>'},
+ notice:['Đây là độ dài &amp; phong cách điển hình của Q1–2. Bạn có 45 giây chuẩn bị + 45 giây đọc.','Đánh dấu trước: gạch chân từ nhấn, vẽ mũi tên ngữ điệu, khoanh chỗ nối âm — thói quen tốt cho phòng thi.'],
+ task:'Bước 1: 45 giây "chuẩn bị" — đọc thầm &amp; đánh dấu. Bước 2: thu âm đọc to trong ~45 giây. Bước 3: nghe lại và tự chấm bằng checklist dưới.',
+ checklist:['Phát âm: tôi nghe rõ mọi âm cuối quan trọng','Trọng âm: câu có nhịp nhấp nhô, không đều','Ngữ điệu: lên/xuống giọng đúng chỗ','Trôi chảy: không dừng lâu, không lặp từ','Tôi đọc xong trong khoảng 40–45 giây'],
+ bank:'Tự cho điểm 0–3 cho lần đọc này. Ghi 1 điểm cần cải thiện cho tuần 2.'},
+
+// ── TUẦN 2: Câu chính xác & tả ảnh (Writing Q1–5 + Speaking Q3) ──
+{w:2,d:1,ph:1,type:'wrt',title:'Câu trọn vẹn S–V–O & Writing Q1–5',focus:'Câu đầy đủ chủ–động–tân ngữ',
+ goal:'Viết một câu HOÀN CHỈNH, đúng ngữ pháp, dùng đủ 2 từ cho sẵn — chính là yêu cầu Writing Q1–5.',
+ model:{tag:'Writing Q1–5 · câu tả ảnh',html:'<p><b>Từ cho sẵn:</b> woman / read &nbsp;→&nbsp; "The woman <b>is reading</b> a book while she waits for the bus."</p><p><b>Từ cho sẵn:</b> because / rain &nbsp;→&nbsp; "The children stayed indoors <b>because</b> it was <b>raining</b> heavily."</p><p class="vi">Mỗi câu: 1 chủ ngữ + 1 động từ chia đúng + đủ ý. Được phép đổi dạng từ cho sẵn.</p>'},
+ notice:['<strong>Bắt buộc có chủ ngữ &amp; động từ chia thì.</strong> "The woman reading a book" ❌ (thiếu động từ chính) → "The woman <b>is</b> reading" ✅.','<strong>Dùng đủ CẢ HAI từ cho sẵn</strong>, được đổi dạng (read→reading, rain→raining).','Thêm mệnh đề phụ (while…, because…) để câu "có chiều sâu" → dễ ăn điểm 3/3.'],
+ task:'Viết 5 câu, mỗi câu dùng 1 cặp từ sau (đổi dạng tùy ý): (1) man/wait (2) although/tired (3) employees/discuss (4) while/cook (5) so/late. Mỗi câu phải có ít nhất 1 mệnh đề phụ.',
+ quiz:[
+   {question:'Câu nào là câu HOÀN CHỈNH, đúng ngữ pháp?',options:['The man waiting for a taxi.','The man is waiting for a taxi outside the hotel.','Waiting for a taxi outside the hotel.','The man waited for a taxi outside, because.'],answer:1,explanation:'Đáp án B có đủ chủ ngữ (the man) + động từ chia (is waiting). A &amp; C thiếu động từ chính; D bỏ lửng "because".'},
+   {question:'Từ cho sẵn "decide". Câu nào dùng ĐÚNG?',options:['She decide to apply for the job.','She is decide applying.','She decided to apply for the job.','She decision to apply.'],answer:2,explanation:'"decide" + to + V (to-infinitive). Quá khứ "decided". A sai chia ngôi thứ 3; B,D sai dạng từ.'}
+ ],
+ checklist:['Mỗi câu có chủ ngữ + động từ chia thì','Tôi dùng đủ cả 2 từ cho sẵn','Có ít nhất 1 mệnh đề phụ làm câu phong phú'],
+ bank:'Lưu 3 mẫu mệnh đề phụ tiện dùng: "while + S + V-ing", "because + S + V", "although + S + V".'},
+
+{w:2,d:2,ph:1,type:'mix',title:'Hiện tại đơn vs tiếp diễn — ngôn ngữ tả ảnh',focus:'Present simple/continuous',
+ goal:'Dùng đúng thì khi mô tả ảnh: hành động đang diễn ra (Speaking Q3) vs sự thật chung.',
+ model:{tag:'Tả ảnh · nói & viết',audio:'In this picture, several people are waiting at a train station. A woman is checking her phone, and a man is carrying a large suitcase. The station looks crowded.',
+   html:'<p>"In this picture, several people <b>are waiting</b> at a train station. A woman <b>is checking</b> her phone, and a man <b>is carrying</b> a large suitcase. The station <b>looks</b> crowded."</p><p class="vi">Hành động trong ảnh → hiện tại tiếp diễn. Đặc điểm/trạng thái → hiện tại đơn (looks, is, has).</p>'},
+ notice:['<strong>Tả ảnh = phần lớn dùng "is/are + V-ing"</strong> vì đang chụp khoảnh khắc đang xảy ra.','<strong>Động từ trạng thái</strong> (look, seem, have, be) dùng hiện tại đơn, không -ing: "The room <b>looks</b> tidy" (không "is looking").','Mở đầu phản xạ: "In this picture, I can see…" / "There are…".'],
+ task:'NÓI: chọn 1 bức ảnh bất kỳ trên điện thoại, bấm 🎙️ và mô tả 30 giây (dùng ≥3 câu tiếp diễn). VIẾT: gõ lại 3 câu vừa nói cho chuẩn ngữ pháp.',
+ quiz:[
+   {question:'Tả ảnh: "A chef ___ a meal in the kitchen."',options:['cook','cooks','is cooking','cooked'],answer:2,explanation:'Hành động đang diễn ra trong ảnh → hiện tại tiếp diễn "is cooking".'},
+   {question:'"The building ___ very modern." (đặc điểm)',options:['is looking','looks','look','is look'],answer:1,explanation:'"look" là động từ trạng thái → hiện tại đơn "looks", không dùng -ing.'}
+ ],
+ checklist:['Hành động trong ảnh tôi dùng is/are + V-ing','Đặc điểm tôi dùng hiện tại đơn','Tôi mở đầu bằng "In this picture…"'],
+ bank:'Lưu 5 cụm mở đầu tả ảnh + 5 động từ tả hành động thường gặp (waiting, holding, talking, walking, looking at).'},
+
+{w:2,d:3,ph:1,type:'wrt',title:'Quá khứ đơn vs Hiện tại hoàn thành',focus:'Past simple vs present perfect',
+ goal:'Hết nhầm hai thì gây mất điểm ngữ pháp nhiều nhất — quan trọng cho cả email lẫn essay.',
+ model:{tag:'Ngữ pháp · viết',html:'<p>"I <b>have worked</b> here for three years." (vẫn đang làm — hiện tại hoàn thành)</p><p>"I <b>worked</b> there in 2020." (đã xong, có mốc thời gian quá khứ — quá khứ đơn)</p><p>"We <b>have just finished</b> the report, so you can review it now." (kết quả liên quan hiện tại)</p>'},
+ notice:['<strong>Hiện tại hoàn thành (have/has + V3):</strong> hành động nối với hiện tại — "since", "for", "yet", "already", "just".','<strong>Quá khứ đơn:</strong> hành động đã KẾT THÚC, thường có mốc thời gian — "yesterday", "in 2020", "last week".','Không dùng hiện tại hoàn thành với mốc quá khứ rõ ràng: "I have seen him yesterday" ❌.'],
+ task:'Viết 1 đoạn 5 câu tự giới thiệu kinh nghiệm làm việc, dùng đúng ít nhất 2 câu hiện tại hoàn thành + 2 câu quá khứ đơn.',
+ quiz:[
+   {question:'"She ___ the email yet." (chưa, tính đến giờ)',options:['didn\'t read','hasn\'t read','doesn\'t read','wasn\'t reading'],answer:1,explanation:'"yet" → hiện tại hoàn thành: "hasn\'t read".'},
+   {question:'"The company ___ a new branch last month."',options:['has opened','opened','opens','have opened'],answer:1,explanation:'"last month" = mốc quá khứ rõ → quá khứ đơn "opened".'},
+   {question:'"I ___ in this city since 2019."',options:['live','lived','have lived','am living'],answer:2,explanation:'"since 2019" + còn đang sống → hiện tại hoàn thành "have lived".'}
+ ],
+ checklist:['Câu có "since/for/yet/already" tôi dùng have/has + V3','Câu có mốc quá khứ tôi dùng V2','Tôi không trộn mốc quá khứ với hiện tại hoàn thành'],
+ bank:'Lưu 5 câu mẫu hiện tại hoàn thành dùng được khi tự giới thiệu trong phỏng vấn/email.'},
+
+{w:2,d:4,ph:1,type:'wrt',title:'Word form: Danh/Động/Tính/Trạng từ',focus:'Nhận diện & chọn đúng dạng từ',
+ goal:'Chọn đúng dạng từ theo vị trí trong câu — kỹ năng nâng độ chính xác cho mọi câu bạn viết.',
+ model:{tag:'Word form · viết',html:'<p>"The manager made a <b>decision</b> (danh từ) to <b>improve</b> (động từ) the <b>productive</b>… → <b>productivity</b> (danh từ) of the team <b>significantly</b> (trạng từ)."</p><p class="vi">Cùng gốc "produce": produce (V) · product/production/productivity (N) · productive (Adj) · productively (Adv).</p>'},
+ notice:['<strong>Sau mạo từ a/an/the &amp; tính từ → danh từ.</strong> "a wise <b>decision</b>".','<strong>Trạng từ (đuôi -ly) bổ nghĩa cho động từ/tính từ.</strong> "work <b>efficiently</b>", "<b>highly</b> effective".','Nhìn VỊ TRÍ trống → suy ra cần loại từ gì → chọn dạng đúng. Có thể đúng dù không hiểu nghĩa.'],
+ task:'Viết 4 câu, mỗi câu dùng 1 dạng khác nhau của gốc "success": succeed (V), success (N), successful (Adj), successfully (Adv).',
+ quiz:[
+   {question:'"The project was completed ___." (vị trí cuối, bổ nghĩa động từ)',options:['success','successful','successfully','succeed'],answer:2,explanation:'Bổ nghĩa cho "was completed" → cần trạng từ "successfully".'},
+   {question:'"We need to ___ our sales this quarter."',options:['increase','increasing','increasingly','increased'],answer:0,explanation:'Sau "to" cần động từ nguyên thể → "increase".'},
+   {question:'"Her presentation was very ___."',options:['inform','information','informative','informatively'],answer:2,explanation:'Sau "very" + bổ nghĩa danh từ ẩn → tính từ "informative".'}
+ ],
+ checklist:['Tôi xác định được vị trí trống cần loại từ gì','Tôi nhận ra đuôi -ly là trạng từ','Tôi không nhầm danh từ với động từ cùng gốc'],
+ bank:'Lưu 5 "họ từ" hay gặp (analyze/analysis/analytical, decide/decision…).'},
+
+{w:2,d:5,ph:1,type:'mix',title:'Tổng hợp tuần 2: 5 câu tả ảnh + nói tả ảnh',focus:'Ráp câu chính xác vào tả ảnh',
+ goal:'Gộp câu trọn vẹn + đúng thì + đúng dạng từ vào nhiệm vụ thực: tả ảnh (cả viết Q1–5 lẫn nói Q3).',
+ model:{tag:'Tả ảnh · mix',audio:'In this office, two colleagues are discussing a document. One of them is pointing at the screen, while the other is taking notes. They appear to be focused on their work.',
+   html:'<p>"In this office, two colleagues <b>are discussing</b> a document. One of them <b>is pointing</b> at the screen, while the other <b>is taking</b> notes. They <b>appear</b> to be focused on their work."</p>'},
+ notice:['Khung tả ảnh: (1) tổng quát "In this picture…", (2) 2–3 hành động chính "is/are V-ing", (3) cảm nhận chung "They appear/seem…".','Áp dụng cả 4 bài tuần này: câu trọn vẹn, đúng thì, đúng dạng từ.'],
+ task:'NÓI (Q3): chọn 1 ảnh công sở/đời thường, 45s chuẩn bị → 🎙️ thu âm tả 30s. VIẾT (Q1–5): viết 5 câu mô tả 5 chi tiết trong ảnh đó, mỗi câu dùng 1 mệnh đề phụ.',
+ checklist:['Nói: tôi mở đầu nhanh, tả ≥3 hành động trong 30s','Viết: 5 câu đều trọn vẹn & đúng thì','Tôi dùng đúng dạng từ (danh/động/tính/trạng)'],
+ bank:'So lại 5 câu viết với phần nói: chỗ nào nói sai mà viết đúng? Ghi lại để ý lần sau.'},
+
+// ── TUẦN 3: Mở rộng câu & mô tả ảnh ──
+{w:3,d:1,ph:1,type:'wrt',title:'Giới từ chỉ vị trí & thời gian',focus:'in / on / at / between / next to…',
+ goal:'Dùng giới từ chính xác — cực cần khi tả ảnh (vị trí đồ vật) và viết email (thời gian).',
+ model:{tag:'Giới từ · viết',html:'<p>"The meeting is <b>at</b> 3 p.m. <b>on</b> Monday, <b>in</b> the conference room <b>on</b> the second floor."</p><p>"A lamp is <b>on</b> the desk, <b>next to</b> the computer, and a bag is <b>under</b> the chair <b>between</b> the two windows."</p>'},
+ notice:['<strong>Thời gian:</strong> at + giờ (at 3 p.m.) · on + ngày/thứ (on Monday) · in + tháng/năm/buổi (in May, in the morning).','<strong>Vị trí:</strong> in (bên trong) · on (trên bề mặt) · at (tại điểm) · next to/beside, between, under, in front of, behind.','Tả ảnh thường cần: in the background/foreground, on the left/right, in the middle.'],
+ task:'Viết 5 câu tả vị trí đồ vật trong phòng bạn đang ngồi, mỗi câu 1 giới từ khác nhau.',
+ quiz:[
+   {question:'"The conference starts ___ 9 a.m. ___ Friday."',options:['in / on','at / on','on / at','at / in'],answer:1,explanation:'at + giờ; on + thứ → "at 9 a.m. on Friday".'},
+   {question:'"The painting hangs ___ the wall ___ the sofa."',options:['in / next','on / above','at / on','on / in'],answer:1,explanation:'on the wall (trên bề mặt) · above the sofa (phía trên).'},
+   {question:'"I was born ___ 1998 ___ a small town."',options:['on / at','at / in','in / in','in / on'],answer:2,explanation:'in + năm; in + nơi chốn lớn → "in 1998 in a small town".'}
+ ],
+ checklist:['at/on/in thời gian tôi dùng đúng','Giới từ vị trí khớp với ý nghĩa','Tôi biết cụm tả ảnh (background, on the left…)'],
+ bank:'Lưu bảng nhỏ: at giờ · on ngày · in tháng/năm. + 5 cụm vị trí tả ảnh.'},
+
+{w:3,d:2,ph:1,type:'wrt',title:'Liên từ kết hợp: and / but / so / because',focus:'Nối 2 ý thành câu mạch lạc',
+ goal:'Nối câu để hết "nói/viết câu cụt", tăng điểm "đa dạng câu" và "mạch lạc".',
+ model:{tag:'Liên từ · viết',html:'<p>"I wanted to attend the workshop, <b>but</b> I had a scheduling conflict, <b>so</b> I asked a colleague to join <b>and</b> share the notes <b>because</b> the topic was important."</p>'},
+ notice:['<strong>and</strong> (thêm) · <strong>but</strong> (tương phản) · <strong>so</strong> (kết quả) · <strong>because</strong> (lý do).','Trước "but" và "so" thường có dấu phẩy khi nối 2 mệnh đề đầy đủ.','Đừng lạm dụng "and… and… and". Đổi sang "but/so/because" để câu có logic.'],
+ task:'Viết lại 5 cặp câu cụt thành 5 câu ghép. VD: "It rained. We cancelled the trip." → "It rained, <b>so</b> we cancelled the trip."',
+ quiz:[
+   {question:'"The product is expensive, ___ it is very durable."',options:['so','because','but','and'],answer:2,explanation:'Hai ý tương phản (đắt nhưng bền) → "but".'},
+   {question:'"She stayed late ___ she wanted to finish the report."',options:['but','so','because','or'],answer:2,explanation:'Nêu lý do → "because".'}
+ ],
+ checklist:['Tôi chọn liên từ đúng theo quan hệ ý','Tôi đặt dấu phẩy hợp lý','Tôi không lặp "and" quá nhiều'],
+ bank:'Lưu 4 liên từ + 1 ví dụ mỗi loại của riêng bạn.'},
+
+{w:3,d:3,ph:1,type:'wrt',title:'Mệnh đề quan hệ: who / which / that',focus:'Thêm thông tin gọn vào câu',
+ goal:'Dùng mệnh đề quan hệ để gộp 2 câu thành 1 — dấu hiệu của người viết khá.',
+ model:{tag:'Mệnh đề quan hệ · viết',html:'<p>"The candidate <b>who</b> has marketing experience will be interviewed first."</p><p>"We launched a product <b>which/that</b> quickly became popular."</p><p>"The office, <b>which</b> was renovated last year, is now much brighter." (phẩy = bổ sung)</p>'},
+ notice:['<strong>who</strong> cho người · <strong>which</strong> cho vật · <strong>that</strong> cho cả hai (không dùng "that" sau dấu phẩy).','Mệnh đề xác định (không phẩy): thông tin cần thiết. Mệnh đề bổ sung (có phẩy): thông tin thêm.','Gộp: "I met a manager. She runs the Asia team." → "I met a manager <b>who</b> runs the Asia team."'],
+ task:'Gộp 5 cặp câu bằng mệnh đề quan hệ. VD: "This is the report. It needs revision." → "This is the report <b>that</b> needs revision."',
+ quiz:[
+   {question:'"The employee ___ won the award is my colleague."',options:['which','who','where','what'],answer:1,explanation:'Chỉ người → "who".'},
+   {question:'"They moved to a building ___ has better facilities."',options:['who','whose','which','when'],answer:2,explanation:'Chỉ vật (building) → "which" (hoặc that).'}
+ ],
+ checklist:['who cho người, which cho vật','Tôi gộp được 2 câu thành 1 mượt mà','Tôi dùng dấu phẩy đúng khi là thông tin thêm'],
+ bank:'Lưu 3 câu gộp của bạn thấy hay nhất.'},
+
+{w:3,d:4,ph:1,type:'mix',title:'There is/are & mô tả bố cục ảnh',focus:'Cấu trúc tồn tại + vị trí trong ảnh',
+ goal:'Có khung mô tả bố cục ảnh đầy đủ (Speaking Q3–4): có gì, ở đâu, đang làm gì.',
+ model:{tag:'Tả ảnh · mix',audio:'There are several people in this outdoor market. In the foreground, a vendor is selling fresh vegetables. In the background, I can see colorful umbrellas. On the left, two customers are looking at some fruit.',
+   html:'<p>"<b>There are</b> several people in this outdoor market. <b>In the foreground</b>, a vendor is selling fresh vegetables. <b>In the background</b>, I can see colorful umbrellas. <b>On the left</b>, two customers are looking at some fruit."</p>'},
+ notice:['Khung 4 lớp: tổng quát (There are…) → tiền cảnh (foreground) → hậu cảnh (background) → trái/phải (on the left/right).','"There is + danh từ số ít / There are + số nhiều".','Cụm định vị giúp bạn nói đủ 30 giây mà không bí ý.'],
+ task:'NÓI: tả 1 ảnh đông người theo đúng 4 lớp trên, 🎙️ thu âm 30s. VIẾT: viết 4 câu tương ứng 4 lớp.',
+ quiz:[
+   {question:'"___ a lot of books on the shelf."',options:['There is','There are','It is','They are'],answer:1,explanation:'"books" số nhiều → "There are".'}
+ ],
+ checklist:['Tôi dùng đủ 4 lớp (tổng quát/tiền cảnh/hậu cảnh/vị trí)','There is/are chia đúng số','Tôi nói đủ ~30 giây'],
+ bank:'Lưu khung 4 lớp + 6 cụm định vị (in the foreground/background, on the left/right, in the middle, at the top).'},
+
+{w:3,d:5,ph:1,type:'mix',title:'Tổng hợp tuần 3: mô tả ảnh hoàn chỉnh',focus:'Ráp giới từ + liên từ + mệnh đề quan hệ',
+ goal:'Tả một bức ảnh phức tạp bằng câu mở rộng (liên từ, mệnh đề quan hệ, giới từ) — cả nói lẫn viết.',
+ model:{tag:'Tả ảnh nâng cao · mix',audio:'This picture shows a busy coffee shop where several customers are relaxing. In the foreground, a barista who is wearing an apron is preparing a drink, while a customer waits nearby. The atmosphere looks warm and friendly.',
+   html:'<p>"This picture shows a busy coffee shop <b>where</b> several customers are relaxing. In the foreground, a barista <b>who</b> is wearing an apron is preparing a drink, <b>while</b> a customer waits nearby. The atmosphere looks warm and friendly."</p>'},
+ notice:['Để ý cách câu dài lên nhờ "where", "who", "while" — nhưng vẫn rõ ràng.','Kết bằng 1 câu cảm nhận chung ("The atmosphere looks…") là cách kết tả ảnh đẹp.'],
+ task:'NÓI: 🎙️ tả 1 ảnh trong 30–40s dùng ≥1 mệnh đề quan hệ + ≥1 liên từ. VIẾT: gõ lại bản tả đó, chỉnh cho chuẩn.',
+ checklist:['Câu của tôi có dùng who/which/where','Tôi nối ý bằng while/and/but','Tôi kết bằng câu cảm nhận chung'],
+ bank:'Lưu 1 "câu khung" tả ảnh nâng cao của bạn để tái dùng khi thi.'},
+
+// ── TUẦN 4: Câu phức & chốt nền ──
+{w:4,d:1,ph:1,type:'wrt',title:'Rút gọn mệnh đề & cụm phân từ',focus:'V-ing / V-ed mở đầu',
+ goal:'Viết câu gọn và "tây" hơn bằng cụm phân từ — nâng điểm đa dạng câu.',
+ model:{tag:'Phân từ · viết',html:'<p>"<b>Founded</b> in 2005, the company now employs over 500 people." (= Which was founded…)</p><p>"<b>Working</b> late, she managed to finish the proposal." (= Because she was working…)</p><p>"The email, <b>sent</b> this morning, contained the agenda."</p>'},
+ notice:['<strong>V-ing</strong> = chủ động ("Working late…"). <strong>V-ed/V3</strong> = bị động ("Founded in 2005…").','Chủ ngữ của cụm phân từ phải trùng chủ ngữ mệnh đề chính, nếu không sẽ "dangling".','Dùng để mở đầu câu cho đa dạng, thay vì luôn "Because…/Which…".'],
+ task:'Viết lại 4 câu có "because/which" thành câu dùng cụm phân từ. VD: "Because he felt tired, he left early." → "<b>Feeling</b> tired, he left early."',
+ quiz:[
+   {question:'"___ in 1990, the museum attracts many tourists."',options:['Building','Built','Build','To build'],answer:1,explanation:'Bảo tàng ĐƯỢC xây → bị động → phân từ V3 "Built".'},
+   {question:'"___ the report, she noticed a mistake."',options:['Read','Reading','To read','Reads'],answer:1,explanation:'Cô ấy chủ động đọc → V-ing "Reading".'}
+ ],
+ checklist:['Tôi chọn V-ing (chủ động) vs V-ed (bị động) đúng','Chủ ngữ cụm phân từ trùng mệnh đề chính'],
+ bank:'Lưu 3 câu phân từ của bạn.'},
+
+{w:4,d:2,ph:1,type:'wrt',title:'Câu điều kiện loại 1 & 2',focus:'If-clauses',
+ goal:'Diễn đạt điều kiện/giả định — rất hữu ích cho email đề xuất &amp; bài luận.',
+ model:{tag:'Điều kiện · viết',html:'<p><b>Loại 1</b> (có thật, tương lai): "If we <b>reduce</b> prices, sales <b>will increase</b>."</p><p><b>Loại 2</b> (giả định, ít thật): "If I <b>were</b> the manager, I <b>would hire</b> more staff."</p>'},
+ notice:['<strong>Loại 1:</strong> If + hiện tại đơn, … will + V. (khả năng thật)','<strong>Loại 2:</strong> If + quá khứ đơn, … would + V. (giả định; dùng "were" cho mọi ngôi)','Đừng để "will" trong mệnh đề If: "If it will rain" ❌ → "If it rains" ✅.'],
+ task:'Viết 2 câu loại 1 (về kế hoạch công việc) + 2 câu loại 2 (giả định "nếu tôi là sếp…").',
+ quiz:[
+   {question:'"If the team ___ harder, we ___ the deadline."',options:['works / will meet','will work / meet','worked / will meet','works / met'],answer:0,explanation:'Loại 1: If + hiện tại (works), … will + V (will meet).'},
+   {question:'"If I ___ you, I ___ accept the offer."',options:['am / will','were / would','was / will','were / will'],answer:1,explanation:'Loại 2 giả định: If + were, … would + V.'}
+ ],
+ checklist:['Tôi không đặt "will" sau If ở loại 1','Loại 2 tôi dùng quá khứ + would','Tôi dùng "were" cho giả định'],
+ bank:'Lưu 1 mẫu câu loại 1 &amp; 1 mẫu loại 2 cho bài luận.'},
+
+{w:4,d:3,ph:1,type:'wrt',title:'Gerund vs Infinitive (V-ing vs to-V)',focus:'Động từ theo sau động từ',
+ goal:'Hết lỗi "âm thầm" enjoy to do / want doing — ảnh hưởng điểm ngữ pháp.',
+ model:{tag:'Gerund/Infinitive · viết',html:'<p>"I <b>enjoy working</b> in a team but I <b>want to improve</b> my English."</p><p>"She <b>decided to apply</b>; he <b>suggested joining</b> the course."</p><p>"We <b>look forward to hearing</b> from you." (to + V-ing!)</p>'},
+ notice:['<strong>+ to V:</strong> want, decide, hope, plan, agree, would like, need.','<strong>+ V-ing:</strong> enjoy, suggest, avoid, consider, finish, mind, recommend.','<strong>Giới từ + V-ing:</strong> "good at writing", "interested in learning", "look forward to seeing".'],
+ task:'Viết 6 câu, mỗi câu dùng 1 trong: enjoy, want, suggest, decide, be interested in, look forward to.',
+ quiz:[
+   {question:'"We are considering ___ a new office."',options:['to open','open','opening','opened'],answer:2,explanation:'"consider" + V-ing → "opening".'},
+   {question:'"They agreed ___ the contract."',options:['signing','to sign','sign','signed'],answer:1,explanation:'"agree" + to V → "to sign".'},
+   {question:'"I look forward to ___ you soon."',options:['see','seeing','to see','saw'],answer:1,explanation:'"look forward to" + V-ing (to ở đây là giới từ) → "seeing".'}
+ ],
+ checklist:['Tôi nhớ nhóm + to V vs + V-ing','Sau giới từ tôi dùng V-ing','Tôi dùng đúng "look forward to + V-ing"'],
+ bank:'Lưu 2 danh sách ngắn: nhóm +to V và nhóm +V-ing (mỗi nhóm 6 từ).'},
+
+{w:4,d:4,ph:1,type:'mix',title:'Modal verbs & độ lịch sự',focus:'can/could/would/should/may',
+ goal:'Nói &amp; viết lịch sự, đúng mức trang trọng — điểm cộng cho cả Speaking lẫn email.',
+ model:{tag:'Modal · mix',audio:'Could you please send me the file when you have a moment? I would really appreciate it. We should also confirm the schedule before Friday.',
+   html:'<p>"<b>Could</b> you please send me the file when you have a moment? I <b>would</b> really appreciate it. We <b>should</b> also confirm the schedule before Friday."</p><p class="vi">Could/Would lịch sự hơn Can/Will. Trong môi trường công sở, càng lịch sự càng được đánh giá cao.</p>'},
+ notice:['<strong>Yêu cầu lịch sự:</strong> Could you…? / Would you mind + V-ing? > Can you…?','<strong>Đề xuất:</strong> We could… / Why don\'t we…? <strong>Khuyên:</strong> You should… / It might be a good idea to…','<strong>Phỏng đoán:</strong> may/might/could (50%), must (chắc chắn).'],
+ task:'NÓI: 🎙️ trả lời "What should companies do to keep employees happy?" dùng ≥3 modal. VIẾT: viết 3 câu yêu cầu lịch sự cho email.',
+ quiz:[
+   {question:'Cách yêu cầu LỊCH SỰ nhất trong email công việc?',options:['Send me the report.','Can you send the report?','Could you possibly send me the report by Friday?','I need the report now.'],answer:2,explanation:'"Could you possibly… by Friday?" lịch sự &amp; rõ thời hạn — phù hợp văn phong công sở.'},
+   {question:'"The plan ___ work, but we are not sure yet."',options:['must','might','should','will'],answer:1,explanation:'Chưa chắc (50%) → "might".'}
+ ],
+ checklist:['Tôi dùng Could/Would cho yêu cầu','Tôi dùng modal phù hợp mức chắc chắn','Giọng/điệu của tôi lịch sự, không cộc'],
+ bank:'Lưu 5 mẫu câu lịch sự (request, suggestion, advice) dùng được cả khi nói &amp; viết.'},
+
+{w:4,d:5,ph:1,type:'mix',title:'CỘT MỐC PHASE 1: Đọc to + 5 câu tả ảnh + test ngữ pháp',focus:'Kiểm tra nền tảng',milestone:true,
+ goal:'Tự đánh giá: phát âm/ngữ điệu (Speaking) + câu chính xác (Writing) sau 4 tuần. Đây là baseline để so ở cuối khóa.',
+ model:{tag:'Đề mô phỏng · mix',audio:'Good afternoon, and welcome to our annual technology conference. Before we begin, please make sure your mobile phones are switched to silent mode. The first session will start in ten minutes in the main hall.',
+   html:'<p><b>Phần A — Đọc to (Speaking Q1–2):</b> "Good afternoon, and welcome to our annual technology conference. Before we begin, please make sure your mobile phones are switched to silent mode. The first session will start in ten minutes in the main hall."</p><p><b>Phần B — Tả ảnh (Writing Q1–5):</b> viết 5 câu tả một bức ảnh công sở bạn chọn, mỗi câu dùng 1 cặp từ: (1) employee/work (2) while/talk (3) because/busy (4) document/review (5) although/late.</p>'},
+ notice:['Làm như thi thật: Phần A bấm giờ 45s chuẩn bị + 45s đọc (🎙️ thu âm). Phần B canh 8 phút cho 5 câu.','Sau đó làm "Phần C" — bài test ngữ pháp tổng hợp 6 câu bên dưới.'],
+ task:'Hoàn thành Phần A (thu âm) + Phần B (gõ vào ô) + Phần C (quiz). Rồi tự chấm: phát âm 0–3, mỗi câu viết 0–3.',
+ quiz:[
+   {question:'"She ___ for this company since 2018."',options:['works','worked','has worked','is working'],answer:2,explanation:'"since 2018" + còn làm → hiện tại hoàn thành.'},
+   {question:'"The report ___ yesterday was very detailed."',options:['submitting','submitted','submits','submit'],answer:1,explanation:'Cụm phân từ bị động: "(which was) submitted yesterday".'},
+   {question:'"If we ___ now, we will catch the train."',options:['will leave','left','leave','leaving'],answer:2,explanation:'Điều kiện loại 1: If + hiện tại đơn.'},
+   {question:'"They suggested ___ the meeting to Monday."',options:['to move','moving','move','moved'],answer:1,explanation:'"suggest" + V-ing.'},
+   {question:'"___ you please confirm your availability?"',options:['Could','Must','Should','Will'],answer:0,explanation:'Yêu cầu lịch sự → "Could".'},
+   {question:'"The team made an important ___."',options:['decide','decision','decisive','decisively'],answer:1,explanation:'Sau "an important" cần danh từ → "decision".'}
+ ],
+ checklist:['Phát âm của tôi rõ &amp; có ngữ điệu (tự chấm ≥2/3)','5 câu viết đều trọn vẹn &amp; đúng thì','Tôi đạt ≥4/6 câu test ngữ pháp','Tôi đã ghi lại điểm yếu lớn nhất để tập trung ở Phase 2'],
+ bank:'Ghi "điểm baseline" hôm nay (phát âm /3, viết /15, test /6). Cuối khóa làm lại để thấy tiến bộ.'},
+];
+
+// PHASE 2 & 3 sẽ được nối thêm bên dưới
+const PHASE2 = [
+// ── TUẦN 5: Tả ảnh nâng cao & trả lời câu hỏi (Speaking Q3–7) ──
+{w:5,d:1,ph:2,type:'spk',title:'Tả ảnh nâng cao: khung "WHO–WHAT–WHERE–FEEL"',focus:'Speaking Q3–4',
+ goal:'Có một khung cố định để nói đủ 30 giây tả ảnh mà không bí — dùng được cho mọi ảnh.',
+ model:{tag:'Speaking Q3 · shadow',audio:'This photo was taken in a modern office. There are about four people who appear to be in a meeting. In the center, a woman is presenting some data on a screen, and her colleagues are listening attentively. Overall, the mood seems professional and focused.',
+   html:'<p>"This photo was taken in a modern office. <b>(WHERE)</b> There are about four people who appear to be in a meeting. <b>(WHO)</b> In the center, a woman is presenting some data on a screen, and her colleagues are listening attentively. <b>(WHAT)</b> Overall, the mood seems professional and focused. <b>(FEEL)</b>"</p>'},
+ notice:['<strong>Khung W-W-W-F:</strong> WHERE (nơi chốn) → WHO (có ai) → WHAT (đang làm gì, 2–3 hành động) → FEEL (cảm nhận chung).','Câu kết "Overall, the mood seems…" luôn cứu bạn khi gần hết giờ.','Dùng "appear to / seem to" khi không chắc — vẫn ghi điểm và nghe tự nhiên.'],
+ task:'Shadow mẫu 4 lần. Sau đó chọn 2 ảnh khác nhau, mỗi ảnh 🎙️ thu âm tả 30s theo đúng khung W-W-W-F.',
+ checklist:['Tôi nói đủ 4 phần WHERE-WHO-WHAT-FEEL','Tôi tả ≥2 hành động bằng is/are V-ing','Tôi nói liền ~30 giây, có câu kết'],
+ bank:'Lưu khung W-W-W-F + câu kết "Overall, … seems …".'},
+
+{w:5,d:2,ph:2,type:'spk',title:'Respond to questions (Q5–7): khung phản xạ nhanh',focus:'Speaking Q5–7 · chỉ 3 giây chuẩn bị',
+ goal:'Trả lời câu hỏi đời thường trong 15–30s khi chỉ có 3 giây nghĩ — luyện phản xạ mở đầu.',
+ model:{tag:'Speaking Q5–7 · shadow',audio:'Well, personally, I usually shop online because it saves a lot of time. For example, I can compare prices easily and have things delivered to my door. So overall, I prefer online shopping to going to the store.',
+   html:'<p>Q: "How often do you shop online, and why?"</p><p>A: "<b>Well, personally,</b> I usually shop online <b>because</b> it saves a lot of time. <b>For example,</b> I can compare prices easily and have things delivered to my door. <b>So overall,</b> I prefer online shopping to going to the store."</p>'},
+ notice:['<strong>Khung 1-2-3:</strong> ① câu trả lời thẳng + lý do (because) → ② ví dụ (For example) → ③ chốt (So overall).','<strong>Cụm câu giờ (filler tốt):</strong> "Well,…", "Personally,…", "Actually,…" — mua thời gian nghĩ mà vẫn tự nhiên.','Câu hỏi ngắn (Q5–6, 15s): chỉ cần ①+②. Câu dài (Q7, 30s): đủ ①②③.'],
+ task:'🎙️ Trả lời nhanh 5 câu (3s nghĩ mỗi câu): 1) How do you usually travel to work? 2) What do you do in your free time? 3) Do you prefer tea or coffee, and why? 4) How often do you exercise? 5) What kind of music do you like?',
+ checklist:['Tôi mở đầu ngay bằng filler, không "đơ"','Mỗi câu có lý do hoặc ví dụ','Tôi nói hết thời gian cho phép'],
+ bank:'Lưu 6 cụm câu giờ/filler + khung 1-2-3.'},
+
+{w:5,d:3,ph:2,type:'spk',title:'Tình huống khảo sát qua điện thoại / phỏng vấn',focus:'Speaking Q5–7 · ngữ cảnh thực',
+ goal:'Quen dạng "imagine a company is doing a survey" — trả lời tự nhiên, đủ ý.',
+ model:{tag:'Speaking Q5–7 · shadow',audio:'Imagine a travel agency is conducting a survey. The last trip I took was to Da Nang last summer. I stayed there for about five days, mainly to relax on the beach and try the local food. I chose it because it is affordable and not too crowded.',
+   html:'<p>Survey: "A travel agency wants to know about your travel habits."</p><p>"The last trip I took was to Da Nang last summer. I stayed there for about five days, mainly to relax on the beach and try the local food. I chose it because it is affordable and not too crowded."</p>'},
+ notice:['Câu hỏi survey thường hỏi: cái gì gần nhất, bao lâu, ở đâu, vì sao, với ai.','Trả lời cụ thể (Da Nang, five days, last summer) ăn điểm "completeness" hơn câu chung chung.','Không cần thật — bịa chi tiết hợp lý là OK, miễn trôi chảy &amp; rõ ràng.'],
+ task:'🎙️ Đóng vai trả lời survey về "ăn uống": 1) What did you eat for lunch today? (15s) 2) How often do you eat out? (15s) 3) Describe your favorite restaurant and why you like it. (30s)',
+ checklist:['Tôi cho chi tiết cụ thể (tên, số, thời gian)','Tôi trả lời đúng trọng tâm câu hỏi','Câu 30s tôi có lý do + mô tả'],
+ bank:'Lưu 5 câu trả lời chi tiết mẫu (có số liệu/tên cụ thể) để tái dùng.'},
+
+{w:5,d:4,ph:2,type:'spk',title:'Mở rộng câu trả lời: Reason + Example',focus:'Nói dài & sâu hơn',
+ goal:'Biến câu trả lời cụt thành câu đủ "thịt" — yếu tố quyết định điểm nội dung.',
+ model:{tag:'Mở rộng · shadow',audio:'I think working from home has many benefits. The main reason is that it saves commuting time. For instance, I used to spend two hours a day on the road, but now I can use that time to focus on my tasks or rest. That is why I find it much more productive.',
+   html:'<p>"I think working from home has many benefits. <b>The main reason is that</b> it saves commuting time. <b>For instance,</b> I used to spend two hours a day on the road, but now I can use that time to focus on my tasks. <b>That is why</b> I find it much more productive."</p>'},
+ notice:['Công thức P-R-E: <strong>Point</strong> (ý chính) → <strong>Reason</strong> (vì sao) → <strong>Example</strong> (ví dụ cụ thể).','Cụm nối: "The main reason is that…", "For instance/For example…", "That is why…".','Một ví dụ CỤ THỂ (con số, trải nghiệm) đáng giá hơn nhiều câu chung chung.'],
+ task:'🎙️ Nói 30s cho mỗi đề theo P-R-E: 1) Should students learn a second language? 2) Is it better to live in a city or the countryside?',
+ quiz:[
+   {question:'Cụm nào dùng để DẪN VÍ DỤ?',options:['On the other hand','For instance','As a result','In contrast'],answer:1,explanation:'"For instance" = ví dụ. Các cụm kia là tương phản/kết quả.'}
+ ],
+ checklist:['Tôi nêu Point rõ ở đầu','Tôi có Reason bằng "because/the main reason is"','Tôi có Example cụ thể'],
+ bank:'Lưu công thức P-R-E + 5 cụm nối lý do/ví dụ.'},
+
+{w:5,d:5,ph:2,type:'spk',title:'Tổng hợp tuần 5: mock nói Q3–Q7',focus:'Mini-mock Speaking',milestone:true,
+ goal:'Chạy thử liền mạch các dạng nói đã học (tả ảnh + trả lời câu hỏi) như thi thật.',
+ model:{tag:'Mock · Speaking',audio:'Looking at this picture, I can see a group of friends having a picnic in a park. They seem relaxed and happy. Personally, I enjoy outdoor activities because they help me reduce stress.',
+   html:'<p>Đề mock: <b>Q3</b> tả 1 ảnh ngoài trời (30s). <b>Q5</b> "How often do you spend time outdoors?" (15s). <b>Q6</b> "What do you usually do there?" (15s). <b>Q7</b> "Why do you think outdoor activities are important?" (30s).</p>'},
+ notice:['Làm liên tục, bấm giờ, KHÔNG dừng giữa chừng — quen áp lực phòng thi.','Nghe lại toàn bộ và tự chấm bằng rubric Speaking (mục Rubric).'],
+ task:'🎙️ Thu âm lần lượt Q3, Q5, Q6, Q7 đúng thời gian. Nghe lại, tự chấm mỗi câu 0–3.',
+ checklist:['Tôi không bỏ trống câu nào','Tả ảnh đủ khung W-W-W-F','Câu Q7 có P-R-E','Tổng tự chấm ≥ 8/12'],
+ bank:'Ghi câu yếu nhất + 1 việc cần sửa cho tuần 6.'},
+
+// ── TUẦN 6: Dùng thông tin cho sẵn (Q8–10) & email mở đầu ──
+{w:6,d:1,ph:2,type:'spk',title:'Trả lời dùng thông tin cho sẵn (Q8–10)',focus:'Speaking Q8–10 · đọc lịch & trả lời',
+ goal:'Đọc nhanh một bảng lịch trình rồi trả lời câu hỏi dựa trên đó — dạng đặc thù Q8–10.',
+ model:{tag:'Speaking Q8–10 · shadow',audio:'According to the schedule, the workshop on digital marketing starts at ten in the morning in Room B. It is led by Ms. Tran and lasts ninety minutes. After that, there is a networking lunch at twelve.',
+   html:'<div class="t-wrap"><table><thead><tr><th>Time</th><th>Session</th><th>Room</th><th>Speaker</th></tr></thead><tbody><tr><td>10:00</td><td>Digital Marketing</td><td>B</td><td>Ms. Tran</td></tr><tr><td>12:00</td><td>Networking Lunch</td><td>Hall</td><td>—</td></tr></tbody></table></div><p>"<b>According to the schedule,</b> the workshop on digital marketing starts at ten in Room B. It is led by Ms. Tran and lasts ninety minutes. After that, there is a networking lunch at twelve."</p>'},
+ notice:['Mở đầu chuẩn: "According to the schedule/agenda/itinerary,…".','Có 45 giây đọc bảng → gạch nhanh giờ, phòng, người. Trả lời đúng dữ kiện = ăn điểm.','Nếu được hỏi thông tin SAI ("Isn\'t the workshop at 11?") → sửa lịch sự: "Actually, it starts at ten, not eleven."'],
+ task:'🎙️ Dựa bảng trên, trả lời: 1) What time does the marketing workshop start and where? 2) Who is the speaker? 3) I heard lunch is at one o\'clock — is that right? (sửa lại)',
+ checklist:['Tôi mở đầu "According to…"','Tôi trả lời đúng dữ kiện trong bảng','Tôi sửa thông tin sai một cách lịch sự'],
+ bank:'Lưu 4 cụm mở đầu Q8–10 + mẫu câu sửa thông tin "Actually, … not …".'},
+
+{w:6,d:2,ph:2,type:'spk',title:'Q8–10 luyện sâu: agenda & itinerary',focus:'Speaking Q8–10',
+ goal:'Thuần thục đọc–nói thông tin lịch trình/agenda với câu hỏi tổng hợp 30s.',
+ model:{tag:'Speaking Q8–10 · shadow',audio:'Sure, I can give you the details. Your flight departs at eight fifteen and arrives in Singapore at noon. You will be staying at the Riverside Hotel for two nights, and the first business meeting is scheduled for the following morning at nine.',
+   html:'<p>"Sure, I can give you the details. Your flight departs at <b>8:15</b> and arrives in Singapore at <b>noon</b>. You will be staying at the <b>Riverside Hotel</b> for two nights, and the first business meeting is scheduled for the following morning at <b>nine</b>."</p>'},
+ notice:['Câu Q10 (30s) thường yêu cầu tổng hợp NHIỀU thông tin — đọc 2–3 dòng bảng và nối lại bằng "and", "after that", "then".','Dùng thì tương lai cho lịch: "Your flight departs/will depart…", "You will be staying…".','Giữ bình tĩnh, nói chậm-rõ hơn là nhanh-vấp.'],
+ task:'🎙️ Tự tạo (hoặc tưởng tượng) một itinerary 3 dòng và trả lời câu hỏi tổng hợp 30s: "Can you tell me about my schedule for tomorrow?"',
+ checklist:['Tôi nối nhiều thông tin mạch lạc','Tôi dùng thì tương lai cho lịch trình','Tôi nói rõ giờ/nơi/tên'],
+ bank:'Lưu 5 cụm nối thông tin lịch trình (then, after that, followed by, at … you will…).'},
+
+{w:6,d:3,ph:2,type:'wrt',title:'Văn phong trang trọng & cấu trúc email',focus:'Writing Q6–7 · register',
+ goal:'Phân biệt formal/informal &amp; nắm bộ khung email công việc chuẩn.',
+ model:{tag:'Writing Q6–7 · cấu trúc',html:'<p><b>Mở:</b> "Dear Mr. Lee," / "Dear Sir or Madam,"</p><p><b>Lý do viết:</b> "I am writing to inquire about…"</p><p><b>Thân:</b> nội dung chính, đáp đủ yêu cầu đề.</p><p><b>Kết:</b> "I look forward to your reply." / "Please let me know if you need any further information."</p><p><b>Ký:</b> "Best regards, / Sincerely, [Tên]"</p>'},
+ notice:['<strong>Trang trọng:</strong> không viết tắt (I am, không I\'m), tránh tiếng lóng, dùng "would/could".','Email công sở luôn có: chào → nêu lý do → nội dung → câu kết lịch sự → ký tên.','Đọc kỹ đề Q6–7: nó liệt kê 2–3 việc BẮT BUỘC phải có trong thư — thiếu là mất điểm "hoàn thành task".'],
+ task:'Viết phần MỞ + câu nêu lý do + KẾT cho 3 tình huống: (1) hỏi thông tin khóa học (2) phàn nàn về sản phẩm lỗi (3) xác nhận tham dự sự kiện.',
+ quiz:[
+   {question:'Câu mở đầu nào TRANG TRỌNG &amp; đúng nhất cho email công việc?',options:['Hey, what\'s up?','I wanna ask about…','I am writing to inquire about the position advertised on your website.','Give me info about the job.'],answer:2,explanation:'C đầy đủ, trang trọng, nêu rõ mục đích. Các câu khác quá suồng sã/cộc.'},
+   {question:'Cách KẾT email lịch sự nhất?',options:['Bye.','I look forward to hearing from you.','Answer me soon.','That\'s all.'],answer:1,explanation:'"I look forward to hearing from you" là câu kết chuẩn mực, lịch sự.'}
+ ],
+ checklist:['Tôi không dùng viết tắt/tiếng lóng','Tôi có đủ chào–lý do–kết–ký','Tôi nêu rõ mục đích ngay câu đầu'],
+ bank:'Lưu bộ "mảnh ghép email": 3 câu chào, 3 câu nêu lý do, 3 câu kết, 2 cách ký.'},
+
+{w:6,d:4,ph:2,type:'wrt',title:'Email YÊU CẦU thông tin (Q6)',focus:'Writing Q6 · respond to a request',
+ goal:'Viết email hỏi/yêu cầu rõ ràng, đáp đủ các điểm đề yêu cầu, trong 10 phút.',
+ model:{tag:'Writing Q6 · model',html:'<p class="vi">Đề: Bạn nhận email quảng cáo một khóa học. Hãy viết thư hỏi thông tin, nêu RÕ: (1) hỏi lịch học (2) hỏi học phí (3) hỏi có chứng chỉ không.</p><div style="border-top:1px solid var(--bd);margin:8px 0"></div><p>"Dear Sir or Madam,</p><p>I am writing to request more information about the English course advertised on your website. <b>Firstly</b>, could you please tell me when the classes take place and how long the course lasts? <b>Secondly</b>, I would like to know the total tuition fee and whether any discounts are available. <b>Finally</b>, I would appreciate it if you could confirm whether students receive a certificate upon completion.</p><p>I look forward to your reply.</p><p>Best regards,<br/>Minh"</p>'},
+ notice:['Đánh số yêu cầu bằng <strong>Firstly / Secondly / Finally</strong> → đảm bảo không sót điểm nào của đề.','Mỗi yêu cầu = 1 câu hỏi lịch sự ("Could you please…", "I would like to know…", "I would appreciate it if…").','Đúng 3 việc đề yêu cầu = đạt tiêu chí "completion" của Q6.'],
+ task:'Viết email (≈80–100 từ) cho đề: "Bạn muốn đặt phòng họp cho công ty. Viết cho người quản lý tòa nhà, hỏi: (1) phòng còn trống thứ Sáu không (2) sức chứa (3) giá thuê." Bấm giờ 10 phút.',
+ checklist:['Tôi đáp đủ CẢ 3 yêu cầu của đề','Tôi đánh dấu Firstly/Secondly/Finally','Đủ chào–thân–kết–ký, đúng register','Tôi viết xong trong 10 phút'],
+ bank:'Lưu 3 mẫu câu hỏi lịch sự đa năng cho email Q6.'},
+
+{w:6,d:5,ph:2,type:'mix',title:'Tổng hợp tuần 6: Q8–10 (nói) + 1 email (viết)',focus:'Kết hợp giữa tuần',
+ goal:'Luyện chuyển nhanh giữa kỹ năng nói (thông tin cho sẵn) và viết (email yêu cầu).',
+ model:{tag:'Mix · mock',html:'<p><b>Phần nói (Q8–10):</b> tự tạo agenda hội thảo 3 dòng, 🎙️ trả lời "What\'s the plan for the morning?" (30s).</p><p><b>Phần viết (Q6):</b> viết email hỏi nhà cung cấp về một đơn hàng: (1) tình trạng giao hàng (2) thời gian dự kiến (3) phí vận chuyển.</p>'},
+ notice:['Chuyển kỹ năng nhanh giống ngày thi thật (Speaking buổi sáng, Writing buổi chiều hoặc ngược lại).'],
+ task:'Làm cả 2 phần, bấm giờ. Tự chấm: nói 0–3, email theo checklist Q6.',
+ checklist:['Phần nói đủ dữ kiện, mạch lạc','Email đáp đủ 3 yêu cầu','Tôi giữ được văn phong trang trọng khi viết'],
+ bank:'Lưu lỗi lặp lại giữa nói &amp; viết (vd cùng sai thì) để xử lý dứt điểm.'},
+
+// ── TUẦN 7: Các loại email công việc (Q6–7) ──
+{w:7,d:1,ph:2,type:'wrt',title:'Email PHẢN HỒI / đáp yêu cầu (Q7)',focus:'Writing Q7 · trả lời email đến',
+ goal:'Đọc email đến và viết thư phản hồi đầy đủ, lịch sự — dạng Q7 khó hơn Q6 một bậc.',
+ model:{tag:'Writing Q7 · model',html:'<p class="vi">Đề: Một khách hàng email hỏi về dịch vụ. Hãy trả lời, đáp đủ: (1) cảm ơn (2) cung cấp 2 thông tin họ hỏi (3) đề nghị bước tiếp theo.</p><div style="border-top:1px solid var(--bd);margin:8px 0"></div><p>"Dear Ms. Carter,</p><p>Thank you for your interest in our consulting services. <b>In response to your questions</b>, our standard package includes a monthly report and two strategy sessions, and the fee is $500 per month. <b>As for</b> availability, we can begin as early as next Monday.</p><p>If this suits you, <b>I would be happy to</b> arrange a short call to discuss the details. Please let me know a convenient time.</p><p>Best regards,<br/>David Pham"</p>'},
+ notice:['Phản hồi luôn mở bằng <strong>cảm ơn/ghi nhận</strong>: "Thank you for your email/interest…".','Dùng "In response to…", "As for…", "Regarding…" để gắn câu trả lời với từng câu hỏi của họ.','Kết bằng <strong>bước tiếp theo cụ thể</strong> (đề nghị gọi điện, hẹn gặp) — chuyên nghiệp &amp; ăn điểm tổ chức.'],
+ task:'Viết thư phản hồi (≈100 từ) cho đề: "Một ứng viên email hỏi về vị trí tuyển dụng. Trả lời: (1) cảm ơn (2) nêu mức lương &amp; giờ làm (3) mời phỏng vấn." Bấm giờ 10 phút.',
+ checklist:['Tôi mở bằng câu cảm ơn/ghi nhận','Tôi đáp đủ thông tin họ hỏi','Tôi kết bằng bước tiếp theo cụ thể'],
+ bank:'Lưu 4 cụm "gắn câu trả lời": In response to…, As for…, Regarding…, With respect to….'},
+
+{w:7,d:2,ph:2,type:'wrt',title:'Email hẹn / dời lịch & than phiền lịch sự',focus:'Writing Q6–7 · scheduling & complaint',
+ goal:'Hai tình huống hay gặp: sắp xếp lịch và phàn nàn mà vẫn nhã nhặn.',
+ model:{tag:'Writing · 2 model',html:'<p><b>Dời lịch:</b> "I am writing to ask whether we could <b>reschedule</b> our meeting from Thursday to Friday, as a conflict has arisen. <b>Would 2 p.m. on Friday work for you?</b> I apologize for any inconvenience."</p><p><b>Than phiền:</b> "I am writing to express my concern about the laptop I purchased last week, <b>which has stopped working</b>. I would appreciate it if you could either repair it or offer a replacement <b>as soon as possible</b>."</p>'},
+ notice:['Dời lịch: nêu lý do ngắn + đề xuất thời gian mới CỤ THỂ + xin lỗi nhẹ.','Than phiền lịch sự: "express my concern about", nêu vấn đề rõ ràng, đề nghị giải pháp — KHÔNG cáu gắt.','"I would appreciate it if you could…" là cụm vàng cho yêu cầu lịch sự.'],
+ task:'Viết 2 email ngắn (mỗi email ≈60–80 từ): (A) xin dời cuộc hẹn phỏng vấn sang tuần sau; (B) phàn nàn món ăn giao sai &amp; đề nghị hoàn tiền.',
+ checklist:['Email dời lịch có thời gian mới cụ thể','Email than phiền nêu vấn đề + giải pháp, vẫn lịch sự','Tôi dùng cụm yêu cầu nhã nhặn'],
+ bank:'Lưu mẫu câu: reschedule, express my concern about, I would appreciate it if…, as soon as possible.'},
+
+{w:7,d:3,ph:2,type:'wrt',title:'Email xin lỗi & đề xuất',focus:'Writing Q6–7 · apology & proposal',
+ goal:'Viết thư xin lỗi chân thành &amp; thư đề xuất thuyết phục.',
+ model:{tag:'Writing · 2 model',html:'<p><b>Xin lỗi:</b> "Please accept my <b>sincere apologies</b> for the delay in delivering your order. This was due to an unexpected supply issue. <b>To make up for this</b>, we would like to offer you a 15% discount on your next purchase."</p><p><b>Đề xuất:</b> "I would like to <b>propose</b> introducing a flexible working policy. <b>This would allow</b> staff to work from home twice a week, which I believe would improve both productivity and morale."</p>'},
+ notice:['Xin lỗi: nhận lỗi rõ ("sincere apologies for…") + lý do ngắn + cách bù đắp ("To make up for this,…").','Đề xuất: "I would like to propose…" + lợi ích ("This would allow/improve…").','Tránh đổ lỗi; tập trung giải pháp &amp; lợi ích.'],
+ task:'Viết 2 email ngắn: (A) xin lỗi khách vì giao hàng trễ + đề nghị bù đắp; (B) đề xuất với sếp một ý tưởng cải thiện nơi làm việc.',
+ checklist:['Email xin lỗi có lời nhận lỗi + cách bù đắp','Email đề xuất nêu rõ ý tưởng + lợi ích','Giọng văn tích cực, hướng giải pháp'],
+ bank:'Lưu mẫu: sincere apologies for…, To make up for this…, I would like to propose…, This would allow….'},
+
+{w:7,d:4,ph:2,type:'wrt',title:'Đa dạng câu trong email (gộp câu)',focus:'Writing Q6–7 · sentence variety',
+ goal:'Nâng tiêu chí "đa dạng &amp; chất lượng câu" — đừng viết toàn câu đơn ngắn.',
+ model:{tag:'Đa dạng câu · viết',html:'<p>❌ Câu cụt: "We got your email. We checked the issue. We will fix it. We are sorry."</p><p>✅ Gộp: "Thank you for your email. <b>After reviewing the issue</b>, we have identified the cause <b>and</b> will resolve it by tomorrow. <b>Once again, we apologize</b> for the inconvenience."</p>'},
+ notice:['Gộp câu bằng: liên từ (and/but/so), mệnh đề quan hệ (which/who), cụm phân từ (After reviewing…).','Xen kẽ câu ngắn–dài tạo nhịp. Đừng để 5 câu đều bắt đầu bằng "We/I".','Mỗi email Q6–7 nên có ít nhất 1–2 câu phức để ghi điểm "variety".'],
+ task:'Cho 6 câu cụt, gộp thành 2–3 câu phong phú: "I received your request. It was about the refund. I checked your account. The refund is approved. It will arrive in 3 days. Thank you for waiting."',
+ quiz:[
+   {question:'Cách gộp NÀO tự nhiên &amp; phong phú nhất?',options:['I checked. It is approved. It arrives soon.','After checking your account, I can confirm that your refund has been approved and will arrive within three days.','Your account I checked and refund approved arrive 3 days.','I checked your account and approved and arrive.'],answer:1,explanation:'B dùng cụm phân từ + mệnh đề that + liên từ "and" → câu phức, mạch lạc, đúng ngữ pháp.'}
+ ],
+ checklist:['Email của tôi có ≥1 câu phức','Các câu không bắt đầu giống nhau','Câu vẫn rõ nghĩa, không lan man'],
+ bank:'Lưu 3 cách gộp câu ưa thích (phân từ / mệnh đề quan hệ / liên từ).'},
+
+{w:7,d:5,ph:2,type:'wrt',title:'Tổng hợp tuần 7: viết 2 email bấm giờ',focus:'Mock Writing Q6 & Q7',milestone:true,
+ goal:'Mô phỏng đúng điều kiện thi: 2 email, mỗi email 10 phút, đáp đủ yêu cầu.',
+ model:{tag:'Mock · Writing',html:'<p><b>Email 1 (Q6):</b> Bạn thấy tin tuyển dụng. Viết hỏi: (1) kinh nghiệm yêu cầu (2) hạn nộp (3) cách ứng tuyển.</p><p><b>Email 2 (Q7):</b> Đồng nghiệp email nhờ bạn họp thay. Trả lời: (1) đồng ý/từ chối có lý do (2) hỏi thông tin cuộc họp (3) đề nghị cập nhật lại sau.</p>'},
+ notice:['Bấm giờ nghiêm túc 10 phút/email. Dành 1 phút cuối soát thì &amp; chính tả.','Sau khi viết, tự chấm theo rubric Q6 (0–4) &amp; Q7 (0–4).'],
+ task:'Viết cả 2 email vào ô bên dưới, mỗi email 10 phút. Xong thì đối chiếu checklist.',
+ checklist:['Cả 2 email đáp đủ 3 yêu cầu','Đủ chào–thân–kết–ký, đúng register','Mỗi email có ≥1 câu phức','Tôi viết trong đúng 10 phút/email','Tự chấm tổng ≥ 6/8'],
+ bank:'Ghi 3 lỗi hay mắc nhất trong email (vd: quên mạo từ, sai thì, thiếu câu kết).'},
+
+// ── TUẦN 8: Tích hợp giữa kỳ ──
+{w:8,d:1,ph:2,type:'spk',title:'Nêu ý kiến (Q11): khung PREP 60 giây',focus:'Speaking Q11 · express an opinion',
+ goal:'Có khung nói ý kiến 60 giây mạch lạc — câu hỏi cuối &amp; nặng điểm nhất phần Speaking.',
+ model:{tag:'Speaking Q11 · shadow',audio:'In my opinion, companies should allow employees to work from home. The main reason is that it increases flexibility and productivity. For example, my cousin saves two hours of commuting every day and uses that time to focus better. Of course, some jobs require being on site, but for office work, remote options are clearly beneficial. That is why I strongly support flexible working.',
+   html:'<p>"<b>(Point)</b> In my opinion, companies should allow employees to work from home. <b>(Reason)</b> The main reason is that it increases flexibility and productivity. <b>(Example)</b> For example, my cousin saves two hours of commuting every day… <b>(Counter+Point)</b> Of course, some jobs require being on site, but for office work, remote options are clearly beneficial. That is why I strongly support flexible working."</p>'},
+ notice:['<strong>PREP:</strong> Point → Reason → Example → Point (lặp lại quan điểm). Thêm 1 câu nhượng bộ "Of course…, but…" để nghe chín chắn.','45 giây chuẩn bị: viết nhanh 3 từ khóa (reason, example, restate) — đừng viết cả câu.','Nói hết 60 giây; "That is why I strongly believe…" là câu chốt cứu giờ.'],
+ task:'🎙️ Nói 60s (45s chuẩn bị) cho 2 đề: 1) Is it better to work for a big company or a small one? 2) Should children use smartphones?',
+ checklist:['Tôi đủ 4 phần PREP','Tôi có 1 câu nhượng bộ "Of course…, but…"','Tôi nói gần hết 60 giây, có câu chốt'],
+ bank:'Lưu khung PREP + 5 cụm: In my opinion / The main reason is / For example / Of course…, but… / That is why.'},
+
+{w:8,d:2,ph:2,type:'wrt',title:'Bài luận quan điểm (Q8): bản đồ 5 đoạn',focus:'Writing Q8 · cấu trúc tổng',
+ goal:'Nắm khung essay 4–5 đoạn của Q8 trước khi đi sâu từng phần ở Phase 3.',
+ model:{tag:'Writing Q8 · dàn ý',html:'<p class="vi">Đề mẫu: "Do you agree or disagree: Working in a team is better than working alone?"</p><p><b>Đoạn 1 – Mở:</b> giới thiệu chủ đề + nêu rõ quan điểm (thesis).</p><p><b>Đoạn 2 – Lý do 1:</b> topic sentence + giải thích + ví dụ.</p><p><b>Đoạn 3 – Lý do 2:</b> topic sentence + giải thích + ví dụ.</p><p><b>Đoạn 4 (tùy chọn) – Nhượng bộ:</b> thừa nhận mặt còn lại rồi phản biện.</p><p><b>Đoạn 5 – Kết:</b> nhắc lại quan điểm + tổng kết.</p>'},
+ notice:['Q8 chấm 0–5 dựa trên: ngữ pháp, từ vựng, BỐ CỤC, và CÓ BẢO VỆ ý kiến bằng lý do/ví dụ không.','Mỗi đoạn thân = 1 lý do, theo R-E-E (Reason–Explanation–Example).','Mục tiêu độ dài 300+ từ trong 30 phút.'],
+ task:'Lập DÀN Ý (chưa viết cả bài) cho đề mẫu trên: viết thesis + 2 topic sentence + ý ví dụ cho mỗi đoạn vào ô.',
+ checklist:['Thesis của tôi nêu quan điểm RÕ (agree/disagree)','Mỗi lý do có ý ví dụ kèm theo','Dàn ý đủ mở–2 thân–kết'],
+ bank:'Lưu bản đồ 5 đoạn để tái dùng cho mọi đề Q8.'},
+
+{w:8,d:3,ph:2,type:'mix',title:'Cùng chủ đề: nói (60s) vs viết (essay)',focus:'Chuyển hóa ý giữa nói & viết',
+ goal:'Thấy rõ điểm chung &amp; khác giữa trả lời nói Q11 và bài viết Q8 — tận dụng ý cho cả hai.',
+ model:{tag:'Mix · so sánh',audio:'In my opinion, online learning is effective because it is flexible and accessible. For instance, students can review lessons anytime. However, it requires self-discipline.',
+   html:'<p><b>Chủ đề chung:</b> "Is online learning effective?"</p><p><b>Nói (Q11, 60s):</b> PREP nhanh, ngôn ngữ tự nhiên, có filler.</p><p><b>Viết (Q8):</b> cùng ý nhưng câu trang trọng hơn, chia đoạn, từ nối formal (However, Furthermore, In conclusion).</p>'},
+ notice:['Ý tưởng (lý do + ví dụ) dùng được cho CẢ nói lẫn viết — luyện 1 chủ đề ăn 2 kỹ năng.','Khác biệt: nói chấp nhận filler/câu ngắn; viết cần câu phức &amp; từ nối trang trọng, không viết tắt.'],
+ task:'Chọn 1 chủ đề. 🎙️ Nói 60s (Q11). Rồi VIẾT đoạn mở + 1 đoạn thân cho cùng chủ đề (Q8). So sánh ngôn ngữ 2 bên.',
+ checklist:['Bản nói trôi chảy, có PREP','Bản viết trang trọng hơn, có từ nối formal','Tôi tái dùng được ý/ví dụ cho cả hai'],
+ bank:'Lưu 3 chủ đề "đa năng" + ý chính để luyện cả nói &amp; viết.'},
+
+{w:8,d:4,ph:2,type:'mix',title:'Collocations & từ vựng workplace',focus:'Từ vựng dùng chung Nói + Viết',
+ goal:'Nạp cụm từ đắt giá theo chủ đề công sở — nâng điểm "vocabulary" cả 2 phần.',
+ model:{tag:'Collocations · mix',audio:'We need to meet a deadline, make a decision, take responsibility, and reach an agreement to achieve our goals.',
+   html:'<p>"We need to <b>meet a deadline</b>, <b>make a decision</b>, <b>take responsibility</b>, and <b>reach an agreement</b> to <b>achieve our goals</b>."</p><p class="vi">Collocation = cụm từ "đi cùng nhau" tự nhiên. Dùng đúng cụm = nghe/đọc như người bản xứ.</p>'},
+ notice:['<strong>make:</strong> a decision, an effort, progress, a mistake. <strong>take:</strong> responsibility, action, a break, into account.','<strong>meet:</strong> a deadline, a target, requirements. <strong>reach:</strong> an agreement, a conclusion.','Học theo cụm, KHÔNG học từ lẻ — truy xuất nhanh hơn khi thi.'],
+ task:'🎙️ Nói 30s về một dự án dùng ≥4 collocation. VIẾT 4 câu, mỗi câu 1 collocation mới.',
+ quiz:[
+   {question:'Chọn collocation ĐÚNG:',options:['do a decision','make a decision','take a decision quickly only','have a decision'],answer:1,explanation:'"make a decision" là collocation chuẩn.'},
+   {question:'"We must ___ the deadline."',options:['reach','meet','take','do'],answer:1,explanation:'"meet a deadline" — đúng cụm.'}
+ ],
+ checklist:['Tôi dùng collocation thay vì từ đơn lẻ','Tôi nhớ nhóm make/take/meet/reach','Tôi áp dụng được cả khi nói &amp; viết'],
+ bank:'Lưu 12 collocation workplace (4 nhóm × 3) — ôn lại mỗi tuần.'},
+
+{w:8,d:5,ph:2,type:'mix',title:'CỘT MỐC PHASE 2: mock Speaking Q1–10 + 2 email',focus:'Đánh giá giữa khóa',milestone:true,
+ goal:'Kiểm tra toàn bộ kỹ năng nửa đầu: đọc to, tả ảnh, trả lời, dùng thông tin (nói) + 2 email (viết).',
+ model:{tag:'Mock giữa kỳ',audio:'Welcome to the city library. Please remember to keep your voice down and switch your phone to silent mode while you are inside.',
+   html:'<p><b>Speaking:</b> Q1–2 đọc đoạn trên · Q3 tả 1 ảnh · Q5–7 trả lời 3 câu hỏi đời thường · Q8–10 dựa 1 bảng lịch tự tạo.</p><p><b>Writing:</b> Email 1 hỏi thông tin (Q6) · Email 2 phản hồi yêu cầu (Q7), mỗi email 10 phút.</p>'},
+ notice:['Làm liên tục như thi thật, bấm giờ. KHÔNG bỏ trống bất kỳ câu nào.','Tự chấm bằng cả rubric Speaking lẫn Writing. So với baseline Buổi 4.5.'],
+ task:'Hoàn thành toàn bộ mock (🎙️ phần nói + ô viết phần email). Tự chấm &amp; ghi tiến bộ so với Phase 1.',
+ checklist:['Tôi hoàn thành mọi câu, không bỏ trống','Speaking: tự chấm ≥ mức "rõ &amp; đủ ý"','Writing: 2 email đáp đủ yêu cầu','Tôi thấy tiến bộ rõ so với cột mốc Phase 1','Tôi đã liệt kê 3 ưu tiên cho Phase 3'],
+ bank:'Ghi điểm mock giữa kỳ + 3 ưu tiên cải thiện cho 4 tuần cuối.'},
+];
+const PHASE3 = [
+// ── TUẦN 9: Cấu trúc bài luận quan điểm (Writing Q8) ──
+{w:9,d:1,ph:3,type:'wrt',title:'Mở bài & thesis: nêu quan điểm rõ ràng',focus:'Writing Q8 · introduction',
+ goal:'Viết đoạn mở thu hút + câu thesis nêu quan điểm dứt khoát (xương sống điểm Q8).',
+ model:{tag:'Writing Q8 · intro',html:'<p class="vi">Đề: "Some people prefer to work for one company their whole life, while others prefer to change jobs. Which do you think is better?"</p><div style="border-top:1px solid var(--bd);margin:8px 0"></div><p>"In today\'s competitive job market, career decisions have become increasingly complex. While some employees value the stability of staying with a single company, others believe that changing jobs leads to faster growth. <b>In my opinion, changing jobs from time to time is more beneficial, primarily because it broadens skills and increases earning potential.</b>"</p>'},
+ notice:['Đoạn mở 3 câu: (1) câu dẫn chủ đề chung → (2) nêu 2 phía → (3) THESIS nêu rõ quan điểm + báo trước 2 lý do.','Thesis phải DỨT KHOÁT: "In my opinion, … is more beneficial, primarily because A and B." Đừng đứng giữa.','Báo trước 2 lý do trong thesis giúp người chấm thấy bố cục ngay.'],
+ task:'Viết đoạn mở (3 câu) cho 2 đề: 1) "Is it better to study online or in a classroom?" 2) "Should companies offer 4-day work weeks?" Mỗi đề có thesis nêu rõ quan điểm + 2 lý do.',
+ checklist:['Đoạn mở của tôi có câu dẫn chủ đề','Thesis nêu quan điểm DỨT KHOÁT','Thesis báo trước 2 lý do'],
+ bank:'Lưu 1 mẫu khung mở bài 3 câu để tái dùng.'},
+
+{w:9,d:2,ph:3,type:'wrt',title:'Đoạn thân 1: công thức R-E-E',focus:'Writing Q8 · body paragraph',
+ goal:'Viết đoạn thân chặt chẽ: 1 lý do, giải thích, ví dụ cụ thể.',
+ model:{tag:'Writing Q8 · body',html:'<p>"<b>(Topic sentence)</b> The most important advantage of changing jobs is the opportunity to develop a wider range of skills. <b>(Explanation)</b> When people move to new roles, they are exposed to different tools, teams, and challenges, which accelerates their professional growth. <b>(Example)</b> For instance, a friend of mine doubled her salary within three years simply by switching companies twice and learning new technologies each time."</p>'},
+ notice:['<strong>R-E-E:</strong> Reason (topic sentence nêu lý do) → Explanation (vì sao lý do đó đúng) → Example (ví dụ cụ thể, có chi tiết).','Topic sentence đứng ĐẦU đoạn, nêu thẳng lý do.','Ví dụ cụ thể (con số, trải nghiệm) thuyết phục hơn câu chung chung — đây là phần "support opinion" mà rubric Q8 đòi.'],
+ task:'Viết đoạn thân 1 hoàn chỉnh (R-E-E, ~4 câu) cho đề "Is online learning effective?" — chọn 1 lý do mạnh.',
+ checklist:['Topic sentence nêu rõ 1 lý do','Tôi giải thích vì sao lý do đúng','Tôi có ví dụ CỤ THỂ (chi tiết/số liệu)'],
+ bank:'Lưu công thức R-E-E + 1 đoạn thân mẫu của bạn.'},
+
+{w:9,d:3,ph:3,type:'wrt',title:'Đoạn thân 2 & kỹ thuật nhượng bộ',focus:'Writing Q8 · concession',
+ goal:'Thêm đoạn lý do thứ hai và biết "nhượng bộ rồi phản biện" — dấu hiệu bài viết band cao.',
+ model:{tag:'Writing Q8 · concession',html:'<p>"<b>(Body 2)</b> Furthermore, changing jobs often leads to higher income, since new employers tend to offer better packages to attract talent…</p><p><b>(Concession)</b> Admittedly, staying at one company can build deep expertise and strong relationships. <b>However</b>, these benefits can also be gained gradually elsewhere, whereas the financial and developmental gains of changing jobs are difficult to replicate by staying put."</p>'},
+ notice:['Đoạn thân 2 mở bằng từ nối thêm: "Furthermore / In addition / Moreover".','<strong>Nhượng bộ:</strong> "Admittedly / It is true that…" thừa nhận mặt đối lập, rồi "However / Nevertheless" phản biện đưa về quan điểm mình.','Nhượng bộ cho thấy bạn cân nhắc nhiều phía → chín chắn, ăn điểm tổ chức &amp; lập luận.'],
+ task:'Viết đoạn thân 2 (R-E-E) + 1 đoạn/câu nhượng bộ cho đề bạn đang làm ở Buổi 9.2.',
+ checklist:['Đoạn 2 mở bằng từ nối thêm','Tôi thừa nhận mặt đối lập (Admittedly…)','Tôi phản biện đưa về quan điểm (However…)'],
+ bank:'Lưu mẫu nhượng bộ: "Admittedly, … . However, … ."'},
+
+{w:9,d:4,ph:3,type:'wrt',title:'Kết bài & từ nối đa dạng',focus:'Writing Q8 · conclusion + cohesion',
+ goal:'Viết kết bài gọn, mạnh và dùng từ nối đa dạng xuyên suốt bài.',
+ model:{tag:'Writing Q8 · conclusion',html:'<p>"<b>In conclusion</b>, although working for a single employer offers stability, I firmly believe that changing jobs is the better choice, as it expands one\'s skill set and improves financial prospects. <b>Therefore</b>, professionals should not hesitate to seek new opportunities when the time is right."</p>'},
+ notice:['Kết bài: "In conclusion / To sum up," + nhắc lại quan điểm (diễn đạt KHÁC mở bài, không copy) + 1 câu khuyến nghị/dự đoán.','Đa dạng từ nối toàn bài: Firstly · Furthermore · For example · Admittedly · However · Therefore · In conclusion. Đừng lặp "and"/"so".','KHÔNG nêu ý mới ở kết bài.'],
+ task:'Viết kết bài cho đề ở Buổi 9.2/9.3. Sau đó rà cả bài: thay các từ nối lặp bằng từ đa dạng hơn.',
+ quiz:[
+   {question:'Từ nối nào thể hiện KẾT QUẢ/hệ quả?',options:['However','Therefore','For example','Admittedly'],answer:1,explanation:'"Therefore" = do đó (kết quả). However=tương phản, For example=ví dụ, Admittedly=nhượng bộ.'},
+   {question:'Câu kết bài NÊN làm gì?',options:['Nêu một lý do hoàn toàn mới','Nhắc lại quan điểm bằng cách diễn đạt khác','Copy nguyên câu thesis','Đặt một câu hỏi mở'],answer:1,explanation:'Kết bài nhắc lại quan điểm (paraphrase), không thêm ý mới, không copy y nguyên.'}
+ ],
+ checklist:['Kết bài nhắc lại quan điểm (diễn đạt khác)','Tôi không thêm ý mới','Từ nối toàn bài đa dạng, không lặp'],
+ bank:'Lưu "bảng từ nối" 7 loại: thêm/ví dụ/tương phản/nhượng bộ/kết quả/nhấn mạnh/kết luận.'},
+
+{w:9,d:5,ph:3,type:'wrt',title:'Viết essay #1 hoàn chỉnh (bán bấm giờ)',focus:'Writing Q8 · ráp cả bài',milestone:true,
+ goal:'Ráp mở–2 thân–nhượng bộ–kết thành một bài 300+ từ. Lần đầu cho phép 40 phút.',
+ model:{tag:'Đề · Writing Q8',html:'<p class="vi">Đề: "Do you agree or disagree with the following statement: Technology has made people less social?" Viết 4–5 đoạn, ≥300 từ.</p>'},
+ notice:['Quy trình: 5 phút dàn ý (thesis + 2 lý do + ví dụ) → 30 phút viết → 5 phút soát.','Áp dụng mọi thứ tuần 9: thesis rõ, R-E-E, nhượng bộ, kết mạnh, từ nối đa dạng.','Lần này 40 phút; tuần 10 &amp; 12 sẽ rút về 30 phút như thi.'],
+ task:'Viết trọn bài vào ô bên dưới. Đếm từ. Tự chấm theo rubric Q8 (0–5).',
+ checklist:['Đủ mở–2 thân–(nhượng bộ)–kết','Mỗi đoạn thân theo R-E-E','≥300 từ','Từ nối đa dạng, ít lỗi ngữ pháp','Tôi tự chấm được 3/5 trở lên'],
+ bank:'Lưu bài này lại. Ghi 3 lỗi lặp để sửa ở essay #2.'},
+
+// ── TUẦN 10: Nêu ý kiến (nói) & ngôn ngữ nâng cao ──
+{w:10,d:1,ph:3,type:'spk',title:'Opinion Q11 nâng cao: trôi chảy & sâu',focus:'Speaking Q11',
+ goal:'Nâng chất câu trả lời ý kiến: lý do mạnh hơn, ví dụ sống động, chốt dứt khoát trong 60s.',
+ model:{tag:'Speaking Q11 · shadow',audio:'I completely agree that companies should invest in employee training. The primary reason is that skilled workers are more productive and loyal. To illustrate, when my previous company introduced monthly workshops, staff turnover dropped noticeably within a year. While such programs do cost money, the long-term benefits clearly outweigh the expense. That is why I strongly believe training is a wise investment.',
+   html:'<p>"I <b>completely agree</b> that companies should invest in training. <b>The primary reason is</b> that skilled workers are more productive and loyal. <b>To illustrate,</b> when my previous company introduced monthly workshops, staff turnover dropped noticeably… <b>While</b> such programs do cost money, the long-term benefits <b>clearly outweigh</b> the expense. <b>That is why</b> I strongly believe training is a wise investment."</p>'},
+ notice:['Nâng cấp ngôn ngữ: "completely agree", "the primary reason", "to illustrate", "clearly outweigh" — chính xác &amp; trang trọng hơn.','Một câu nhượng bộ ngắn ("While… , …") trong 60s nâng band đáng kể.','Giữ trôi chảy: thà nói chậm-rõ-liền mạch còn hơn nhanh-vấp-ngắt.'],
+ task:'🎙️ Nói 60s cho 3 đề (45s chuẩn bị mỗi đề): 1) Should public transport be free? 2) Is remote work here to stay? 3) Should schools teach financial skills?',
+ checklist:['Tôi dùng ≥3 cụm nâng cao','Tôi có 1 câu nhượng bộ','Tôi nói liền mạch gần hết 60s','Tôi chốt dứt khoát'],
+ bank:'Lưu 8 cụm nâng cao cho Q11 (completely agree, the primary reason, to illustrate, clearly outweigh, that is why…).'},
+
+{w:10,d:2,ph:3,type:'spk',title:'Q11 đa chủ đề: ngân hàng ý tưởng',focus:'Speaking Q11 · breadth',
+ goal:'Xây "ngân hàng ý tưởng" cho các nhóm chủ đề hay ra, để không bí lúc thi.',
+ model:{tag:'Speaking Q11 · chủ đề',html:'<p class="vi">Nhóm chủ đề hay gặp &amp; ý có sẵn:</p><div class="t-wrap"><table><thead><tr><th>Chủ đề</th><th>Ý dùng được</th></tr></thead><tbody><tr><td>Work</td><td>flexibility, productivity, work-life balance, teamwork</td></tr><tr><td>Education</td><td>practical skills, lifelong learning, online vs classroom</td></tr><tr><td>Technology</td><td>convenience, connection vs distraction, automation</td></tr><tr><td>Lifestyle</td><td>health, stress, time management, community</td></tr></tbody></table></div>'},
+ notice:['Mỗi chủ đề chuẩn bị sẵn 2 lý do + 1 ví dụ → ráp vào khung PREP là xong.','Ví dụ cá nhân ("a friend of mine…", "at my last job…") luôn nhanh &amp; thuyết phục.','Luyện xoay vòng nhiều đề để phản xạ nhanh.'],
+ task:'🎙️ Bốc ngẫu nhiên 4 đề (mỗi nhóm 1) và nói 60s. Mục tiêu: bắt đầu nói trong vòng 5 giây sau khi đọc đề.',
+ checklist:['Tôi khởi động trong ≤5 giây','Mỗi đề tôi có 2 lý do + 1 ví dụ','Tôi không lặp lại cùng một ví dụ cho mọi đề'],
+ bank:'Lưu bảng 4 nhóm chủ đề + ý tưởng. Bổ sung thêm khi gặp đề mới.'},
+
+{w:10,d:3,ph:3,type:'mix',title:'Paraphrase & tránh lặp từ',focus:'Nói + Viết · diễn đạt lại',
+ goal:'Diễn đạt lại đề bài &amp; tránh lặp từ — nâng điểm từ vựng cho cả 2 phần.',
+ model:{tag:'Paraphrase · mix',html:'<p>Đề: "Many people think social media is harmful."</p><p>Paraphrase: "It is widely believed that <b>social networking platforms</b> have a <b>negative impact</b>."</p><p>Tránh lặp "important": significant · crucial · vital · essential · key.</p><p>Tránh lặp "good": beneficial · valuable · advantageous · positive.</p>'},
+ notice:['Paraphrase đề = đổi từ đồng nghĩa + đổi cấu trúc (chủ động↔bị động). Dùng ở câu mở bài &amp; câu chốt.','Lập "chuỗi đồng nghĩa" cho các từ bạn hay lặp (good, bad, important, think, a lot).','Đừng paraphrase đến mức sai nghĩa — chính xác quan trọng hơn "đẹp".'],
+ task:'Paraphrase 5 câu đề mẫu (viết). Sau đó 🎙️ nói lại quan điểm về 1 đề mà KHÔNG lặp từ khóa của đề.',
+ quiz:[
+   {question:'Từ nào KHÔNG đồng nghĩa với "important"?',options:['crucial','vital','trivial','essential'],answer:2,explanation:'"trivial" = vụn vặt, không quan trọng — trái nghĩa.'},
+   {question:'Paraphrase tốt cho "a lot of people"?',options:['many people only','a large number of individuals','much people','peoples'],answer:1,explanation:'"a large number of individuals" — đúng &amp; trang trọng.'}
+ ],
+ checklist:['Tôi paraphrase được đề bài','Tôi dùng chuỗi đồng nghĩa, không lặp','Nghĩa vẫn chính xác'],
+ bank:'Lưu 5 chuỗi đồng nghĩa cho các từ bạn hay lặp.'},
+
+{w:10,d:4,ph:3,type:'mix',title:'Collocations & cách diễn đạt nâng cao',focus:'Từ vựng band cao',
+ goal:'Thêm cụm từ &amp; cách diễn đạt "ăn điểm" cho ý kiến/lập luận.',
+ model:{tag:'Nâng cao · mix',audio:'There is no doubt that remote work has reshaped the modern workplace. It plays a crucial role in improving work-life balance and has a significant impact on productivity.',
+   html:'<p>"<b>There is no doubt that</b> remote work has <b>reshaped</b> the modern workplace. It <b>plays a crucial role in</b> improving work-life balance and <b>has a significant impact on</b> productivity."</p>'},
+ notice:['Cụm lập luận: "There is no doubt that…", "plays a crucial role in…", "has a significant impact on…", "the key to … is…".','Động từ mạnh: reshape, enhance, undermine, facilitate, hinder.','Dùng 2–3 cụm/câu là đủ — nhồi quá thành gượng.'],
+ task:'VIẾT 4 câu dùng 4 cụm nâng cao. 🎙️ NÓI 30s về lợi ích của một công nghệ, dùng ≥3 cụm.',
+ quiz:[
+   {question:'"Education ___ a crucial role in economic growth."',options:['makes','plays','takes','does'],answer:1,explanation:'"play a crucial role in" — đúng collocation.'},
+   {question:'"Pollution has a significant ___ on public health."',options:['affect','impact','effort','effect on only'],answer:1,explanation:'"have a significant impact on" — cụm chuẩn.'}
+ ],
+ checklist:['Tôi dùng cụm lập luận nâng cao','Tôi dùng động từ mạnh đúng chỗ','Không nhồi nhét gượng ép'],
+ bank:'Lưu 10 cụm/động từ nâng cao cho opinion (cả nói &amp; viết).'},
+
+{w:10,d:5,ph:3,type:'mix',title:'Essay #2 (30 phút) + nói opinion #2',focus:'Áp dụng ngôn ngữ nâng cao',milestone:true,
+ goal:'Viết essay Q8 trong ĐÚNG 30 phút + nói Q11 60s, áp dụng paraphrase &amp; cụm nâng cao.',
+ model:{tag:'Đề · mix',html:'<p class="vi">Viết (Q8, 30\'): "Do you agree or disagree: People should retire before the age of 60?" ≥300 từ.</p><p class="vi">Nói (Q11, 60s): "Should governments invest more in public parks?"</p>'},
+ notice:['Bấm giờ NGHIÊM: 5\' dàn ý – 22\' viết – 3\' soát. Đây là tốc độ thi thật.','So với essay #1: ít lỗi hơn? dùng nhiều cụm nâng cao hơn? paraphrase tốt hơn?'],
+ task:'Viết essay vào ô + 🎙️ thu âm Q11. Tự chấm cả hai (Q8 0–5, Q11 0–3 quy đổi).',
+ checklist:['Essay xong trong 30 phút, ≥300 từ','Tôi dùng paraphrase + ≥3 cụm nâng cao','Nói 60s trôi chảy, có PREP + nhượng bộ','Ít lỗi hơn essay #1'],
+ bank:'Ghi tiến bộ so với #1. Lưu 3 câu hay nhất bạn viết được.'},
+
+// ── TUẦN 11: Tăng tốc & sửa lỗi ──
+{w:11,d:1,ph:3,type:'mix',title:'Nhật ký lỗi: phân loại & xử lý',focus:'Error log',
+ goal:'Lập nhật ký lỗi hệ thống — yếu tố quyết định để bứt lên band cao.',
+ model:{tag:'Error log · mẫu',html:'<div class="t-wrap"><table><thead><tr><th>Lỗi tôi mắc</th><th>Loại</th><th>Sửa đúng</th></tr></thead><tbody><tr><td>"He go to work"</td><td>Ngữ pháp (ngôi 3)</td><td>"He goes to work"</td></tr><tr><td>nuốt âm /s/ cuối</td><td>Phát âm</td><td>bật rõ "works", "needs"</td></tr><tr><td>"ờ… ờ…" nhiều</td><td>Trôi chảy</td><td>thay bằng "Well,…" / im lặng ngắn</td></tr><tr><td>quên mạo từ "the"</td><td>Ngữ pháp (article)</td><td>"in the morning"</td></tr></tbody></table></div>'},
+ notice:['Phân loại lỗi: ngữ pháp / từ vựng / phát âm / trôi chảy / nội dung (thiếu ý). Biết loại nào nhiều nhất để tập trung.','Nghe lại bản thu &amp; đọc lại bài viết của các buổi mock → liệt kê lỗi thật của BẠN.','Lỗi lặp lại 3 lần = ưu tiên số 1 để diệt.'],
+ task:'Mở lại 2–3 bản thu/bài viết gần nhất. Liệt kê ≥8 lỗi vào ô, phân loại &amp; viết cách sửa.',
+ checklist:['Tôi liệt kê ≥8 lỗi thật','Tôi phân loại được từng lỗi','Tôi xác định 3 lỗi ưu tiên diệt'],
+ bank:'Tạo "nhật ký lỗi" cố định — cập nhật mỗi buổi mock từ giờ đến khi thi.'},
+
+{w:11,d:2,ph:3,type:'spk',title:'Fluency drills: nói liền mạch, bớt ậm ừ',focus:'Speaking · fluency',
+ goal:'Giảm ngắt quãng &amp; "ờ…ờ", tăng tốc độ phản xạ — điểm trôi chảy.',
+ model:{tag:'Fluency · shadow',audio:'Honestly, I think the biggest advantage is convenience. You can do almost everything from your phone these days, which saves a lot of time and effort. So all in all, I would say technology has made our lives much easier.',
+   html:'<p>"<b>Honestly,</b> I think the biggest advantage is convenience. You can do almost everything from your phone these days, <b>which</b> saves a lot of time and effort. <b>So all in all,</b> I would say technology has made our lives much easier."</p>'},
+ notice:['Filler TỐT (mua thời gian, tự nhiên): "Honestly,", "Actually,", "You know,", "I mean,". Filler XẤU cần bỏ: "ờ…", "uhh…" kéo dài.','Kỹ thuật "1 hơi": nói trọn 1 câu trong 1 hơi thở, không ngắt giữa câu.','Luyện "60-second nonstop": chọn 1 chủ đề &amp; nói 60s KHÔNG dừng — chấp nhận lỗi nhỏ, ưu tiên dòng chảy.'],
+ task:'🎙️ Làm 3 lượt "60-second nonstop" với 3 chủ đề quen. Nghe lại, đếm số lần "ờ…". Lượt sau cố giảm.',
+ checklist:['Tôi nói 60s không dừng lâu','Số lần "ờ…" giảm dần qua các lượt','Tôi dùng filler tốt thay vì ậm ừ'],
+ bank:'Lưu 6 filler tốt + ghi số "ờ…" mỗi lượt để theo dõi.'},
+
+{w:11,d:3,ph:3,type:'mix',title:'Quản lý thời gian từng dạng câu',focus:'Timing · cả Nói & Viết',
+ goal:'Khớp đồng hồ với từng dạng: chuẩn bị ngắn (có khi 3s), nói/viết đủ giờ, không tràn.',
+ model:{tag:'Timing · bảng',html:'<div class="t-wrap"><table><thead><tr><th>Dạng</th><th>Chuẩn bị</th><th>Làm</th><th>Mẹo</th></tr></thead><tbody><tr><td>Speak Q1–2</td><td>45s</td><td>45s</td><td>đánh dấu nhấn/ngữ điệu khi chuẩn bị</td></tr><tr><td>Speak Q3–4</td><td>45s</td><td>30s</td><td>khung W-W-W-F</td></tr><tr><td>Speak Q5–7</td><td>3s</td><td>15–30s</td><td>filler mở đầu ngay</td></tr><tr><td>Speak Q11</td><td>45s</td><td>60s</td><td>viết 3 từ khóa, theo PREP</td></tr><tr><td>Write Q6–7</td><td>—</td><td>10\'</td><td>1\' đọc đề + đánh số yêu cầu</td></tr><tr><td>Write Q8</td><td>—</td><td>30\'</td><td>5\' dàn ý / 22\' viết / 3\' soát</td></tr></tbody></table></div>'},
+ notice:['Chuẩn bị 3 giây (Q5–7) là cú sốc lớn nhất — luyện mở đầu phản xạ để không "đơ".','Đừng nói/viết quá ít (mất điểm completeness) cũng đừng tràn giờ (bị cắt giữa chừng).','Tập "cảm giác thời gian": luyện với đồng hồ đếm ngược trên điện thoại.'],
+ task:'🎙️ + ✍️ Chạy thử mỗi dạng 1 lần với đồng hồ thật. Ghi lại: dạng nào bạn hay thiếu/thừa giờ.',
+ checklist:['Tôi quen mức chuẩn bị ngắn (3s)','Tôi dùng đủ — không thiếu, không tràn giờ','Tôi biết dạng nào mình yếu về thời gian'],
+ bank:'Lưu bảng timing này + ghi chú dạng cần canh giờ kỹ.'},
+
+{w:11,d:4,ph:3,type:'mix',title:'Đa dạng cấu trúc câu (nâng band)',focus:'Sentence variety · Nói & Viết',
+ goal:'Trộn câu đơn–ghép–phức một cách tự nhiên để ghi điểm "đa dạng cấu trúc".',
+ model:{tag:'Đa dạng câu · mix',html:'<p>Đều đều (band thấp): "I like my job. It is interesting. I learn a lot. I work with nice people."</p><p>Đa dạng (band cao): "I really enjoy my job <b>because</b> it is both interesting and challenging. <b>Working with supportive colleagues,</b> I learn something new almost every day, <b>which</b> keeps me motivated."</p>'},
+ notice:['Công cụ đa dạng: liên từ (because/although), mệnh đề quan hệ (which/who), cụm phân từ (Working…), câu điều kiện, đảo ngữ nhẹ ("Not only… but also…").','Xen kẽ 1 câu ngắn mạnh sau vài câu dài → tạo nhịp &amp; nhấn mạnh.','Áp dụng cho CẢ nói lẫn viết, nhưng khi nói đừng làm câu quá dài đến mức vấp.'],
+ task:'Viết lại đoạn "đều đều" mẫu thành đoạn đa dạng. 🎙️ Nói 30s về công việc/việc học dùng ≥1 mệnh đề quan hệ + ≥1 cụm phân từ.',
+ quiz:[
+   {question:'Câu nào "đa dạng cấu trúc" nhất?',options:['I work hard. I am tired.','I work hard and I am tired.','Although I work hard, I rarely feel tired, which surprises my colleagues.','I work hard so tired.'],answer:2,explanation:'C kết hợp mệnh đề nhượng bộ (Although) + mệnh đề quan hệ (which) → đa dạng &amp; mạch lạc.'}
+ ],
+ checklist:['Đoạn của tôi có câu đơn, ghép và phức','Tôi dùng ≥2 công cụ đa dạng','Câu vẫn rõ nghĩa, không rối'],
+ bank:'Lưu 5 "mẫu câu phức" tủ để bê vào bài thi.'},
+
+{w:11,d:5,ph:3,type:'spk',title:'Mini-mock Speaking đầy đủ 11 câu',focus:'Mock Speaking · bấm giờ',milestone:true,
+ goal:'Chạy trọn 11 câu Speaking như thi thật (~20 phút), thu âm toàn bộ.',
+ model:{tag:'Mock · Speaking 11Q',audio:'Thank you for shopping with us. Your order has been confirmed and will be delivered within three business days. If you have any questions, please contact our customer service team.',
+   html:'<p><b>Q1–2:</b> đọc đoạn trên + 1 đoạn tự chọn. <b>Q3–4:</b> tả 2 ảnh. <b>Q5–7:</b> 3 câu hỏi về "mua sắm". <b>Q8–10:</b> dựa 1 lịch hội thảo tự tạo. <b>Q11:</b> "Should companies offer free training to employees?" (60s)</p>'},
+ notice:['Làm liền 11 câu, KHÔNG dừng, bấm giờ từng câu đúng chuẩn (mục Phòng thi).','Thu âm tất cả → nghe lại → tự chấm bằng rubric Speaking → cập nhật nhật ký lỗi.'],
+ task:'🎙️ Thu âm trọn 11 câu. Tự chấm tổng quy về thang 0–200 (ước lượng theo rubric).',
+ checklist:['Tôi hoàn thành cả 11 câu, không bỏ trống','Q11 đủ PREP + nhượng bộ','Tôi giữ đúng thời gian từng câu','Tôi ước tính đạt mức ~Nói 170+','Cập nhật nhật ký lỗi sau mock'],
+ bank:'Ghi điểm ước lượng + 3 lỗi cần diệt trong tuần cuối.'},
+
+// ── TUẦN 12: Mô phỏng thi & hoàn thiện ──
+{w:12,d:1,ph:3,type:'wrt',title:'Mô phỏng Writing phần Q1–Q7',focus:'Mock Writing · sentences + emails',
+ goal:'Chạy thử nửa đầu bài Writing: 5 câu tả ảnh (8\') + 2 email (10\'/email).',
+ model:{tag:'Mock · Writing Q1–7',html:'<p><b>Q1–5 (8\'):</b> 5 câu tả ảnh, mỗi câu 1 cặp từ: (woman/carry) (because/cold) (while/wait) (although/expensive) (manager/announce).</p><p><b>Q6 (10\'):</b> email hỏi về một dịch vụ (3 ý). <b>Q7 (10\'):</b> trả lời email khách hàng phàn nàn (xin lỗi + giải pháp + bù đắp).</p>'},
+ notice:['Bấm giờ đúng chuẩn. Q1–5: 5 câu trong 8 phút — nhanh nhưng phải trọn vẹn &amp; đủ 2 từ.','Q6–Q7: đáp đủ các yêu cầu, đúng register, có ≥1 câu phức/email.'],
+ task:'Làm trọn Q1–Q7 vào ô, bấm giờ. Tự chấm: Q1–5 (mỗi câu 0–3), Q6–7 (mỗi email 0–4).',
+ checklist:['5 câu tả ảnh trọn vẹn, đủ 2 từ','Q6 đáp đủ 3 ý','Q7 có xin lỗi + giải pháp + bù đắp','Tôi giữ đúng thời gian từng phần'],
+ bank:'Ghi lỗi xuất hiện ở phần câu &amp; email để soát kỹ ở Q8.'},
+
+{w:12,d:2,ph:3,type:'wrt',title:'Mô phỏng Writing Q8 (essay 30 phút)',focus:'Mock Writing · essay',
+ goal:'Viết essay Q8 trọn vẹn trong đúng 30 phút — essay "thi thật" thứ 3.',
+ model:{tag:'Đề · Writing Q8',html:'<p class="vi">"Do you agree or disagree: It is better for companies to promote employees from within rather than hire from outside?" Viết 4–5 đoạn, ≥300 từ, đúng 30 phút.</p>'},
+ notice:['Quy trình thi: 5\' dàn ý → 22\' viết → 3\' soát (thì/số/mạo từ/dấu câu).','Dùng mọi vũ khí: thesis rõ, R-E-E ×2, nhượng bộ, kết mạnh, từ nối đa dạng, cụm nâng cao, paraphrase.'],
+ task:'Viết essay vào ô, bấm giờ 30 phút. Tự chấm rubric Q8 (0–5). So với essay #1 &amp; #2.',
+ checklist:['Xong trong 30 phút, ≥300 từ','Bố cục đủ &amp; rõ','Ít lỗi ngữ pháp (đã soát 3 phút)','Tự chấm ≥4/5','Tiến bộ rõ so với essay #1'],
+ bank:'Lưu essay này. Ghi: mình đã diệt được lỗi nào so với 3 tuần trước?'},
+
+{w:12,d:3,ph:3,type:'spk',title:'Mô phỏng Speaking đầy đủ (lần 2)',focus:'Mock Speaking · final',
+ goal:'Chạy trọn 11 câu Speaking lần cuối trước thi, mượt hơn lần ở Buổi 11.5.',
+ model:{tag:'Mock · Speaking 11Q',audio:'Good morning, everyone, and welcome to the annual staff meeting. We will begin with a short presentation, followed by a question-and-answer session in the main conference room.',
+   html:'<p>Q1–2 đọc to (gồm đoạn trên) · Q3–4 tả 2 ảnh · Q5–7 chủ đề "thói quen làm việc" · Q8–10 dựa lịch họp tự tạo · Q11 "Is it better to be a specialist or a generalist?"</p>'},
+ notice:['Mục tiêu: trôi chảy hơn, ít "ờ…" hơn, đúng giờ hơn lần trước. Áp dụng nhật ký lỗi.','Thu âm, nghe lại, tự chấm. Đây là bản "tổng duyệt" gần ngày thi.'],
+ task:'🎙️ Thu âm trọn 11 câu. Tự chấm &amp; so với mini-mock Buổi 11.5.',
+ checklist:['Trôi chảy hơn lần trước','Ít lỗi lặp lại từ nhật ký lỗi','Đúng thời gian mọi câu','Ước lượng Nói ≥175'],
+ bank:'Ghi 2 điều cần nhớ nhất khi vào phòng thi nói.'},
+
+{w:12,d:4,ph:3,type:'mix',title:'Tổng ôn: ngân hàng câu & lỗi hay gặp',focus:'Consolidation',
+ goal:'Gom &amp; ôn toàn bộ "ngân hàng" (chunks, mẫu câu, khung) + rà nhật ký lỗi lần cuối.',
+ model:{tag:'Tổng ôn · checklist',html:'<p class="vi">Gom lại để ôn nhanh:</p><ul style="margin-left:18px;color:var(--mu);font-size:13.5px"><li>Khung: W-W-W-F (tả ảnh), 1-2-3 (Q5–7), PREP (Q11), 5-đoạn + R-E-E (essay).</li><li>Mảnh ghép email: chào / nêu lý do / kết / ký.</li><li>Từ nối 7 loại + 8 cụm opinion nâng cao + 12 collocation workplace.</li><li>Nhật ký lỗi: 3 lỗi ưu tiên cuối cùng.</li></ul>'},
+ notice:['Hôm nay KHÔNG học cái mới — chỉ củng cố &amp; ôn lại ngân hàng cá nhân để truy xuất nhanh khi thi.','Đọc to (shadow) lại 5–10 mẫu câu tủ để chúng "bật ra" tự động.'],
+ task:'Mở lại toàn bộ mục Bank đã lưu suốt khóa. 🎙️ đọc to 10 mẫu câu tủ. Viết ra 1 trang "cheat sheet" tinh gọn.',
+ checklist:['Tôi nhớ &amp; bật nhanh 4 khung chính','Tôi thuộc các mảnh ghép email','Tôi rà xong nhật ký lỗi','Tôi có 1 trang cheat sheet ôn nhanh'],
+ bank:'Hoàn thiện "cheat sheet 1 trang" — ôn 10 phút trước giờ thi.'},
+
+{w:12,d:5,ph:3,type:'mix',title:'CỘT MỐC CUỐI: checklist phòng thi & duy trì',focus:'Sẵn sàng thi',milestone:true,
+ goal:'Chốt trạng thái sẵn sàng, nắm chiến thuật phòng thi &amp; lập kế hoạch duy trì sau 3 tháng.',
+ model:{tag:'Phòng thi · checklist',html:'<p class="vi"><b>Trước ngày thi:</b> làm 1 đề mẫu ETS có bấm giờ; ngủ đủ; chuẩn bị giấy tờ.</p><p class="vi"><b>Trong phòng thi:</b> Speaking — mở đầu phản xạ ngay, không bỏ trống, nói liền mạch. Writing — đọc kỹ yêu cầu, canh giờ, soát 3 phút cuối.</p><p class="vi"><b>Quy tắc vàng:</b> KHÔNG bao giờ để trống — luôn nói/viết gì đó bằng tiếng Anh.</p>'},
+ notice:['So baseline (Buổi 4.5) ↔ hiện tại: bạn đã tiến bộ ở đâu? Ăn mừng điều đó.','Nếu chưa chạm 350: xem nhật ký lỗi → 2–3 điểm yếu còn lại cần thêm 2–3 tuần luyện tập trung.','Duy trì sau khóa: 15–20 phút/ngày shadow + 1 essay + 1 mock nói mỗi tuần để giữ phong độ.'],
+ task:'Tự đánh giá lần cuối theo rubric (Nói /200, Viết /200). Viết kế hoạch duy trì 4 tuần tới vào ô.',
+ checklist:['Tôi nắm rõ chiến thuật từng phần thi','Tôi cam kết KHÔNG bỏ trống câu nào','Tôi ước lượng tổng đã gần/đạt 350','Tôi có kế hoạch duy trì sau khóa','Tôi tự tin hơn rõ rệt so với Buổi 1'],
+ bank:'Viết 3 câu động viên cho chính mình + lịch duy trì. Bạn đã đi hết 60 buổi — tuyệt vời! 🎉'},
+];
+
+const SESSIONS = [].concat(PHASE1, PHASE2, PHASE3);
+
+// ════════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════════
+const PHASE_META = {
+  1:{label:'Phase 1 · Tuần 1–4',title:'Nền tảng: Phát âm & Câu chính xác',desc:'Xây phản xạ shadowing + phát âm/ngữ điệu (Speaking Q1–2) và độ chính xác câu (Writing Q1–5, tả ảnh).'},
+  2:{label:'Phase 2 · Tuần 5–8',title:'Sản xuất: Trả lời nói & Email',desc:'Tả ảnh nâng cao, trả lời câu hỏi & dùng thông tin (Speaking Q3–10); email công việc (Writing Q6–7).'},
+  3:{label:'Phase 3 · Tuần 9–12',title:'Quan điểm & Mô phỏng thi',desc:'Bài luận (Writing Q8) + nêu ý kiến (Speaking Q11), tăng tốc, sửa lỗi và thi thử trọn bộ.'}
+};
+const WEEK_TITLE = {
+  1:'Phát âm, trọng âm, ngữ điệu',2:'Câu chính xác & tả ảnh (viết)',3:'Mở rộng câu & mô tả ảnh',4:'Câu phức & chốt nền',
+  5:'Tả ảnh nâng cao & trả lời câu hỏi',6:'Dùng thông tin cho sẵn & email mở đầu',7:'Các loại email công việc',8:'Tích hợp giữa kỳ',
+  9:'Cấu trúc bài luận quan điểm',10:'Nêu ý kiến (nói) & ngôn ngữ nâng cao',11:'Tăng tốc & sửa lỗi',12:'Mô phỏng thi & hoàn thiện'
+};
+const TYPE_LABEL = {spk:['Nói','tp-spk','spk'],wrt:['Viết','tp-wrt','wrt'],mix:['Kết hợp','tp-mix','mix']};
+
+function stepPlan(type){
+  if(type==='wrt') return [['①','SHADOW','5′ · đọc to mẫu'],['②','NOTICE','10′ · soi cấu trúc'],['③','IMITATE','22′ · viết nhại'],['④','COMPARE','8′ · đối chiếu rubric'],['⑤','BANK','5′ · lưu mẫu câu']];
+  if(type==='spk') return [['①','SHADOW','10′ · nhại mẫu 3–5 lần'],['②','NOTICE','8′ · soi phát âm/khung'],['③','PRODUCE','15′ · thu âm câu của bạn'],['④','COMPARE','8′ · nghe lại + rubric'],['⑤','BANK','4′ · lưu chunk']];
+  return [['①','SHADOW','8′ · nghe/đọc mẫu'],['②','NOTICE','10′ · soi mẫu'],['③','PRODUCE','20′ · nói + viết'],['④','COMPARE','8′ · đối chiếu'],['⑤','BANK','4′ · lưu']];
+}
+
+function renderProgram(){
+  const root=document.getElementById('programRoot'); const prog=loadProg(); const pads=loadPads();
+  let html=''; let lastPhase=0,lastWeek=0; const quizzesToInit=[]; const recsToInit=[];
+  SESSIONS.forEach(s=>{
+    if(s.ph!==lastPhase){ const pm=PHASE_META[s.ph]; html+='<div class="phase-divider"><div class="pd-label">'+pm.label+'</div><h3>'+pm.title+'</h3><p>'+pm.desc+'</p></div>'; lastPhase=s.ph; lastWeek=0; }
+    if(s.w!==lastWeek){ html+='<div class="week-divider"><span class="wd-num">Tuần '+s.w+'</span><span class="wd-title">'+(WEEK_TITLE[s.w]||'')+'</span><span class="wd-line"></span></div>'; lastWeek=s.w; }
+    const key=s.w+'.'+s.d; const checked=prog[key]?' checked':'';
+    const tl=TYPE_LABEL[s.type];
+    let body='';
+    // steps
+    body+='<div class="steps">'; stepPlan(s.type).forEach(st=>{ body+='<div class="step"><div class="st-n">'+st[0]+' '+st[1]+'</div><div class="st-m">'+st[2]+'</div></div>'; }); body+='</div>';
+    // goal
+    body+='<div class="goal"><strong>🎯 Mục tiêu buổi</strong>'+s.goal+'</div>';
+    // model
+    if(s.model){
+      let spk=''; if(s.model.audio){ const aid='a_'+key; AUDIO[aid]=s.model.audio; spk=' <button class="spk-btn" onclick="speak(\''+aid+'\',0.92)">🔊 Nghe mẫu</button> <button class="spk-btn slow" onclick="speak(\''+aid+'\',0.7)">🐢 Chậm</button>'; }
+      body+='<h4>Mẫu — '+(s.model.tag||'Model')+'</h4><div class="essay-box"><div class="band-tag">📘 Model'+spk+'</div>'+s.model.html+'</div>';
+    }
+    // notice
+    if(s.notice&&s.notice.length){ body+='<h4>② Soi mẫu (Notice)</h4>'; s.notice.forEach(n=>{ body+='<div class="annotation">'+n+'</div>'; }); }
+    // task
+    if(s.task){ body+='<div class="callout ca-green"><div class="em">'+(s.type==='wrt'?'✍️':'🎙️')+'</div><div><strong>'+(s.type==='wrt'?'③ Viết nhại (Imitate)':'③ Luyện nói (Produce)')+'</strong><p>'+s.task+'</p></div></div>'; }
+    // recorder for speaking
+    if(s.type==='spk'||s.type==='mix'){ body+='<div class="rec"><button class="rec-go">🎙️ Thu âm</button><audio controls style="display:none"></audio><span class="rec-note">Thu âm câu trả lời của bạn rồi nghe lại để so với mẫu.</span></div>'; recsToInit.push('rec_'+key); }
+    // writepad for writing
+    if(s.type==='wrt'||s.type==='mix'){ const pid='pad_'+key; const val=(pads[pid]||'').replace(/</g,'&lt;'); body+='<div class="pad-label">✍️ Ô viết của bạn (tự lưu trong máy)</div><textarea class="pad" id="'+pid+'" placeholder="Gõ bài viết nhại của bạn ở đây…">'+val+'</textarea><div class="pad-saved" id="st_'+pid+'"></div>'; }
+    // quiz
+    if(s.quiz&&s.quiz.length){ const qid='q_'+key; body+='<h4>Kiểm tra nhanh</h4><div id="'+qid+'"></div>'; quizzesToInit.push([qid,s.quiz]); }
+    // checklist
+    if(s.checklist&&s.checklist.length){ body+='<div class="checklist"><div class="cl-h">④ Tự chấm</div>'; s.checklist.forEach(c=>{ body+='<label><input type="checkbox"> <span>'+c+'</span></label>'; }); body+='</div>'; }
+    // bank
+    if(s.bank){ body+='<div class="bank"><strong>⑤ Ngân hàng (Bank)</strong>'+s.bank+'</div>'; }
+
+    const numClass = s.type==='spk'?'spk':(s.type==='wrt'?'wrt':'mix');
+    html+='<div class="unit'+(s.milestone?'':'')+'">'+
+      '<div class="unit-header" onclick="toggleUnit(this)">'+
+        '<div class="unit-num '+numClass+'">'+s.w+'.'+s.d+'</div>'+
+        '<div class="unit-grow"><div class="unit-title">'+(s.milestone?'🏁 ':'')+s.title+'</div><div class="unit-meta">'+s.focus+'</div></div>'+
+        '<span class="type-pill '+tl[1]+'">'+tl[0]+'</span>'+
+        '<div class="done-box'+(checked?' checked':'')+'" onclick="event.stopPropagation();toggleDone(this,\''+key+'\')">✓</div>'+
+        '<span class="chev">▶</span>'+
+      '</div>'+
+      '<div class="unit-body">'+body+'</div>'+
+    '</div>';
+  });
+  root.innerHTML=html;
+  // init quizzes
+  quizzesToInit.forEach(q=>makeQuiz(q[0],q[1]));
+  // init recorders
+  document.querySelectorAll('.rec').forEach(initRecorder);
+  // init writepads autosave
+  document.querySelectorAll('textarea.pad').forEach(t=>{ const st=document.getElementById('st_'+t.id); t.addEventListener('input',()=>savePad(t.id,t.value,st)); });
+  updateProgBar();
+}
+function toggleDone(box,key){ const m=loadProg(); m[key]=!m[key]; saveProg(m); box.classList.toggle('checked',!!m[key]); updateProgBar(); }
+
+// some browsers load voices async
+if('speechSynthesis' in window){ speechSynthesis.onvoiceschanged=()=>{}; }
+renderProgram();
+</script>
+</body>
+</html>

@@ -4,10 +4,11 @@ Static site deployed on Vercel. Routes are configured in `vercel.json`.
 
 | Route | Page |
 |-------|------|
-| `/`   | redirects to `/a` |
-| `/a`  | English Lessons — Interactive Practice (`English_Lessons.html`) |
-| `/b`  | English Communication Mastery — Complete Guide (`English_Mastery_Complete.html`) |
-| `/c`  | English Mastery Pro — Full Guide (`English_Mastery_Pro.html`) |
+| `/`         | redirects to `/speak/1` |
+| `/speak/1`  | English Lessons — Interactive Practice (`English_Lessons.html`) |
+| `/speak/2`  | English Communication Mastery — Complete Guide (`English_Mastery_Complete.html`) |
+| `/speak/3`  | English Mastery Pro — Full Guide (`English_Mastery_Pro.html`) |
+| `/speak/4`  | TOEIC Speaking & Writing — 12-Week Shadowing Plan (`English_Writing_Shadowing.html`) |
 
 ## Deploy
 

@@ -5,6 +5,7 @@
   "rewrites": [
     { "source": "/speak/1", "destination": "/English_Lessons.html" },
     { "source": "/speak/2", "destination": "/English_Mastery_Complete.html" },
-    { "source": "/speak/3", "destination": "/English_Mastery_Pro.html" }
+    { "source": "/speak/3", "destination": "/English_Mastery_Pro.html" },
+    { "source": "/speak/4", "destination": "/English_Writing_Shadowing.html" }
   ]
 }
