@@ -1,10 +1,10 @@
 {
   "redirects": [
-    { "source": "/", "destination": "/write/1", "permanent": false }
+    { "source": "/", "destination": "/speak/1", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/write/1", "destination": "/English_Lessons.html" },
-    { "source": "/write/2", "destination": "/English_Mastery_Complete.html" },
-    { "source": "/write/3", "destination": "/English_Mastery_Pro.html" }
+    { "source": "/speak/1", "destination": "/English_Lessons.html" },
+    { "source": "/speak/2", "destination": "/English_Mastery_Complete.html" },
+    { "source": "/speak/3", "destination": "/English_Mastery_Pro.html" }
   ]
 }
