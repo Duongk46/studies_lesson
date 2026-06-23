@@ -9,6 +9,7 @@ Static site deployed on Vercel. Routes are configured in `vercel.json`.
 | `/speak/2`  | English Communication Mastery — Complete Guide (`English_Mastery_Complete.html`) |
 | `/speak/3`  | English Mastery Pro — Full Guide (`English_Mastery_Pro.html`) |
 | `/speak/4`  | TOEIC Speaking & Writing — 12-Week Shadowing Plan (`English_Writing_Shadowing.html`) |
+| `/speak/5`  | Vocabulary by Topic — Cambridge-style (TOEIC + everyday) (`English_Vocabulary_Topics.html`) |
 
 ## Deploy
 

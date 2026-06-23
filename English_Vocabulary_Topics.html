@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Từ Vựng Theo Chủ Đề — Kiểu Cambridge (TOEIC + Đời Sống)</title>
+<style>
+:root{--bg:#0f1117;--s:#1a1d27;--s2:#22263a;--bd:#2e3350;--ac:#6c8cff;--ac2:#a78bfa;--ac3:#34d399;--ac4:#f59e0b;--ac5:#f87171;--tx:#e2e8f0;--mu:#94a3b8;--di:#64748b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,sans-serif;font-size:15px;line-height:1.7}
+nav{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;gap:10px;height:50px}
+.logo{color:var(--ac);font-weight:800;font-size:14px}
+nav .sub{color:var(--mu);font-size:12px}
+.wrap{max-width:980px;margin:0 auto;padding:30px 20px 100px}
+section{margin-bottom:32px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);margin-bottom:6px}
+h2{font-size:22px;font-weight:800;margin-bottom:6px}
+.sec-desc{color:var(--mu);margin-bottom:18px;font-size:14px}
+.callout{border-radius:10px;padding:13px 16px;margin:14px 0;display:flex;gap:12px;align-items:flex-start;background:#6c8cff11;border:1px solid #6c8cff33}
+.callout .em{font-size:18px}.callout p{font-size:13px;color:var(--mu);margin:0}.callout strong{font-size:13px}
+
+/* CONTROL BAR */
+.ctrl{position:sticky;top:50px;z-index:90;background:rgba(15,17,23,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:12px 20px}
+.ctrl-inner{max-width:980px;margin:0 auto}
+.ctrl-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+#vSearch{flex:1;min-width:180px;background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:9px 14px;color:var(--tx);font-size:14px;outline:none}
+#vSearch:focus{border-color:var(--ac)}
+.learn-stat{font-size:12.5px;color:var(--mu);white-space:nowrap;font-weight:600}
+.learn-stat b{color:var(--ac3)}
+#filterBar{display:flex;gap:6px;flex-wrap:wrap}
+.tfilter{background:var(--s);border:1px solid var(--bd);color:var(--mu);font-size:12px;padding:5px 11px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:.15s}
+.tfilter:hover{border-color:var(--ac);color:var(--tx)}
+.tfilter.active{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:700}
+
+/* TOPIC BLOCK */
+.topic-block{margin-bottom:30px}
+.topic-h{font-size:17px;font-weight:800;margin:22px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.topic-h .topic-vi{font-size:13px;font-weight:500;color:var(--mu)}
+
+/* VOCAB CARD */
+.vcard{background:var(--s);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;margin-bottom:10px;transition:.15s}
+.vcard.learned{border-color:#10b98155;background:#10b9810a}
+.vc-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vc-word{font-size:17px;font-weight:800;color:var(--tx)}
+.vc-ipa{font-size:13.5px;color:var(--ac2);font-family:'Segoe UI',sans-serif}
+.vc-pos{font-size:11px;font-style:italic;color:var(--mu);background:var(--s2);padding:1px 7px;border-radius:6px}
+.vc-lvl{font-size:10px;font-weight:700;color:var(--ac4);border:1px solid #f59e0b44;padding:1px 6px;border-radius:6px}
+.say{background:none;border:1px solid var(--bd);color:var(--ac);border-radius:6px;cursor:pointer;font-size:12px;padding:2px 7px;line-height:1}
+.say:hover{background:var(--s2)}.say.sm{font-size:10px;padding:1px 5px;border:none}
+.vc-learn{margin-left:auto;width:22px;height:22px;border-radius:6px;border:1.5px solid var(--bd);color:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;font-weight:800;flex-shrink:0}
+.vcard.learned .vc-learn{background:var(--ac3);border-color:var(--ac3);color:#0f1117}
+.vc-vi{font-size:14.5px;font-weight:600;color:var(--ac3);margin:7px 0 2px}
+.vc-def{font-size:13px;color:var(--mu);font-style:italic;margin-bottom:8px}
+.vc-use{font-size:13.5px;margin:5px 0;padding-left:12px;border-left:2px solid var(--bd)}
+.vc-case{font-size:11px;font-weight:700;color:var(--ac4);text-transform:uppercase;letter-spacing:.03em}
+.vc-ex{color:var(--tx)}
+.vc-col{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11.5px;background:#a78bfa14;border:1px solid #a78bfa33;color:#c4b5fd;padding:2px 9px;border-radius:20px}
+.empty{text-align:center;color:var(--di);padding:40px;font-size:14px}
+footer{text-align:center;padding:36px 20px;border-top:1px solid var(--bd);color:var(--di);font-size:12.5px;margin-top:40px}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">📚 Từ Vựng Theo Chủ Đề</span>
+  <span class="sub">kiểu Cambridge · TOEIC + Đời sống</span>
+</nav>
+
+<div class="ctrl">
+  <div class="ctrl-inner">
+    <div class="ctrl-row">
+      <input id="vSearch" type="text" placeholder="🔎 Tìm từ / nghĩa…" oninput="filterCards()"/>
+      <span class="learn-stat">Đã thuộc: <b id="learnCount">0</b> / <span id="vTotal">0</span></span>
+    </div>
+    <div id="filterBar"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section>
+<div class="sec-label">Hướng dẫn nhanh</div>
+<h2>Từ vựng theo chủ đề — đọc, nghĩa & cách dùng</h2>
+<p class="sec-desc">Mỗi từ trình bày kiểu từ điển Cambridge: <b>từ</b> /phiên âm IPA/ · loại từ · cấp độ · <b>nghĩa tiếng Việt</b> · định nghĩa tiếng Anh · các <b>cách dùng theo trường hợp</b> kèm ví dụ · cụm từ đi kèm (collocations).</p>
+<div class="callout">
+  <div class="em">💡</div>
+  <div><strong>Cách dùng:</strong>
+  <p>Bấm 🔊 để nghe phát âm từ (và 🔊 nhỏ để nghe câu ví dụ). Lọc theo chủ đề bằng các nút trên, hoặc gõ vào ô tìm kiếm. Bấm ô ✓ bên phải mỗi từ để đánh dấu "đã thuộc" — tiến độ tự lưu trong máy bạn. <em>Phát âm máy đọc chỉ để tham khảo; nên đối chiếu với audio trên Cambridge Dictionary khi có thể.</em></p></div>
+</div>
+</section>
+
+<div id="vocabRoot"></div>
+
+</div>
+
+<footer>Từ vựng theo chủ đề · Phát âm IPA & cách dùng kiểu Cambridge · Học cùng lộ trình TOEIC S&amp;W · 2026</footer>
+
+<script>
+// ════════════ HELPERS ════════════
+const AUDIO=[];
+function say(i){
+  if(!('speechSynthesis' in window)){ alert('Trình duyệt không hỗ trợ đọc tự động. Hãy tra audio trên Cambridge Dictionary.'); return; }
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(AUDIO[i]);
+  u.lang='en-US'; u.rate=0.88;
+  const vs=speechSynthesis.getVoices().filter(v=>v.lang.startsWith('en'));
+  if(vs.length) u.voice=vs[0];
+  speechSynthesis.speak(u);
+}
+const LKEY='vocab_learned_v1';
+function loadLearned(){ try{ return JSON.parse(localStorage.getItem(LKEY))||{}; }catch(e){ return {}; } }
+function saveLearned(m){ localStorage.setItem(LKEY, JSON.stringify(m)); }
+function toggleLearned(el,key){ const m=loadLearned(); m[key]=!m[key]; if(!m[key]) delete m[key]; saveLearned(m); el.closest('.vcard').classList.toggle('learned',!!m[key]); updateLearnedCount(); }
+function updateLearnedCount(){ const m=loadLearned(); document.getElementById('learnCount').textContent=Object.keys(m).length; }
+
+let currentTopic='all';
+function setTopic(btn,id){ currentTopic=id; document.querySelectorAll('.tfilter').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); filterCards(); }
+function filterCards(){
+  const q=(document.getElementById('vSearch').value||'').toLowerCase().trim();
+  let shown=0;
+  document.querySelectorAll('.topic-block').forEach(b=>{
+    const showTopic=(currentTopic==='all'||b.dataset.topic===currentTopic);
+    let any=false;
+    b.querySelectorAll('.vcard').forEach(c=>{
+      const match=!q || c.dataset.search.indexOf(q)>-1;
+      const vis=showTopic&&match; c.style.display=vis?'':'none'; if(vis){any=true;shown++;}
+    });
+    b.style.display=(showTopic&&any)?'':'none';
+  });
+  const emp=document.getElementById('emptyMsg'); if(emp) emp.style.display=shown?'none':'block';
+}
+
+// ════════════ DATA ════════════
+const TOPICS=[];
+
+TOPICS.push({id:'office',emoji:'🏢',name:'Office & Workplace',vi:'Văn phòng & nơi làm việc',words:[
+ {w:'colleague',ip:'/ˈkɒl.iːɡ/',p:'n',l:'B1',vi:'đồng nghiệp',d:'someone you work with',ex:[{c:'',s:'She introduced me to her new colleagues.'}],col:['a close colleague','a former colleague']},
+ {w:'deadline',ip:'/ˈded.laɪn/',p:'n',l:'B1',vi:'hạn chót',d:'the time by which something must be finished',ex:[{c:'gặp hạn',s:'We need to meet the deadline by Friday.'},{c:'trễ hạn',s:'The team missed the deadline due to delays.'}],col:['meet/miss a deadline','a tight deadline']},
+ {w:'schedule',ip:'/ˈʃedʒ.uːl/ (US /ˈskedʒ-/)',p:'n, v',l:'B1',vi:'lịch trình; lên lịch',d:'a plan of times for tasks; to plan a time',ex:[{c:'danh từ',s:'My schedule is fully booked this week.'},{c:'động từ',s:'Can we schedule the meeting for 3 p.m.?'}],col:['a busy schedule','schedule a meeting','behind schedule']},
+ {w:'department',ip:'/dɪˈpɑːt.mənt/',p:'n',l:'B1',vi:'phòng ban',d:'a section of a company or organization',ex:[{c:'',s:'She works in the marketing department.'}],col:['the HR/sales department','head of department']},
+ {w:'supervisor',ip:'/ˈsuː.pə.vaɪ.zər/',p:'n',l:'B2',vi:'người giám sát, cấp trên trực tiếp',d:'a person who manages and checks others’ work',ex:[{c:'',s:'Report any problems to your supervisor.'}],col:['a direct supervisor','report to a supervisor']},
+ {w:'workload',ip:'/ˈwɜːk.ləʊd/',p:'n',l:'B2',vi:'khối lượng công việc',d:'the amount of work to be done',ex:[{c:'quá tải',s:'My workload has increased since the merger.'}],col:['a heavy workload','reduce the workload']},
+ {w:'overtime',ip:'/ˈəʊ.və.taɪm/',p:'n',l:'B2',vi:'giờ làm thêm',d:'time worked beyond normal hours',ex:[{c:'',s:'He worked overtime to finish the report.'}],col:['do/work overtime','overtime pay']},
+ {w:'productivity',ip:'/ˌprɒd.ʌkˈtɪv.ə.ti/',p:'n',l:'B2',vi:'năng suất',d:'the rate at which work is done',ex:[{c:'',s:'Flexible hours can boost productivity.'}],col:['increase/boost productivity','high productivity']},
+ {w:'efficient',ip:'/ɪˈfɪʃ.ənt/',p:'adj',l:'B2',vi:'hiệu quả (ít lãng phí)',d:'working well without wasting time or resources',ex:[{c:'',s:'We need a more efficient way to handle orders.'}],col:['highly efficient','an efficient system']},
+ {w:'task',ip:'/tɑːsk/',p:'n',l:'A2',vi:'nhiệm vụ, việc cần làm',d:'a piece of work to be done',ex:[{c:'',s:'I have several tasks to complete today.'}],col:['carry out a task','a difficult task']},
+ {w:'assignment',ip:'/əˈsaɪn.mənt/',p:'n',l:'B1',vi:'nhiệm vụ được giao',d:'a task given to someone as part of a job',ex:[{c:'',s:'She was given a new assignment overseas.'}],col:['complete an assignment','a special assignment']},
+ {w:'responsibility',ip:'/rɪˌspɒn.sɪˈbɪl.ə.ti/',p:'n',l:'B1',vi:'trách nhiệm',d:'something it is your duty to deal with',ex:[{c:'nhận trách nhiệm',s:'He takes full responsibility for the project.'}],col:['take responsibility','a key responsibility']},
+ {w:'promotion',ip:'/prəˈməʊ.ʃən/',p:'n',l:'B1',vi:'sự thăng chức',d:'a move to a higher position at work',ex:[{c:'',s:'She got a promotion after two years.'}],col:['earn/get a promotion','a well-deserved promotion']},
+ {w:'resign',ip:'/rɪˈzaɪn/',p:'v',l:'B2',vi:'từ chức, xin nghỉ việc',d:'to officially leave a job',ex:[{c:'',s:'He resigned from his position last month.'}],col:['resign from a post','decide to resign']},
+ {w:'shift',ip:'/ʃɪft/',p:'n',l:'B1',vi:'ca làm việc',d:'a set period of work time',ex:[{c:'',s:'Nurses often work the night shift.'}],col:['the night/day shift','a 12-hour shift']},
+ {w:'branch',ip:'/brɑːntʃ/',p:'n',l:'B1',vi:'chi nhánh',d:'a local office of a larger company',ex:[{c:'',s:'The bank opened a new branch downtown.'}],col:['a local branch','open a branch']},
+ {w:'headquarters',ip:'/ˈhedˌkwɔː.təz/',p:'n',l:'B2',vi:'trụ sở chính',d:'the main office of an organization',ex:[{c:'',s:'The company’s headquarters are in Tokyo.'}],col:['global headquarters','move headquarters']},
+ {w:'staff',ip:'/stɑːf/',p:'n',l:'A2',vi:'nhân viên (tập thể)',d:'the people who work for an organization',ex:[{c:'số nhiều tập thể',s:'The staff are very friendly and helpful.'}],col:['a member of staff','train new staff']},
+ {w:'commute',ip:'/kəˈmjuːt/',p:'v, n',l:'B2',vi:'đi lại (giữa nhà & chỗ làm)',d:'to travel regularly to work; that journey',ex:[{c:'động từ',s:'I commute to the office by train.'},{c:'danh từ',s:'My daily commute takes an hour.'}],col:['a long commute','commute to work']},
+ {w:'attend',ip:'/əˈtend/',p:'v',l:'B1',vi:'tham dự',d:'to be present at an event',ex:[{c:'',s:'All managers must attend the meeting.'}],col:['attend a meeting/conference']},
+ {w:'handle',ip:'/ˈhæn.dəl/',p:'v',l:'B1',vi:'xử lý, giải quyết',d:'to deal with a situation or task',ex:[{c:'',s:'She handles customer complaints calmly.'}],col:['handle a problem','handle pressure']},
+ {w:'delegate',ip:'/ˈdel.ɪ.ɡeɪt/ (v), /ˈdel.ɪ.ɡət/ (n)',p:'v, n',l:'C1',vi:'giao việc; đại biểu',d:'to give a task to someone else; a representative',ex:[{c:'động từ',s:'Good managers delegate tasks effectively.'},{c:'danh từ',s:'Each company sent two delegates.'}],col:['delegate responsibility','a conference delegate']},
+ {w:'multitask',ip:'/ˌmʌl.tiˈtɑːsk/',p:'v',l:'B2',vi:'làm nhiều việc cùng lúc',d:'to do several things at the same time',ex:[{c:'',s:'This job requires the ability to multitask.'}],col:['multitask efficiently']},
+ {w:'cubicle',ip:'/ˈkjuː.bɪ.kəl/',p:'n',l:'C1',vi:'ô làm việc (ngăn nhỏ)',d:'a small partly enclosed work space',ex:[{c:'',s:'Each employee has their own cubicle.'}],col:['an office cubicle']},
+ {w:'workspace',ip:'/ˈwɜːk.speɪs/',p:'n',l:'B2',vi:'không gian làm việc',d:'the area where you work',ex:[{c:'',s:'A tidy workspace helps me concentrate.'}],col:['a shared workspace','a clean workspace']}
+]});
+
+TOPICS.push({id:'meetings',emoji:'🗣️',name:'Meetings & Discussions',vi:'Họp hành & thảo luận',words:[
+ {w:'agenda',ip:'/əˈdʒen.də/',p:'n',l:'B1',vi:'chương trình nghị sự',d:'a list of topics to discuss at a meeting',ex:[{c:'',s:'The first item on the agenda is the budget.'}],col:['set the agenda','on the agenda']},
+ {w:'minutes',ip:'/ˈmɪn.ɪts/',p:'n',l:'B2',vi:'biên bản cuộc họp',d:'a written record of what was said',ex:[{c:'',s:'Could you take the minutes today?'}],col:['take/keep the minutes']},
+ {w:'attendee',ip:'/ˌæt.enˈdiː/',p:'n',l:'B2',vi:'người tham dự',d:'a person who attends an event',ex:[{c:'',s:'All attendees received a name badge.'}],col:['conference attendees']},
+ {w:'chairperson',ip:'/ˈtʃeəˌpɜː.sən/',p:'n',l:'B2',vi:'người chủ tọa',d:'the person who leads a meeting',ex:[{c:'',s:'The chairperson opened the discussion.'}],col:['act as chairperson']},
+ {w:'proposal',ip:'/prəˈpəʊ.zəl/',p:'n',l:'B1',vi:'đề xuất, bản đề nghị',d:'a plan or suggestion put forward',ex:[{c:'',s:'They rejected our proposal for new software.'}],col:['put forward a proposal','accept/reject a proposal']},
+ {w:'consensus',ip:'/kənˈsen.səs/',p:'n',l:'C1',vi:'sự đồng thuận',d:'general agreement among a group',ex:[{c:'',s:'We finally reached a consensus on the plan.'}],col:['reach a consensus','a broad consensus']},
+ {w:'brainstorm',ip:'/ˈbreɪn.stɔːm/',p:'v',l:'B2',vi:'động não (nghĩ ý tưởng)',d:'to suggest many ideas quickly as a group',ex:[{c:'',s:'Let’s brainstorm some ideas for the campaign.'}],col:['brainstorm ideas','a brainstorming session']},
+ {w:'summarize',ip:'/ˈsʌm.ər.aɪz/',p:'v',l:'B2',vi:'tóm tắt',d:'to give the main points briefly',ex:[{c:'',s:'Let me summarize the key decisions.'}],col:['summarize the main points']},
+ {w:'clarify',ip:'/ˈklær.ɪ.faɪ/',p:'v',l:'B2',vi:'làm rõ',d:'to make something easier to understand',ex:[{c:'',s:'Could you clarify what you mean by that?'}],col:['clarify a point','clarify the situation']},
+ {w:'postpone',ip:'/pəˈspəʊn/',p:'v',l:'B1',vi:'hoãn lại',d:'to move an event to a later time',ex:[{c:'',s:'The meeting was postponed until next week.'}],col:['postpone a meeting','postpone indefinitely']},
+ {w:'participant',ip:'/pɑːˈtɪs.ɪ.pənt/',p:'n',l:'B2',vi:'người tham gia',d:'someone who takes part in an activity',ex:[{c:'',s:'Each participant shared their opinion.'}],col:['an active participant']},
+ {w:'objective',ip:'/əbˈdʒek.tɪv/',p:'n',l:'B2',vi:'mục tiêu',d:'something you are trying to achieve',ex:[{c:'',s:'Our main objective is to cut costs.'}],col:['achieve an objective','a clear objective']},
+ {w:'outcome',ip:'/ˈaʊt.kʌm/',p:'n',l:'B2',vi:'kết quả',d:'the final result of a process',ex:[{c:'',s:'The outcome of the talks was positive.'}],col:['a positive outcome','the likely outcome']},
+ {w:'raise',ip:'/reɪz/',p:'v',l:'B1',vi:'nêu (vấn đề), đưa ra',d:'to mention a topic for discussion',ex:[{c:'nêu vấn đề',s:'She raised an important issue at the meeting.'}],col:['raise an issue/a question','raise concerns']},
+ {w:'interrupt',ip:'/ˌɪn.təˈrʌpt/',p:'v',l:'B1',vi:'ngắt lời, làm gián đoạn',d:'to stop someone while they are speaking',ex:[{c:'',s:'Sorry to interrupt, but I have a question.'}],col:['interrupt a speaker']},
+ {w:'point out',ip:'/ˌpɔɪnt ˈaʊt/',p:'phr v',l:'B1',vi:'chỉ ra, lưu ý',d:'to make someone notice something',ex:[{c:'',s:'He pointed out a mistake in the report.'}],col:['point out a problem']},
+ {w:'follow up',ip:'/ˌfɒl.əʊ ˈʌp/',p:'phr v',l:'B2',vi:'theo dõi tiếp, làm tiếp',d:'to take further action after something',ex:[{c:'',s:'I’ll follow up with an email after the call.'}],col:['follow up on a request']},
+ {w:'conference',ip:'/ˈkɒn.fər.əns/',p:'n',l:'B1',vi:'hội nghị',d:'a large formal meeting',ex:[{c:'',s:'She gave a speech at the conference.'}],col:['attend/hold a conference','a press conference']},
+ {w:'presentation',ip:'/ˌprez.ənˈteɪ.ʃən/',p:'n',l:'B1',vi:'bài thuyết trình',d:'a talk giving information to an audience',ex:[{c:'',s:'I’m preparing a presentation for Monday.'}],col:['give a presentation','a slide presentation']},
+ {w:'handout',ip:'/ˈhænd.aʊt/',p:'n',l:'B2',vi:'tài liệu phát tay',d:'printed information given to people',ex:[{c:'',s:'Please pass the handouts around.'}],col:['distribute handouts']},
+ {w:'wrap up',ip:'/ˌræp ˈʌp/',p:'phr v',l:'B2',vi:'kết thúc, gói lại',d:'to finish or complete something',ex:[{c:'',s:'Let’s wrap up the meeting; we’re out of time.'}],col:['wrap up a discussion']},
+ {w:'recap',ip:'/ˈriː.kæp/',p:'v, n',l:'B2',vi:'tóm tắt lại (điểm chính)',d:'to repeat the main points briefly',ex:[{c:'động từ',s:'Let me quickly recap what we agreed.'},{c:'danh từ',s:'Here’s a quick recap of the plan.'}],col:['a quick recap']},
+ {w:'on the same page',ip:'/ˌɒn ðə ˌseɪm ˈpeɪdʒ/',p:'idiom',l:'B2',vi:'cùng quan điểm/hiểu giống nhau',d:'in agreement; sharing the same understanding',ex:[{c:'',s:'Let’s make sure everyone is on the same page.'}],col:['get on the same page']},
+ {w:'feedback',ip:'/ˈfiːd.bæk/',p:'n',l:'B1',vi:'phản hồi, góp ý',d:'opinions about how good something is',ex:[{c:'',s:'Thank you for your honest feedback.'}],col:['give/receive feedback','positive feedback']},
+ {w:'vote',ip:'/vəʊt/',p:'v, n',l:'B1',vi:'bỏ phiếu; lá phiếu',d:'to show a choice formally; that choice',ex:[{c:'động từ',s:'Let’s vote on the two options.'},{c:'danh từ',s:'The proposal passed by ten votes to three.'}],col:['put something to a vote','vote on something']}
+]});
+
+TOPICS.push({id:'email',emoji:'✉️',name:'Email & Communication',vi:'Email & giao tiếp văn bản',words:[
+ {w:'recipient',ip:'/rɪˈsɪp.i.ənt/',p:'n',l:'B2',vi:'người nhận',d:'the person who receives something',ex:[{c:'',s:'Add the recipient’s email address here.'}],col:['the intended recipient']},
+ {w:'attachment',ip:'/əˈtætʃ.mənt/',p:'n',l:'B1',vi:'tệp đính kèm',d:'a file sent with an email',ex:[{c:'',s:'Please find the report in the attachment.'}],col:['open/download an attachment']},
+ {w:'forward',ip:'/ˈfɔː.wəd/',p:'v',l:'B1',vi:'chuyển tiếp (thư)',d:'to send a received message to someone else',ex:[{c:'',s:'Could you forward me that email?'}],col:['forward a message']},
+ {w:'reply',ip:'/rɪˈplaɪ/',p:'v, n',l:'A2',vi:'trả lời',d:'to answer; an answer',ex:[{c:'động từ',s:'Please reply by the end of the day.'},{c:'danh từ',s:'I’m still waiting for a reply.'}],col:['reply to an email','a quick reply']},
+ {w:'cc',ip:'/ˌsiːˈsiː/',p:'v, n',l:'B2',vi:'gửi đồng kính (bản sao)',d:'to send a copy of an email to others',ex:[{c:'',s:'Please cc me on your reply to the client.'}],col:['cc someone on an email']},
+ {w:'inquiry',ip:'/ɪnˈkwaɪə.ri/',p:'n',l:'B2',vi:'câu hỏi, yêu cầu thông tin',d:'a request for information',ex:[{c:'',s:'We received several inquiries about the job.'}],col:['make an inquiry','a customer inquiry']},
+ {w:'acknowledge',ip:'/əkˈnɒl.ɪdʒ/',p:'v',l:'B2',vi:'xác nhận đã nhận',d:'to confirm you received something',ex:[{c:'',s:'Please acknowledge receipt of this email.'}],col:['acknowledge receipt']},
+ {w:'attach',ip:'/əˈtætʃ/',p:'v',l:'B1',vi:'đính kèm',d:'to add a file to a message',ex:[{c:'',s:'I’ve attached the invoice to this email.'}],col:['attach a file/document']},
+ {w:'draft',ip:'/drɑːft/',p:'n, v',l:'B1',vi:'bản nháp; soạn nháp',d:'an early version; to write a first version',ex:[{c:'danh từ',s:'This is just a rough draft.'},{c:'động từ',s:'I’ll draft a reply and send it to you.'}],col:['a first draft','draft an email']},
+ {w:'subject line',ip:'/ˈsʌb.dʒɪkt ˌlaɪn/',p:'n',l:'B1',vi:'dòng tiêu đề',d:'the title line of an email',ex:[{c:'',s:'Keep the subject line short and clear.'}],col:['a clear subject line']},
+ {w:'regards',ip:'/rɪˈɡɑːdz/',p:'n',l:'B1',vi:'lời chào (cuối thư)',d:'a polite closing in a message',ex:[{c:'',s:'Best regards, and talk soon.'}],col:['best/kind regards']},
+ {w:'enclose',ip:'/ɪnˈkləʊz/',p:'v',l:'B2',vi:'gửi kèm (trong thư)',d:'to include something with a letter',ex:[{c:'',s:'Please find the brochure enclosed.'}],col:['enclose a document']},
+ {w:'notify',ip:'/ˈnəʊ.tɪ.faɪ/',p:'v',l:'B2',vi:'thông báo',d:'to tell someone about something officially',ex:[{c:'',s:'We will notify you once it is ready.'}],col:['notify someone of/about something']},
+ {w:'confirm',ip:'/kənˈfɜːm/',p:'v',l:'B1',vi:'xác nhận',d:'to say that something is definitely true',ex:[{c:'',s:'Please confirm your availability for Friday.'}],col:['confirm a booking/an appointment']},
+ {w:'correspondence',ip:'/ˌkɒr.ɪˈspɒn.dəns/',p:'n',l:'C1',vi:'thư từ trao đổi',d:'letters or emails exchanged',ex:[{c:'',s:'All correspondence should be kept on file.'}],col:['business correspondence']},
+ {w:'urgent',ip:'/ˈɜː.dʒənt/',p:'adj',l:'B1',vi:'khẩn cấp',d:'needing immediate attention',ex:[{c:'',s:'This is an urgent matter; please respond today.'}],col:['an urgent request','mark as urgent']},
+ {w:'concise',ip:'/kənˈsaɪs/',p:'adj',l:'C1',vi:'ngắn gọn, súc tích',d:'short and clear, with no extra words',ex:[{c:'',s:'Keep your email concise and to the point.'}],col:['clear and concise']},
+ {w:'sincerely',ip:'/sɪnˈsɪə.li/',p:'adv',l:'B1',vi:'trân trọng (kết thư trang trọng)',d:'a formal way to end a letter',ex:[{c:'',s:'Yours sincerely, David Pham.'}],col:['yours sincerely']},
+ {w:'typo',ip:'/ˈtaɪ.pəʊ/',p:'n',l:'B2',vi:'lỗi đánh máy',d:'a small mistake in typing',ex:[{c:'',s:'There’s a typo in the second paragraph.'}],col:['spot/fix a typo']},
+ {w:'proofread',ip:'/ˈpruːf.riːd/',p:'v',l:'B2',vi:'đọc soát lỗi',d:'to check writing for mistakes',ex:[{c:'',s:'Always proofread before you hit send.'}],col:['proofread a document']},
+ {w:'follow-up',ip:'/ˈfɒl.əʊ.ʌp/',p:'n, adj',l:'B2',vi:'(thư/việc) theo dõi tiếp',d:'an action done after a previous one',ex:[{c:'',s:'I’ll send a follow-up email tomorrow.'}],col:['a follow-up email/message']},
+ {w:'apologize',ip:'/əˈpɒl.ə.dʒaɪz/',p:'v',l:'B1',vi:'xin lỗi',d:'to say you are sorry',ex:[{c:'',s:'We apologize for the late reply.'}],col:['apologize for something']},
+ {w:'respond',ip:'/rɪˈspɒnd/',p:'v',l:'B1',vi:'phản hồi, đáp lại',d:'to react or reply to something',ex:[{c:'',s:'She responded to my email within an hour.'}],col:['respond promptly','respond to a request']},
+ {w:'greeting',ip:'/ˈɡriː.tɪŋ/',p:'n',l:'B1',vi:'lời chào mở đầu',d:'words used to start a message',ex:[{c:'',s:'“Dear Sir or Madam” is a formal greeting.'}],col:['a formal/informal greeting']},
+ {w:'signature',ip:'/ˈsɪɡ.nə.tʃər/',p:'n',l:'B1',vi:'chữ ký (cuối thư)',d:'your name (and title) at the end',ex:[{c:'',s:'My email signature includes my job title.'}],col:['an email signature']}
+]});
+
+TOPICS.push({id:'finance',emoji:'💰',name:'Finance & Money',vi:'Tài chính & tiền bạc',words:[
+ {w:'budget',ip:'/ˈbʌdʒ.ɪt/',p:'n, v',l:'B1',vi:'ngân sách; lập ngân sách',d:'a plan of how to spend money',ex:[{c:'danh từ',s:'The project went over budget.'},{c:'động từ',s:'We need to budget carefully this year.'}],col:['stay within budget','a tight budget']},
+ {w:'invoice',ip:'/ˈɪn.vɔɪs/',p:'n',l:'B2',vi:'hóa đơn (đòi tiền)',d:'a list of goods/services and their cost',ex:[{c:'',s:'Please pay the invoice within 30 days.'}],col:['issue/send an invoice']},
+ {w:'expense',ip:'/ɪkˈspens/',p:'n',l:'B1',vi:'chi phí',d:'money spent on something',ex:[{c:'',s:'Travel expenses will be reimbursed.'}],col:['cut expenses','business expenses']},
+ {w:'revenue',ip:'/ˈrev.ən.juː/',p:'n',l:'B2',vi:'doanh thu',d:'the money a business receives',ex:[{c:'',s:'Annual revenue rose by 12 percent.'}],col:['generate revenue','total revenue']},
+ {w:'profit',ip:'/ˈprɒf.ɪt/',p:'n',l:'B1',vi:'lợi nhuận',d:'money gained after costs',ex:[{c:'',s:'The company made a healthy profit.'}],col:['make a profit','net profit']},
+ {w:'loss',ip:'/lɒs/',p:'n',l:'B1',vi:'khoản lỗ',d:'money lost by a business',ex:[{c:'',s:'They reported a loss last quarter.'}],col:['make a loss','cut your losses']},
+ {w:'invest',ip:'/ɪnˈvest/',p:'v',l:'B1',vi:'đầu tư',d:'to put money into something to earn more',ex:[{c:'',s:'They invested heavily in new technology.'}],col:['invest in something']},
+ {w:'refund',ip:'/ˈriː.fʌnd/ (n), /rɪˈfʌnd/ (v)',p:'n, v',l:'B1',vi:'hoàn tiền; trả lại tiền',d:'money returned to you; to return money',ex:[{c:'danh từ',s:'I’d like a refund for this faulty item.'},{c:'động từ',s:'We will refund you in full.'}],col:['get/give a refund','a full refund']},
+ {w:'transaction',ip:'/trænˈzæk.ʃən/',p:'n',l:'B2',vi:'giao dịch',d:'an act of buying or selling',ex:[{c:'',s:'The transaction was completed online.'}],col:['a financial transaction']},
+ {w:'deposit',ip:'/dɪˈpɒz.ɪt/',p:'n, v',l:'B1',vi:'tiền đặt cọc; gửi tiền',d:'part-payment in advance; to put money in a bank',ex:[{c:'danh từ',s:'We paid a deposit on the apartment.'},{c:'động từ',s:'She deposited the cheque this morning.'}],col:['pay a deposit','deposit money']},
+ {w:'withdraw',ip:'/wɪðˈdrɔː/',p:'v',l:'B1',vi:'rút (tiền)',d:'to take money out of an account',ex:[{c:'',s:'You can withdraw cash from any ATM.'}],col:['withdraw money/cash']},
+ {w:'interest',ip:'/ˈɪn.trəst/',p:'n',l:'B1',vi:'tiền lãi, lãi suất',d:'money charged or paid for using money',ex:[{c:'nghĩa tài chính',s:'The loan has a 5% interest rate.'}],col:['interest rate','pay interest']},
+ {w:'loan',ip:'/ləʊn/',p:'n',l:'B1',vi:'khoản vay',d:'money borrowed that must be repaid',ex:[{c:'',s:'They took out a loan to buy a car.'}],col:['take out/repay a loan','a bank loan']},
+ {w:'discount',ip:'/ˈdɪs.kaʊnt/',p:'n',l:'B1',vi:'sự giảm giá',d:'a reduction in price',ex:[{c:'',s:'Members get a 10% discount.'}],col:['offer/get a discount','a special discount']},
+ {w:'fee',ip:'/fiː/',p:'n',l:'B1',vi:'phí, lệ phí',d:'money paid for a service',ex:[{c:'',s:'There is a small booking fee.'}],col:['charge a fee','a service fee']},
+ {w:'wage',ip:'/weɪdʒ/',p:'n',l:'B1',vi:'tiền công (theo giờ/tuần)',d:'pay, usually by the hour or week',ex:[{c:'',s:'Workers demanded higher wages.'}],col:['the minimum wage','earn a wage']},
+ {w:'salary',ip:'/ˈsæl.ər.i/',p:'n',l:'B1',vi:'lương (tháng/năm)',d:'fixed regular pay, usually monthly',ex:[{c:'',s:'She earns a competitive salary.'}],col:['an annual salary','a salary increase']},
+ {w:'afford',ip:'/əˈfɔːd/',p:'v',l:'B1',vi:'đủ khả năng chi trả',d:'to have enough money for something',ex:[{c:'',s:'We can’t afford a new office right now.'}],col:['afford to do something']},
+ {w:'estimate',ip:'/ˈes.tɪ.mət/ (n), /-meɪt/ (v)',p:'n, v',l:'B2',vi:'ước tính; sự ước lượng',d:'a rough calculation; to judge an amount',ex:[{c:'danh từ',s:'Can you give me an estimate of the cost?'},{c:'động từ',s:'We estimate sales will double.'}],col:['a rough estimate','estimate the cost']},
+ {w:'currency',ip:'/ˈkʌr.ən.si/',p:'n',l:'B1',vi:'tiền tệ',d:'the money used in a country',ex:[{c:'',s:'The euro is a widely used currency.'}],col:['foreign currency','exchange currency']},
+ {w:'account',ip:'/əˈkaʊnt/',p:'n',l:'A2',vi:'tài khoản (ngân hàng)',d:'an arrangement to keep money at a bank',ex:[{c:'',s:'I opened a savings account.'}],col:['a bank account','open an account']},
+ {w:'receipt',ip:'/rɪˈsiːt/',p:'n',l:'A2',vi:'biên lai, hóa đơn (đã trả)',d:'a paper proving payment',ex:[{c:'lưu ý: chữ "p" câm',s:'Keep the receipt in case you return it.'}],col:['ask for a receipt']},
+ {w:'owe',ip:'/əʊ/',p:'v',l:'B1',vi:'nợ (tiền)',d:'to need to pay money back',ex:[{c:'',s:'I still owe him fifty dollars.'}],col:['owe someone money']},
+ {w:'financial',ip:'/faɪˈnæn.ʃəl/',p:'adj',l:'B1',vi:'thuộc về tài chính',d:'relating to money',ex:[{c:'',s:'The company is in financial difficulty.'}],col:['financial support','a financial report']},
+ {w:'quarter',ip:'/ˈkwɔː.tər/',p:'n',l:'B1',vi:'quý (3 tháng)',d:'a period of three months in business',ex:[{c:'nghĩa kinh doanh',s:'Profits grew in the third quarter.'}],col:['the first/last quarter','quarterly report']}
+]});
+
+TOPICS.push({id:'marketing',emoji:'📣',name:'Marketing & Sales',vi:'Tiếp thị & bán hàng',words:[
+ {w:'brand',ip:'/brænd/',p:'n',l:'B1',vi:'thương hiệu',d:'a product name made by a company',ex:[{c:'',s:'Apple is a well-known global brand.'}],col:['build a brand','a brand name']},
+ {w:'campaign',ip:'/kæmˈpeɪn/',p:'n',l:'B1',vi:'chiến dịch',d:'a planned set of activities for a goal',ex:[{c:'',s:'They launched an online ad campaign.'}],col:['run/launch a campaign','an advertising campaign']},
+ {w:'advertise',ip:'/ˈæd.və.taɪz/',p:'v',l:'B1',vi:'quảng cáo',d:'to promote a product publicly',ex:[{c:'',s:'They advertise on social media.'}],col:['advertise a product']},
+ {w:'promote',ip:'/prəˈməʊt/',p:'v',l:'B1',vi:'quảng bá, đẩy mạnh',d:'to make people aware of a product',ex:[{c:'nghĩa marketing',s:'We use influencers to promote our brand.'}],col:['promote a product/service']},
+ {w:'target',ip:'/ˈtɑː.ɡɪt/',p:'n, v',l:'B1',vi:'mục tiêu; nhắm đến',d:'a goal; to aim at a group',ex:[{c:'danh từ',s:'We hit our sales target this month.'},{c:'động từ',s:'The ads target young professionals.'}],col:['a target market','meet a target']},
+ {w:'consumer',ip:'/kənˈsjuː.mər/',p:'n',l:'B2',vi:'người tiêu dùng',d:'a person who buys goods or services',ex:[{c:'',s:'Consumers prefer eco-friendly products.'}],col:['consumer behaviour','consumer demand']},
+ {w:'demand',ip:'/dɪˈmɑːnd/',p:'n',l:'B1',vi:'nhu cầu',d:'how much people want to buy',ex:[{c:'kinh tế',s:'There is high demand for electric cars.'}],col:['supply and demand','meet demand']},
+ {w:'supply',ip:'/səˈplaɪ/',p:'n, v',l:'B1',vi:'nguồn cung; cung cấp',d:'the amount available; to provide',ex:[{c:'danh từ',s:'Supply could not keep up with demand.'},{c:'động từ',s:'They supply parts to car makers.'}],col:['supply chain','in short supply']},
+ {w:'launch',ip:'/lɔːntʃ/',p:'v, n',l:'B1',vi:'ra mắt (sản phẩm)',d:'to make a product available; the event',ex:[{c:'động từ',s:'We will launch the app next month.'},{c:'danh từ',s:'The product launch was a success.'}],col:['launch a product','a product launch']},
+ {w:'retail',ip:'/ˈriː.teɪl/',p:'n, adj',l:'B2',vi:'bán lẻ',d:'selling goods to the public',ex:[{c:'',s:'She works in the retail industry.'}],col:['a retail store','retail price']},
+ {w:'wholesale',ip:'/ˈhəʊl.seɪl/',p:'n, adj',l:'B2',vi:'bán sỉ, bán buôn',d:'selling goods in large amounts, cheaply',ex:[{c:'',s:'We buy these at wholesale prices.'}],col:['wholesale price','buy wholesale']},
+ {w:'competitor',ip:'/kəmˈpet.ɪ.tər/',p:'n',l:'B2',vi:'đối thủ cạnh tranh',d:'a rival company or person',ex:[{c:'',s:'Our main competitor lowered its prices.'}],col:['a major competitor','beat competitors']},
+ {w:'strategy',ip:'/ˈstræt.ə.dʒi/',p:'n',l:'B1',vi:'chiến lược',d:'a plan to achieve a goal',ex:[{c:'',s:'We need a clear marketing strategy.'}],col:['develop a strategy','a sales strategy']},
+ {w:'survey',ip:'/ˈsɜː.veɪ/',p:'n',l:'B1',vi:'cuộc khảo sát',d:'a set of questions to gather opinions',ex:[{c:'',s:'We ran a customer satisfaction survey.'}],col:['conduct/carry out a survey']},
+ {w:'trend',ip:'/trend/',p:'n',l:'B1',vi:'xu hướng',d:'a general change or direction',ex:[{c:'',s:'Sustainability is a growing trend.'}],col:['follow a trend','a current trend']},
+ {w:'profit margin',ip:'/ˈprɒf.ɪt ˌmɑː.dʒɪn/',p:'n',l:'B2',vi:'biên lợi nhuận',d:'the difference between cost and selling price',ex:[{c:'',s:'The profit margin on these is very low.'}],col:['a high/low profit margin']},
+ {w:'slogan',ip:'/ˈsləʊ.ɡən/',p:'n',l:'B2',vi:'khẩu hiệu',d:'a short memorable advertising phrase',ex:[{c:'',s:'“Just Do It” is a famous slogan.'}],col:['a catchy slogan']},
+ {w:'logo',ip:'/ˈləʊ.ɡəʊ/',p:'n',l:'A2',vi:'biểu trưng, logo',d:'a symbol that represents a company',ex:[{c:'',s:'The new logo looks modern.'}],col:['a company logo','design a logo']},
+ {w:'endorse',ip:'/ɪnˈdɔːs/',p:'v',l:'C1',vi:'chứng thực, ủng hộ (quảng bá)',d:'to publicly support or recommend',ex:[{c:'',s:'A famous athlete endorses the product.'}],col:['endorse a product/brand']},
+ {w:'outlet',ip:'/ˈaʊt.let/',p:'n',l:'B2',vi:'cửa hàng, kênh phân phối',d:'a shop or way of selling goods',ex:[{c:'',s:'They opened a new outlet at the mall.'}],col:['a retail outlet']},
+ {w:'niche',ip:'/niːʃ/',p:'n',l:'C1',vi:'thị trường ngách',d:'a small specialized market',ex:[{c:'',s:'They found a profitable niche market.'}],col:['a niche market','fill a niche']},
+ {w:'boost',ip:'/buːst/',p:'v, n',l:'B2',vi:'thúc đẩy, tăng cường',d:'to increase or improve something',ex:[{c:'động từ',s:'The discount boosted weekend sales.'},{c:'danh từ',s:'The ad gave sales a big boost.'}],col:['boost sales/morale']},
+ {w:'loyalty',ip:'/ˈlɔɪ.əl.ti/',p:'n',l:'B2',vi:'sự trung thành (của khách)',d:'continued support from customers',ex:[{c:'',s:'A rewards program builds customer loyalty.'}],col:['customer loyalty','a loyalty card']},
+ {w:'word of mouth',ip:'/ˌwɜːd əv ˈmaʊθ/',p:'n',l:'C1',vi:'truyền miệng',d:'information passed by people talking',ex:[{c:'',s:'The shop grew through word of mouth.'}],col:['spread by word of mouth']},
+ {w:'advertisement',ip:'/ədˈvɜː.tɪs.mənt/',p:'n',l:'B1',vi:'mẩu quảng cáo',d:'a public notice promoting something',ex:[{c:'',s:'I saw their advertisement on TV.'}],col:['a TV/online advertisement']}
+]});
+
+TOPICS.push({id:'hr',emoji:'🧑‍💼',name:'HR & Recruitment',vi:'Nhân sự & tuyển dụng',words:[
+ {w:'recruit',ip:'/rɪˈkruːt/',p:'v',l:'B2',vi:'tuyển dụng',d:'to find and employ new people',ex:[{c:'',s:'We are recruiting for two new positions.'}],col:['recruit staff','recruit new talent']},
+ {w:'candidate',ip:'/ˈkæn.dɪ.dət/',p:'n',l:'B1',vi:'ứng viên',d:'a person being considered for a job',ex:[{c:'',s:'She is the strongest candidate so far.'}],col:['a suitable candidate','interview candidates']},
+ {w:'applicant',ip:'/ˈæp.lɪ.kənt/',p:'n',l:'B2',vi:'người nộp đơn',d:'someone who applies for a job',ex:[{c:'',s:'We received over 100 applicants.'}],col:['a job applicant']},
+ {w:'résumé',ip:'/ˈrez.ə.meɪ/',p:'n',l:'B1',vi:'sơ yếu lý lịch (CV)',d:'a summary of your education and experience',ex:[{c:'',s:'Attach your résumé to the application.'}],col:['update your résumé']},
+ {w:'interview',ip:'/ˈɪn.tə.vjuː/',p:'n, v',l:'B1',vi:'cuộc phỏng vấn; phỏng vấn',d:'a formal meeting to assess someone',ex:[{c:'danh từ',s:'I have a job interview tomorrow.'},{c:'động từ',s:'They interviewed five people.'}],col:['attend an interview','a job interview']},
+ {w:'qualification',ip:'/ˌkwɒl.ɪ.fɪˈkeɪ.ʃən/',p:'n',l:'B1',vi:'bằng cấp, trình độ',d:'an official record of ability or training',ex:[{c:'',s:'The role requires a degree-level qualification.'}],col:['the right qualifications']},
+ {w:'experience',ip:'/ɪkˈspɪə.ri.əns/',p:'n',l:'A2',vi:'kinh nghiệm',d:'knowledge gained from doing a job',ex:[{c:'',s:'She has five years of experience in sales.'}],col:['work experience','relevant experience']},
+ {w:'vacancy',ip:'/ˈveɪ.kən.si/',p:'n',l:'B2',vi:'vị trí còn trống',d:'a job that is available',ex:[{c:'',s:'There is a vacancy in the IT department.'}],col:['fill a vacancy','a job vacancy']},
+ {w:'hire',ip:'/haɪər/',p:'v',l:'B1',vi:'thuê, tuyển',d:'to employ someone',ex:[{c:'',s:'They hired three new engineers.'}],col:['hire staff','hire someone full-time']},
+ {w:'fire',ip:'/faɪər/',p:'v',l:'B1',vi:'sa thải (vì lý do)',d:'to remove someone from a job',ex:[{c:'thân mật',s:'He was fired for being late too often.'}],col:['get fired']},
+ {w:'dismiss',ip:'/dɪˈsmɪs/',p:'v',l:'B2',vi:'cho thôi việc (trang trọng)',d:'to officially remove from a job',ex:[{c:'trang trọng',s:'She was dismissed for misconduct.'}],col:['dismiss an employee']},
+ {w:'probation',ip:'/prəˈbeɪ.ʃən/',p:'n',l:'C1',vi:'thời gian thử việc',d:'a trial period in a new job',ex:[{c:'',s:'New staff are on probation for three months.'}],col:['a probation period']},
+ {w:'benefits',ip:'/ˈben.ɪ.fɪts/',p:'n',l:'B2',vi:'phúc lợi (ngoài lương)',d:'extra advantages given to employees',ex:[{c:'',s:'The job offers good health benefits.'}],col:['employee benefits','a benefits package']},
+ {w:'shortlist',ip:'/ˈʃɔːt.lɪst/',p:'n, v',l:'B2',vi:'danh sách rút gọn; vào danh sách',d:'a final list of best candidates',ex:[{c:'',s:'Three applicants made the shortlist.'}],col:['be shortlisted','draw up a shortlist']},
+ {w:'reference',ip:'/ˈref.ər.əns/',p:'n',l:'B2',vi:'thư/người giới thiệu',d:'a statement about someone’s abilities',ex:[{c:'nghĩa tuyển dụng',s:'Can you provide two references?'}],col:['give/provide a reference']},
+ {w:'position',ip:'/pəˈzɪʃ.ən/',p:'n',l:'B1',vi:'vị trí (công việc)',d:'a job in a company',ex:[{c:'',s:'I’m applying for a managerial position.'}],col:['apply for a position','a senior position']},
+ {w:'apply',ip:'/əˈplaɪ/',p:'v',l:'A2',vi:'ứng tuyển, nộp đơn',d:'to formally request a job',ex:[{c:'',s:'I applied for the marketing role.'}],col:['apply for a job']},
+ {w:'employer',ip:'/ɪmˈplɔɪ.ər/',p:'n',l:'B1',vi:'nhà tuyển dụng, chủ',d:'a person or company that pays workers',ex:[{c:'',s:'My employer offers flexible hours.'}],col:['a former employer']},
+ {w:'employee',ip:'/ɪmˈplɔɪ.iː/',p:'n',l:'B1',vi:'nhân viên (một người)',d:'a person who is paid to work',ex:[{c:'',s:'The company has 200 employees.'}],col:['a full-time employee']},
+ {w:'workforce',ip:'/ˈwɜːk.fɔːs/',p:'n',l:'B2',vi:'lực lượng lao động',d:'all the people who work for a company',ex:[{c:'',s:'Half the workforce works remotely.'}],col:['a skilled workforce']},
+ {w:'retire',ip:'/rɪˈtaɪər/',p:'v',l:'B1',vi:'nghỉ hưu',d:'to stop working at the end of a career',ex:[{c:'',s:'He plans to retire at 60.'}],col:['retire early']},
+ {w:'onboarding',ip:'/ˈɒnˌbɔː.dɪŋ/',p:'n',l:'C1',vi:'quá trình hội nhập nhân viên mới',d:'the process of integrating a new hire',ex:[{c:'',s:'The onboarding process takes a week.'}],col:['employee onboarding']},
+ {w:'turnover',ip:'/ˈtɜːnˌəʊ.vər/',p:'n',l:'B2',vi:'tỉ lệ nghỉ việc (nghĩa nhân sự)',d:'the rate at which staff leave and are replaced',ex:[{c:'nghĩa HR',s:'High staff turnover is costly.'}],col:['staff/employee turnover']},
+ {w:'leave',ip:'/liːv/',p:'n',l:'B1',vi:'kỳ nghỉ phép',d:'time allowed away from work',ex:[{c:'danh từ',s:'She is on maternity leave.'}],col:['annual leave','sick leave']},
+ {w:'appraisal',ip:'/əˈpreɪ.zəl/',p:'n',l:'C1',vi:'đánh giá hiệu suất',d:'a formal review of an employee’s work',ex:[{c:'',s:'I have my annual appraisal next week.'}],col:['a performance appraisal']}
+]});
+
+TOPICS.push({id:'travelbiz',emoji:'✈️',name:'Business Travel',vi:'Công tác & đi lại',words:[
+ {w:'itinerary',ip:'/aɪˈtɪn.ər.ər.i/',p:'n',l:'B2',vi:'lịch trình chuyến đi',d:'a detailed plan of a journey',ex:[{c:'',s:'The travel agent emailed my itinerary.'}],col:['a travel itinerary']},
+ {w:'reservation',ip:'/ˌrez.əˈveɪ.ʃən/',p:'n',l:'B1',vi:'sự đặt chỗ',d:'an arrangement to keep something for you',ex:[{c:'',s:'I made a hotel reservation for two nights.'}],col:['make/cancel a reservation']},
+ {w:'accommodation',ip:'/əˌkɒm.əˈdeɪ.ʃən/',p:'n',l:'B1',vi:'chỗ ở',d:'a place to stay',ex:[{c:'',s:'The company pays for our accommodation.'}],col:['book accommodation']},
+ {w:'departure',ip:'/dɪˈpɑː.tʃər/',p:'n',l:'B1',vi:'sự khởi hành',d:'the act of leaving',ex:[{c:'',s:'Check the departure time on your ticket.'}],col:['the departure gate/lounge']},
+ {w:'arrival',ip:'/əˈraɪ.vəl/',p:'n',l:'B1',vi:'sự đến nơi',d:'the act of reaching a place',ex:[{c:'',s:'On arrival, take a taxi to the hotel.'}],col:['the arrival hall']},
+ {w:'boarding pass',ip:'/ˈbɔː.dɪŋ pɑːs/',p:'n',l:'B1',vi:'thẻ lên máy bay',d:'a card allowing you to board a plane',ex:[{c:'',s:'Have your boarding pass ready.'}],col:['print a boarding pass']},
+ {w:'luggage',ip:'/ˈlʌɡ.ɪdʒ/',p:'n',l:'A2',vi:'hành lý',d:'bags taken on a journey',ex:[{c:'không đếm được',s:'I only travel with hand luggage.'}],col:['hand/carry-on luggage']},
+ {w:'check-in',ip:'/ˈtʃek.ɪn/',p:'n',l:'B1',vi:'làm thủ tục (sân bay/khách sạn)',d:'the process of registering on arrival',ex:[{c:'',s:'Online check-in opens 24 hours before.'}],col:['the check-in desk']},
+ {w:'delay',ip:'/dɪˈleɪ/',p:'n, v',l:'B1',vi:'sự trì hoãn; trì hoãn',d:'a wait beyond the planned time',ex:[{c:'danh từ',s:'There was a two-hour delay.'},{c:'động từ',s:'The flight was delayed by fog.'}],col:['a long delay','be delayed']},
+ {w:'customs',ip:'/ˈkʌs.təmz/',p:'n',l:'B1',vi:'hải quan',d:'the place where bags are checked at borders',ex:[{c:'',s:'We were stopped at customs.'}],col:['go through customs']},
+ {w:'visa',ip:'/ˈviː.zə/',p:'n',l:'A2',vi:'thị thực',d:'official permission to enter a country',ex:[{c:'',s:'You need a visa to work there.'}],col:['apply for a visa','a tourist visa']},
+ {w:'layover',ip:'/ˈleɪˌəʊ.vər/',p:'n',l:'B2',vi:'thời gian dừng quá cảnh',d:'a short stop between flights',ex:[{c:'',s:'We had a three-hour layover in Dubai.'}],col:['a short/long layover']},
+ {w:'book',ip:'/bʊk/',p:'v',l:'A2',vi:'đặt (vé, phòng)',d:'to arrange to have something in advance',ex:[{c:'',s:'I booked a flight to Seoul.'}],col:['book a flight/room','book in advance']},
+ {w:'fare',ip:'/feər/',p:'n',l:'B1',vi:'giá vé',d:'the price of a journey',ex:[{c:'',s:'The train fare has gone up.'}],col:['a return fare','a cheap fare']},
+ {w:'terminal',ip:'/ˈtɜː.mɪ.nəl/',p:'n',l:'B1',vi:'nhà ga (sân bay)',d:'a building where passengers arrive/depart',ex:[{c:'',s:'Your flight leaves from Terminal 2.'}],col:['the departure terminal']},
+ {w:'round trip',ip:'/ˌraʊnd ˈtrɪp/',p:'n',l:'B1',vi:'chuyến khứ hồi',d:'a journey to a place and back',ex:[{c:'',s:'A round trip is cheaper than two singles.'}],col:['a round-trip ticket']},
+ {w:'one-way',ip:'/ˌwʌnˈweɪ/',p:'adj',l:'B1',vi:'một chiều',d:'going in one direction only',ex:[{c:'',s:'I bought a one-way ticket to London.'}],col:['a one-way ticket']},
+ {w:'shuttle',ip:'/ˈʃʌt.əl/',p:'n',l:'B2',vi:'xe/dịch vụ đưa đón',d:'transport running back and forth',ex:[{c:'',s:'A free shuttle runs to the airport.'}],col:['a shuttle bus']},
+ {w:'depart',ip:'/dɪˈpɑːt/',p:'v',l:'B2',vi:'khởi hành',d:'to leave, especially on a journey',ex:[{c:'',s:'The train departs at 9:15 sharp.'}],col:['depart from a station']},
+ {w:'expense report',ip:'/ɪkˈspens rɪˌpɔːt/',p:'n',l:'B2',vi:'báo cáo chi phí',d:'a record of money spent on a trip',ex:[{c:'',s:'Submit your expense report after the trip.'}],col:['file an expense report']},
+ {w:'per diem',ip:'/pə ˈdiː.em/',p:'n',l:'C1',vi:'phụ cấp theo ngày',d:'a daily allowance for travel costs',ex:[{c:'',s:'The company gives a $50 per diem for meals.'}],col:['a daily per diem']},
+ {w:'jet lag',ip:'/ˈdʒet læɡ/',p:'n',l:'B2',vi:'mệt mỏi do lệch múi giờ',d:'tiredness after a long flight across time zones',ex:[{c:'',s:'I had bad jet lag for two days.'}],col:['suffer from jet lag']},
+ {w:'destination',ip:'/ˌdes.tɪˈneɪ.ʃən/',p:'n',l:'B1',vi:'điểm đến',d:'the place you are travelling to',ex:[{c:'',s:'Our final destination is Hanoi.'}],col:['a popular destination','final destination']},
+ {w:'transit',ip:'/ˈtræn.zɪt/',p:'n',l:'B2',vi:'sự quá cảnh',d:'passing through a place on a journey',ex:[{c:'',s:'We spent two hours in transit.'}],col:['in transit','a transit visa']},
+ {w:'upgrade',ip:'/ˈʌp.ɡreɪd/ (n), /ʌpˈɡreɪd/ (v)',p:'n, v',l:'B2',vi:'sự/việc nâng hạng',d:'a move to a better class or version',ex:[{c:'danh từ',s:'I got a free upgrade to business class.'},{c:'động từ',s:'Can I upgrade my seat?'}],col:['a seat upgrade','upgrade to business class']}
+]});
+
+TOPICS.push({id:'tech',emoji:'💻',name:'Technology & IT',vi:'Công nghệ & tin học',words:[
+ {w:'software',ip:'/ˈsɒft.weər/',p:'n',l:'A2',vi:'phần mềm',d:'programs used by a computer',ex:[{c:'',s:'We installed new accounting software.'}],col:['install/update software']},
+ {w:'hardware',ip:'/ˈhɑːd.weər/',p:'n',l:'B1',vi:'phần cứng',d:'the physical parts of a computer',ex:[{c:'',s:'The hardware needs upgrading.'}],col:['computer hardware']},
+ {w:'device',ip:'/dɪˈvaɪs/',p:'n',l:'B1',vi:'thiết bị',d:'a machine made for a purpose',ex:[{c:'',s:'You can log in from any device.'}],col:['a mobile device']},
+ {w:'download',ip:'/ˌdaʊnˈləʊd/',p:'v, n',l:'A2',vi:'tải xuống',d:'to copy data to your computer',ex:[{c:'động từ',s:'Download the app from the store.'},{c:'danh từ',s:'The download took ten minutes.'}],col:['download a file/an app']},
+ {w:'upload',ip:'/ˌʌpˈləʊd/',p:'v, n',l:'B1',vi:'tải lên',d:'to send data to a server',ex:[{c:'',s:'Please upload your documents here.'}],col:['upload a photo/file']},
+ {w:'update',ip:'/ˈʌp.deɪt/ (n), /ʌpˈdeɪt/ (v)',p:'n, v',l:'B1',vi:'bản cập nhật; cập nhật',d:'a newer version; to make current',ex:[{c:'danh từ',s:'A software update is available.'},{c:'động từ',s:'Remember to update the system.'}],col:['install an update','update software']},
+ {w:'install',ip:'/ɪnˈstɔːl/',p:'v',l:'B1',vi:'cài đặt',d:'to put software/equipment in place',ex:[{c:'',s:'I need to install the printer driver.'}],col:['install a program']},
+ {w:'password',ip:'/ˈpɑːs.wɜːd/',p:'n',l:'A2',vi:'mật khẩu',d:'a secret word for access',ex:[{c:'',s:'Choose a strong password.'}],col:['enter/reset a password']},
+ {w:'log in',ip:'/ˌlɒɡ ˈɪn/',p:'phr v',l:'A2',vi:'đăng nhập',d:'to enter a system with details',ex:[{c:'',s:'You need to log in to your account.'}],col:['log in/out']},
+ {w:'browser',ip:'/ˈbraʊ.zər/',p:'n',l:'B1',vi:'trình duyệt web',d:'a program for viewing websites',ex:[{c:'',s:'Open the link in a new browser tab.'}],col:['a web browser']},
+ {w:'server',ip:'/ˈsɜː.vər/',p:'n',l:'B1',vi:'máy chủ',d:'a computer that supplies data to others',ex:[{c:'',s:'The server is down for maintenance.'}],col:['a file/web server']},
+ {w:'backup',ip:'/ˈbæk.ʌp/',p:'n',l:'B1',vi:'bản sao lưu',d:'a spare copy of data',ex:[{c:'',s:'Always keep a backup of your files.'}],col:['make/create a backup']},
+ {w:'crash',ip:'/kræʃ/',p:'v',l:'B1',vi:'(máy/phần mềm) treo, sập',d:'to suddenly stop working',ex:[{c:'nghĩa máy tính',s:'My laptop crashed and I lost the file.'}],col:['the system crashed']},
+ {w:'glitch',ip:'/ɡlɪtʃ/',p:'n',l:'B2',vi:'trục trặc nhỏ',d:'a small, sudden fault',ex:[{c:'',s:'A technical glitch delayed the launch.'}],col:['a technical glitch']},
+ {w:'database',ip:'/ˈdeɪ.tə.beɪs/',p:'n',l:'B1',vi:'cơ sở dữ liệu',d:'an organized store of information',ex:[{c:'',s:'Customer details are kept in a database.'}],col:['a customer database']},
+ {w:'spreadsheet',ip:'/ˈspred.ʃiːt/',p:'n',l:'B1',vi:'bảng tính',d:'a program for data in rows and columns',ex:[{c:'',s:'I tracked expenses in a spreadsheet.'}],col:['create a spreadsheet']},
+ {w:'cloud',ip:'/klaʊd/',p:'n',l:'B1',vi:'đám mây (lưu trữ trực tuyến)',d:'online storage and services',ex:[{c:'nghĩa IT',s:'All our files are stored in the cloud.'}],col:['cloud storage','save to the cloud']},
+ {w:'network',ip:'/ˈnet.wɜːk/',p:'n',l:'B1',vi:'mạng (máy tính)',d:'a group of connected computers',ex:[{c:'',s:'Connect to the office network.'}],col:['a wireless network']},
+ {w:'troubleshoot',ip:'/ˈtrʌb.əl.ʃuːt/',p:'v',l:'B2',vi:'xử lý sự cố',d:'to find and fix problems',ex:[{c:'',s:'IT will troubleshoot the connection issue.'}],col:['troubleshoot a problem']},
+ {w:'cybersecurity',ip:'/ˌsaɪ.bə.sɪˈkjʊə.rə.ti/',p:'n',l:'B2',vi:'an ninh mạng',d:'protection of systems from online attacks',ex:[{c:'',s:'Cybersecurity is a top priority.'}],col:['a cybersecurity threat']},
+ {w:'encrypt',ip:'/ɪnˈkrɪpt/',p:'v',l:'C1',vi:'mã hóa',d:'to put data into a secret code',ex:[{c:'',s:'All messages are encrypted.'}],col:['encrypt data']},
+ {w:'interface',ip:'/ˈɪn.tə.feɪs/',p:'n',l:'B2',vi:'giao diện',d:'the way a user interacts with a device',ex:[{c:'',s:'The app has a simple interface.'}],col:['a user interface']},
+ {w:'compatible',ip:'/kəmˈpæt.ə.bəl/',p:'adj',l:'B2',vi:'tương thích',d:'able to work together',ex:[{c:'',s:'This app is compatible with all phones.'}],col:['compatible with something']},
+ {w:'bug',ip:'/bʌɡ/',p:'n',l:'B1',vi:'lỗi phần mềm',d:'a fault in a program',ex:[{c:'nghĩa IT',s:'The update fixed several bugs.'}],col:['fix a bug','a software bug']},
+ {w:'user-friendly',ip:'/ˌjuː.zəˈfrend.li/',p:'adj',l:'B2',vi:'dễ sử dụng',d:'easy to use',ex:[{c:'',s:'The website is very user-friendly.'}],col:['a user-friendly design']}
+]});
+
+TOPICS.push({id:'health',emoji:'🩺',name:'Health & Wellbeing',vi:'Sức khỏe & thể chất',words:[
+ {w:'symptom',ip:'/ˈsɪmp.təm/',p:'n',l:'B2',vi:'triệu chứng',d:'a sign that you have an illness',ex:[{c:'',s:'A fever is a common symptom of flu.'}],col:['mild/severe symptoms']},
+ {w:'diagnosis',ip:'/ˌdaɪ.əɡˈnəʊ.sɪs/',p:'n',l:'C1',vi:'sự chẩn đoán',d:'identifying an illness from its signs',ex:[{c:'',s:'The doctor made a quick diagnosis.'}],col:['an early diagnosis']},
+ {w:'prescription',ip:'/prɪˈskrɪp.ʃən/',p:'n',l:'B2',vi:'đơn thuốc',d:'a doctor’s written order for medicine',ex:[{c:'',s:'You need a prescription for these pills.'}],col:['write a prescription']},
+ {w:'treatment',ip:'/ˈtriːt.mənt/',p:'n',l:'B1',vi:'sự điều trị',d:'medical care for an illness',ex:[{c:'',s:'She is receiving treatment for her back.'}],col:['medical treatment','undergo treatment']},
+ {w:'recover',ip:'/rɪˈkʌv.ər/',p:'v',l:'B1',vi:'hồi phục',d:'to get well again',ex:[{c:'',s:'It took weeks to recover from the flu.'}],col:['recover from an illness','fully recover']},
+ {w:'injury',ip:'/ˈɪn.dʒər.i/',p:'n',l:'B1',vi:'chấn thương',d:'physical harm to the body',ex:[{c:'',s:'He suffered a knee injury while running.'}],col:['a serious injury','suffer an injury']},
+ {w:'disease',ip:'/dɪˈziːz/',p:'n',l:'B1',vi:'bệnh (tật)',d:'an illness affecting the body',ex:[{c:'',s:'Exercise reduces the risk of heart disease.'}],col:['a serious disease','catch a disease']},
+ {w:'appointment',ip:'/əˈpɔɪnt.mənt/',p:'n',l:'B1',vi:'cuộc hẹn (khám bệnh)',d:'an arranged time to see someone',ex:[{c:'nghĩa y tế',s:'I made a doctor’s appointment for Monday.'}],col:['make/cancel an appointment']},
+ {w:'surgery',ip:'/ˈsɜː.dʒər.i/',p:'n',l:'B1',vi:'phẫu thuật; phòng khám',d:'a medical operation; a doctor’s office (UK)',ex:[{c:'phẫu thuật',s:'She had surgery on her shoulder.'}],col:['undergo surgery','major surgery']},
+ {w:'pharmacy',ip:'/ˈfɑː.mə.si/',p:'n',l:'B1',vi:'nhà thuốc, hiệu thuốc',d:'a shop where medicines are sold',ex:[{c:'',s:'The pharmacy is open until ten.'}],col:['a local pharmacy']},
+ {w:'immune',ip:'/ɪˈmjuːn/',p:'adj',l:'B2',vi:'miễn dịch',d:'protected against a disease',ex:[{c:'',s:'Vitamins help boost the immune system.'}],col:['the immune system','immune to something']},
+ {w:'nutrition',ip:'/njuːˈtrɪʃ.ən/',p:'n',l:'B2',vi:'dinh dưỡng',d:'the food needed to stay healthy',ex:[{c:'',s:'Good nutrition is vital for children.'}],col:['poor/good nutrition']},
+ {w:'wellbeing',ip:'/ˌwelˈbiː.ɪŋ/',p:'n',l:'B2',vi:'sự khỏe khoắn (thân & tâm)',d:'the state of being healthy and happy',ex:[{c:'',s:'Sleep is important for mental wellbeing.'}],col:['physical/mental wellbeing']},
+ {w:'exercise',ip:'/ˈek.sə.saɪz/',p:'n, v',l:'A2',vi:'tập thể dục',d:'physical activity to stay fit',ex:[{c:'danh từ',s:'Regular exercise keeps you healthy.'},{c:'động từ',s:'I try to exercise every morning.'}],col:['get/do exercise','take exercise']},
+ {w:'diet',ip:'/ˈdaɪ.ət/',p:'n',l:'A2',vi:'chế độ ăn',d:'the food you usually eat',ex:[{c:'',s:'A balanced diet is essential.'}],col:['a healthy/balanced diet','go on a diet']},
+ {w:'stress',ip:'/stres/',p:'n',l:'B1',vi:'căng thẳng',d:'mental or emotional pressure',ex:[{c:'',s:'Too much stress affects your health.'}],col:['under stress','reduce stress']},
+ {w:'mental health',ip:'/ˌmen.təl ˈhelθ/',p:'n',l:'B1',vi:'sức khỏe tinh thần',d:'the state of your emotional wellbeing',ex:[{c:'',s:'Companies should support mental health.'}],col:['good/poor mental health']},
+ {w:'cure',ip:'/kjʊər/',p:'v, n',l:'B1',vi:'chữa khỏi; cách chữa',d:'to make an illness end; a remedy',ex:[{c:'động từ',s:'This medicine cured my headache.'},{c:'danh từ',s:'There is no cure for the common cold.'}],col:['find a cure','cure a disease']},
+ {w:'vaccine',ip:'/ˈvæk.siːn/',p:'n',l:'B2',vi:'vắc-xin',d:'a substance that protects against disease',ex:[{c:'',s:'The flu vaccine is free this year.'}],col:['develop a vaccine','a flu vaccine']},
+ {w:'allergy',ip:'/ˈæl.ə.dʒi/',p:'n',l:'B1',vi:'dị ứng',d:'a bad reaction to a substance',ex:[{c:'',s:'She has an allergy to nuts.'}],col:['a food allergy','have an allergy']},
+ {w:'dose',ip:'/dəʊs/',p:'n',l:'B2',vi:'liều (thuốc)',d:'an amount of medicine to take',ex:[{c:'',s:'Take one dose twice a day.'}],col:['a daily dose','the right dose']},
+ {w:'fatigue',ip:'/fəˈtiːɡ/',p:'n',l:'C1',vi:'sự mệt mỏi (kéo dài)',d:'extreme tiredness',ex:[{c:'',s:'Many patients complain of fatigue.'}],col:['chronic fatigue']},
+ {w:'checkup',ip:'/ˈtʃek.ʌp/',p:'n',l:'B2',vi:'khám sức khỏe định kỳ',d:'a routine medical examination',ex:[{c:'',s:'I go for a checkup once a year.'}],col:['a regular/annual checkup']},
+ {w:'painkiller',ip:'/ˈpeɪnˌkɪl.ər/',p:'n',l:'B2',vi:'thuốc giảm đau',d:'medicine that reduces pain',ex:[{c:'',s:'She took a painkiller for her headache.'}],col:['take a painkiller']},
+ {w:'fit',ip:'/fɪt/',p:'adj',l:'A2',vi:'khỏe mạnh, sung sức',d:'healthy and physically strong',ex:[{c:'nghĩa sức khỏe',s:'Running keeps me fit.'}],col:['keep/stay fit','physically fit']}
+]});
+
+TOPICS.push({id:'food',emoji:'🍜',name:'Food & Dining',vi:'Ẩm thực & ăn uống',words:[
+ {w:'cuisine',ip:'/kwɪˈziːn/',p:'n',l:'B2',vi:'ẩm thực, lối nấu ăn',d:'a style of cooking',ex:[{c:'',s:'I love Vietnamese cuisine.'}],col:['local/regional cuisine']},
+ {w:'recipe',ip:'/ˈres.ɪ.pi/',p:'n',l:'B1',vi:'công thức nấu ăn',d:'instructions for cooking a dish',ex:[{c:'',s:'This is my grandmother’s recipe.'}],col:['follow a recipe']},
+ {w:'ingredient',ip:'/ɪnˈɡriː.di.ənt/',p:'n',l:'B1',vi:'nguyên liệu',d:'a food used to make a dish',ex:[{c:'',s:'Fresh ingredients make a big difference.'}],col:['key ingredients']},
+ {w:'flavour',ip:'/ˈfleɪ.vər/',p:'n',l:'B1',vi:'hương vị',d:'the taste of food',ex:[{c:'',s:'The soup has a rich flavour.'}],col:['add flavour','a strong flavour']},
+ {w:'appetizer',ip:'/ˈæp.ɪ.taɪ.zər/',p:'n',l:'B2',vi:'món khai vị',d:'a small dish before a main meal',ex:[{c:'',s:'We shared an appetizer to start.'}],col:['order an appetizer']},
+ {w:'beverage',ip:'/ˈbev.ər.ɪdʒ/',p:'n',l:'B2',vi:'đồ uống',d:'a drink (formal)',ex:[{c:'trang trọng',s:'Hot and cold beverages are served.'}],col:['alcoholic beverages']},
+ {w:'vegetarian',ip:'/ˌvedʒ.əˈteə.ri.ən/',p:'n, adj',l:'B1',vi:'người/món ăn chay',d:'not eating meat; a person who doesn’t',ex:[{c:'',s:'Do you have any vegetarian dishes?'}],col:['a vegetarian option']},
+ {w:'dessert',ip:'/dɪˈzɜːt/',p:'n',l:'A2',vi:'món tráng miệng',d:'sweet food eaten after a meal',ex:[{c:'',s:'We had ice cream for dessert.'}],col:['order dessert']},
+ {w:'tip',ip:'/tɪp/',p:'n',l:'B1',vi:'tiền boa',d:'extra money for good service',ex:[{c:'nghĩa nhà hàng',s:'We left a generous tip.'}],col:['leave a tip']},
+ {w:'menu',ip:'/ˈmen.juː/',p:'n',l:'A2',vi:'thực đơn',d:'a list of dishes available',ex:[{c:'',s:'Can I see the menu, please?'}],col:['on the menu']},
+ {w:'order',ip:'/ˈɔː.dər/',p:'v, n',l:'A2',vi:'gọi món; đơn gọi',d:'to ask for food; a request for food',ex:[{c:'động từ',s:'I’d like to order the grilled fish.'},{c:'danh từ',s:'Your order will be ready soon.'}],col:['take an order','place an order']},
+ {w:'spicy',ip:'/ˈspaɪ.si/',p:'adj',l:'A2',vi:'cay',d:'having a strong, hot taste',ex:[{c:'',s:'This curry is too spicy for me.'}],col:['mild/very spicy']},
+ {w:'fresh',ip:'/freʃ/',p:'adj',l:'A2',vi:'tươi',d:'recently made or picked',ex:[{c:'',s:'I buy fresh vegetables at the market.'}],col:['fresh fruit','freshly baked']},
+ {w:'raw',ip:'/rɔː/',p:'adj',l:'B1',vi:'sống (chưa nấu)',d:'not cooked',ex:[{c:'',s:'Sushi is made with raw fish.'}],col:['raw meat/fish']},
+ {w:'roast',ip:'/rəʊst/',p:'v',l:'B1',vi:'nướng (trong lò)',d:'to cook in an oven with dry heat',ex:[{c:'',s:'We roasted a chicken for dinner.'}],col:['roast vegetables']},
+ {w:'fry',ip:'/fraɪ/',p:'v',l:'A2',vi:'chiên, rán',d:'to cook in hot oil',ex:[{c:'',s:'Fry the onions until golden.'}],col:['fry in oil','stir-fry']},
+ {w:'boil',ip:'/bɔɪl/',p:'v',l:'A2',vi:'luộc, đun sôi',d:'to cook in very hot water',ex:[{c:'',s:'Boil the pasta for ten minutes.'}],col:['boil water','hard-boiled']},
+ {w:'course',ip:'/kɔːs/',p:'n',l:'B1',vi:'món (trong bữa ăn)',d:'a separate part of a meal',ex:[{c:'nghĩa bữa ăn',s:'We had a three-course meal.'}],col:['the main course','a three-course meal']},
+ {w:'portion',ip:'/ˈpɔː.ʃən/',p:'n',l:'B1',vi:'khẩu phần',d:'an amount of food for one person',ex:[{c:'',s:'The portions here are very generous.'}],col:['a large/small portion']},
+ {w:'cater',ip:'/ˈkeɪ.tər/',p:'v',l:'B2',vi:'cung cấp đồ ăn (dịch vụ)',d:'to provide food for an event',ex:[{c:'',s:'They catered our office party.'}],col:['cater for/to an event']},
+ {w:'nutritious',ip:'/njuːˈtrɪʃ.əs/',p:'adj',l:'B2',vi:'bổ dưỡng',d:'containing substances that keep you healthy',ex:[{c:'',s:'Vegetables are cheap and nutritious.'}],col:['a nutritious meal']},
+ {w:'takeaway',ip:'/ˈteɪk.ə.weɪ/',p:'n',l:'B1',vi:'đồ ăn mang đi (UK)',d:'a meal bought to eat elsewhere',ex:[{c:'',s:'Let’s get a takeaway tonight.'}],col:['order a takeaway']},
+ {w:'bill',ip:'/bɪl/',p:'n',l:'A2',vi:'hóa đơn (nhà hàng)',d:'a list of what you must pay',ex:[{c:'nghĩa nhà hàng',s:'Could we have the bill, please?'}],col:['ask for/pay the bill']},
+ {w:'dine',ip:'/daɪn/',p:'v',l:'B2',vi:'dùng bữa (trang trọng)',d:'to eat dinner, especially formally',ex:[{c:'trang trọng',s:'We dined at a fancy restaurant.'}],col:['dine out']},
+ {w:'snack',ip:'/snæk/',p:'n',l:'A2',vi:'đồ ăn vặt, bữa phụ',d:'a small amount of food between meals',ex:[{c:'',s:'I had a quick snack before the meeting.'}],col:['a healthy snack','have a snack']}
+]});
+
+TOPICS.push({id:'shopping',emoji:'🛒',name:'Shopping & Consumer',vi:'Mua sắm & tiêu dùng',words:[
+ {w:'purchase',ip:'/ˈpɜː.tʃəs/',p:'v, n',l:'B2',vi:'mua; sự mua (trang trọng)',d:'to buy; the act of buying',ex:[{c:'động từ',s:'You can purchase tickets online.'},{c:'danh từ',s:'Keep the receipt for your purchase.'}],col:['make a purchase']},
+ {w:'customer',ip:'/ˈkʌs.tə.mər/',p:'n',l:'A2',vi:'khách hàng',d:'a person who buys goods or services',ex:[{c:'',s:'The customer asked for a refund.'}],col:['a regular customer','customer service']},
+ {w:'bargain',ip:'/ˈbɑː.ɡɪn/',p:'n, v',l:'B2',vi:'món hời; mặc cả',d:'a cheap buy; to negotiate a price',ex:[{c:'danh từ',s:'At that price, it’s a real bargain.'},{c:'động từ',s:'You can bargain at the market.'}],col:['a great bargain','bargain over price']},
+ {w:'cashier',ip:'/kæʃˈɪər/',p:'n',l:'B1',vi:'thu ngân',d:'a person who takes payment in a shop',ex:[{c:'',s:'Pay the cashier at the front.'}],col:['the cashier’s desk']},
+ {w:'checkout',ip:'/ˈtʃek.aʊt/',p:'n',l:'B1',vi:'quầy thanh toán',d:'the place where you pay in a shop',ex:[{c:'',s:'There was a long line at the checkout.'}],col:['the self-checkout']},
+ {w:'aisle',ip:'/aɪl/',p:'n',l:'B1',vi:'lối đi giữa các kệ',d:'a passage between shelves',ex:[{c:'lưu ý: "s" câm',s:'The cereal is in aisle five.'}],col:['the frozen-food aisle']},
+ {w:'warranty',ip:'/ˈwɒr.ən.ti/',p:'n',l:'B2',vi:'bảo hành',d:'a promise to repair or replace goods',ex:[{c:'',s:'The laptop comes with a two-year warranty.'}],col:['under warranty']},
+ {w:'exchange',ip:'/ɪksˈtʃeɪndʒ/',p:'v, n',l:'B1',vi:'đổi (hàng)',d:'to swap one thing for another',ex:[{c:'',s:'Can I exchange this shirt for a larger size?'}],col:['exchange an item']},
+ {w:'sale',ip:'/seɪl/',p:'n',l:'A2',vi:'đợt giảm giá; sự bán',d:'a period of lower prices',ex:[{c:'',s:'I bought these shoes in the sale.'}],col:['on sale','a winter sale']},
+ {w:'retailer',ip:'/ˈriː.teɪ.lər/',p:'n',l:'B2',vi:'nhà bán lẻ',d:'a business that sells to the public',ex:[{c:'',s:'Online retailers offer big discounts.'}],col:['a major retailer']},
+ {w:'browse',ip:'/braʊz/',p:'v',l:'B2',vi:'xem lướt (hàng)',d:'to look at goods without buying',ex:[{c:'nghĩa mua sắm',s:'I’m just browsing, thanks.'}],col:['browse the shelves']},
+ {w:'in stock',ip:'/ɪn ˈstɒk/',p:'phr',l:'B1',vi:'còn hàng',d:'available to buy',ex:[{c:'',s:'Is this model still in stock?'}],col:['back in stock']},
+ {w:'out of stock',ip:'/ˌaʊt əv ˈstɒk/',p:'phr',l:'B1',vi:'hết hàng',d:'not currently available',ex:[{c:'',s:'Sorry, that item is out of stock.'}],col:['sold out / out of stock']},
+ {w:'coupon',ip:'/ˈkuː.pɒn/',p:'n',l:'B1',vi:'phiếu giảm giá',d:'a ticket giving a discount',ex:[{c:'',s:'I used a coupon to save 20%.'}],col:['a discount coupon']},
+ {w:'queue',ip:'/kjuː/',p:'n, v',l:'B1',vi:'hàng người; xếp hàng (UK)',d:'a line of people waiting; to wait in line',ex:[{c:'danh từ',s:'There was a long queue at the till.'},{c:'động từ',s:'We queued for an hour.'}],col:['join a queue','queue up']},
+ {w:'trolley',ip:'/ˈtrɒl.i/',p:'n',l:'B1',vi:'xe đẩy hàng (UK)',d:'a cart for carrying shopping',ex:[{c:'',s:'She filled her trolley with groceries.'}],col:['a shopping trolley']},
+ {w:'label',ip:'/ˈleɪ.bəl/',p:'n',l:'B1',vi:'nhãn (sản phẩm)',d:'a tag with information about a product',ex:[{c:'',s:'Always read the label before buying.'}],col:['a price/care label']},
+ {w:'price tag',ip:'/ˈpraɪs tæɡ/',p:'n',l:'A2',vi:'bảng giá (gắn trên hàng)',d:'a label showing the price',ex:[{c:'',s:'The price tag says $25.'}],col:['a high price tag']},
+ {w:'spend',ip:'/spend/',p:'v',l:'A2',vi:'tiêu (tiền)',d:'to use money to buy things',ex:[{c:'',s:'I spent too much on clothes this month.'}],col:['spend money on something']},
+ {w:'quality',ip:'/ˈkwɒl.ə.ti/',p:'n',l:'A2',vi:'chất lượng',d:'how good or bad something is',ex:[{c:'',s:'The quality of this fabric is excellent.'}],col:['high/poor quality']},
+ {w:'delivery',ip:'/dɪˈlɪv.ər.i/',p:'n',l:'B1',vi:'sự giao hàng',d:'the act of bringing goods to someone',ex:[{c:'',s:'Free delivery on orders over $50.'}],col:['home delivery','next-day delivery']},
+ {w:'return',ip:'/rɪˈtɜːn/',p:'v, n',l:'A2',vi:'trả lại (hàng)',d:'to take goods back to the shop',ex:[{c:'nghĩa mua sắm',s:'I’d like to return these shoes.'}],col:['return a product','a returns policy']},
+ {w:'complaint',ip:'/kəmˈpleɪnt/',p:'n',l:'B1',vi:'lời than phiền, khiếu nại',d:'a statement that you are unhappy',ex:[{c:'',s:'I’d like to make a complaint about the service.'}],col:['make a complaint','file a complaint']},
+ {w:'affordable',ip:'/əˈfɔː.də.bəl/',p:'adj',l:'B1',vi:'phải chăng, có thể mua được',d:'cheap enough to buy',ex:[{c:'',s:'They sell good, affordable furniture.'}],col:['affordable prices']},
+ {w:'window shopping',ip:'/ˈwɪn.dəʊ ˌʃɒp.ɪŋ/',p:'n',l:'B2',vi:'đi ngắm đồ (không mua)',d:'looking at goods without buying',ex:[{c:'',s:'We went window shopping downtown.'}],col:['go window shopping']}
+]});
+
+TOPICS.push({id:'education',emoji:'🎓',name:'Education & Learning',vi:'Giáo dục & học tập',words:[
+ {w:'tuition',ip:'/tjuˈɪʃ.ən/',p:'n',l:'B2',vi:'học phí; sự dạy kèm',d:'money paid for teaching; teaching itself',ex:[{c:'học phí',s:'University tuition has risen sharply.'}],col:['tuition fees','private tuition']},
+ {w:'curriculum',ip:'/kəˈrɪk.jə.ləm/',p:'n',l:'B2',vi:'chương trình học',d:'the subjects taught in a course',ex:[{c:'',s:'Coding is now part of the curriculum.'}],col:['the school curriculum']},
+ {w:'lecture',ip:'/ˈlek.tʃər/',p:'n',l:'B1',vi:'bài giảng',d:'a formal talk to teach people',ex:[{c:'',s:'I attended a lecture on economics.'}],col:['give/attend a lecture']},
+ {w:'degree',ip:'/dɪˈɡriː/',p:'n',l:'B1',vi:'bằng (đại học)',d:'a qualification from a university',ex:[{c:'',s:'She has a degree in biology.'}],col:['a university degree','a master’s degree']},
+ {w:'scholarship',ip:'/ˈskɒl.ə.ʃɪp/',p:'n',l:'B2',vi:'học bổng',d:'money given to a student to study',ex:[{c:'',s:'He won a scholarship to study abroad.'}],col:['win/get a scholarship']},
+ {w:'graduate',ip:'/ˈɡrædʒ.u.eɪt/ (v), /ˈɡrædʒ.u.ət/ (n)',p:'v, n',l:'B1',vi:'tốt nghiệp; người tốt nghiệp',d:'to complete a degree; a person who has',ex:[{c:'động từ',s:'She graduated from Oxford in 2020.'},{c:'danh từ',s:'He is a recent graduate.'}],col:['graduate from a university']},
+ {w:'enroll',ip:'/ɪnˈrəʊl/',p:'v',l:'B2',vi:'ghi danh, nhập học',d:'to officially join a course',ex:[{c:'',s:'I enrolled in an evening class.'}],col:['enroll in/on a course']},
+ {w:'semester',ip:'/sɪˈmes.tər/',p:'n',l:'B1',vi:'học kỳ',d:'one of two main periods in a school year',ex:[{c:'',s:'Exams are at the end of the semester.'}],col:['the spring/fall semester']},
+ {w:'tutor',ip:'/ˈtjuː.tər/',p:'n, v',l:'B1',vi:'gia sư; dạy kèm',d:'a private teacher; to teach privately',ex:[{c:'danh từ',s:'She hired a maths tutor.'},{c:'động từ',s:'He tutors students online.'}],col:['a private tutor']},
+ {w:'revise',ip:'/rɪˈvaɪz/',p:'v',l:'B1',vi:'ôn tập (UK)',d:'to study again before an exam',ex:[{c:'nghĩa học tập',s:'I need to revise for my test.'}],col:['revise for an exam']},
+ {w:'essay',ip:'/ˈes.eɪ/',p:'n',l:'B1',vi:'bài luận',d:'a piece of writing on a subject',ex:[{c:'',s:'I wrote a 1,000-word essay.'}],col:['write an essay']},
+ {w:'exam',ip:'/ɪɡˈzæm/',p:'n',l:'A2',vi:'kỳ thi',d:'a formal test of knowledge',ex:[{c:'',s:'I passed all my exams.'}],col:['take/pass/fail an exam']},
+ {w:'grade',ip:'/ɡreɪd/',p:'n, v',l:'B1',vi:'điểm; chấm điểm',d:'a mark for work; to mark work',ex:[{c:'danh từ',s:'She got top grades this year.'},{c:'động từ',s:'The teacher graded our essays.'}],col:['get good grades']},
+ {w:'knowledge',ip:'/ˈnɒl.ɪdʒ/',p:'n',l:'A2',vi:'kiến thức',d:'information and understanding you have',ex:[{c:'không đếm được',s:'He has a deep knowledge of history.'}],col:['gain knowledge','general knowledge']},
+ {w:'skill',ip:'/skɪl/',p:'n',l:'A2',vi:'kỹ năng',d:'an ability gained by practice',ex:[{c:'',s:'Communication is an essential skill.'}],col:['develop a skill','soft skills']},
+ {w:'concept',ip:'/ˈkɒn.sept/',p:'n',l:'B2',vi:'khái niệm',d:'a general idea about something',ex:[{c:'',s:'The teacher explained the concept clearly.'}],col:['a key/basic concept']},
+ {w:'research',ip:'/rɪˈsɜːtʃ/',p:'n, v',l:'B1',vi:'nghiên cứu',d:'careful study to discover facts',ex:[{c:'danh từ',s:'She does research on climate change.'},{c:'động từ',s:'I researched the topic online.'}],col:['carry out/conduct research']},
+ {w:'textbook',ip:'/ˈtekst.bʊk/',p:'n',l:'A2',vi:'sách giáo khoa',d:'a book used for studying a subject',ex:[{c:'',s:'Open your textbook to page 20.'}],col:['a school textbook']},
+ {w:'literacy',ip:'/ˈlɪt.ər.ə.si/',p:'n',l:'C1',vi:'khả năng đọc–viết',d:'the ability to read and write',ex:[{c:'',s:'The program improves adult literacy.'}],col:['digital literacy']},
+ {w:'major',ip:'/ˈmeɪ.dʒər/',p:'n, v',l:'B2',vi:'chuyên ngành (US); học chuyên ngành',d:'a main subject of study',ex:[{c:'danh từ',s:'Her major is psychology.'},{c:'động từ',s:'He majored in economics.'}],col:['major in something']},
+ {w:'faculty',ip:'/ˈfæk.əl.ti/',p:'n',l:'B2',vi:'khoa; đội ngũ giảng viên',d:'a department; the teaching staff',ex:[{c:'',s:'She teaches in the faculty of law.'}],col:['the faculty of science']},
+ {w:'undergraduate',ip:'/ˌʌn.dəˈɡrædʒ.u.ət/',p:'n',l:'B2',vi:'sinh viên đại học (chưa tốt nghiệp)',d:'a university student studying for a first degree',ex:[{c:'',s:'The course is for undergraduates.'}],col:['an undergraduate student']},
+ {w:'distance learning',ip:'/ˌdɪs.təns ˈlɜː.nɪŋ/',p:'n',l:'B2',vi:'học từ xa',d:'studying from home, not in person',ex:[{c:'',s:'Distance learning suits working adults.'}],col:['a distance-learning course']},
+ {w:'memorize',ip:'/ˈmem.ər.aɪz/',p:'v',l:'B1',vi:'học thuộc, ghi nhớ',d:'to learn something by heart',ex:[{c:'',s:'Don’t just memorize; understand it.'}],col:['memorize facts/words']},
+ {w:'plagiarism',ip:'/ˈpleɪ.dʒər.ɪ.zəm/',p:'n',l:'C1',vi:'đạo văn',d:'using someone’s work as your own',ex:[{c:'',s:'Plagiarism is a serious offence.'}],col:['avoid plagiarism']}
+]});
+
+TOPICS.push({id:'environment',emoji:'🌱',name:'Environment & Nature',vi:'Môi trường & thiên nhiên',words:[
+ {w:'pollution',ip:'/pəˈluː.ʃən/',p:'n',l:'B1',vi:'sự ô nhiễm',d:'damage to air, water or land',ex:[{c:'',s:'Air pollution is a major problem in cities.'}],col:['air/water pollution','reduce pollution']},
+ {w:'climate',ip:'/ˈklaɪ.mət/',p:'n',l:'B1',vi:'khí hậu',d:'the usual weather of an area',ex:[{c:'',s:'Climate change affects everyone.'}],col:['climate change','a mild climate']},
+ {w:'recycle',ip:'/ˌriːˈsaɪ.kəl/',p:'v',l:'B1',vi:'tái chế',d:'to treat waste so it can be used again',ex:[{c:'',s:'We recycle paper, glass and plastic.'}],col:['recycle waste']},
+ {w:'sustainable',ip:'/səˈsteɪ.nə.bəl/',p:'adj',l:'B2',vi:'bền vững',d:'able to continue without harming nature',ex:[{c:'',s:'We need sustainable energy sources.'}],col:['sustainable development']},
+ {w:'emission',ip:'/ɪˈmɪʃ.ən/',p:'n',l:'B2',vi:'khí thải, sự phát thải',d:'gases released into the air',ex:[{c:'',s:'Carbon emissions must be cut.'}],col:['carbon/CO2 emissions','cut emissions']},
+ {w:'renewable',ip:'/rɪˈnjuː.ə.bəl/',p:'adj',l:'B2',vi:'(năng lượng) tái tạo',d:'able to be replaced naturally',ex:[{c:'',s:'Solar power is a renewable resource.'}],col:['renewable energy']},
+ {w:'conservation',ip:'/ˌkɒn.səˈveɪ.ʃən/',p:'n',l:'B2',vi:'sự bảo tồn',d:'protection of nature and resources',ex:[{c:'',s:'Wildlife conservation is vital.'}],col:['nature conservation']},
+ {w:'wildlife',ip:'/ˈwaɪld.laɪf/',p:'n',l:'B1',vi:'động vật hoang dã',d:'animals living in nature',ex:[{c:'',s:'The park is home to rare wildlife.'}],col:['protect wildlife']},
+ {w:'deforestation',ip:'/diːˌfɒr.ɪˈsteɪ.ʃən/',p:'n',l:'C1',vi:'nạn phá rừng',d:'the cutting down of forests',ex:[{c:'',s:'Deforestation destroys animal habitats.'}],col:['cause deforestation']},
+ {w:'greenhouse gas',ip:'/ˈɡriːn.haʊs ɡæs/',p:'n',l:'B2',vi:'khí nhà kính',d:'a gas that traps heat in the atmosphere',ex:[{c:'',s:'CO2 is a greenhouse gas.'}],col:['greenhouse gas emissions']},
+ {w:'carbon footprint',ip:'/ˌkɑː.bən ˈfʊt.prɪnt/',p:'n',l:'B2',vi:'dấu chân carbon',d:'the amount of CO2 a person/activity produces',ex:[{c:'',s:'Cycling reduces your carbon footprint.'}],col:['reduce your carbon footprint']},
+ {w:'waste',ip:'/weɪst/',p:'n, v',l:'B1',vi:'rác thải; lãng phí',d:'unwanted material; to use carelessly',ex:[{c:'danh từ',s:'The factory produces toxic waste.'},{c:'động từ',s:'Don’t waste water.'}],col:['household waste','waste energy']},
+ {w:'endangered',ip:'/ɪnˈdeɪn.dʒəd/',p:'adj',l:'B2',vi:'(loài) nguy cấp',d:'at risk of dying out',ex:[{c:'',s:'Tigers are an endangered species.'}],col:['an endangered species']},
+ {w:'habitat',ip:'/ˈhæb.ɪ.tæt/',p:'n',l:'B2',vi:'môi trường sống (của loài)',d:'the natural home of an animal/plant',ex:[{c:'',s:'Pollution destroys natural habitats.'}],col:['a natural habitat']},
+ {w:'drought',ip:'/draʊt/',p:'n',l:'B2',vi:'hạn hán',d:'a long period without rain',ex:[{c:'',s:'The drought ruined the crops.'}],col:['a severe drought']},
+ {w:'flood',ip:'/flʌd/',p:'n, v',l:'B1',vi:'lũ lụt; ngập',d:'a large amount of water covering land',ex:[{c:'danh từ',s:'Heavy rain caused serious floods.'},{c:'động từ',s:'The river flooded the town.'}],col:['a flash flood']},
+ {w:'ecosystem',ip:'/ˈiː.kəʊˌsɪs.təm/',p:'n',l:'B2',vi:'hệ sinh thái',d:'all living things in an area and their environment',ex:[{c:'',s:'Coral reefs are fragile ecosystems.'}],col:['a fragile ecosystem']},
+ {w:'global warming',ip:'/ˌɡləʊ.bəl ˈwɔː.mɪŋ/',p:'n',l:'B1',vi:'sự nóng lên toàn cầu',d:'the gradual rise in Earth’s temperature',ex:[{c:'',s:'Global warming is melting the ice caps.'}],col:['the effects of global warming']},
+ {w:'preserve',ip:'/prɪˈzɜːv/',p:'v',l:'B2',vi:'bảo tồn, gìn giữ',d:'to keep something safe from harm',ex:[{c:'',s:'We must preserve the rainforest.'}],col:['preserve nature']},
+ {w:'organic',ip:'/ɔːˈɡæn.ɪk/',p:'adj',l:'B1',vi:'hữu cơ',d:'grown without chemicals',ex:[{c:'',s:'They sell organic vegetables.'}],col:['organic food/farming']},
+ {w:'disposable',ip:'/dɪˈspəʊ.zə.bəl/',p:'adj',l:'B2',vi:'dùng một lần rồi bỏ',d:'made to be used once and thrown away',ex:[{c:'',s:'Avoid disposable plastic cups.'}],col:['disposable products']},
+ {w:'natural resources',ip:'/ˌnætʃ.ər.əl rɪˈzɔː.sɪz/',p:'n',l:'B2',vi:'tài nguyên thiên nhiên',d:'materials from nature, like oil or water',ex:[{c:'',s:'We should use natural resources wisely.'}],col:['protect natural resources']},
+ {w:'landfill',ip:'/ˈlænd.fɪl/',p:'n',l:'C1',vi:'bãi chôn lấp rác',d:'a place where waste is buried',ex:[{c:'',s:'Most of the waste ends up in landfill.'}],col:['a landfill site']},
+ {w:'eco-friendly',ip:'/ˌiː.kəʊ ˈfrend.li/',p:'adj',l:'B2',vi:'thân thiện với môi trường',d:'not harmful to the environment',ex:[{c:'',s:'They use eco-friendly packaging.'}],col:['eco-friendly products']},
+ {w:'contaminate',ip:'/kənˈtæm.ɪ.neɪt/',p:'v',l:'C1',vi:'làm nhiễm bẩn, ô nhiễm',d:'to make something dirty or harmful',ex:[{c:'',s:'Chemicals contaminated the river.'}],col:['contaminate water/soil']}
+]});
+
+TOPICS.push({id:'tourism',emoji:'🏝️',name:'Travel & Tourism',vi:'Du lịch & tham quan',words:[
+ {w:'tourist',ip:'/ˈtʊə.rɪst/',p:'n',l:'A2',vi:'khách du lịch',d:'a person travelling for pleasure',ex:[{c:'',s:'The city is full of tourists in summer.'}],col:['a tourist attraction']},
+ {w:'sightseeing',ip:'/ˈsaɪtˌsiː.ɪŋ/',p:'n',l:'B1',vi:'việc tham quan ngắm cảnh',d:'visiting interesting places as a tourist',ex:[{c:'',s:'We spent the day sightseeing.'}],col:['go sightseeing']},
+ {w:'attraction',ip:'/əˈtræk.ʃən/',p:'n',l:'B1',vi:'điểm thu hút, điểm tham quan',d:'a place people enjoy visiting',ex:[{c:'',s:'The museum is a popular attraction.'}],col:['a tourist attraction']},
+ {w:'souvenir',ip:'/ˌsuː.vənˈɪər/',p:'n',l:'B1',vi:'quà lưu niệm',d:'something kept to remember a trip',ex:[{c:'',s:'I bought a souvenir for my mum.'}],col:['a souvenir shop']},
+ {w:'landmark',ip:'/ˈlænd.mɑːk/',p:'n',l:'B2',vi:'địa danh/công trình nổi tiếng',d:'a famous or easily recognized place',ex:[{c:'',s:'The tower is a famous landmark.'}],col:['a historic landmark']},
+ {w:'excursion',ip:'/ɪkˈskɜː.ʃən/',p:'n',l:'B2',vi:'chuyến tham quan ngắn',d:'a short organized trip',ex:[{c:'',s:'We went on a day excursion to the coast.'}],col:['a day excursion']},
+ {w:'guide',ip:'/ɡaɪd/',p:'n, v',l:'A2',vi:'hướng dẫn viên; dẫn đường',d:'a person who shows the way; to lead',ex:[{c:'danh từ',s:'Our tour guide was very knowledgeable.'},{c:'động từ',s:'She guided us around the old town.'}],col:['a tour guide','a guided tour']},
+ {w:'backpack',ip:'/ˈbæk.pæk/',p:'n, v',l:'A2',vi:'ba lô; đi du lịch bụi',d:'a bag carried on the back; to travel cheaply',ex:[{c:'động từ',s:'They backpacked across Asia.'}],col:['go backpacking']},
+ {w:'resort',ip:'/rɪˈzɔːt/',p:'n',l:'B1',vi:'khu nghỉ dưỡng',d:'a place people go to relax on holiday',ex:[{c:'',s:'We stayed at a beach resort.'}],col:['a ski/beach resort']},
+ {w:'hostel',ip:'/ˈhɒs.təl/',p:'n',l:'B1',vi:'nhà nghỉ giá rẻ',d:'cheap accommodation for travellers',ex:[{c:'',s:'We booked a bed in a youth hostel.'}],col:['a youth hostel']},
+ {w:'scenery',ip:'/ˈsiː.nər.i/',p:'n',l:'B1',vi:'phong cảnh',d:'the natural features of an area',ex:[{c:'không đếm được',s:'The mountain scenery was breathtaking.'}],col:['beautiful scenery']},
+ {w:'abroad',ip:'/əˈbrɔːd/',p:'adv',l:'A2',vi:'ở/ra nước ngoài',d:'in or to a foreign country',ex:[{c:'',s:'I’ve never travelled abroad before.'}],col:['go/live abroad','study abroad']},
+ {w:'passport',ip:'/ˈpɑːs.pɔːt/',p:'n',l:'A2',vi:'hộ chiếu',d:'an official document for foreign travel',ex:[{c:'',s:'My passport expires next year.'}],col:['renew a passport']},
+ {w:'brochure',ip:'/ˈbrəʊ.ʃər/',p:'n',l:'B1',vi:'tờ rơi/cẩm nang quảng cáo',d:'a thin book with travel information',ex:[{c:'',s:'I picked up a travel brochure.'}],col:['a holiday brochure']},
+ {w:'journey',ip:'/ˈdʒɜː.ni/',p:'n',l:'A2',vi:'cuộc hành trình, chuyến đi',d:'an act of travelling from one place to another',ex:[{c:'',s:'The journey took eight hours.'}],col:['a long journey','a safe journey']},
+ {w:'adventure',ip:'/ədˈven.tʃər/',p:'n',l:'B1',vi:'cuộc phiêu lưu',d:'an exciting or unusual experience',ex:[{c:'',s:'Travelling solo was a real adventure.'}],col:['an exciting adventure']},
+ {w:'peak season',ip:'/ˌpiːk ˈsiː.zən/',p:'n',l:'B2',vi:'mùa cao điểm',d:'the busiest, most expensive travel time',ex:[{c:'',s:'Hotels are pricey in peak season.'}],col:['during peak season']},
+ {w:'off-season',ip:'/ˌɒfˈsiː.zən/',p:'n',l:'B2',vi:'mùa thấp điểm',d:'the quieter, cheaper travel period',ex:[{c:'',s:'We travel in the off-season to save money.'}],col:['in the off-season']},
+ {w:'picturesque',ip:'/ˌpɪk.tʃərˈesk/',p:'adj',l:'C1',vi:'đẹp như tranh',d:'attractive in a charming, old-fashioned way',ex:[{c:'',s:'We stayed in a picturesque village.'}],col:['a picturesque town']},
+ {w:'tour',ip:'/tʊər/',p:'n, v',l:'A2',vi:'chuyến tham quan; đi tour',d:'a visit to several places; to travel around',ex:[{c:'danh từ',s:'We took a guided tour of the palace.'},{c:'động từ',s:'They toured Europe by train.'}],col:['go on a tour','a city tour']},
+ {w:'local',ip:'/ˈləʊ.kəl/',p:'adj, n',l:'A2',vi:'(thuộc) địa phương; người địa phương',d:'belonging to a particular area; a resident',ex:[{c:'tính từ',s:'We tried the local food.'},{c:'danh từ',s:'Ask a local for directions.'}],col:['local people','a local market']},
+ {w:'explore',ip:'/ɪkˈsplɔːr/',p:'v',l:'B1',vi:'khám phá',d:'to travel around to discover a place',ex:[{c:'',s:'We spent a week exploring the city.'}],col:['explore a place']},
+ {w:'remote',ip:'/rɪˈməʊt/',p:'adj',l:'B2',vi:'hẻo lánh, xa xôi',d:'far away from towns or people',ex:[{c:'nghĩa vị trí',s:'The village is in a remote area.'}],col:['a remote location']},
+ {w:'memorable',ip:'/ˈmem.ər.ə.bəl/',p:'adj',l:'B2',vi:'đáng nhớ',d:'worth remembering; special',ex:[{c:'',s:'It was a truly memorable holiday.'}],col:['a memorable experience']},
+ {w:'getaway',ip:'/ˈɡet.ə.weɪ/',p:'n',l:'B2',vi:'chuyến đi nghỉ ngắn',d:'a short holiday',ex:[{c:'',s:'We booked a weekend getaway.'}],col:['a weekend getaway']}
+]});
+
+TOPICS.push({id:'dailylife',emoji:'🏠',name:'Daily Life & Relationships',vi:'Đời sống & quan hệ',words:[
+ {w:'routine',ip:'/ruːˈtiːn/',p:'n',l:'B1',vi:'thói quen hằng ngày',d:'a fixed way of doing things regularly',ex:[{c:'',s:'Exercise is part of my daily routine.'}],col:['a daily routine','stick to a routine']},
+ {w:'chore',ip:'/tʃɔːr/',p:'n',l:'B1',vi:'việc nhà, việc vặt',d:'a regular boring household task',ex:[{c:'',s:'We share the household chores.'}],col:['household chores','do the chores']},
+ {w:'neighbour',ip:'/ˈneɪ.bər/',p:'n',l:'A2',vi:'hàng xóm',d:'a person who lives near you',ex:[{c:'',s:'Our neighbours are very friendly.'}],col:['a next-door neighbour']},
+ {w:'relative',ip:'/ˈrel.ə.tɪv/',p:'n',l:'B1',vi:'họ hàng, người thân',d:'a member of your family',ex:[{c:'',s:'We visit our relatives at New Year.'}],col:['a close relative']},
+ {w:'acquaintance',ip:'/əˈkweɪn.təns/',p:'n',l:'B2',vi:'người quen (không thân)',d:'someone you know slightly',ex:[{c:'',s:'He’s an acquaintance, not a close friend.'}],col:['a mutual acquaintance']},
+ {w:'relationship',ip:'/rɪˈleɪ.ʃən.ʃɪp/',p:'n',l:'B1',vi:'mối quan hệ',d:'the way people are connected',ex:[{c:'',s:'They have a close relationship.'}],col:['a good/close relationship']},
+ {w:'get along',ip:'/ˌɡet əˈlɒŋ/',p:'phr v',l:'B1',vi:'hòa hợp, hợp nhau',d:'to have a friendly relationship',ex:[{c:'',s:'I get along well with my coworkers.'}],col:['get along with someone']},
+ {w:'argue',ip:'/ˈɑːɡ.juː/',p:'v',l:'B1',vi:'cãi nhau, tranh luận',d:'to disagree, often angrily',ex:[{c:'',s:'They argue about money all the time.'}],col:['argue with someone','argue about something']},
+ {w:'compromise',ip:'/ˈkɒm.prə.maɪz/',p:'n, v',l:'B2',vi:'sự thỏa hiệp; thỏa hiệp',d:'an agreement where each side gives up something',ex:[{c:'danh từ',s:'We reached a compromise.'},{c:'động từ',s:'Both sides had to compromise.'}],col:['reach a compromise']},
+ {w:'trust',ip:'/trʌst/',p:'n, v',l:'B1',vi:'sự tin tưởng; tin tưởng',d:'belief that someone is reliable; to believe',ex:[{c:'động từ',s:'I trust her completely.'},{c:'danh từ',s:'Trust takes years to build.'}],col:['build/lose trust']},
+ {w:'support',ip:'/səˈpɔːt/',p:'v, n',l:'B1',vi:'ủng hộ, hỗ trợ',d:'to help someone emotionally or practically',ex:[{c:'',s:'My family supported me through hard times.'}],col:['emotional support','support someone']},
+ {w:'household',ip:'/ˈhaʊs.həʊld/',p:'n',l:'B2',vi:'hộ gia đình',d:'all the people living in one home',ex:[{c:'',s:'Most households now own a smartphone.'}],col:['household chores/income']},
+ {w:'commitment',ip:'/kəˈmɪt.mənt/',p:'n',l:'B2',vi:'sự cam kết, gắn bó',d:'a promise or strong dedication',ex:[{c:'',s:'Marriage is a big commitment.'}],col:['make a commitment']},
+ {w:'hobby',ip:'/ˈhɒb.i/',p:'n',l:'A2',vi:'sở thích',d:'an activity done for fun in free time',ex:[{c:'',s:'Photography is my favourite hobby.'}],col:['take up a hobby']},
+ {w:'errand',ip:'/ˈer.ənd/',p:'n',l:'B2',vi:'việc vặt (đi ra ngoài làm)',d:'a short trip to do a task',ex:[{c:'',s:'I have a few errands to run this morning.'}],col:['run an errand']},
+ {w:'spouse',ip:'/spaʊs/',p:'n',l:'B2',vi:'vợ hoặc chồng',d:'a husband or wife',ex:[{c:'trang trọng',s:'You may bring your spouse to the event.'}],col:['a spouse and children']},
+ {w:'sibling',ip:'/ˈsɪb.lɪŋ/',p:'n',l:'B2',vi:'anh/chị/em ruột',d:'a brother or sister',ex:[{c:'',s:'I have three siblings.'}],col:['an older sibling']},
+ {w:'socialize',ip:'/ˈsəʊ.ʃəl.aɪz/',p:'v',l:'B2',vi:'giao lưu, kết giao',d:'to spend time with others socially',ex:[{c:'',s:'I like to socialize after work.'}],col:['socialize with colleagues']},
+ {w:'reliable',ip:'/rɪˈlaɪ.ə.bəl/',p:'adj',l:'B1',vi:'đáng tin cậy',d:'able to be trusted to do well',ex:[{c:'',s:'She’s a reliable and honest friend.'}],col:['a reliable person']},
+ {w:'bond',ip:'/bɒnd/',p:'n, v',l:'B2',vi:'sự gắn kết; gắn bó',d:'a close connection; to form one',ex:[{c:'danh từ',s:'There’s a strong bond between them.'},{c:'động từ',s:'The team bonded over the trip.'}],col:['a close bond']},
+ {w:'tidy',ip:'/ˈtaɪ.di/',p:'adj, v',l:'A2',vi:'gọn gàng; dọn dẹp',d:'neat and in order; to make neat',ex:[{c:'tính từ',s:'Her desk is always tidy.'},{c:'động từ',s:'I need to tidy my room.'}],col:['tidy up','keep something tidy']},
+ {w:'babysit',ip:'/ˈbeɪ.bi.sɪt/',p:'v',l:'B1',vi:'trông trẻ',d:'to look after a child while parents are out',ex:[{c:'',s:'My sister babysits on weekends.'}],col:['babysit for someone']},
+ {w:'quality time',ip:'/ˌkwɒl.ə.ti ˈtaɪm/',p:'n',l:'B2',vi:'thời gian quý báu bên nhau',d:'time spent giving someone full attention',ex:[{c:'',s:'I spend quality time with my kids on Sundays.'}],col:['spend quality time']},
+ {w:'fall out',ip:'/ˌfɔːl ˈaʊt/',p:'phr v',l:'B2',vi:'giận nhau, bất hòa',d:'to stop being friends after an argument',ex:[{c:'',s:'They fell out over a small misunderstanding.'}],col:['fall out with someone']},
+ {w:'catch up',ip:'/ˌkætʃ ˈʌp/',p:'phr v',l:'B1',vi:'gặp hàn huyên; bắt kịp',d:'to talk to update each other; to reach the same level',ex:[{c:'gặp gỡ',s:'Let’s catch up over coffee soon.'}],col:['catch up with someone']}
+]});
+
+// __MORE_TOPICS__
+
+renderVocab();
+function renderVocab(){
+  const root=document.getElementById('vocabRoot'); const learned=loadLearned(); let total=0;
+  let bar='<button class="tfilter active" onclick="setTopic(this,\'all\')">Tất cả</button>';
+  TOPICS.forEach(t=>{ bar+='<button class="tfilter" onclick="setTopic(this,\''+t.id+'\')">'+t.emoji+' '+t.name+'</button>'; });
+  document.getElementById('filterBar').innerHTML=bar;
+  let html='';
+  TOPICS.forEach(t=>{
+    html+='<div class="topic-block" data-topic="'+t.id+'"><h3 class="topic-h">'+t.emoji+' '+t.name+' <span class="topic-vi">— '+t.vi+'</span></h3>';
+    t.words.forEach(wd=>{
+      total++;
+      const wIdx=AUDIO.push(wd.w)-1;
+      const key=t.id+':'+wd.w;
+      const isL=learned[key]?' learned':'';
+      const srch=(wd.w+' '+wd.vi+' '+(wd.d||'')).toLowerCase().replace(/["<>]/g,'');
+      let c='<div class="vcard'+isL+'" data-search="'+srch+'">';
+      c+='<div class="vc-top"><span class="vc-word">'+wd.w+'</span><button class="say" onclick="say('+wIdx+')">🔊</button><span class="vc-ipa">'+wd.ip+'</span><span class="vc-pos">'+wd.p+'</span><span class="vc-lvl">'+wd.l+'</span><span class="vc-learn" onclick="toggleLearned(this,\''+key+'\')" title="Đánh dấu đã thuộc">✓</span></div>';
+      c+='<div class="vc-vi">'+wd.vi+'</div>';
+      if(wd.d) c+='<div class="vc-def">'+wd.d+'</div>';
+      if(wd.ex) wd.ex.forEach(e=>{ const eIdx=AUDIO.push(e.s.replace(/[’]/g,"'"))-1; c+='<div class="vc-use">'+(e.c?'<span class="vc-case">'+e.c+'</span> ':'')+'<span class="vc-ex">'+e.s+'</span> <button class="say sm" onclick="say('+eIdx+')">🔊</button></div>'; });
+      if(wd.col&&wd.col.length){ c+='<div class="vc-col">'; wd.col.forEach(x=>c+='<span class="chip">'+x+'</span>'); c+='</div>'; }
+      c+='</div>'; html+=c;
+    });
+    html+='</div>';
+  });
+  html+='<div class="empty" id="emptyMsg" style="display:none">Không tìm thấy từ nào khớp.</div>';
+  root.innerHTML=html;
+  document.getElementById('vTotal').textContent=total;
+  updateLearnedCount();
+}
+if('speechSynthesis' in window){ speechSynthesis.onvoiceschanged=()=>{}; }
+</script>
+</body>
+</html>
